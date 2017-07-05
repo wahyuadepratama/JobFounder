@@ -23,7 +23,7 @@
 				<div class="w3_banner_info_grid">
 					<ul>
 						<li><a href="#" class="w3l_contact" data-toggle="modal" data-target="#myModal2">Login</a></li>
-						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Coba Github</a></li>
+						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Daftar Baru</a></li>
 					</ul><br>
 				</div>
 				<br>
