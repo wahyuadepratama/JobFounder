@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title> JobUs | Dashboard </title>
+	<title> JobUs | Employee </title>
 	<?php include 'view/source.php'; ?>
 
 </head>
@@ -24,8 +24,23 @@
 <!-- //dashboard -->
 <br><br>
 
-<div class="container">
-	<form>
+<div class="container table-responsive">
+    <table width="100%" class="table">
+    	<th>No</th>
+    	<th>Employee Name</th>
+    	<th>CV</th>
+    	<th>Date Submitted</th>
+    <tbody>
+    	<td> 1 </td>
+    	<td> Wahyu Ade Pratama </td>
+    	<td>
+    		<button class="btn btn-default">Download CV</button>
+    	</td>
+    	<td>12-12-2012</td>
+    </tbody>
+
+    </table>
+	<!-- <form>
 	  	<div class="form-group">
 	    	<label for="nama_usaha">Nama Usaha</label>
 	    	<input type="text" class="form-control" id="nama_usaha" placeholder="ex : Toko Baju Sejahtera">
@@ -82,7 +97,7 @@
 	  	
 	  	<button type="submit" class="btn btn-default">Submit</button>
 
-	</form>
+	</form> -->
 	<br><br>
 </div>
 <!-- javascript -->

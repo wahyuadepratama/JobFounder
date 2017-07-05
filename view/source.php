@@ -41,3 +41,5 @@
 <!-- tambahan khusus gallery -->
 <link href="assets/css/lsb.css" rel="stylesheet" type="text/css">
 <!-- //tambahan khusus gallery -->
+<!-- tambahan css dari nabang -->
+<link href="assets/css/cssme.css" rel="stylesheet" type="text/css">

@@ -16,9 +16,8 @@
 								<ul class="w3layouts_menu__list">
 									<li class="active"><a href="home.php">Home</a></li>
 									<li><a href="lowongan.php">Lowongan</a></li> 
-									<li><a href="product.php">Produk & Jasa</a></li>
 									<li><a href="daftar.php">Daftar</a></li>
-									<li><a href="question.php">FAQ</a></li> 
+									<li><a href="question.php">About Us</a></li> 
 								</ul>
 							</nav>
 						</div>

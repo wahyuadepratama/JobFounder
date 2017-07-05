@@ -47,7 +47,7 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Requirements</label>
-		  <textarea class="form-control" rows="5" id="comment"></textarea>
+		  <textarea class="form-control" rows="5" id="req"></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Location</label>
