@@ -20,7 +20,16 @@
 
 <!-- profile -->
 <br>
-<?php include 'view/menu.php'; ?>
+<div class="container">
+	<ul class="nav nav-pills">
+		<li role="presentation"><a href="dashboard.php">Dashboard</a></li>
+	  	<li role="presentation"><a href="employee.php">Employee</a></li>
+	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>
+	</ul>
+	<ul class="">
+		
+	</ul>
+</div>
 
 <div class="container">
 	<center>
