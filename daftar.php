@@ -42,7 +42,7 @@
 					<form action="dashboard.php" method="post">
 						<div class="styled-input w3ls-text">
 						<input type="text" name="User Name" required=""/>
-							<label>Nama Perusahaan</label>
+							<label>Username</label>
 							<span></span>
 						</div>
 						<div class="styled-input w3ls-text">
