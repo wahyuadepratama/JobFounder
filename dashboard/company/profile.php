@@ -72,6 +72,13 @@
 		  </select>
 	</div>
 	<div class="form-group">
+		  <label for="posisi">Kecamatan</label>
+		  <select class="form-control" id="sel2">
+		    <option value="">Padang Utara</option>
+		    <option value="">Padang Selatan</option>
+		  </select>
+	</div>
+	<div class="form-group">
 		  <label for="posisi">Alamat Perusahaan</label>
 		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Jl Khatib Sulaiman no 32"></textarea>
 	</div>

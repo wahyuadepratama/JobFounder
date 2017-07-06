@@ -39,7 +39,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="dashboard.php" method="post">
+					<form action="dashboard/company/perusahaan.php" method="post">
 
 						<div class="styled-input w3ls-text">
 						<input type="text" name="User Name" required=""/>
@@ -99,7 +99,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="dashboard.php" method="post">
+					<form action="dashboard/freelance/penggunajasa.php" method="post">
 						<div class="styled-input w3ls-text">
 							<input type="text" name="User_Name" required=""/>
 							<label>Username / Email</label>
