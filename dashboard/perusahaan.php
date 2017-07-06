@@ -27,34 +27,20 @@
 <div class="container">
 <form>
 <div class="form-group">
-		  <label for="posisi">Title</label>
-		  <input type="text" class="form-control" name="posisi" placeholder="">
+		  <label for="posisi">Judul</label>
+		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport">
 	</div>
 	<div class="form-group">
-		  <label for="sel1">Job Type</label>
-		  <select class="form-control" id="sel1">
-		    <option value="">Permanent</option>
-		    <option value="">Contract</option>
-		  </select>
+		  <label for="posisi">Posisi yang Dibutuhkan</label>
+		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager, dsb"></textarea>
 	</div>
 	<div class="form-group">
-		  <label for="posisi">Position</label>
-		  <input type="text" class="form-control" name="posisi" placeholder="">
+		  <label for="posisi">Persyaratan</label>
+		  <textarea class="form-control" rows="5" id="req" placeholder="ex: Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen, dsb"></textarea>
 	</div>
-	<div class="form-group">
-		  <label for="posisi">Salary</label>
-		  <input type="text" class="form-control" name="posisi" placeholder="">
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Requirements</label>
-		  <textarea class="form-control" rows="5" id="req"></textarea>
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Location</label>
-		  <select class="form-control" id="sel2">
-		    <option value="">Padang</option>
-		    <option value="">Payakumbuh</option>
-		  </select>
+		<div class="form-group">
+		  <label for="posisi">Gaji</label>
+		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000">
 	</div>
 	<div class="form-group">
 		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>

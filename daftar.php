@@ -18,7 +18,7 @@
 				<div class="w3_banner_info_grid">
 					<br><br><br><br>
 					<h3 class="test">Bergabunglah bersama kami</h3>
-					<b><p>Silahkan login jika anda sudah mendaftarkan usaha anda sebelumnya. Daftarkan usaha yang anda miliki jika anda belum memiliki akun.</p></b>
+					<b><p>Silahkan login jika anda sudah pernah mendaftar sebelumnya. Daftarkan diri anda untuk memposting lowongan pekerjaan atau mencari perkerjaan di JobUs.</p></b>
 				</div>
 				<div class="w3_banner_info_grid">
 					<ul>
@@ -40,6 +40,7 @@
 			<div class="agilesign-form">  
 				<div class="agileits-top">
 					<form action="dashboard.php" method="post">
+
 						<div class="styled-input w3ls-text">
 						<input type="text" name="User Name" required=""/>
 							<label>Username</label>
@@ -51,6 +52,11 @@
 								<span></span>
 						</div>
 						<div class="styled-input w3ls-text">
+							<input type="text" name="email" required=""/>
+							<label>No Handphone</label>
+								<span></span>
+						</div>
+						<div class="styled-input w3ls-text">
 							<input type="password" name="Password" required=""> 
 							<label>Password</label>
 							<span></span>
@@ -59,10 +65,18 @@
 							<input type="password" name="Password" required=""> 
 							<label>Confirm Password</label>
 							<span></span>
+						</div><br>
+						<div class="form-group">
+							  <select class="form-control" id="sel2">
+							    <option value="">Siapakah Anda ?</option>
+							    <option value="">Pemilik Perusahaan dan Butuh Karyawan</option>
+							    <option value="">Pengguna Jasa dan Butuh Pekerja Freelance</option>
+							    <option value="">Pencari Lowongan Kerja</option>
+							  </select>
 						</div>
 						<div class="wthree-text">  
 							<p>
-							<input type="checkbox" id="brand" value="">
+							<input type="checkbox" id="brand" value="" required="">
 							<label for="brand"><span></span>I accept the terms of use</label>  
 							</p>  
 						</div>
@@ -87,8 +101,8 @@
 				<div class="agileits-top">
 					<form action="dashboard.php" method="post">
 						<div class="styled-input w3ls-text">
-							<input type="text" name="User Name" required=""/>
-							<label>Nama Perusahaan</label>
+							<input type="text" name="User_Name" required=""/>
+							<label>Username / Email</label>
 							<span></span>
 						</div>
 						<div class="styled-input w3ls-text">
