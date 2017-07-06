@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title> JobUs | Profile Perusahaan </title>
+	<title>JobUs | Profile</title>
 	<?php include 'view/source.php'; ?>
 
 </head>
@@ -12,60 +12,87 @@
 	<div class="banner1">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+		<?php include 'view/header.php'; ?>
 
 		</div>
 	</div>
 <!-- banner -->
 
-<!-- profile -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="glyphicon glyphicon-home" aria-hidden="true"></i><a href="home.php">Home</a><span>/</span></li>
+					<li><i class="glyphicon glyphicon-user" aria-hidden="true"></i>Profile</li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
 <br>
 <div class="container">
-	<ul class="nav nav-pills">
-		<li role="presentation"><a href="dashboard.php">Dashboard</a></li>
-	  	<li role="presentation"><a href="employee.php">Employee</a></li>
-	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>
-	</ul>
-	<ul class="">
-		
-	</ul>
-</div>
-
-<div class="container">
-	<center>
-		<img src="assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
-		<input type="file" class="custom-file-input">
-	</center>
-	<br>
-	<div class="form-group">
-		  <label for="company">Company Name</label>
-		  <input type="text" class="form-control" name="company" placeholder="">
-	</div>
-	<div class="form-group">
-		  <label for="desc">Description</label>
-		  <textarea class="form-control" rows="5" id="description"></textarea>
-	</div>
-	<div class="form-group">
-		  <label for="email">Email Address</label>
-		  <input type="text" class="form-control" name="email" placeholder="">
-	</div>
-	<div class="form-group">
-		  <label for="fax">Telephone/Fax Number</label>
-		  <input type="text" class="form-control" name="fax" placeholder="">
-	</div>
-	<div class="form-group">
-		  <label for="Address">Company Address</label>
-		  <textarea class="form-control" rows="5" id="address"></textarea>
-	</div>
 
 	<div class="form-group">
-	<center>
-		<button type="submit" class="btn btn-default">Edit</button>
-		<button type="submit" class="btn btn-default">Save</button>
-	</center>
+		  <label for="company">Nama</label>
+		  <input type="text" class="form-control" name="nama" placeholder="ex: Yolanda Parawita">
+	</div>
+	<div class="form-group">
+		  <label for="email">Alamat Email</label>
+		  <input type="text" class="form-control" name="email" placeholder="ex: yolandaparawita@gmail.com">
+	</div>
+	<div class="form-group">
+		  <label for="fax">No Handphone</label>
+		  <input type="text" class="form-control" name="fax" placeholder="ex: 0813827381981 / 0751321452" >
+	</div>
+	<div class="form-group">
+		  <label for="fax">Sosial Media</label>
+		  <input type="text" class="form-control" name="fax" placeholder="ex: Line : @tokobunga4   |    IG : @nabang97  |   WA : 0812172615243">
+	</div>
+	<div class="form-group">
+		  <label for="posisi">Provinsi</label>
+		  <select class="form-control" id="sel2">
+		    <option value="">Sumatera Barat</option>
+		    <option value="">Riau</option>
+		  </select>
+	</div>
+	<div class="form-group">
+		  <label for="posisi">Kota</label>
+		  <select class="form-control" id="sel2">
+		    <option value="">Padang</option>
+		    <option value="">Payakumbuh</option>
+		  </select>
+	</div>
+	<div class="form-group">
+		  <label for="posisi">Kecamatan</label>
+		  <select class="form-control" id="sel2">
+		    <option value="">Padang Utara</option>
+		    <option value="">Padang Selatan</option>
+		  </select>
+	</div>
+	<div class="form-group">
+		  <label for="posisi">Alamat</label>
+		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Jl Khatib Sulaiman no 32"></textarea>
+	</div>
+	<div class="form-group">
+		    <label for="exampleInputFile">Upload Foto KTP</label><br><br>
+		    <input type="file" id="ktp">
+		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/ jpeg/ png</p>
+		    <p class="help-block">no : upload lah foto yang jelas dan bisa dibaca no ktp nya </p>
+	</div>
+	<div class="form-group">
+		<center>
+			<button type="submit" class="btn btn-default">Edit</button>
+			<button type="submit" class="btn btn-default">Save</button>
+		</center>
 	</div>
 </div>
 <!-- end profile -->
+
+<!-- footer -->
+	<?php include 'view/footer.php'; ?>
+<!-- //footer -->
 
 <!-- javascript -->
 	<?php include 'view/script.php'; ?>
