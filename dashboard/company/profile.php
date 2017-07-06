@@ -34,7 +34,10 @@
 <div class="container">
 	<center>
 		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
-		<input type="file" class="custom-file-input">
+		<div class="div-upload btn-default">
+		<span class="upload">Choose your photo profile</span>
+		<input type="file" class="file-upload">
+		</div>
 	</center>
 	<br>
 	<div class="form-group">
