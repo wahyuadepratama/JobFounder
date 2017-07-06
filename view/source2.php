@@ -8,26 +8,26 @@
 
 <!-- icon -->
 <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
-<link rel="shortcut icon" href="../../assets/images/jobus.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="assets/images/jobus.png" type="image/x-icon"/>
 <!-- //icon -->
 
-<link href="../../assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="../../assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 <!-- js -->
-<script type="text/javascript" src="../../assets/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
 
 <!-- font-awesome-icons -->
-<link href="../../assets/css/font-awesome.css" rel="stylesheet"> 
+<link href="assets/css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome-icons -->
 
 <link href="//fonts.googleapis.com/css?family=Bree+Serif&amp;subset=latin-ext" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 
 <!-- tambahan khusus halaman index -->
-<link href="../../assets/css/mislider.css" rel="stylesheet" type="text/css" />
-<link href="../../assets/css/mislider-custom.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/mislider.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/mislider-custom.css" rel="stylesheet" type="text/css" />
 <!-- //tambahan khusus halaman index -->
 
 <!-- tambahan khusus halaman contact -->
@@ -35,11 +35,11 @@
 <!-- //tambahan khusus halaman contact -->
 
 <!-- tambahan khusus halaman service -->
-<link rel="stylesheet" href="../../assets/css/flexslider.css" type="text/css" media="screen" property="" />
+<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css" media="screen" property="" />
 <!-- //tambahan khusus halaman service -->
 
 <!-- tambahan khusus gallery -->
-<link href="../../assets/css/lsb.css" rel="stylesheet" type="text/css">
+<link href="assets/css/lsb.css" rel="stylesheet" type="text/css">
 <!-- //tambahan khusus gallery -->
 <!-- tambahan css dari nabang -->
-<link href="../../assets/css/cssme.css" rel="stylesheet" type="text/css">
+<link href="assets/css/cssme.css" rel="stylesheet" type="text/css">

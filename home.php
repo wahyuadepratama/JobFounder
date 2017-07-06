@@ -3,7 +3,8 @@
 <head>
 
 	<title>JobUs | Home </title>
-	<?php include 'view/source.php'; ?>
+	
+	<?php include 'view/source2.php'; ?>
 
 </head>
 	
@@ -12,7 +13,7 @@
 	<div class="banner">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include ("view/header2.php"); ?>
 
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
@@ -21,8 +22,8 @@
 				</div>
 				<div class="w3_banner_info_grid">
 					<ul>
-						<li><a href="#" class="w3l_contact">Apa itu JobUs ?</a></li>
-						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Bergabung</a></li>
+						<li><a href="#keterangan" class="w3l_contact scroll">Apa itu JobUs ?</a></li>
+						<li><a href="daftar.php" class="w3ls_more">Bergabung</a></li>
 					</ul><br>
 				</div>
 				<div class="w3_banner_info_grid">
@@ -222,7 +223,7 @@
 <!-- //footer -->
 
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include 'view/script2.php'; ?>
 <!-- javascript -->
 
 </body>

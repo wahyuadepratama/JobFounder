@@ -2,7 +2,7 @@
 <!-- header -->
 			<div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
-					<img src="../../assets/images/tes.png">
+					<img src="assets/images/tes.png">
 				</div>
 
 				<div class="agileits_w3layouts_menu">

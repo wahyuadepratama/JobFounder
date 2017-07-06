@@ -3,7 +3,7 @@
 <head>
 <title>JobUs | Unit Usaha</title>
 
-<?php include 'view/source.php'; ?>
+<?php include 'view/source2.php'; ?>
 <link href="assets/css/style2.css" rel="stylesheet" type="text/css" media="all" />
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
 
@@ -12,7 +12,7 @@
 	<div class="banner">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include 'view/header2.php'; ?>
 
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
@@ -121,7 +121,7 @@
 	<!-- //pop up login -->
 
 	<!-- javascript -->
-		<?php include 'view/script.php'; ?>
+		<?php include 'view/script2.php'; ?>
 	<!-- javascript -->
 </body>
 </html>

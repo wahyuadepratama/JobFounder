@@ -3,7 +3,7 @@
 <head>
 
 	<title>Lowongan Kerja | Timeline</title>
-	<?php include 'view/source.php'; ?>
+	<?php include 'view/source2.php'; ?>
 
 </head>
 	
@@ -12,7 +12,7 @@
 	<div class="banner1">
 		<div class="container">
 			
-		<?php include 'view/header.php'; ?>
+		<?php include 'view/header2.php'; ?>
 
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 <!-- //footer -->
 
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include 'view/script2.php'; ?>
 <!-- javascript -->
 
 </body>
