@@ -3,7 +3,7 @@
 <head>
 
 	<title> JobUs | Profile Perusahaan </title>
-	<?php include 'view/source.php'; ?>
+	<?php include '../../view/source.php'; ?>
 
 </head>
 	
@@ -12,7 +12,7 @@
 	<div class="banner1">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include '../../view/header.php'; ?>
 
 		</div>
 	</div>
@@ -33,7 +33,7 @@
 
 <div class="container">
 	<center>
-		<img src="assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
+		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
 		<input type="file" class="custom-file-input">
 	</center>
 	<br>
@@ -89,7 +89,7 @@
 <!-- end profile -->
 
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 </body>

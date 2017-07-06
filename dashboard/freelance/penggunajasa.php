@@ -3,7 +3,7 @@
 <head>
 
 	<title> JobUs | Dashboard </title>
-	<?php include 'view/source.php'; ?>
+	<?php include '../../view/source.php'; ?>
 
 </head>
 	
@@ -12,7 +12,7 @@
 	<div class="banner1">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include '../../view/header.php'; ?>
 
 		</div>
 	</div>
@@ -82,7 +82,7 @@
 </div>
 <!-- Dashboard -->
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 </body>

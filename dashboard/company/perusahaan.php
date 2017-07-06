@@ -3,7 +3,7 @@
 <head>
 
 	<title> JobUs | Dashboard </title>
-	<?php include 'view/source.php'; ?>
+	<?php include '../../view/source.php'; ?>
 
 </head>
 	
@@ -12,7 +12,7 @@
 	<div class="banner1">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include '../../view/header.php'; ?>
 
 		</div>
 	</div>
@@ -20,7 +20,16 @@
 
 <!-- Menu -->
 <br>
-<?php include 'view/menu.php'; ?>
+<div class="container">
+	<ul class="nav nav-pills">
+		<li role="presentation" class="active"><a href="perusahaan.php">Job Vacancies</a></li>
+	  	<li role="presentation"><a href="employee.php">Employee</a></li>
+	  	<li role="presentation"><a href="profile.php">Profile</a></li>
+	</ul>
+	<ul class="">
+		
+	</ul>
+</div>
 <!-- end Menu -->
 <!-- Dashboard -->
 <br>
@@ -70,7 +79,7 @@
 </div>
 
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 </body>
