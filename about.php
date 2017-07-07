@@ -3,7 +3,7 @@
 <head>
 
 	<title> JobUs | Kontak </title>
-	<?php include 'view/source.php'; ?>
+	<?php include 'view/source2.php'; ?>
 
 </head>
 	
@@ -12,7 +12,7 @@
 	<div class="banner1">
 		<div class="container">
 			
-			<?php include 'view/header.php'; ?>
+			<?php include 'view/header2.php'; ?>
 
 		</div>
 	</div>
@@ -33,9 +33,28 @@
 <!-- //breadcrumbs -->
 
 <!-- Kontak -->
-<br><br><br>
-<center><h1>No Content !</h1></center>
-<br><br><br>
+<div class="container kami">
+<center><h1>Tentang Kami</h1>
+	<div class="row">
+	  <div class="col-md-4">  	
+	  		<img src="assets/images/wahyu.jpg" class="img-circle img-responsive" width="300">
+	  		<h2>ciek</h2>
+	  		<p>My name is wahyu lalalallalal</p>
+
+	  </div>
+		<div class="col-md-4">  
+		    <img src="assets/images/yola.jpg" class="img-circle img-responsive" width="300">
+		    <h2>duo</h2>
+	  		<p>My name is yola	llallalalalal</p>
+	  </div>
+	  <div class="col-md-4"> 
+	  		<img src="assets/images/yoga.jpg" class="img-circle img-responsive" width="300">
+	  		<h2>tigo</h2>
+	  		<p>May name is yoga blalalallalalalalalalal</p>
+	  </div>
+	</div>
+	</center>
+</div>
 <!-- //Kontak -->
 
 	<script src="view/js/lsb.min.js"></script>
@@ -50,7 +69,7 @@
 <!-- //footer -->
 
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include 'view/script2.php'; ?>
 <!-- javascript -->
 
 </body>

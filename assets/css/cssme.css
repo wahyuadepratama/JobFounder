@@ -4,4 +4,36 @@ th{
 tbody{
 	text-align: center;
 }
-/*AVATAR*/
+/*BAGIAN PROFILE*/
+div.div-upload{
+	position:relative;
+	padding:7px;
+	width: 230px;
+	background-color: #2980B9;
+	-webkit-border-radius:5px;
+	-webkit-box-shadow: 0px 3px 0px grey;
+}
+input.file-upload{
+	position:absolute;
+	top:0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height:100%;
+	opacity:0;
+}
+span.upload{
+	color:white;
+	font-size: 15px;
+}
+/*ABOUT US*/
+.container.kami{
+	padding: 20px;
+}
+h1{
+	padding-bottom: 20px;
+}
+p{
+	padding: 10px;
+}

@@ -82,7 +82,7 @@
 </div>
 <!-- Dashboard -->
 <!-- javascript -->
-	<?php include 'view/script.php'; ?>
+	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 </body>
