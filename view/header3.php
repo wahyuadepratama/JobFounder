@@ -2,7 +2,7 @@
 <!-- header -->
 			<div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
-					<img src="assets/images/logofix.png" width="70">
+					<img src="../assets/images/logofix.png" width="70">
 				</div>
 
 				<div class="agileits_w3layouts_menu">
@@ -16,9 +16,9 @@
 							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
 									<li class="active"><a href="home.php">Home</a></li>
-									<li><a href="lowongan.php">Lowongan</a></li> 
+									<li><a href="../lowongan.php">Lowongan</a></li> 
 									<li><a href="daftar.php">Daftar</a></li>
-									<li><a href="about.php">About Us</a></li> 
+									<li><a href="../about.php">About Us</a></li> 
 								</ul>
 							</nav>
 						</div>

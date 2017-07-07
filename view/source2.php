@@ -8,7 +8,7 @@
 
 <!-- icon -->
 <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"/> -->
-<link rel="shortcut icon" href="assets/images/jobus.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon"/>
 <!-- //icon -->
 
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
