@@ -23,7 +23,7 @@
 <div class="container">
 <!-- MAKAN BANG -->
 	<ul class="nav nav-pills">
-		<li role="presentation"><a href="perusahaan.php">Job Vacancies</a></li>
+		<li role="presentation"><a href="lowonganbaru.php">New Upload</a></li>
 	  	<li role="presentation" class="active"><a href="employee.php">Employee</a></li>
 	  	<li role="presentation"><a href="profile.php">Profile</a></li>
 	</ul>
@@ -41,6 +41,7 @@
 <div class="container">
 	<p>Judul        : Lowongan PT Freeport</p>
 	<p>Waktu upload : Senin, 21 Juni 2017, 14.32</p>
+    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class="btn btn-default">Hapus</button></p>
 </div>
 
 <div class="container table-responsive">
@@ -88,6 +89,39 @@
     </table>
 	
 	<br><br>
+</div>
+
+<div class="container">
+    <p>Judul        : Lowongan  tukang kebun</p>
+    <p>Waktu upload : Senin, 21 Juni 2017, 14.32</p>
+    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class="btn btn-default">Hapus</button></p>
+</div>
+
+<div class="container table-responsive">
+    <table width="100%" class="table">
+        <th>No</th>
+        <th>Freelancer Name</th>
+        <th>Date Submitted</th>
+        <th>Detail Freelancer</th>
+        <th>Status</th>
+        <th>Action</th>
+    <tbody>
+        <td> 1 </td>
+        <td> Wahyu Ade Pratama </td>
+        <td>12-12-2012</td>
+        <td>
+            <button class="btn btn-default">Show Detail</button>
+        </td>
+        <td>Waiting</td>
+        <td>
+            <button class="btn btn-default">Terima</button>
+            <button class="btn btn-default">Tolak</button>
+        </td>
+    </tbody>
+
+    </table>
+    
+    <br><br>
 </div>
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>

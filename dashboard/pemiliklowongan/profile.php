@@ -22,7 +22,7 @@
 <br>
 <div class="container">
 	<ul class="nav nav-pills">
-		<li role="presentation"><a href="perusahaan.php">Job Vacancies</a></li>
+		<li role="presentation"><a href="lowonganbaru.php">New Upload</a></li>
 	  	<li role="presentation"><a href="employee.php">Employee</a></li>
 	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>
 	</ul>
@@ -41,12 +41,12 @@
 	</center>
 	<br>
 	<div class="form-group">
-		  <label for="company">Nama Perusahaan</label>
-		  <input type="text" class="form-control" name="company" placeholder="ex: PT Makmur tbk  |  Toko Baju Sejahtera">
+		  <label for="company">Nama Perusahaan / Pemilik Pekerjaan</label>
+		  <input type="text" class="form-control" name="company" placeholder="ex: PT Makmur tbk  / Ridho Maulana">
 	</div>
 	<div class="form-group">
-		  <label for="desc">Deskripsi Perusahaan</label>
-		  <textarea class="form-control" rows="5" id="description" placeholder="ex : Kami menjual berbagai macam baju sesuai kebutuhan. Kami juga menerima pesanan. Toko kami memiliki 3 cabang di kota Padang. dst"></textarea>
+		  <label for="desc">Deskripsi</label>
+		  <textarea class="form-control" rows="5" id="description" placeholder="ex : Perusahaan memproduksi berbagai macam baju. Kami juga menerima pesanan / Saya adalah pemilik dari kebun buah naga"></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="email">Alamat Email</label>
@@ -54,7 +54,7 @@
 	</div>
 	<div class="form-group">
 		  <label for="fax">Telepon/Fax</label>
-		  <input type="text" class="form-control" name="fax" placeholder="ex: Andi : 0813827381981   |   Home : 0751 - 712372" >
+		  <input type="text" class="form-control" name="fax" placeholder="ex:  Kantor : 0751 - 712372 / Andi : 0813827381981" >
 	</div>
 	<div class="form-group">
 		  <label for="fax">Sosial Media</label>
@@ -82,8 +82,12 @@
 		  </select>
 	</div>
 	<div class="form-group">
-		  <label for="posisi">Alamat Perusahaan</label>
-		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Jl Khatib Sulaiman no 32"></textarea>
+		  <label for="posisi">Alamat Perusahaan / Pemilik Pekerjaan</label>
+		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Jl Khatib Sulaiman no 32 / Komplek perumahan kolam indah mata air no 12"></textarea>
+	</div>
+	<div class="form-group">
+		  <label for="fax">Marking Lokasi</label>
+		  <input type="text" class="form-control" name="fax" placeholder="" >
 	</div>
 
 	<div class="form-group">

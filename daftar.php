@@ -39,7 +39,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="dashboard/company/perusahaan.php" method="post">
+					<form action="dashboard/pemiliklowongan/profile.php" method="post">
 
 						<div class="styled-input w3ls-text">
 						<input type="text" name="User Name" required=""/>
@@ -69,8 +69,7 @@
 						<div class="form-group">
 							  <select class="form-control" id="sel2">
 							    <option value="">Siapakah Anda ?</option>
-							    <option value="">Pemilik Perusahaan dan Butuh Karyawan</option>
-							    <option value="">Pengguna Jasa dan Butuh Pekerja Freelance</option>
+							    <option value="">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
 							    <option value="">Pencari Lowongan Kerja</option>
 							  </select>
 						</div>
@@ -99,7 +98,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="dashboard/freelance/penggunajasa.php" method="post">
+					<form action="dashboard/pekerja/profile.php" method="post">
 						<div class="styled-input w3ls-text">
 							<input type="text" name="User_Name" required=""/>
 							<label>Username / Email</label>

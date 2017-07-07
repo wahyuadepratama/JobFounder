@@ -18,7 +18,6 @@
 									<li class="active"><a href="home.php">Home</a></li>
 									<li><a href="lowongan.php">Lowongan</a></li> 
 									<li><a href="daftar.php">Daftar</a></li>
-									<li><a href="profile.php">Profile</a></li>
 									<li><a href="about.php">About Us</a></li> 
 								</ul>
 							</nav>
