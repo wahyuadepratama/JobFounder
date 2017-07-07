@@ -37,3 +37,61 @@ h1{
 p{
 	padding: 10px;
 }
+
+/*Halaman Detail*/
+.companyprofile{
+	background-color: pink;
+	padding: 10px;
+}
+.title{
+	font-weight: bold;
+}
+.submitted{
+	font-size: 12px;
+}
+
+/*ADMIN*/
+.panel.panel-default{
+	width: 400px;
+	margin-top: 70px;
+}
+.login-title{
+	padding-top:27px;
+	font-weight: bold;
+	font-size: 25px;
+}
+.panel-heading{
+	height: 100px;
+	padding-top:0px;
+}
+div.pull-right > p.login-title{
+	width: 300px;
+}
+.form-control.inputtext{
+	width: 300px;
+	height: 50px;
+	margin-bottom:10px;
+	font-size: 20px;
+}
+.admin-btn{
+	margin-top: 5px;
+	width: 100px;
+}
+.admin-foot{
+	height: 70px;
+}
+.bg-admin{
+	background-color: #F5F5F5;
+	height: 171px;
+	border-bottom: 1px #DDDDDD solid;
+}
+/*DASHBOARD ADMIN*/
+.nav-admin{
+	height:60px;
+	margin-bottom: 0px;
+}
+.admin-name{
+	font-size: 100%;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}

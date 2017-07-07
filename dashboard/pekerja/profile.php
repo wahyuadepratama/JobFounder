@@ -31,6 +31,7 @@
 </div>
 
 <div class="container">
+ <form>
 	<center>
 		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">
@@ -96,6 +97,7 @@
 			<button type="submit" class="btn btn-default">Save</button>
 		</center>
 	</div>
+	</form>
 </div>
 <!-- end profile -->
 
