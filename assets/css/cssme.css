@@ -51,7 +51,7 @@ p{
 }
 
 /*ADMIN*/
-.panel.panel-default{
+.admin-panel{
 	width: 400px;
 	margin-top: 70px;
 }
@@ -94,4 +94,9 @@ div.pull-right > p.login-title{
 	font-size: 100%;
 	margin-top: 10px;
 	margin-bottom: 0px;
+}
+
+/*Lowongan.php*/
+.search-input{
+	width: 250px;
 }

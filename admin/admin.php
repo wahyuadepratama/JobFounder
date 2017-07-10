@@ -6,7 +6,7 @@
 </head>
 <body style="background-color: #D9D9D9;">
 	<div class="container-fluid bg-admin">
-		<div class="panel panel-default center-block">
+		<div class="panel panel-default center-block admin-panel">
 		  <div class="panel-heading">
 			  	<div class="pull-left">
 			  		<img src="../assets/images/logofix.png" width="50" style="padding-top:10px;">

@@ -59,31 +59,39 @@
 		  <textarea class="form-control" rows="8" id="req" name="judul" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
 	</div>
 	<div class="form-group">
-		<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1) .. Rapikan yool, gimana biar bagus ya :D</label><br><br>
-		<input type="checkbox"> Administrasi </input>
-		<input type="checkbox"> Karyawan Toko </input>
-		<input type="checkbox"> Marketing & Sales </input>
-		<input type="checkbox"> SPG & SPB </input>
-		<input type="checkbox"> Manajemen </input><br>
-		<input type="checkbox"> Teknologi </input>
-		<input type="checkbox"> Teknik </input>
-		<input type="checkbox"> Hukum </input>
-		<input type="checkbox"> Akuntansi </input><br>
-		<input type="checkbox"> Kesehatan </input>
-		<input type="checkbox"> Peternakan dan Pertanian </input>
-		<input type="checkbox"> Pegawai Negeri </input>
-		<input type="checkbox"> Website Design and Developper </input>
-		<input type="checkbox"> Mobile Developer </input>
-		<input type="checkbox"> Penulis Lepas (content writer) </input><br>
-		<input type="checkbox"> Fotografer </input>
-		<input type="checkbox"> Desain Grafis dan Multimedia </input>
-		<input type="checkbox"> Penerjemah </input><br>
-		<input type="checkbox"> Akuntan </input>
-		<input type="checkbox"> Entry Data </input>
-		<input type="checkbox"> Pengajar / kursus </input><br>
-		<input type="checkbox"> Pembantu dan Baby Sitter </input>
-		<input type="checkbox"> Driver </input><br>
-		<input type="checkbox"> Lain - lain </input>
+		<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
+		<div class="container">
+			<div class="col-sm-4">
+				<input type="checkbox"> Administrasi </input><br>
+				<input type="checkbox"> Karyawan Toko </input><br>
+				<input type="checkbox"> Marketing & Sales </input><br>
+				<input type="checkbox"> SPG & SPB </input><br>
+				<input type="checkbox"> Manajemen </input><br>
+				<input type="checkbox"> Fotografer </input><br>
+				<input type="checkbox"> Desain Grafis dan Multimedia </input><br>
+				<input type="checkbox"> Penerjemah </input><br>
+			</div>
+			<div class="col-sm-4">
+				<input type="checkbox"> Teknologi </input><br>
+				<input type="checkbox"> Teknik </input><br>
+				<input type="checkbox"> Hukum </input><br>
+				<input type="checkbox"> Akuntansi </input><br>
+				<input type="checkbox"> Kesehatan </input><br>
+				<input type="checkbox"> Akuntan </input><br>
+				<input type="checkbox"> Entry Data </input><br>
+				<input type="checkbox"> Pengajar / kursus </input><br>
+			</div>
+			<div class="col-sm-4">
+				<input type="checkbox"> Peternakan dan Pertanian </input><br>
+				<input type="checkbox"> Pegawai Negeri </input><br>
+				<input type="checkbox"> Website Design and Developper </input><br>
+				<input type="checkbox"> Mobile Developer </input><br>
+				<input type="checkbox"> Penulis Lepas (content writer) </input><br>
+				<input type="checkbox"> Pembantu dan Baby Sitter </input><br>
+				<input type="checkbox"> Driver </input><br>
+				<input type="checkbox"> Lain - lain </input><br>
+			</div>
+		</div>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Gaji</label>

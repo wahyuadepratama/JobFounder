@@ -36,7 +36,13 @@
 		<div class="container">
 			<h3 class="agileits_w3layouts_head"><span>Cari Lowongan Kerja Disini</span></h3>
 			<p class="agile_para_2">Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
-
+            
+		    <!-- <div class="input-group">
+		      <input type="text" class="form-control pull-right" placeholder="Search for..." style="width:250px;">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">Go!</button>
+		      </span>
+		    </div> -->
 			<div class="dropdown" >
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 			    Kategori
