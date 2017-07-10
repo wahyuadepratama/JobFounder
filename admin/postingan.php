@@ -9,9 +9,9 @@
  
 	<ul class="nav nav-tabs nav-justified">
   		<li><a href="../admin/dashboard.php">Home</a></li>
-  		<li role="presentation" class="active"><a href="../admin/pekerja.php">Pekerja</a></li>
+  		<li><a href="../admin/pekerja.php">Pekerja</a></li>
   		<li><a href="../admin/pengiklanan.php">Pengiklanan</a></li>
-  		<li><a href="postingan.php">Postingan</a></li>
+  		<li role="presentation" class="active"><a href="postingan.php">Postingan</a></li>
   		<li><a href="pengaturan.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Setting</a></li>
 	</ul>
 	<!-- Main content -->
@@ -19,31 +19,24 @@
 		<table  class="table table-condensed table-responsive">
 			<thead>
 				<th>No </th>
-				<th>Nama Pekerja</th>
-				<th>Tanggal Daftar</th>
+				<th>Judul Postingan</th>
+				<th>Tanggal Post</th>
+				<th>Sender</th>
 				<th>Action</th>
 			</thead>
 			<tbody>
 			<tr>
 				<td>1</td>
+				<td>makan bang</td>
+				<td>12-12-2012</td>
 				<td>Yoga</td>
-				<td>12-12-2012</td>
 				<td>
 					<button class="btn btn-default">Detail</button>
 					<button class="btn btn-default">Akun</button>
 					<button class="btn btn-default">Hapus</button>
 				</td>
 			</tr>
-			<tr>
-				<td>2</td>
-				<td>Yola</td>
-				<td>12-12-2012</td>
-				<td>
-					<button class="btn btn-default">Detail</button>
-					<button class="btn btn-default">Akun</button>
-					<button class="btn btn-default">Hapus</button>
-				</td>
-			</tr>
+			
 			</tbody>
 
 		</table>
