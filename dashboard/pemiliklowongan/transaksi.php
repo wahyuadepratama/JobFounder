@@ -57,11 +57,28 @@
 		  <div class="panel-body">
 		  	<h1 class="text-center"><img src="../../assets/images/coin.png"> JobUs Koin </h1><br>
 		    <ul class="list-group">
-		  <li class="list-group-item">Ntar aja isi ya. Tekan tombol untuk collapse
-             <button class="btn btn-default" data-toggle="collapse" data-target="#satu">Buy</button>
+		  <li class="list-group-item">
+		    <div class="container-fluid">
+		    	<div class="col-sm-6 text-center">
+		    		<p class="koinp">200</span><img src="../../assets/images/coin.png"></p>
+		    	</div>
+		    	
+		    	<div class="col-sm-6 text-center"><p>
+             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 10,000,-</button></p>
+             </div>
+		    </div>
+		   
 		  </li>
-		  <li class="list-group-item">Ntar aja isi ya
-	  		 <button class="btn btn-default" data-toggle="collapse" data-target="#satu">Buy</button>
+		  <li class="list-group-item">
+	  		<div class="container-fluid">
+		    	<div class="col-sm-6 text-center">
+		    		<p class="koinp">1100</span><img src="../../assets/images/coin.png"></p>
+		    	</div>
+		    	
+		    	<div class="col-sm-6 text-center"><p>
+             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 50,000,-</button></p>
+             </div>
+		    </div>
 		  </li>
 		</ul>
 		  </div>
