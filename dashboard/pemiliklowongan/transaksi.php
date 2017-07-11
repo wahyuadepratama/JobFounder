@@ -51,15 +51,29 @@
 <!-- end Menu -->
 <!-- Dashboard -->
 <br>
-<div class="container">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<h1 class="text-center"><img src="../../assets/images/coin.png"> JobUs Koin </h1><br>
-	    
-	  </div>
+<div class="container-fluid">
+	<div class="container trans">
+		<div class="panel panel-default">
+		  <div class="panel-body">
+		  	<h1 class="text-center"><img src="../../assets/images/coin.png"> JobUs Koin </h1><br>
+		    <ul class="list-group">
+		  <li class="list-group-item">Ntar aja isi ya. Tekan tombol untuk collapse
+             <button class="btn btn-default" data-toggle="collapse" data-target="#satu">Buy</button>
+		  </li>
+		  <li class="list-group-item">Ntar aja isi ya
+	  		 <button class="btn btn-default" data-toggle="collapse" data-target="#satu">Buy</button>
+		  </li>
+		</ul>
+		  </div>
+		</div>
 	</div>
 </div>
 
+<div class="container panel panel-default collapse" id="satu">
+  <br>
+  <p class="text-center">DISINI TRANSAKSI PEMBAYARAN KOIN JOBUS</p>
+  <br>
+</div>
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
 <!-- javascript -->

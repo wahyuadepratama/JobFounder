@@ -136,4 +136,7 @@ div.pull-right > p.login-title{
 	bottom: 10px;
 }
 
-
+/*TRANSAKSI*/
+.trans{
+	max-width: 700px;
+}
