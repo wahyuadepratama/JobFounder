@@ -33,7 +33,24 @@
 <!-- end Menu -->
 <!-- Dashboard -->
 <div class="container">
-	<h4>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan dieselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</h4>
+	<h4>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan diselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</h4>
+
+	<div class="container table-responsive" >
+    <table class="table">
+    	<th>No</th>
+    	<th>Judul</th>
+    	<th>Date Submitted</th>
+    	<th>Perusahaan</th>
+
+    <tbody>
+    	<td> 1 </td>
+    	<td> Cleaning Service </td>
+    	<td>12-12-2012</td>
+    	<td>PT. ikan-ikan</td>
+    </tbody>
+    
+    </table>
+    </div>
 </div>
 
 <!-- Dashboard -->

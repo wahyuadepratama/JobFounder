@@ -57,13 +57,18 @@
 			<div class="well well-lg" style="text-align: justify;">
 				<div class="row">
 				  <div class="col-xs-6 col-md-3">
-				    <a href="#" class="thumbnail">
+				    <a href="detail.php" class="thumbnail">
 				      <img src="assets/images/here.jpg" alt="...">
 				    </a>
 				  </div>
-				  <h4>PT balblablblalba</h4>
-				  <p>deskripsi, kontak, kebutuhan, blablablal</p>
+				  <h4>Customer Service </h4>
+				  <p>
+		    Sehubungan Dengan Recruitment Calon Pengawai Non PNS RS.AWAL BROS Tahun 2017. Untuk Penempatan Wilayah Kerja Meliputi Diberbagai Propinsi Di Indonesia. <br>
+            Termasuk Pulau Jawa,Pulau Sumatera,Pulau Sulawesi,Pulau Kalimantan,Nusa Tenggara,Maluku dan Papua. <br></p>
+            	<a class="remo" href="detail.php"><b>Read more</b></a>
+
 				</div>
+
 			</div>
 
 			<div class="well well-lg" style="text-align: justify;">

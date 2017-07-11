@@ -21,14 +21,32 @@
 <!-- Menu -->
 <br>
 <div class="container">
-	<ul class="nav nav-pills">
-		<li role="presentation" class="active"><a href="lowonganbaru.php" >New Upload</a></li>
-	  	<li role="presentation"><a href="employee.php">Employee</a></li>
-	  	<li role="presentation"><a href="profile.php">Profile</a></li>
-	</ul>
-	<ul class="">
-		
-	</ul>
+<!-- MAKAN BANG -->
+	<nav class="navbar navbar-default transbg">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin">0</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+      <ul class="nav navbar-nav navbar-right" id="menu">
+        <li role="presentation" class="active"><a href="lowonganbaru.php">New Upload</a></li>
+        <li role="presentation"  class="noac"><a href="employee.php">Employee</a></li>
+        <li role="presentation" class="noac"><a href="profile.php">Profile</a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 </div>
 <!-- end Menu -->
 <!-- Dashboard -->
@@ -51,11 +69,11 @@
 <form>
 <div class="form-group">
 		  <label for="posisi">Judul Lowongan</label>
-		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga">
+		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
-		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun" required=""></textarea>
 	</div>
 	<div class="form-group">
 		<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
@@ -94,17 +112,18 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Gaji</label>
-		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000">
+		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
-		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan" required=""></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
-		  <select class="form-control" id="sel2">
-		    <option value="">Freelance / Kontrak</option>
-		    <option value="">Karyawan / Kerja Tetap</option>
+		  <select class="form-control" id="sel2" required="">
+		    <option>Pilih Tipe</option>
+		    <option value="kontrak">Freelance / Kontrak</option>
+		    <option value="karyawan">Karyawan / Kerja Tetap</option>
 		  </select>
 	</div>
 	<div class="form-group">

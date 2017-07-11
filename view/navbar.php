@@ -9,7 +9,4 @@
 		</a>
   	</div>
   	</div>
-    
-    </div>
-  </div>
 </nav>
