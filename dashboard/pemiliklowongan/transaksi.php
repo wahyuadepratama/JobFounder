@@ -55,12 +55,7 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	  	<h1 class="text-center"><img src="../../assets/images/coin.png"> JobUs Koin </h1><br>
-	    <ul class="list-group">
-		  <li class="list-group-item">1. Isilah lowongan yang sesuai dengan perusahaan, toko , ataupun perorangan yang membutuhkan pekerja</li>
-		  <li class="list-group-item">2. Pastikan anda sudah melengkapi profile anda, agar pekerja tidak sulit menemukan anda nantinya</li>
-		  <li class="list-group-item">3. Sampaikan deskripsi pekerjaan dengan jelas dan ringkas</li>
-		  <li class="list-group-item">4. Iklan anda akan bertahan selama 1 minggu</li>
-		</ul>
+	    
 	  </div>
 	</div>
 </div>
