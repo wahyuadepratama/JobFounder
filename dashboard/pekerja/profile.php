@@ -86,9 +86,9 @@
 		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Programing, Desain"></textarea>
 	</div>
 	<div class="form-group">
-		    <label for="exampleInputFile">Upload Foto KTP</label><br><br>
+		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)(</label><br><br>
 		    <input type="file" id="ktp">
-		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/ jpeg/ png</p>
+		    <p class="help-block">Maks 5mb, ektensi jpg/jpeg/png</p>
 	</div>
 
 	<div class="form-group">

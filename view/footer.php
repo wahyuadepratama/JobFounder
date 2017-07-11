@@ -27,7 +27,7 @@
 		</div>
 		<div class="w3_agileits_footer_copy">
 			<div class="container">
-				<p>© 2017 Job Us | Link All Your Business</p>
+				<p>© 2017 Job Us | Find Me Here</p>
 			</div>
 		</div>
 	</div>

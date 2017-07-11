@@ -17,8 +17,8 @@
 
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
-					<h3 class="test">CARI LOWONGAN KERJA ATAU JUAL PRODUK DAN JASA BISNIS ANDA</h3>
-					<b><p>Kami membantu para pelaku bisnis dan usaha khususnya <i>UMKM (usaha Mikro Kecil Menengah)</i> agar dapat memasarkan produk dan jasa mereka pada sebuah <i>marketplace</i>. Kami juga membantu menghubungkan lowongan pekerjaan yang tersedia untuk masyarakat.</p></b>
+					<h3 class="test">BIARKAN ORANG LAIN MENGERJAKAN PEKERJAAN ANDA</h3>
+					<b><p>Kami membantu semua orang untuk mengiklankan lowongan kerja dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja tersebut.</p></b>
 				</div>
 				<div class="w3_banner_info_grid">
 					<ul>
@@ -27,7 +27,7 @@
 					</ul><br>
 				</div>
 				<div class="w3_banner_info_grid">
-					<i><p>" Dengan adanya sektor UKM, pengangguran akibat angkatan kerja yang tidak terserap dalam dunia kerja menjadi berkurang. Sektor UKM pun telah terbukti menjadi pilar perekonomian yang tangguh " Bambang P.S. Brodjonegoro ~ Kemenkeu Kabinet Kerja Indonesia</p></i>
+					<i><p></p></i>
 				</div>
 			</div>
 			
@@ -46,15 +46,15 @@
 			<div class="agileinfo_banner_bottom_pos">
 				<div class="w3_agileits_banner_bottom_pos_grid">
 					<div class="col-xs-4 wthree_banner_bottom_grid_left">
-						<a href="#usaha" class="scroll">
+						<a href="#bantuan" class="scroll">
 							<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
 								<img src="assets/images/usaha.png" height="90pt" width="90pt">
 							</div>
 						</a>
 					</div>
 					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
-						<h4>Punya Usaha ?</h4>
-						<p class="test">Tapi memiliki masalah dengan tenaga kerja yang kurang berkualitas ? atau sulit menjual barang dan jasa yang anda tawarkan ? temukan solusi anda disini !!</p>
+						<h4>Anda Butuh Bantuan Kerja ?</h4>
+						<p class="test">Anda memiliki sebuah pekerjaan dan butuh orang lain untuk membantu anda ? temukan orang itu disini.</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -72,7 +72,7 @@
 					</div>
 					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
 						<h4>Butuh Pekerjaan ?</h4>
-						<p class="test">Anda memiliki kemampuan dibidang tertentu namun belum mendapat pekerjaan ? anda sedang mencari lowongan yang sesuai dengan gaji yang anda mau ? disini tempatnya !!</p>
+						<p class="test">Anda ingin mencari penghasilan tambahan dengan cepat ? bergabunglah dengan JobUs dan temukan lowongan yang anda butuhkan.</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -82,15 +82,15 @@
 			<div class="agileinfo_banner_bottom_pos">
 				<div class="w3_agileits_banner_bottom_pos_grid">
 					<div class="col-xs-4 wthree_banner_bottom_grid_left">
-						<a href="#investasi" class="scroll">
+						<a href="#perusahaan" class="scroll">
 							<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
 								<img src="assets/images/invest.png" height="90pt" width="90pt">
 							</div>
 						</a>
 					</div>
 					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
-						<h4>Butuh Barang atau Jasa ?</h4>
-						<p class="test">Anda membutuhkan barang atau jasa untuk keperluan anda ? ingin tau apakah didaerah anda juga menyediakan barang atau jasa tersebut ? cek saja disini !!</p>
+						<h4>Anda Butuh Pekerja Berkualitas ?</h4>
+						<p class="test">Jika sebuah perusahaan sedang mencari karyawan yang berkualitas, maka JobUs adalah tempat yang tepat.</p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -103,14 +103,14 @@
 <div class="welcome" id="keterangan">
 		<div class="container" >
 			<h3 class="agileits_w3layouts_head">Apa itu <span>JobUs</span> ?</h3>
-			<p class="agile_para_2"><span>JobUs</span> adalah sebuah aplikasi yang bertujuan membantu meningkatkan usaha masyarakat agar dapat berkembang sehingga akan meningkatkan perekonomian Indonesia. Masyarakat yang membutuhkan pekerjaan bisa mencari pekerjaan yang mereka butuhkan disini. Investor yang ingin berinvestasi juga bisa mencari bisnis apa yang menjanjikan saat ini. Kerja sama untuk meningkatkan bisnis bisa terjalin jika kita memiliki banyak <i>link</i> yang mendukung kita.</p>
+			<p class="agile_para_2">JobUs adalah sebuah aplikasi iklan dan pencarian lowongan kerja yang cepat dan dan tidak terbatas pada jenis pekerjaan. JobUs memberikan kemudahan bagi setiap orang untuk bisa mengiklankan lowongan dalam bentuk apapun, dan bisa dikerjakan oleh siapapun. JobUs bisa anda gunakan untuk mencari seseorang yang bisa membantu mengerjakan pekerjaan anda, atau bagi anda yang ingin mencari pekerjaan yang bisa langsung anda kerjakan tanpa harus jauh-jauh menuju lokasi kerja.</p>
 		</div>
 </div>
 
-<div class="about-bottom" id="usaha">
+<div class="about-bottom" id="bantuan">
 		<div class="container">
-			<h3 class="agileits_w3layouts_head">Bagikan Unit Usaha Anda di <span>JobUs</span></h3>
-			<p class="agile_para_2">Jika anda memiliki masalah dalam usaha anda, bagikan saja di <span>JobUs.</span> Kami menyediakan 3 kategori permasalahan yang paling banyak dihadapi oleh para pelaku bisnis, khususnya bisnis yang baru dibangun. Kategorinya yaitu : masalah tenaga kerja, masalah tempat/lokasi, dan masalah distribusi barang. Daftarkan usaha anda, pilih kategorinya, dan sistem akan memunculkannya di timeline. Selanjutnya anda hanya tinggal menuunggu sampai ada pengunjung yang mensubmit kebutuhan anda.</p>
+			<h3 class="agileits_w3layouts_head">Temukan Orang yang Bisa Membantu Anda di <span>JobUs</span></h3>
+			<p class="agile_para_2">Bagi anda yang butuh bantuan untuk mengerjakan pekerjaan seperti : membersihkan rumah, membersihkan kebun, membuat desain logo/poster acara, mengantarkan galon, mencek tugas, mengajar les private, membuat video dan lain sebagainya. Maka anda bisa menguploadnya dalam bentuk iklan di JobUs, nantinya orang-orang yang melihat iklan anda akan mensubmit jika mereka merasa bisa membantu anda. Nah, anda tinggal buka akun, cek menu employee dan lihat siapa saja yang telah mensubmit. Setelah merasa menemukan orang yang tepat, anda tinggal menghubunginya.</p>
 
 			<!-- <div class="timeline-wrapper clearfix">
 			    <div class="timeline-content-day">
@@ -160,14 +160,14 @@
 <div class="welcome" id="pekerjaan">
 		<div class="container" >
 			<h3 class="agileits_w3layouts_head">Cari Pekerjaan di <span>JobUs</span></h3>
-			<p class="agile_para_2">Cek timeline dan cari info lowongan pekerjaan yang dibagikan oleh Unit Usaha maupun perusahaan yang membutuhkan karyawan baru. Lengkapi persyaratannya, hubungi kontaknya dan terima panggilan.</p>
+			<p class="agile_para_2">Bagi anda mahasiswa yang ingin memperoleh uang sambilan saat kuliah, atau bagi anda yang masih menganggur karena belum menerima panggilan kerja tetap, anda bisa membantu orang-orang disekitar anda dengan mengerjakan pekerjaan yang mereka upload sebagai iklan lowongan. Submitlah pekerjaan yang menurut anda bisa anda kerjakan, dan tunggulah mereka menghubungi anda. Dengan begitu mereka akan terbantu dan anda pun akan mendapatkan uang. Semakin banyak anda menerima panggilan untuk kerja. Maka semakin banyaklah pengalaman kerja anda. Ini bisa anda lihat pada menu track</p>
 		</div>
 </div>
 
-<div class="welcome" id="investasi">
+<div class="welcome" id="perusahaan">
 		<div class="container" >
-			<h3 class="agileits_w3layouts_head">Investasi di <span>JobUs</span></h3>
-			<p class="agile_para_2">Jika anda seorang investor yang mencari peluang bisnis atau ingin membantu para usaha kecil menengah untuk meningkatkan distribusi barang dengan memberikan link satu sama lain, maka ini juga bisa anda lakukan di <b>JobUs</b>. Anda hanya perlu mencek timeline kami.</p>
+			<h3 class="agileits_w3layouts_head">Temukan Pekerja Berkualitas lewat <span>JobUs</span></h3>
+			<p class="agile_para_2">Bagi anda yang memiliki usaha bisnis / perusahaan yang membutuhkan karyawan yang berkualitas. Anda bisa menggunakan koin yang ada pada JobUs untuk beriklan. Dengan fitur ini setiap karyawan yang mensubmit harus mengupload CV mereka terlebih dahulu, jadi anda bisa melihat kualitas mereka dari CV yang diupload. Selain itu anda bisa mendowload langsung CV mereka dari halaman employee anda, jadi anda tidak perlu lagi menggunakan pengiriman CV ataupun email. Setiap koin bisa anda gunakan untuk mengupload lowongan selama 1 hari, dan harga koin itu sendiri sangatlah murah.</p>
 		</div>
 </div>
 
