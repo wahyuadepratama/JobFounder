@@ -71,7 +71,7 @@
 		      <img src="/JobFounder/assets/images/coin.png" height="40%" width="40%">
 		      <div class="caption">
 		        <h3>Gunakan Koin JobUs</h3>
-		        <p>Dapatkan tambahan fitur download CV dan upload poster. 1 koin = 1 hari</p><br>
+		        <p>Dapatkan tambahan fitur download CV dan upload poster. 1 koin = 1 hari</p>
 		      </div>
 		      </a>
 		    </div>
