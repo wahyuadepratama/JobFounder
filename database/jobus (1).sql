@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Jul 2017 pada 12.59
+-- Generation Time: 12 Jul 2017 pada 18.13
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -65,7 +65,7 @@ CREATE TABLE `pekerja` (
   `alamat` varchar(255) DEFAULT NULL,
   `keahlian` varchar(255) DEFAULT NULL,
   `foto_pengenal` varchar(255) DEFAULT NULL,
-  `tanggal_daftar` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -110,7 +110,7 @@ CREATE TABLE `postingan` (
   `pamflet` varchar(255) DEFAULT NULL,
   `durasi` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `tw` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -123,7 +123,7 @@ CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `id_pengiklan` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `no_rekening` int(11) NOT NULL,
+  `no_rekening` varchar(50) NOT NULL,
   `jumlah_uang` int(11) NOT NULL,
   `jumlah_koin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -187,10 +187,30 @@ ALTER TABLE `transaksi`
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `lowongan`
+--
+ALTER TABLE `lowongan`
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `pekerja`
+--
+ALTER TABLE `pekerja`
+  MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `pengiklan`
 --
 ALTER TABLE `pengiklan`
-  MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `postingan`
+--
+ALTER TABLE `postingan`
+  MODIFY `id_postingan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -199,8 +219,8 @@ ALTER TABLE `pengiklan`
 -- Ketidakleluasaan untuk tabel `lowongan`
 --
 ALTER TABLE `lowongan`
-  ADD CONSTRAINT `lowongan_ibfk_1` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`),
-  ADD CONSTRAINT `lowongan_ibfk_2` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`);
+  ADD CONSTRAINT `lowongan_ibfk_3` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`),
+  ADD CONSTRAINT `lowongan_ibfk_4` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`);
 
 --
 -- Ketidakleluasaan untuk tabel `postingan`
