@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 11 Jul 2017 pada 20.21
+-- Generation Time: 12 Jul 2017 pada 12.59
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -110,8 +110,7 @@ CREATE TABLE `postingan` (
   `pamflet` varchar(255) DEFAULT NULL,
   `durasi` int(11) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `waktu` time NOT NULL,
-  `tanggal` date NOT NULL
+  `tw` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -191,7 +190,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pengiklan`
 --
 ALTER TABLE `pengiklan`
-  MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
