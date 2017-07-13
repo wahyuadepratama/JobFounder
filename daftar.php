@@ -122,7 +122,7 @@
 	<!-- javascript -->
 		<?php 
 		include 'view/script2.php'; 
-		include 'kelas.php';
+		include 'controller/class.php';
 
 		if(isset($_POST['sign'])){
 			if($_POST['sel2']==1){
