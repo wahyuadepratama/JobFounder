@@ -85,7 +85,7 @@ class pengiklan
 			while ($r = $query->fetch()) {                                    
 				$data[$i]['id_pengiklan']=$r['id_pengiklan'];
 				$data[$i]['username']=$r['username'];
-				$data[$i]['email']=$r['password'];
+				$data[$i]['email']=$r['email'];
 				$data[$i]['no_hp']=$r['no_hp'];
 				$data[$i]['password']=$r['password'];
 				$data[$i]['foto_profile']=$r['foto_profile'];
@@ -184,7 +184,7 @@ class pekerja
 			while ($r = $query->fetch()) {                                    
 				$data[$i]['id_pekerja']=$r['id_pekerja'];
 				$data[$i]['username']=$r['username'];
-				$data[$i]['email']=$r['password'];
+				$data[$i]['email']=$r['email'];
 				$data[$i]['no_hp']=$r['no_hp'];
 				$data[$i]['password']=$r['password'];
 				$data[$i]['foto_profile']=$r['foto_profile'];

@@ -98,14 +98,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="" method="post">
-						<div class="form-group">
-							  <select class="form-control" id="sel1" name="sel1">
-							    <option value="0">Siapakah Anda ?</option>
-							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
-							    <option value="2">Pencari Lowongan Kerja</option>
-							  </select>
-						</div>
+					<form action="" method="post">						
 						<div class="styled-input w3ls-text">
 							<input type="text" name="lusername" required=""/>
 							<label>Username / Email</label>
@@ -116,6 +109,13 @@
 							<label>Password</label>
 							<span></span>
 						</div> 
+						<div class="form-group">
+							  <select class="form-control" id="sel1" name="sel1">
+							    <option value="0">Siapakah Anda ?</option>
+							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
+							    <option value="2">Pencari Lowongan Kerja</option>
+							  </select>
+						</div>
 						<div class="agileits-bottom"> 
 							<input type="submit" value="Login" name="login"> 
 						</div>	
@@ -127,18 +127,14 @@
 	<!-- //pop up login -->
 
 	<!-- javascript -->
-		<?php 
-		include 'view/script2.php'; 
-
-
-		?>
+		<?php include 'view/script2.php'; ?>
 	<!-- javascript -->
 </body>
 </html>
 
 <?php 
 // SIGNUP
-	include 'kelas.php';
+	include 'controller/class.php';
 	if(isset($_POST['sign'])){
 		if($_POST['sel2']==1){
 			$GLOBALS['objek'] = new pengiklan();
@@ -156,44 +152,50 @@
 
 
 // LOGIN
-	if(isset($_POST['login'])){
-		if($_POST['sel1']==1){
-			$GLOBALS['objek'] = new pengiklan();
-		}elseif ($_POST['sel2']==2) {
-			$GLOBALS['objek'] = new pekerja();
-		}
-
-		$data = $GLOBALS['objek']->select();
-
-		$n = 0;
-		while($n < count($data)){
-			if($data[$n]['username']==$_POST['lusername'] || $data[$n]['email']==$_POST['lusername']){
-
-
-				if($data[$n]['password']==md5($_POST['lpassword'])){
-
-					
-
-					if($_POST['sel1']==1){
-						$_SESSION['id']=$data[$n]['id_pengiklan'];
-						header('Location : dashboard/pemiliklowongan/profile');
-					}
-					elseif($_POST['sel1']==2){
-						$_SESSION['id']=$data[$n]['id_pekerja'];			
-						header('Location : dashboard/pekerja/profile');			
-					}
-
-
-					$_SESSION['username']=$data[$n]['username'];	
-
-					// header location error
-
-
+	 if(isset($_POST['login'])){
+			if($_POST['sel1']!=0){
+				if($_POST['sel1']==1){
+				$GLOBALS['objek'] = new pengiklan();
+				}elseif ($_POST['sel1']==2) {
+					$GLOBALS['objek'] = new pekerja();
 				}
+					$data = $GLOBALS['objek']->select();
+
+					$n = 0;
+					while($n < count($data)){
+						if($data[$n]['username']==$_POST['lusername'] || $data[$n]['email']==$_POST['lusername']){
+
+
+							if($data[$n]['password']==md5($_POST['lpassword'])){
+
+								echo "sini";
+
+								if($_POST['sel1']==1){
+									$_SESSION['id']=$data[$n]['id_pengiklan'];
+								?>
+									<script type="text/javascript">
+									document.location.href='dashboard/pemilik-lowongan/profile.php?user=<?php echo $_POST['lusername']; ?>';
+									</script>
+								<?php
+								}
+								elseif($_POST['sel1']==2){
+									$_SESSION['id']=$data[$n]['id_pekerja'];			
+								?>
+									<script type="text/javascript">
+									document.location.href='dashboard/pekerja/profile.php?user=<?php echo $_POST['lusername']; ?>';
+									</script>
+								<?php		
+								}
+
+
+								$_SESSION['username']=$data[$n]['username'];	
+
+							}
+						}	
+						$n++;			
+					}
 			}
-			$n++;			
 		}
-	}
 
  ?>
 
