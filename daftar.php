@@ -39,10 +39,10 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="dashboard/pemiliklowongan/profile.php" method="post">
+					<form action="" method="post">
 
 						<div class="styled-input w3ls-text">
-						<input type="text" name="User Name" required=""/>
+						<input type="text" name="username" required=""/>
 							<label>Username</label>
 							<span></span>
 						</div>
@@ -52,25 +52,25 @@
 								<span></span>
 						</div>
 						<div class="styled-input w3ls-text">
-							<input type="text" name="email" required=""/>
+							<input type="text" name="no_handphone" required=""/>
 							<label>No Handphone</label>
 								<span></span>
 						</div>
 						<div class="styled-input w3ls-text">
-							<input type="password" name="Password" required=""> 
+							<input type="password" name="password" required=""> 
 							<label>Password</label>
 							<span></span>
 						</div> 
 						<div class="styled-input w3ls-text">
-							<input type="password" name="Password" required=""> 
+							<input type="password" name="confirm" required=""> 
 							<label>Confirm Password</label>
 							<span></span>
 						</div><br>
 						<div class="form-group">
-							  <select class="form-control" id="sel2">
-							    <option value="">Siapakah Anda ?</option>
-							    <option value="">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
-							    <option value="">Pencari Lowongan Kerja</option>
+							  <select class="form-control" id="sel2" name="sel2">
+							    <option value="0">Siapakah Anda ?</option>
+							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
+							    <option value="2">Pencari Lowongan Kerja</option>
 							  </select>
 						</div>
 						<div class="wthree-text">  
@@ -80,7 +80,7 @@
 							</p>  
 						</div>
 						<div class="agileits-bottom"> 
-							<input type="submit" value="Sign Up"> 
+							<input type="submit" value="Sign Up" name="sign"> 
 						</div>	
 					</form>
 				</div> 
@@ -120,7 +120,27 @@
 	<!-- //pop up login -->
 
 	<!-- javascript -->
-		<?php include 'view/script2.php'; ?>
+		<?php 
+		include 'view/script2.php'; 
+		include 'kelas.php';
+
+		if(isset($_POST['sign'])){
+			if($_POST['sel2']==1){
+				$GLOBALS['objek'] = new pengiklan();
+			}elseif ($_POST['sel2']==2) {
+				$GLOBALS['objek'] = new pekerja();
+			}
+
+			$GLOBALS['objek']->username = $_POST['username'];
+			$GLOBALS['objek']->email = $_POST['email'];
+			$GLOBALS['objek']->no_hp = $_POST['no_handphone'];
+			$GLOBALS['objek']->password = $_POST['password'];
+
+			$GLOBALS['objek']->insert();
+
+		}
+
+		?>
 	<!-- javascript -->
 </body>
 </html>
