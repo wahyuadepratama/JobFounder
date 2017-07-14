@@ -17,7 +17,7 @@
 
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
-					<h3 class="test">BIARKAN ORANG LAIN MENGERJAKAN PEKERJAAN ANDA</h3>
+					<h3 class="test">BIARKAN ORANG LAIN MEMBANTU PEKERJAAN ANDA</h3>
 					<b><p>Kami membantu semua orang untuk mengiklankan lowongan kerja dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja tersebut.</p></b>
 				</div>
 				<div class="w3_banner_info_grid">

@@ -125,3 +125,7 @@ $(".timeline-wrapper .timeline-content-item > span").on("mouseenter mouseleave",
 });
 </script>
 <!-- //timeline -->
+
+<!-- sweet alert -->
+<script src="assets/js/sweetalert.min.js"></script>
+ <!-- //sweet alert -->

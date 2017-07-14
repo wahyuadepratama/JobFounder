@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +32,7 @@
 			</div><br><br><br><br><br><br>
 		</div>
 	</div>
+
 	<!-- pop up sign up -->
 	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
 		<div class="modal-header">
@@ -67,7 +70,7 @@
 							<span></span>
 						</div><br>
 						<div class="form-group">
-							  <select class="form-control" id="sel2" name="sel2">
+							  <select class="form-control" id="opsi1" name="opsi1">
 							    <option value="0">Siapakah Anda ?</option>
 							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
 							    <option value="2">Pencari Lowongan Kerja</option>
@@ -110,7 +113,7 @@
 							<span></span>
 						</div> 
 						<div class="form-group">
-							  <select class="form-control" id="sel1" name="sel1">
+							  <select class="form-control" id="opsi2" name="opsi2">
 							    <option value="0">Siapakah Anda ?</option>
 							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
 							    <option value="2">Pencari Lowongan Kerja</option>
@@ -133,69 +136,87 @@
 </html>
 
 <?php 
+
 // SIGNUP
-	include 'controller/class.php';
-	if(isset($_POST['sign'])){
-		if($_POST['sel2']==1){
-			$GLOBALS['objek'] = new pengiklan();
-		}elseif ($_POST['sel2']==2) {
-			$GLOBALS['objek'] = new pekerja();
+	require_once 'controller/koneksi.php';
+	require_once 'controller/class.script.php';
+	require_once 'controller/class.pengiklan.php';
+	require_once 'controller/class.pekerja.php';
+
+	$pengiklan = new pengiklan();
+	$pekerja = new pekerja();
+	$script = new function_script();
+
+	if(isset($_POST['sign']))
+	{
+		if($_POST['opsi1']==0)
+		{
+			$script->alert_warning('Gagal Mendaftar','Anda tidak mengisi data dengan lengkap!');
 		}
+		else
+		{
 
-		$GLOBALS['objek']->username = $_POST['username'];
-		$GLOBALS['objek']->email = $_POST['email'];
-		$GLOBALS['objek']->no_hp = $_POST['no_handphone'];
-		$GLOBALS['objek']->password = md5($_POST['password']);
+		//cek opsi yang dipilih apakah pengiklan atau pekerja
+			
+			if($_POST['opsi1']==1)
+			{
+				$objek = $pengiklan;
+				$lokasi = 'dashboard/pemilik-lowongan/profile.php';
+			}
+			elseif ($_POST['opsi1']==2) 
+			{
+				$objek = $pekerja;
+				$lokasi = 'dashboard/pekerja/profile.php';
+			}
 
-		$GLOBALS['objek']->insert();
+			$objek->username = $_POST['username'];
+			$objek->email = $_POST['email'];
+			$objek->no_hp = $_POST['no_handphone'];
+			$objek->password = md5($_POST['password']);
+
+			$objek->insert_data();
+			$script->redirect($lokasi);
+		}
+		
 	}
 
 
 // LOGIN
-	 if(isset($_POST['login'])){
-			if($_POST['sel1']!=0){
-				if($_POST['sel1']==1){
-				$GLOBALS['objek'] = new pengiklan();
-				}elseif ($_POST['sel1']==2) {
-					$GLOBALS['objek'] = new pekerja();
-				}
-					$data = $GLOBALS['objek']->select();
 
-					$n = 0;
-					while($n < count($data)){
-						if($data[$n]['username']==$_POST['lusername'] || $data[$n]['email']==$_POST['lusername']){
-
-
-							if($data[$n]['password']==md5($_POST['lpassword'])){
-
-								echo "sini";
-
-								if($_POST['sel1']==1){
-									$_SESSION['id']=$data[$n]['id_pengiklan'];
-								?>
-									<script type="text/javascript">
-									document.location.href='dashboard/pemilik-lowongan/profile.php?user=<?php echo $_POST['lusername']; ?>';
-									</script>
-								<?php
-								}
-								elseif($_POST['sel1']==2){
-									$_SESSION['id']=$data[$n]['id_pekerja'];			
-								?>
-									<script type="text/javascript">
-									document.location.href='dashboard/pekerja/profile.php?user=<?php echo $_POST['lusername']; ?>';
-									</script>
-								<?php		
-								}
-
-
-								$_SESSION['username']=$data[$n]['username'];	
-
-							}
-						}	
-						$n++;			
-					}
-			}
+	if(isset($_POST['login']))
+	{
+		if($_POST['opsi2']==0)
+		{
+			$script->alert_warning('Gagal Login','Anda tidak mengisi pilihan dengan benar!');
 		}
+		else
+		{
+
+		//cek opsi yang dipilih apakah pengiklan atau pekerja
+
+			if($_POST['opsi2']==1)
+			{
+				$result = $pengiklan->cek_login($_POST);
+				$lokasi = 'dashboard/pemilik-lowongan/profile.php';
+			}
+			elseif ($_POST['opsi2']==2) 
+			{
+				$result = $pekerja->cek_login($_POST);
+				$lokasi = 'dashboard/pekerja/profile.php';
+			}
+
+			//cek status apakah true atau false
+				if(!$result['status'])
+				{ 
+					$script->alert_warning('Gagal Login','Username atau Password Anda Mungkin Salah'); 
+				}
+				else
+				{
+					$_SESSION['user'] = $result['data'];
+					$_SESSION['row'] = '';
+					$script->redirect($lokasi);
+				}
+		}
+	}
 
  ?>
-
