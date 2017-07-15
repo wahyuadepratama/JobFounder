@@ -18,8 +18,28 @@ class pengiklan
  	public $lokasi;
  	public $koin;
  	public $tanggal;
+ 	public $deskripsi;
 
  	function __construct(){}
+
+ 	function set_all_property($data_array){
+ 		$this->id_pengiklan = $data_array['id_pengiklan'];
+ 		$this->username = $data_array['username'];
+ 		$this->email = $data_array['email'];
+ 		$this->no_hp = $data_array['no_hp'];
+ 		$this->password = $data_array['password'];
+ 		$this->foto_profile = $data_array['foto_profile'];
+ 		$this->nama = $data_array['nama'];
+ 		$this->sosmed = $data_array['sosmed'];
+ 		$this->provinsi = $data_array['provinsi'];
+ 		$this->kota = $data_array['kota'];
+ 		$this->kecamatan = $data_array['kecamatan'];
+ 		$this->alamat = $data_array['alamat'];
+ 		$this->lokasi = $data_array['lokasi'];
+ 		$this->koin = $data_array['koin'];
+ 		$this->tanggal = $data_array['tanggal'];
+ 		$this->deskripsi = $data_array['deskripsi'];
+ 	}
 
  	function select_one_data($query, $param){
 			try{
@@ -95,12 +115,9 @@ class pengiklan
  	function update_data(){
  		global $pdo;
  		$query = $pdo->prepare("UPDATE `pengiklan` SET 
- 			`username` 		= ?, 
- 			`email` 		= ?,
- 			`no_hp` 		= ?,
- 			`password` 		= ?,
  			`foto_profile` 	= ?,
  			`nama` 			= ?,
+ 			`deskripsi`		= ?,
  			`sosmed` 		= ?,
  			`provinsi` 		= ?,
  			`kota` 			= ?,
@@ -110,12 +127,9 @@ class pengiklan
  			`koin` 			= ?
  			WHERE `pengiklan`.`id_pengiklan` = ?");
 		$query->execute(array(
-			$this->username,
-			$this->email,
-			$this->no_hp,
-			$this->password,
 			$this->foto_profile,
 			$this->nama,
+			$this->deskripsi,
 			$this->sosmed,
 			$this->provinsi,
 			$this->kota,
@@ -131,6 +145,22 @@ class pengiklan
  		global $pdo;
  		$query = $pdo->prepare("DELETE FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?");
 		$query->execute(array($this->id_pengiklan));
+ 	}
+
+ 	function update_profile(){
+ 		$this->foto_profile = $_POST['foto_profile'];
+		$this->nama = $_POST['nama'];
+		$this->deskripsi = $_POST['deskripsi'];
+		$this->email = $_POST['email'];
+		$this->no_hp = $_POST['no_hp'];
+		$this->sosmed = $_POST['sosmed'];
+		$this->provinsi = $_POST['provinsi'];
+		$this->kota = $_POST['kota'];
+		$this->kecamatan = $_POST['kecamatan'];
+		$this->alamat = $_POST['alamat'];
+		$this->lokasi = $_POST['lokasi'];
+
+		$this->update_data();
  	}
  }
 

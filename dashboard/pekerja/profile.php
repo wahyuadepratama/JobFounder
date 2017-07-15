@@ -1,9 +1,49 @@
+<?php 
+	session_start();
+	require_once '../../controller/koneksi.php';
+	require_once '../../controller/class.script.php';
+	require_once '../../controller/class.pekerja.php';
+
+	$pekerja = new pekerja();
+	$script = new function_script();
+
+	$show_content;
+
+	if(!isset($_SESSION['user'])){
+		$script->redirect('daftar.php');
+	}else{
+		$show_content = 'default';
+	}
+
+	if (isset($_GET['action'])) {
+		if ($_GET['action']=='logout') {
+			session_destroy();
+			header('location: ../');
+		}else{
+			$show_content = $_GET['action'];
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title> JobUs | Profile Perusahaan </title>
+<<<<<<< HEAD
+	<title> Profile Pekerja </title>
 	<?php include '../../view/source.php'; ?>
+=======
+	<title> JobUs | Profile Perusahaan </title>
+	<?php include '../../view/source.php'; 
+	include '../../controller/koneksi.php';
+
+	session_start();
+	include '../../controller/class.pekerja.php';
+	$pekerja = new pekerja();
+	$pekerja->set_all_property($_SESSION['user']);
+
+	?>
+>>>>>>> origin/master
 
 </head>
 	
@@ -29,17 +69,17 @@
 		
 	</ul>
 </div>
-
 <div class="container">
- <form>
+ <form method='post'>
 	<center>
 		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">
 		<span class="upload">Choose your photo profile</span>
-		<input type="file" class="file-upload">
+		<input type="file" class="file-upload" name="foto_profile">
 		</div>
 	</center>
 	<br>
+	
 	<div class="form-group">
 		  <label for="company">Nama</label>
 		  <input type="text" class="form-control" name="nama" placeholder="ex: Yolanda Parawita">
@@ -50,59 +90,70 @@
 	</div>
 	<div class="form-group">
 		  <label for="fax">Telepon/Fax</label>
-		  <input type="text" class="form-control" name="fax" placeholder="ex: 0813827381981 / 0751321452" >
+		  <input type="text" class="form-control" name="no_hp" placeholder="ex: 0813827381981 / 0751321452" >
 	</div>
 	<div class="form-group">
 		  <label for="fax">Sosial Media</label>
-		  <input type="text" class="form-control" name="fax" placeholder="ex: Line : @tokobunga4   |    IG : @nabang97  |   WA : 0812172615243">
+		  <input type="text" class="form-control" name="sosmed" placeholder="ex: Line : @tokobunga4   |    IG : @nabang97  |   WA : 0812172615243">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Provinsi</label>
-		  <select class="form-control" id="sel2">
+		  <select class="form-control" id="sel2" name="provinsi">
 		    <option value="">Sumatera Barat</option>
 		    <option value="">Riau</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Kota</label>
-		  <select class="form-control" id="sel2">
+		  <select class="form-control" id="sel2" name="kota">
 		    <option value="">Padang</option>
 		    <option value="">Payakumbuh</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Kecamatan</label>
-		  <select class="form-control" id="sel2">
+		  <select class="form-control" id="sel2" name="kecamatan">
 		    <option value="">Padang Utara</option>
 		    <option value="">Padang Selatan</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Alamat</label>
-		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Jl Khatib Sulaiman no 32"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="alamat" placeholder="ex: Jl Khatib Sulaiman no 32"></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Keahlian</label>
-		  <textarea class="form-control" rows="5" id="req" name="judul" placeholder="ex: Programing, Desain"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="keahlian" placeholder="ex: Programing, Desain"></textarea>
 	</div>
 	<div class="form-group">
-		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)(</label><br><br>
+<<<<<<< HEAD
+		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)</label><br><br>
 		    <input type="file" id="ktp">
+=======
+		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)(</label><br><br>
+		    <input type="file" id="ktp" name="foto_pengenal">
+>>>>>>> origin/master
 		    <p class="help-block">Maks 5mb, ektensi jpg/jpeg/png</p>
 	</div>
 
 	<div class="form-group">
 		<center>
 			<button type="submit" class="btn btn-default">Edit</button>
-			<button type="submit" class="btn btn-default">Save</button>
+			<button type="submit" class="btn btn-default" name="save">Save</button>
 		</center>
 	</div>
 	</form>
+	<?php echo $pekerja->nama; ?>
 </div>
 <!-- end profile -->
 
 <!-- javascript -->
-	<?php include '../../view/script.php'; ?>
+	<?php include '../../view/script.php'; 
+	if(isset($_POST['save'])){
+		$pekerja->update_profile($_POST);
+	}
+
+	?>
 <!-- javascript -->
 
 </body>

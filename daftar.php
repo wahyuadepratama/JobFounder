@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php 
+	session_start();
+	require_once 'controller/koneksi.php';
+	require_once 'controller/class.script.php';
+	require_once 'controller/class.pengiklan.php';
+	require_once 'controller/class.pekerja.php';
+
+	$pengiklan = new pengiklan();
+	$pekerja = new pekerja();
+	$script = new function_script();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -138,14 +148,6 @@
 <?php 
 
 // SIGNUP
-	require_once 'controller/koneksi.php';
-	require_once 'controller/class.script.php';
-	require_once 'controller/class.pengiklan.php';
-	require_once 'controller/class.pekerja.php';
-
-	$pengiklan = new pengiklan();
-	$pekerja = new pekerja();
-	$script = new function_script();
 
 	if(isset($_POST['sign']))
 	{
@@ -157,25 +159,30 @@
 		{
 
 		//cek opsi yang dipilih apakah pengiklan atau pekerja
-			
-			if($_POST['opsi1']==1)
-			{
-				$objek = $pengiklan;
-				$lokasi = 'dashboard/pemilik-lowongan/profile.php';
-			}
-			elseif ($_POST['opsi1']==2) 
-			{
-				$objek = $pekerja;
-				$lokasi = 'dashboard/pekerja/profile.php';
+			try {
+				if($_POST['opsi1']==1)
+				{
+					$objek = $pengiklan;
+					$lokasi = 'dashboard/pemilik-lowongan/profile.php';
+				}
+				elseif ($_POST['opsi1']==2) 
+				{
+					$objek = $pekerja;
+					$lokasi = 'dashboard/pekerja/profile.php';
+				}
+
+				$objek->username = $_POST['username'];
+				$objek->email = $_POST['email'];
+				$objek->no_hp = $_POST['no_handphone'];
+				$objek->password = md5($_POST['password']);
+
+				$objek->insert_data();
+				$script->redirect($lokasi);
+				
+			} catch (Exception $e) {
+				$script->alert_warning('Gagal Mendaftar','username atau email sudah digunakan');
 			}
 
-			$objek->username = $_POST['username'];
-			$objek->email = $_POST['email'];
-			$objek->no_hp = $_POST['no_handphone'];
-			$objek->password = md5($_POST['password']);
-
-			$objek->insert_data();
-			$script->redirect($lokasi);
 		}
 		
 	}
@@ -211,10 +218,11 @@
 					$script->alert_warning('Gagal Login','Username atau Password Anda Mungkin Salah'); 
 				}
 				else
-				{
+				{					
 					$_SESSION['user'] = $result['data'];
-					$_SESSION['row'] = '';
+					$_SESSION['row'] = $result['rows'];
 					$script->redirect($lokasi);
+
 				}
 		}
 	}
