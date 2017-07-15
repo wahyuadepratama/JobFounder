@@ -133,6 +133,39 @@ class pekerja
  		$query = $pdo->prepare("DELETE FROM `pekerja` WHERE `pekerja`.`id_pekerja` = ?");
 		$query->execute(array($this->id_pekerja));
  		}
+
+ 	function set_all_property($data_array){
+ 		$this->id_pekerja = $data_array['id_pekerja'];
+ 		$this->username = $data_array['username'];
+ 		$this->email = $data_array['email'];
+ 		$this->no_hp = $data_array['no_hp'];
+ 		$this->password = $data_array['password'];
+ 		$this->foto_profile = $data_array['foto_profile'];
+ 		$this->nama = $data_array['nama'];
+ 		$this->sosmed = $data_array['sosmed'];
+ 		$this->provinsi = $data_array['provinsi'];
+ 		$this->kota = $data_array['kota'];
+ 		$this->kecamatan = $data_array['kecamatan'];
+ 		$this->alamat = $data_array['alamat'];
+ 		$this->keahlian = $data_array['keahlian'];
+ 		$this->foto_pengenal = $data_array['foto_pengenal'];
+ 		$this->tanggal = $data_array['tanggal'];
+ 	}
+
+ 	function update_profile(){
+ 		$this->foto_profile = $_POST['foto_profile'];
+		$this->nama = $_POST['nama'];
+		$this->email = $_POST['email'];
+		$this->no_hp = $_POST['no_hp'];
+		$this->sosmed = $_POST['sosmed'];
+		$this->provinsi = $_POST['provinsi'];
+		$this->kota = $_POST['kota'];
+		$this->kecamatan = $_POST['kecamatan'];
+		$this->alamat = $_POST['alamat'];
+		$this->keahlian = $_POST['keahlian'];
+
+		$this->update();
+ 	}
  } 
 
  ?>
