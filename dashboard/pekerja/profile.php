@@ -30,9 +30,12 @@
 <head>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<title> Profile Pekerja </title>
 	<?php include '../../view/source.php'; ?>
 =======
+=======
+>>>>>>> origin/master
 	<title> JobUs | Profile Perusahaan </title>
 	<?php include '../../view/source.php'; 
 	include '../../controller/koneksi.php';
@@ -43,6 +46,9 @@
 	$pekerja->set_all_property($_SESSION['user']);
 
 	?>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
 </head>
@@ -127,8 +133,13 @@
 	</div>
 	<div class="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
 		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)</label><br><br>
 		    <input type="file" id="ktp">
+=======
+		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)(</label><br><br>
+		    <input type="file" id="ktp" name="foto_pengenal">
+>>>>>>> origin/master
 =======
 		    <label for="exampleInputFile">Upload Tanda Pengenal (KTP/SIM/KTM/Kartu Pelajar)(</label><br><br>
 		    <input type="file" id="ktp" name="foto_pengenal">
