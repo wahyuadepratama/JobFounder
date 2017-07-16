@@ -18,7 +18,7 @@ class postingan
 
  	function __construct(){}
 
- 	function insert(){
+ 	function insert_data(){
  		global $pdo;
  		$query = $pdo->prepare("
  			INSERT INTO `postingan` (
@@ -50,29 +50,18 @@ class postingan
 			));
  	}
 
- 	function select(){
- 		global $pdo;
- 		$query = $pdo->prepare("SELECT * FROM `postingan`");
- 		$query->execute();
-		if($query->rowCount() > 0 ){
-			$i = 0;
-			while ($r = $query->fetch()) {                                    
-				$data[$i]['id_postingan']=$r['id_postingan'];
-				$data[$i]['id_pengiklan']=$r['id_pengiklan'];
-				$data[$i]['judul']=$r['judul'];
-				$data[$i]['deskripsi']=$r['deskripsi'];
-				$data[$i]['kategori']=$r['kategori'];
-				$data[$i]['gaji']=$r['gaji'];
-				$data[$i]['keterangan']=$r['keterangan'];
-				$data[$i]['tipe']=$r['tipe'];
-				$data[$i]['pamflet']=$r['pamflet'];
-				$data[$i]['durasi']=$r['durasi'];
-				$data[$i]['status']=$r['status'];
-				$data[$i]['tanggal']=$r['tanggal'];
-				$i++;								                            	
-			}
-		}
-		return $data;
+ 	function set_all_property(){
+ 		$this->id_postingan = $_POST['foto_profile'];
+		$this->id_pengiklan = $_SESSION['user']['id_pengiklan'];
+		$this->judul = $_POST['judul'];
+		$this->deskripsi = $_POST['deskripsi'];
+		$this->kategori = $_POST['kategori'];
+		$this->gaji = $_POST['gaji'];
+		$this->keterangan = $_POST['keterangan'];
+		$this->tipe = $_POST['tipe'];
+		$this->pamflet = $_POST['pamflet'];
+		$this->durasi = $_POST['durasi'];
+		$this->status = $_POST['status'];
  	}
 
  	function update(){

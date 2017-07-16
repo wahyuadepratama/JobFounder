@@ -1,3 +1,15 @@
+<?php 
+  session_start();
+  require_once '../../controller/koneksi.php';
+  require_once '../../controller/session.php';
+  require_once '../../controller/class.script.php';
+  require_once '../../controller/class.pekerja.php';
+
+  $pekerja = new pekerja();
+  $script = new function_script();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

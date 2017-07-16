@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+  require_once '../../controller/koneksi.php';
+  require_once '../../controller/session.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
