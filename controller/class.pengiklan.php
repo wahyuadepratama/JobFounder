@@ -41,7 +41,7 @@ class pengiklan
  		$this->deskripsi = $data_array['deskripsi'];
  	}
 
- 	function select_one_data($query, $param){
+ 	function get_data($query, $param){
 			try{
 				global $pdo;
 				$req = $pdo->prepare($query);
@@ -69,8 +69,8 @@ class pengiklan
  	function insert_data(){
  		global $pdo;
  		$query = $pdo->prepare("
- 			INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `koin`, `tanggal`) 
- 			VALUES (NULL, ?, ?, ?, ?, '0', CURRENT_TIMESTAMP)");
+ 			INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `koin`, `tanggal`, `deskripsi`) 
+ 			VALUES (NULL, ?, ?, ?, ?, '0', CURRENT_TIMESTAMP , NULL)");
 		$query->execute(array($this->username,$this->email,$this->no_hp,$this->password));
  	}
 
@@ -81,36 +81,8 @@ class pengiklan
 					':lpassword' => md5($data_array['lpassword'])
 				);
 
-			return $this->select_one_data($query, $param);
+			return $this->get_data($query, $param);
 	}
-
- 	// function select_all_pengiklan(){
- 	// 	global $pdo;
- 	// 	$query = $pdo->prepare("SELECT * FROM `pengiklan`");
- 	// 	$query->execute();
-		// if($query->rowCount() > 0 ){
-		// 	$i = 0;
-		// 	while ($r = $query->fetch()) {                                    
-		// 		$data[$i]['id_pengiklan']=$r['id_pengiklan'];
-		// 		$data[$i]['username']=$r['username'];
-		// 		$data[$i]['email']=$r['email'];
-		// 		$data[$i]['no_hp']=$r['no_hp'];
-		// 		$data[$i]['password']=$r['password'];
-		// 		$data[$i]['foto_profile']=$r['foto_profile'];
-		// 		$data[$i]['nama']=$r['nama'];
-		// 		$data[$i]['sosmed']=$r['sosmed'];
-		// 		$data[$i]['provinsi']=$r['provinsi'];
-		// 		$data[$i]['kota']=$r['kota'];
-		// 		$data[$i]['kecamatan']=$r['kecamatan'];
-		// 		$data[$i]['alamat']=$r['alamat'];
-		// 		$data[$i]['lokasi']=$r['lokasi'];
-		// 		$data[$i]['koin']=$r['koin'];
-		// 		$data[$i]['tanggal']=$r['tanggal'];
-		// 		$i++;								                            	
-		// 	}
-		// }
-		// return $data;
- 	// }
 
  	function update_data(){
  		global $pdo;
@@ -147,7 +119,7 @@ class pengiklan
 		$query->execute(array($this->id_pengiklan));
  	}
 
- 	function update_profile(){
+ 	function set_profile_updated(){
  		$this->foto_profile = $_POST['foto_profile'];
 		$this->nama = $_POST['nama'];
 		$this->deskripsi = $_POST['deskripsi'];
@@ -162,6 +134,12 @@ class pengiklan
 
 		$this->update_data();
  	}
+
+  	function select_profile($id){
+			$query = "SELECT * FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?";
+			$param = array($id);
+			return $this->get_data($query, $param);
+	}
  }
 
  ?>

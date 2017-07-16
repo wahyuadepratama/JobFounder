@@ -52,7 +52,7 @@
 
 <div class="container">
 	<h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
-
+</div>
 
 <br>
 <div class="container panel panel-default colaps">

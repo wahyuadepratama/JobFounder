@@ -112,48 +112,6 @@
 			<h3 class="agileits_w3layouts_head">Temukan Orang yang Bisa Membantu Anda di <span>JobUs</span></h3>
 			<p class="agile_para_2">Bagi anda yang butuh bantuan untuk mengerjakan pekerjaan seperti : membersihkan rumah, membersihkan kebun, membuat desain logo/poster acara, mengantarkan galon, mencek tugas, mengajar les private, membuat video dan lain sebagainya. Maka anda bisa menguploadnya dalam bentuk iklan di JobUs, nantinya orang-orang yang melihat iklan anda akan mensubmit jika mereka merasa bisa membantu anda. Nah, anda tinggal buka akun, cek menu employee dan lihat siapa saja yang telah mensubmit. Setelah merasa menemukan orang yang tepat, anda tinggal menghubunginya.</p>
 
-			<!-- <div class="timeline-wrapper clearfix">
-			    <div class="timeline-content-day">
-			        <div class="timeline-line"></div>
-			        <div class="timeline-content-item active" data-timeline="hour-8">
-			            <span>Daftarkan Usaha</span>
-			            <div class="timeline-content-item-reveal">
-			                <a href="#">
-			                    <span>Daftar Usaha dan jelaskan profile usaha anda</span>
-			                </a>
-			            </div>
-			        </div>
-
-			        <div class="timeline-content-item" data-timeline="hour-9">
-			            <span>Tunggu Persetujuan</span>
-			            <div class="timeline-content-item-reveal">
-			                <a href="#">
-			                    <span>Tunggu admin menyetujui kiriman anda paling lama 1x24 jam</span>
-			                </a>
-			            </div>
-			        </div>
-
-			         <div class="timeline-content-item" data-timeline="hour-9">
-			            <span>Cek Timeline</span>
-			            <div class="timeline-content-item-reveal">
-			                <a href="#">
-			                    <p>Setelah disetujui, kiriman anda akan muncul di timeline.</p><br>
-			                    <p>Sekarang semua pengunjung bisa melihat apa kebutuhan anda</p>
-			                </a>
-			            </div>
-			        </div>
-
-			        <div class="timeline-content-item" data-timeline="hour-10">
-			            <span>Pengunjung Mensubmit</span>
-			            <div class="timeline-content-item-reveal">
-			                <a href="#">
-			                    <span>Pengunjung akan mensubmit kiriman anda dan kebutuhan anda akan terpenuhi</span>
-			                </a>
-			            </div>
-			        </div>
-			    </div>
-			</div> -->
-
 		</div>
 </div>
 
@@ -170,53 +128,6 @@
 			<p class="agile_para_2">Bagi anda yang memiliki usaha bisnis / perusahaan yang membutuhkan karyawan yang berkualitas. Anda bisa menggunakan koin yang ada pada JobUs untuk beriklan. Dengan fitur ini setiap karyawan yang mensubmit harus mengupload CV mereka terlebih dahulu, jadi anda bisa melihat kualitas mereka dari CV yang diupload. Selain itu anda bisa mendowload langsung CV mereka dari halaman employee anda, jadi anda tidak perlu lagi menggunakan pengiriman CV ataupun email. Setiap koin bisa anda gunakan untuk mengupload lowongan selama 1 hari, dan harga koin itu sendiri sangatlah murah.</p>
 		</div>
 </div>
-
-
-		<!-- <div class="mis-stage w3_agileits_welcome_grids"> 
-			< The element to select and apply miSlider to - the class is optional
-			<ol class="mis-slider">
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/2.png" alt=" " class="img-responsive" />
-						<figcaption>Strawberry</figcaption>
-					</figure>
-				</li>
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/3.png" alt=" " class="img-responsive" />
-						<figcaption>Orange</figcaption>
-					</figure>
-				</li>
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/4.png" alt=" " class="img-responsive" />
-						<figcaption>Pomegranates</figcaption>
-					</figure>
-				</li>
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/5.png" alt=" " class="img-responsive" />
-						<figcaption>Lemon</figcaption>
-					</figure>
-				</li>
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/6.png" alt=" " class="img-responsive" />
-						<figcaption>Kiwi Fruits</figcaption>
-					</figure>
-				</li>
-				<li class="mis-slide"> 
-					<figure> 
-						<img src="images/7.png" alt=" " class="img-responsive" />
-						<figcaption>Apples</figcaption>
-					</figure>
-				</li>
-			</ol>
-		</div> -->
-
-<!-- //newsletter -->
-
-
 
 <!-- footer -->
 	<?php include 'view/footer.php'; ?>

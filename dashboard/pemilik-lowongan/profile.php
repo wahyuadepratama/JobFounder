@@ -1,18 +1,26 @@
+<?php 
+  session_start();
+  require_once '../../controller/koneksi.php';
+  require_once '../../controller/session.php';
+  require_once '../../controller/class.script.php';
+  require_once '../../controller/class.pengiklan.php';
+
+  $pengiklan = new pengiklan();
+  $script = new function_script();
+
+  session_cek();
+
+  $result = $pengiklan->select_profile($_SESSION['user']['id_pengiklan']);
+  $pengiklan->set_all_property($result['data']);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title> JobUs | Profile Perusahaan </title>
-	<?php include("../../view/source.php"); 
-	include '../../controller/koneksi.php';
-	session_start();
-
-	include '../../controller/class.pengiklan.php';
-
-	$pengiklan = new pengiklan();
-	$pengiklan->set_all_property($_SESSION['user']);
-
-	?>
+	<title> Profile Pengiklan </title>
+	<?php include("../../view/source.php"); ?>
 
 </head>
 	
@@ -59,91 +67,90 @@
 </div>
 
 <div class="container">
-<form action="profile.php" method="post">
+
 	<center>
 		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
-		<div class="div-upload btn-default">
-		<span class="upload">Choose your photo profile</span>
-		<input type="file" class="file-upload" name='foto_profile'>
-		</div>
 	</center>
 	<br>
-	<div class="form-group">
-		  <label for="company">Nama Perusahaan / Pemilik Pekerjaan</label>
-		  <input type="text" class="form-control" name="nama" placeholder="ex: PT Makmur tbk  / Ridho Maulana" required="">
-	</div>
-	<div class="form-group">
-		  <label for="desc">Deskripsi</label>
-		  <textarea class="form-control" rows="5" id="description" placeholder="ex : Perusahaan memproduksi berbagai macam baju. Kami juga menerima pesanan / Saya adalah pemilik dari kebun buah naga" name="deskripsi"></textarea>
-	</div>
-	<div class="form-group">
-		  <label for="email">Alamat Email</label>
-		  <input type="text" class="form-control" name="email" placeholder="ex: yolandaparawita@gmail.com">
-	</div>
-	<div class="form-group">
-		  <label for="fax">Telepon/Fax</label>
-		  <input type="text" class="form-control" name="no_hp" placeholder="ex:  Kantor : 0751 - 712372 / Andi : 0813827381981" >
-	</div>
-	<div class="form-group">
-		  <label for="fax">Sosial Media</label>
-		  <input type="text" class="form-control" name="sosmed" placeholder="ex: Line : @tokobunga4   |    IG : @nabang97  |   WA : 0812172615243">
-	</div>
-	<div class="form-group">
-		  <label for="prov">Provinsi</label>
-		  <select class="form-control" id="sel2" name="provinsi">
-		    <option value="">Sumatera Barat</option>
-		    <option value="">Riau</option>
-		  </select>
-	</div>
-	<div class="form-group">
-		  <label for="kota">Kota</label>
-		  <select class="form-control" id="sel2" name="kota">
-		    <option value="">Padang</option>
-		    <option value="">Payakumbuh</option>
-		  </select>
-	</div>
-	<div class="form-group">
-		  <label for="kec">Kecamatan</label>
-		  <select class="form-control" id="sel2" name="kecamatan">
-		    <option value="">Padang Utara</option>
-		    <option value="">Padang Selatan</option>
-		  </select>
-	</div>
-	<div class="form-group">
-		  <label for="alamat">Alamat Perusahaan / Pemilik Pekerjaan</label>
-		  <textarea class="form-control" rows="5" id="req" name="alamat" placeholder="ex: Jl Khatib Sulaiman no 32 / Komplek perumahan kolam indah mata air no 12"></textarea>
-	</div>
-	<div class="form-group">
-		  <label for="fax">Marking Lokasi</label>
-		  <input type="text" class="form-control" name="lokasi" placeholder="" >
-	</div>
-
-	<div class="form-group">
+		
 	<center>
-	    <button class="btn btn-default">Edit</button>
-		<button class="btn btn-default" name="save">Save</button>
+	  <table class="tabpad">
+	       <tr>
+	           <td class="text-left">Nama Perusahaan / Pemilik Pekerjaan</td>
+	           <td width="20">:</td>
+	           <td class="text-left"><?php echo $pengiklan->nama; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Deskripsi</td>
+	           <td width="20">:</td>
+	           <td class="text-left"><?php echo $pengiklan->deskripsi; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Alamat Email</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->email; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Telepon/Fax</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->no_hp; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Sosial Media</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->sosmed; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Provinsi</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->provinsi; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Kota</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->kota; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Kecamatan</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->kecamatan; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->alamat; ?></td>
+	       </tr>
+	       <tr>
+	           <td class="text-left">Marking Lokasi</td>
+	           <td>:</td>
+	           <td class="text-left"><?php echo $pengiklan->lokasi; ?></td>
+	       </tr>
+	  </table><br>
 	</center>
+
+<form method="post">
+	<div class="form-group">
+		<center>
+		    <button class="btn btn-default"><a href="edit-profile.php">Edit</a></button>
+			<button class="btn btn-danger btn-sm" name="logout">Logout</button>
+		</center>
 	</div>
 </form>
+
 </div>
 <!-- end profile -->
 
-
-
 <!-- javascript -->
-	<?php
-	include '../../view/script.php';
-
-	if(isset($_POST['save'])){
-		$pengiklan->update_profile($_POST);
-	}
-
-
-	
-
-	 ?>
+	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 
 </body>
 </html>
+
+	<?php
+		if(isset($_POST['save'])){
+			$pengiklan->set_profile_updated();
+			$script->redirect('profile.php');
+		}
+	?>

@@ -22,7 +22,7 @@ class pekerja
 
  	function __construct(){}
 
- 	function select_one_data($query, $param){
+ 	function get_data($query, $param){
 			try{
 				global $pdo;
 				$req = $pdo->prepare($query);
@@ -62,36 +62,8 @@ class pekerja
 					':lpassword' => md5($data_array['lpassword'])
 				);
 
-			return $this->select_one_data($query, $param);
+			return $this->get_data($query, $param);
 	}
-
- 	// function select(){
- 	// 	global $pdo;
- 	// 	$query = $pdo->prepare("SELECT * FROM `pekerja`");
- 	// 	$query->execute();
-		// if($query->rowCount() > 0 ){
-		// 	$i = 0;
-		// 	while ($r = $query->fetch()) {                                    
-		// 		$data[$i]['id_pekerja']=$r['id_pekerja'];
-		// 		$data[$i]['username']=$r['username'];
-		// 		$data[$i]['email']=$r['email'];
-		// 		$data[$i]['no_hp']=$r['no_hp'];
-		// 		$data[$i]['password']=$r['password'];
-		// 		$data[$i]['foto_profile']=$r['foto_profile'];
-		// 		$data[$i]['nama']=$r['nama'];
-		// 		$data[$i]['sosmed']=$r['sosmed'];
-		// 		$data[$i]['provinsi']=$r['provinsi'];
-		// 		$data[$i]['kota']=$r['kota'];
-		// 		$data[$i]['kecamatan']=$r['kecamatan'];
-		// 		$data[$i]['alamat']=$r['alamat'];
-		// 		$data[$i]['keahlian']=$r['keahlian'];
-		// 		$data[$i]['foto_pengenal']=$r['foto_pengenal'];
-		// 		$data[$i]['tanggal']=$r['tanggal'];
-		// 		$i++;								                            	
-		// 	}
-		// }
-		// return $data;
- 	// }
 
  	function update(){
  		global $pdo;
@@ -152,7 +124,7 @@ class pekerja
  		$this->tanggal = $data_array['tanggal'];
  	}
 
- 	function update_profile(){
+ 	function set_profile_updated(){
  		$this->foto_profile = $_POST['foto_profile'];
 		$this->nama = $_POST['nama'];
 		$this->email = $_POST['email'];
@@ -166,6 +138,12 @@ class pekerja
 
 		$this->update();
  	}
+
+ 	function select_profile($id){
+			$query = "SELECT * FROM `pekerja` WHERE `pekerja`.`id_pekerja` = ?";
+			$param = array($id);
+			return $this->get_data($query, $param);
+	}
  } 
 
  ?>
