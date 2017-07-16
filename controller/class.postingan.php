@@ -50,18 +50,21 @@ class postingan
 			));
  	}
 
- 	function set_all_property(){
+ 	function set_all_property($status,$durasi){
+
+ 		$kategori = serialize($_POST['kategori']);
+
  		$this->id_postingan = $_POST['foto_profile'];
 		$this->id_pengiklan = $_SESSION['user']['id_pengiklan'];
 		$this->judul = $_POST['judul'];
 		$this->deskripsi = $_POST['deskripsi'];
-		$this->kategori = $_POST['kategori'];
 		$this->gaji = $_POST['gaji'];
 		$this->keterangan = $_POST['keterangan'];
 		$this->tipe = $_POST['tipe'];
 		$this->pamflet = $_POST['pamflet'];
-		$this->durasi = $_POST['durasi'];
-		$this->status = $_POST['status'];
+		$this->kategori = $kategori;
+		$this->durasi = $durasi;
+		$this->status = $status;
  	}
 
  	function update(){
@@ -93,7 +96,60 @@ class postingan
  		global $pdo;
  		$query = $pdo->prepare("DELETE FROM `postingan` WHERE `postingan`.`id_postingan` = ?");
 		$query->execute(array($this->id_postingan));
- 		}
+ 	}
+
+ 	function get_data($query, $param){
+			try{
+				global $pdo;
+				$req = $pdo->prepare($query);
+				if($param == ''){
+					$req->execute();
+				}else{
+					$req->execute($param);
+				}
+
+				$rows = $req->rowCount();
+				$status = false;
+
+				if($rows > 0){
+					$status = true;
+				}
+
+				$data = $req->fetch(PDO::FETCH_NAMED);
+
+				return array('status' => $status, 'rows' => $rows, 'data' => $data);
+			}catch(PDOException $e){
+				echo "Error! gagal mengambil data: ".$e->getMessage();
+			}
+	}
+
+  	function select_postingan($id){
+		$query = "SELECT * FROM `postingan` WHERE `postingan`.`id_postingan` = ?";
+		$param = array($id);
+		return $this->get_data($query, $param);
+	}
+
+	function select_all_kategori($id){
+		$result = $this->select_postingan($id);
+		$hasil = unserialize($result['data']['kategori']);
+
+		foreach ($hasil as $key) {
+			echo $key.'<br>';
+		}
+	}
+
+	function cek_koin_pengiklan($pengiklan,$durasi){
+		if($pengiklan->koin<$durasi){
+			$status = false;
+		}else{
+			$pengiklan->koin = $pengiklan->koin - $durasi;
+			$pengiklan->update_data();
+			$status = true;
+		}
+
+		return $status;
+	}
+
  } 
 
  ?>

@@ -5,7 +5,7 @@
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.postingan.php';
 
-  $pengiklan = new postingan();
+  $postingan = new postingan();
   $script = new function_script();
 
   session_cek();
@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 
-	<title> JobUs | Dashboard </title>
+	<title> Dashboard | Free </title>
 	<?php include '../../view/source.php'; ?>
 
 </head>
@@ -94,34 +94,34 @@
 		<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
 		<div class="container">
 			<div class="col-sm-4">
-				<input type="checkbox" name="kategori"> Administrasi </input><br>
-				<input type="checkbox" name="kategori"> Karyawan Toko </input><br>
-				<input type="checkbox" name="kategori"> Marketing & Sales </input><br>
-				<input type="checkbox" name="kategori"> SPG & SPB </input><br>
-				<input type="checkbox" name="kategori"> Manajemen </input><br>
-				<input type="checkbox" name="kategori"> Fotografer </input><br>
-				<input type="checkbox" name="kategori"> Desain Grafis dan Multimedia </input><br>
-				<input type="checkbox" name="kategori"> Penerjemah </input><br>
+				<input type="checkbox" name="kategori[]" value="administrasi"> Administrasi </input><br>
+				<input type="checkbox" name="kategori[]" value="karyawan toko"> Karyawan Toko </input><br>
+				<input type="checkbox" name="kategori[]" value="marketing dan sales"> Marketing & Sales </input><br>
+				<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br>
+				<input type="checkbox" name="kategori[]" value="manajemen"> Manajemen </input><br>
+				<input type="checkbox" name="kategori[]" value="fotograger"> Fotografer </input><br>
+				<input type="checkbox" name="kategori[]" value="desain grafis dan multimedia"> Desain Grafis dan Multimedia </input><br>
+				<input type="checkbox" name="kategori[]" value="penerjemah"> Penerjemah </input><br>
 			</div>
 			<div class="col-sm-4">
-				<input type="checkbox" name="kategori"> Teknologi </input><br>
-				<input type="checkbox" name="kategori"> Teknik </input><br>
-				<input type="checkbox" name="kategori"> Hukum </input><br>
-				<input type="checkbox" name="kategori"> Akuntansi </input><br>
-				<input type="checkbox" name="kategori"> Kesehatan </input><br>
-				<input type="checkbox" name="kategori"> Akuntan </input><br>
-				<input type="checkbox" name="kategori"> Entry Data </input><br>
-				<input type="checkbox" name="kategori"> Pengajar / kursus </input><br>
+				<input type="checkbox" name="kategori[]" value="teknologi"> Teknologi </input><br>
+				<input type="checkbox" name="kategori[]" value="teknik"> Teknik </input><br>
+				<input type="checkbox" name="kategori[]" value="hukum"> Hukum </input><br>
+				<input type="checkbox" name="kategori[]" value="akuntansi"> Akuntansi </input><br>
+				<input type="checkbox" name="kategori[]" value="kesehatan"> Kesehatan </input><br>
+				<input type="checkbox" name="kategori[]" value="akuntan"> Akuntan </input><br>
+				<input type="checkbox" name="kategori[]" value="entri data"> Entry Data </input><br>
+				<input type="checkbox" name="kategori[]" value="pengajar"> Pengajar / kursus </input><br>
 			</div>
 			<div class="col-sm-4">
-				<input type="checkbox" name="kategori"> Peternakan dan Pertanian </input><br>
-				<input type="checkbox" name="kategori"> Pegawai Negeri </input><br>
-				<input type="checkbox" name="kategori"> Website Design and Developper </input><br>
-				<input type="checkbox" name="kategori"> Mobile Developer </input><br>
-				<input type="checkbox" name="kategori"> Penulis Lepas (content writer) </input><br>
-				<input type="checkbox" name="kategori"> Pembantu dan Baby Sitter </input><br>
-				<input type="checkbox" name="kategori"> Driver </input><br>
-				<input type="checkbox" name="kategori"> Lain - lain </input><br>
+				<input type="checkbox" name="kategori[]" value="peternakan dan pertanian"> Peternakan dan Pertanian </input><br>
+				<input type="checkbox" name="kategori[]" value="pegawai negeri"> Pegawai Negeri </input><br>
+				<input type="checkbox" name="kategori[]" value="website dan developer"> Website Design and Developper </input><br>
+				<input type="checkbox" name="kategori[]" value="mobile developer"> Mobile Developer </input><br>
+				<input type="checkbox" name="kategori[]" value="penulis lepas"> Penulis Lepas (content writer) </input><br>
+				<input type="checkbox" name="kategori[]" value="pembantu dan baby sitter"> Pembantu dan Baby Sitter </input><br>
+				<input type="checkbox" name="kategori[]" value="driver"> Driver </input><br>
+				<input type="checkbox" name="kategori[]" value="lain-lain"> Lain - lain </input><br>
 			</div>
 		</div>
 	</div>
@@ -136,15 +136,10 @@
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
 		  <select class="form-control" id="sel2" required="" name="tipe">
-		    <option>Pilih Tipe</option>
+		    <option value="kontrak">Pilih Tipe</option>
 		    <option value="kontrak">Freelance / Kontrak</option>
 		    <option value="karyawan">Karyawan / Kerja Tetap</option>
 		  </select>
-	</div>
-	<div class="form-group">
-		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
-		    <input type="file" id="pamflet">
-		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
 	</div>
 	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
 </form>
@@ -159,8 +154,8 @@
 
 	<?php
 		if(isset($_POST['submit'])){
-
-			$postingan->set_all_property();
+			
+			$postingan->set_all_property('free',7);
 			$postingan->insert_data();
 
 			$script->redirect('lowonganbaru.php');

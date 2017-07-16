@@ -1,8 +1,24 @@
+<?php  
+  session_start();
+  require_once '../../controller/koneksi.php';
+  require_once '../../controller/session.php';
+  require_once '../../controller/class.script.php';
+  require_once '../../controller/class.postingan.php';
+  require_once '../../controller/class.pengiklan.php';
+
+  $postingan = new postingan();
+  $pengiklan = new pengiklan();
+  $script = new function_script();
+
+  session_cek();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title> JobUs | Dashboard </title>
+	<title> Dashboard | Pro </title>
 	<?php include '../../view/source.php'; ?>
 
 </head>
@@ -73,40 +89,40 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
-		  <textarea class="form-control" rows="8" id="req" name="judul" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
+		  <textarea class="form-control" rows="8" id="req" name="deskripsi" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
 	</div>
 	<div class="form-group">
 		<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
 		<div class="container">
 			<div class="col-sm-4">
-				<input type="checkbox"> Administrasi </input><br>
-				<input type="checkbox"> Karyawan Toko </input><br>
-				<input type="checkbox"> Marketing & Sales </input><br>
-				<input type="checkbox"> SPG & SPB </input><br>
-				<input type="checkbox"> Manajemen </input><br>
-				<input type="checkbox"> Fotografer </input><br>
-				<input type="checkbox"> Desain Grafis dan Multimedia </input><br>
-				<input type="checkbox"> Penerjemah </input><br>
+				<input type="checkbox" name="kategori[]" value="administrasi"> Administrasi </input><br>
+				<input type="checkbox" name="kategori[]" value="karyawan toko"> Karyawan Toko </input><br>
+				<input type="checkbox" name="kategori[]" value="marketing dan sales"> Marketing & Sales </input><br>
+				<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br>
+				<input type="checkbox" name="kategori[]" value="manajemen"> Manajemen </input><br>
+				<input type="checkbox" name="kategori[]" value="fotograger"> Fotografer </input><br>
+				<input type="checkbox" name="kategori[]" value="desain grafis dan multimedia"> Desain Grafis dan Multimedia </input><br>
+				<input type="checkbox" name="kategori[]" value="penerjemah"> Penerjemah </input><br>
 			</div>
 			<div class="col-sm-4">
-				<input type="checkbox"> Teknologi </input><br>
-				<input type="checkbox"> Teknik </input><br>
-				<input type="checkbox"> Hukum </input><br>
-				<input type="checkbox"> Akuntansi </input><br>
-				<input type="checkbox"> Kesehatan </input><br>
-				<input type="checkbox"> Akuntan </input><br>
-				<input type="checkbox"> Entry Data </input><br>
-				<input type="checkbox"> Pengajar / kursus </input><br>
+				<input type="checkbox" name="kategori[]" value="teknologi"> Teknologi </input><br>
+				<input type="checkbox" name="kategori[]" value="teknik"> Teknik </input><br>
+				<input type="checkbox" name="kategori[]" value="hukum"> Hukum </input><br>
+				<input type="checkbox" name="kategori[]" value="akuntansi"> Akuntansi </input><br>
+				<input type="checkbox" name="kategori[]" value="kesehatan"> Kesehatan </input><br>
+				<input type="checkbox" name="kategori[]" value="akuntan"> Akuntan </input><br>
+				<input type="checkbox" name="kategori[]" value="entri data"> Entry Data </input><br>
+				<input type="checkbox" name="kategori[]" value="pengajar"> Pengajar / kursus </input><br>
 			</div>
 			<div class="col-sm-4">
-				<input type="checkbox"> Peternakan dan Pertanian </input><br>
-				<input type="checkbox"> Pegawai Negeri </input><br>
-				<input type="checkbox"> Website Design and Developper </input><br>
-				<input type="checkbox"> Mobile Developer </input><br>
-				<input type="checkbox"> Penulis Lepas (content writer) </input><br>
-				<input type="checkbox"> Pembantu dan Baby Sitter </input><br>
-				<input type="checkbox"> Driver </input><br>
-				<input type="checkbox"> Lain - lain </input><br>
+				<input type="checkbox" name="kategori[]" value="peternakan dan pertanian"> Peternakan dan Pertanian </input><br>
+				<input type="checkbox" name="kategori[]" value="pegawai negeri"> Pegawai Negeri </input><br>
+				<input type="checkbox" name="kategori[]" value="website dan developer"> Website Design and Developper </input><br>
+				<input type="checkbox" name="kategori[]" value="mobile developer"> Mobile Developer </input><br>
+				<input type="checkbox" name="kategori[]" value="penulis lepas"> Penulis Lepas (content writer) </input><br>
+				<input type="checkbox" name="kategori[]" value="pembantu dan baby sitter"> Pembantu dan Baby Sitter </input><br>
+				<input type="checkbox" name="kategori[]" value="driver"> Driver </input><br>
+				<input type="checkbox" name="kategori[]" value="lain-lain"> Lain - lain </input><br>
 			</div>
 		</div>
 	</div>
@@ -116,25 +132,26 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
-		  <textarea class="form-control" rows="8" id="req" name="judul" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
+		  <textarea class="form-control" rows="8" id="req" name="keterangan" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
-		  <select class="form-control" id="sel2">
+		  <select class="form-control" id="sel2" name="tipe">
+		  	<option value="Karyawan">Pilih Tipe</option>
 		    <option value="">Freelance / Kontrak</option>
 		    <option value="">Karyawan / Kerja Tetap</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Lama Iklan (1 hari = 1 koin)</label>
-		  <input type="number" class="form-control" name="gaji" placeholder="ex : 5">
+		  <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5">
 	</div>
 	<div class="form-group">
 		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
-		    <input type="file" id="pamflet">
+		    <input type="file" id="pamflet" name="pamflet">
 		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
 	</div>
-	<center><button type="submit" class="btn btn-default">Submit</button></center><br>
+	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
 </form>
 </div>
 
@@ -144,3 +161,22 @@
 
 </body>
 </html>
+
+	<?php
+		if(isset($_POST['submit'])){
+			
+			$result = $pengiklan->select_profile($_SESSION['user']['id_pengiklan']);
+			$pengiklan->set_all_property($result['data']);
+
+			$postingan->cek_koin_pengiklan($pengiklan,$_POST['durasi']);
+
+			if($status==true){
+				$postingan->set_all_property('pro',$_POST['durasi']);
+				$postingan->insert_data();	
+				$script->redirect('lowonganbaru.php');
+			}else{
+				$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
+			}
+			
+		}
+	?>
