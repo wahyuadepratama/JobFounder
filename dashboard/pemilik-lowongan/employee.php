@@ -2,6 +2,10 @@
   session_start();
   require_once '../../controller/koneksi.php';
   require_once '../../controller/session.php';
+  include '../../controller/class.postingan.php';
+  $postingan = new postingan();
+
+  $data = $postingan->select_by_pengiklan();
 
 ?>
 
@@ -62,114 +66,72 @@
 </div>
 
 <br>
-<div class="container panel panel-default colaps">
-	<table class="tabpad">
+<?php foreach ($data as $row) {
+    echo "
+<div class='container panel panel-default colaps'>
+  <table class='tabpad'>
        <tr>
-           <td class="text-left">Judul</td>
-           <td width="20">:</td>
-           <td class="text-left">Lowongan PT Freeport</td>
+           <td class='text-left'>Judul</td>
+           <td width='20'>:</td>
+           <td class='text-left'>".$row['judul']."</td>
        </tr>  
        <tr>
-           <td class="text-left">Waktu upload</td>
+           <td class='text-left'>Waktu upload</td>
            <td>:</td>
-           <td class="text-left">Senin, 21 Juni 2017, 14.32</td>
+           <td class='text-left'>".date('d M Y, g.i', strtotime($row['tanggal']))."</td>
        </tr> 
     </table>         
-    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class="btn btn-default">Hapus</button>&nbsp;<button class="btn btn-default" data-toggle="collapse" data-target="#satu">Lihat</button></p>
+    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class='btn btn-default'>Hapus</button>&nbsp;<button class='btn btn-default' data-toggle='collapse' data-target='#".$row['id_postingan']."'>Lihat</button></p>
 
-
-<div class="container table-responsive collapse" id="satu">
-    <table width="100%" class="table">
-    	<th>No</th>
-    	<th>Employee Name</th>
-    	<th>CV</th>
-    	<th>Date Submitted</th>
-    	<th>Detail Employee</th>
-    	<th>Status</th>
-    	<th>Action</th>
+<div class='container table-responsive collapse' id='".$row['id_postingan']."'>
+    <table width='100%'' class='table'>
+      <th>No</th>
+      <th>Employee Name</th>
+      <th>CV</th>
+      <th>Date Submitted</th>
+      <th>Detail Employee</th>
+      <th>Status</th>
+      <th>Action</th>
     <tbody>
-    	<td> 1 </td>
-    	<td> Wahyu Ade Pratama </td>
-    	<td>
-    		<button class="btn btn-default">Download CV</button>
-    	</td>
-    	<td>12-12-2012</td>
-    	<td>
-    		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Show Detail</button>
-    	</td>
-    	<td>Waiting</td>
-    	<td>
-    		<button class="btn btn-default">Terima</button>
-    		<button class="btn btn-default">Tolak</button>
-    	</td>
+      <td> 1 </td>
+      <td> Wahyu Ade Pratama </td>
+      <td>
+        <button class='btn btn-default'>Download CV</button>
+      </td>
+      <td>12-12-2012</td>
+      <td>
+        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'>Show Detail</button>
+      </td>
+      <td>Waiting</td>
+      <td>
+        <button class='btn btn-default'>Terima</button>
+        <button class='btn btn-default'>Tolak</button>
+      </td>
     </tbody>
     <tbody>
-    	<td> 2 </td>
-    	<td> Toni Saputro </td>
-    	<td>
-    		<button class="btn btn-default">Download CV</button>
-    	</td>
-    	<td>12-12-2012</td>
-    	<td>
-    		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Show Detail</button>
-    	</td>
-    	<td>Accept</td>
-    	<td>
-    		<button class="btn btn-default" disabled="">Terima</button>
-    		<button class="btn btn-default" disabled="">Tolak</button>
-    	</td>
-    </tbody>
-
-    </table>
-	
-	<br><br>
-</div>
-</div>
-
-<div class="container panel panel-default colaps">
-    <table class="tabpad">
-       <tr>
-           <td class="text-left">Judul</td>
-           <td width="20">:</td>
-           <td class="text-left">Lowongan Tukang Kebun</td>
-       </tr>  
-       <tr>
-           <td>Waktu upload</td>
-           <td>:</td>
-           <td class="text-left">Senin, 21 Juni 2017, 14.32</td>
-       </tr> 
-    </table>    
-    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class="btn btn-default">Hapus</button>&nbsp;<button class="btn btn-default" data-toggle="collapse" data-target="#dua">Lihat</button></p>
-
-
-<div class="container table-responsive collapse" id="dua">
-    <table width="100%" class="table">
-        <th>No</th>
-        <th>Freelancer Name</th>
-        <th>Date Submitted</th>
-        <th>Detail Freelancer</th>
-        <th>Status</th>
-        <th>Action</th>
-    <tbody>
-        <td> 1 </td>
-        <td> Wahyu Ade Pratama </td>
-        <td>12-12-2012</td>
-        <td>
-            <button class="btn btn-default">Show Detail</button>
-        </td>
-        <td>Waiting</td>
-        <td>
-            <button class="btn btn-default">Terima</button>
-            <button class="btn btn-default">Tolak</button>
-        </td>
+      <td> 2 </td>
+      <td> Toni Saputro </td>
+      <td>
+        <button class='btn btn-default'>Download CV</button>
+      </td>
+      <td>12-12-2012</td>
+      <td>
+        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'>Show Detail</button>
+      </td>
+      <td>Accept</td>
+      <td>
+        <button class='btn btn-default' disabled=''>Terima</button>
+        <button class='btn btn-default' disabled=''>Tolak</button>
+      </td>
     </tbody>
 
     </table>
-    
-    <br><br>
+  
+  <br><br>
 </div>
 </div>
-</div>
+    ";
+} ?>
 
  <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">

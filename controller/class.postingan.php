@@ -150,6 +150,34 @@ class postingan
 		return $status;
 	}
 
+	function select_by_pengiklan(){
+		$query = "SELECT * FROM `postingan` WHERE `postingan`.`id_pengiklan` = ?";
+		$param = array($_SESSION['user']['id_pengiklan']);
+		return $this->get_all_rows($query, $param);
+	}
+
+	function get_all_rows($query, $param){
+			try{
+				global $pdo;
+				$req = $pdo->prepare($query);
+				if($param == ''){
+					$req->execute();
+				}else{
+					$req->execute($param);
+				}
+
+				if($req->rowCount() > 0){
+					$result = $req->fetchAll();
+					return $result;
+				}
+
+				
+			}catch(PDOException $e){
+				echo "Error! gagal mengambil data: ".$e->getMessage();
+			}
+	}
+
+
  } 
 
  ?>
