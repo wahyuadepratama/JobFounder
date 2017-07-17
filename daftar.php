@@ -163,12 +163,12 @@
 				if($_POST['opsi1']==1)
 				{
 					$objek = $pengiklan;
-					$lokasi = 'dashboard/pemilik-lowongan/profile.php';
+					// $lokasi = 'dashboard/pemilik-lowongan/profile.php';
 				}
 				elseif ($_POST['opsi1']==2) 
 				{
 					$objek = $pekerja;
-					$lokasi = 'dashboard/pekerja/profile.php';
+					// $lokasi = 'dashboard/pekerja/profile.php';
 				}
 
 				$objek->username = $_POST['username'];
@@ -177,10 +177,12 @@
 				$objek->password = md5($_POST['password']);
 
 				$objek->insert_data();
-				$script->redirect($lokasi);
+
+				// $script->redirect($lokasi);
+				$script->alert_success('Sukses Mendaftar','Silahkan login');
 				
 			} catch (Exception $e) {
-				$script->alert_warning('Gagal Mendaftar','username atau email sudah digunakan');
+				$script->alert_warning('Gagal Mendaftar','Username atau Email sudah digunakan');
 			}
 
 		}

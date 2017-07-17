@@ -3,7 +3,14 @@
 <head>
 
 	<title>Lowongan Kerja | Timeline</title>
-	<?php include 'view/source2.php'; ?>
+	<?php include 'view/source2.php'; 
+	include 'controller/class.postingan.php';
+	include 'controller/koneksi.php';
+
+	$postingan = new postingan();
+	$data = $postingan->select_active();
+
+	?>
 
 </head>
 	
@@ -54,46 +61,25 @@
 			  </ul>
 			</div><br><br>
 
-			<div class="well well-lg" style="text-align: justify;">
-				<div class="row">
-				  <div class="col-xs-6 col-md-3">
-				    <a href="detail.php" class="thumbnail">
-				      <img src="assets/images/here.jpg" alt="...">
+			<?php if(count($data)>0){
+				foreach ($data as $row) {
+					echo "
+			<div class='well well-lg' style='text-align: justify;''>
+				<div class='row'>
+				  <div class='col-xs-6 col-md-3'>
+				    <a href='detail.php' class='thumbnail'>
+				      <img src='".$row['pamflet']."' alt='...'>
 				    </a>
 				  </div>
-				  <h4>Customer Service </h4>
-				  <p>
-		    Sehubungan Dengan Recruitment Calon Pengawai Non PNS RS.AWAL BROS Tahun 2017. Untuk Penempatan Wilayah Kerja Meliputi Diberbagai Propinsi Di Indonesia. <br>
-            Termasuk Pulau Jawa,Pulau Sumatera,Pulau Sulawesi,Pulau Kalimantan,Nusa Tenggara,Maluku dan Papua. <br></p>
-            	<a class="remo" href="detail.php"><b>Read more</b></a>
+				  <h4>".$row['judul']." </h4>
+				  <p>".$row['deskripsi']."<br></p>
+            	<a class='remo' href='detail.php'><b>Read more</b></a>
 
 				</div>
 
-			</div>
-
-			<div class="well well-lg" style="text-align: justify;">
-				<div class="row">
-				  <div class="col-xs-6 col-md-3">
-				    <a href="#" class="thumbnail">
-				      <img src="assets/images/here.jpg" alt="...">
-				    </a>
-				  </div>
-				  <h4>Toko balblababla</h4>
-				  <p>Butuh pekerja 5 orang, syarat : balbalblab a, kontak : balblabla</i>)</p>
-				</div>
-			</div>
-
-			<div class="well well-lg" style="text-align: justify;">
-				<div class="row">
-				  <div class="col-xs-6 col-md-3">
-				    <a href="#" class="thumbnail">
-				      <img src="assets/images/here.jpg" alt="...">
-				    </a>
-				  </div>
-				  <h4>blabla.com</h4>
-				  <p>Bisnis online baru, butuh blablabla , kontak : balblablalb</p>
-				</div>
-			</div>
+			</div>";
+				}
+			} ?>
 
 			<nav>
 			  <ul class="pager">

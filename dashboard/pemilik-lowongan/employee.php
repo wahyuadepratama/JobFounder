@@ -66,8 +66,11 @@
 </div>
 
 <br>
-<?php foreach ($data as $row) {
+<?php 
+if(count($data) > 0){
+  foreach ($data as $row) {
     echo "
+
 <div class='container panel panel-default colaps'>
   <table class='tabpad'>
        <tr>
@@ -131,7 +134,7 @@
 </div>
 </div>
     ";
-} ?>
+}} ?>
 
  <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">

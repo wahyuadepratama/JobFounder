@@ -177,6 +177,11 @@ class postingan
 			}
 	}
 
+	function select_active(){
+		$query = "select * from postingan where datediff(current_date(),postingan.tanggal) < postingan.durasi";
+		return $this->get_all_rows($query, '');
+	}	
+
 
  } 
 
