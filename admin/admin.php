@@ -5,9 +5,9 @@
 	<?php include '../view/source3.php'; ?>
 </head>
 <body style="background-color: #D9D9D9;">
-	<div class="container-fluid bg-admin">
+	<div class="container-fluid bg-admin" style="padding:0px;">
 		<div class="panel panel-default center-block admin-panel">
-		  <div class="panel-heading">
+		  <div class="panel-heading panel-heading-admin">
 			  	<div class="pull-left">
 			  		<img src="../assets/images/logofix.png" width="50" style="padding-top:10px;">
 			  	</div>

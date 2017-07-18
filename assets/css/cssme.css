@@ -59,7 +59,7 @@ p{
 
 /*ADMIN*/
 .admin-panel{
-	width: 400px;
+	max-width: 400px;
 	margin-top: 70px;
 }
 .login-title{
@@ -67,10 +67,10 @@ p{
 	font-weight: bold;
 	font-size: 25px;
 }
-/*.panel-heading.{
+.panel-heading-admin{
 	height: 100px;
 	padding-top:0px;
-}*/
+}
 div.pull-right > p.login-title{
 	width: 300px;
 }
@@ -88,9 +88,12 @@ div.pull-right > p.login-title{
 	height: 70px;
 }
 .bg-admin{
+	padding-left:0px;
+	padding-right: 0px;
 	background-color: #F5F5F5;
 	height: 171px;
 	border-bottom: 1px #DDDDDD solid;
+
 }
 /*DASHBOARD ADMIN*/
 .navbar-default.nav-admin{
