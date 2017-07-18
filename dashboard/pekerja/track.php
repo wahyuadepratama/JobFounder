@@ -1,12 +1,15 @@
 <?php 
   session_start();
   require_once '../../controller/koneksi.php';
-  require_once '../../controller/session.php';
+  require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.pekerja.php';
 
+  $session = new session();
   $pekerja = new pekerja();
   $script = new function_script();
+
+  $session->pekerja();
 
 ?>
 

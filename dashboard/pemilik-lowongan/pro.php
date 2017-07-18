@@ -1,16 +1,33 @@
 <?php  
   session_start();
   require_once '../../controller/koneksi.php';
-  require_once '../../controller/session.php';
+  require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
 
+  $session = new session();
   $postingan = new postingan();
   $pengiklan = new pengiklan();
   $script = new function_script();
 
-  session_cek();
+  $session->pengiklan();
+
+	if(isset($_POST['submit'])){
+		
+	//cek dan update jumlah koin
+		$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
+
+		if($koin<$_POST['durasi']){
+			$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
+		}else{
+			$pengiklan->cek_koin($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
+		// insert ke postingan
+			$postingan->set_all_property('pro',$_POST['durasi']);
+			$postingan->insert_data();	
+			// $script->redirect('lowonganbaru');
+		}
+	}
 
 ?>
 
@@ -151,7 +168,7 @@
 </div>
 
 <!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
+ <?php include '../../view/footer2.php'; ?>
 <!-- //FOOTER -->
 
 <!-- javascript -->
@@ -160,23 +177,3 @@
 
 </body>
 </html>
-
-	<?php
-		if(isset($_POST['submit'])){
-		
-		//cek dan update jumlah koin
-			$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
-
-			if($koin<$_POST['durasi']){
-				$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
-			}else{
-				$pengiklan->set_koin_durasi($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
-
-			// insert ke postingan
-				$postingan->set_all_property('pro',$_POST['durasi']);
-				$postingan->insert_data();	
-				$script->redirect('lowonganbaru.php');
-			}
-
-		}
-	?>

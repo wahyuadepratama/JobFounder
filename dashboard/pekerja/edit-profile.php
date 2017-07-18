@@ -1,17 +1,23 @@
 <?php 
 	session_start();
 	require_once '../../controller/koneksi.php';
-	require_once '../../controller/session.php';
+	require_once '../../controller/class.session.php';
 	require_once '../../controller/class.script.php';
 	require_once '../../controller/class.pekerja.php';
 
+	$session = new session();
 	$pekerja = new pekerja();
 	$script = new function_script();
 
-	session_cek();
+  	$session->pekerja();
 
-	$result = $pekerja->select_profile($_SESSION['user']['id_pekerja']);
+	$result = $pekerja->get_profile_id($_SESSION['user']['id_pekerja']);
 	$pekerja->set_all_property($result['data']);
+
+	if(isset($_POST['save'])){
+		$pekerja->set_profile_post();
+		$script->redirect('profile');
+	}
 
 ?>
 
@@ -127,10 +133,3 @@
 
 </body>
 </html>
-
-	<?php
-		if(isset($_POST['save'])){
-			$pekerja->set_profile_updated();
-			$script->redirect('profile.php');
-		}
-	?>

@@ -54,7 +54,6 @@ class postingan
 
  		$kategori = serialize($_POST['kategori']);
 
- 		$this->id_postingan = $_POST['foto_profile'];
 		$this->id_pengiklan = $_SESSION['user']['id_pengiklan'];
 		$this->judul = $_POST['judul'];
 		$this->deskripsi = $_POST['deskripsi'];

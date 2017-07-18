@@ -22,25 +22,6 @@ class pengiklan
 
  	function __construct(){}
 
- 	function set_all_property($data_array){
- 		$this->id_pengiklan = $data_array['id_pengiklan'];
- 		$this->username = $data_array['username'];
- 		$this->email = $data_array['email'];
- 		$this->no_hp = $data_array['no_hp'];
- 		$this->password = $data_array['password'];
- 		$this->foto_profile = $data_array['foto_profile'];
- 		$this->nama = $data_array['nama'];
- 		$this->sosmed = $data_array['sosmed'];
- 		$this->provinsi = $data_array['provinsi'];
- 		$this->kota = $data_array['kota'];
- 		$this->kecamatan = $data_array['kecamatan'];
- 		$this->alamat = $data_array['alamat'];
- 		$this->lokasi = $data_array['lokasi'];
- 		$this->koin = $data_array['koin'];
- 		$this->tanggal = $data_array['tanggal'];
- 		$this->deskripsi = $data_array['deskripsi'];
- 	}
-
  	function get_data($query, $param){
 			try{
 				global $pdo;
@@ -66,60 +47,44 @@ class pengiklan
 			}
 	}
 
- 	function insert_data(){
+ 	function insert_data_signup(){
  		global $pdo;
  		$query = $pdo->prepare("
- 			INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `koin`, `tanggal`, `deskripsi`) 
- 			VALUES (NULL, ?, ?, ?, ?, '0', CURRENT_TIMESTAMP , NULL)");
-		$query->execute(array($this->username,$this->email,$this->no_hp,$this->password));
+ 			INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `koin`, `tanggal`) 
+ 			VALUES (NULL, ?, ?, ?, ?, '0', CURRENT_TIMESTAMP)");
+		$query->execute(array($_POST['username'],$_POST['email'],$_POST['no_handphone'],md5($_POST['password'])));
  	}
 
- 	function cek_login($data_array){
+  	function cek_login($data_post){
 			$query = "SELECT * FROM pengiklan WHERE username=:lusername AND password=:lpassword";
 			$param = array(
-					':lusername' => strtoupper($data_array['lusername']),
-					':lpassword' => md5($data_array['lpassword'])
+					':lusername' => strtoupper($data_post['lusername']),
+					':lpassword' => md5($data_post['lpassword'])
 				);
 
 			return $this->get_data($query, $param);
 	}
 
- 	function update_data(){
- 		global $pdo;
- 		$query = $pdo->prepare("UPDATE `pengiklan` SET 
- 			`foto_profile` 	= ?,
- 			`nama` 			= ?,
- 			`deskripsi`		= ?,
- 			`sosmed` 		= ?,
- 			`provinsi` 		= ?,
- 			`kota` 			= ?,
- 			`kecamatan` 	= ?,
- 			`alamat` 		= ?,
- 			`lokasi` 		= ?,
- 			`koin` 			= ?
- 			WHERE `pengiklan`.`id_pengiklan` = ?");
-		$query->execute(array(
-			$this->foto_profile,
-			$this->nama,
-			$this->deskripsi,
-			$this->sosmed,
-			$this->provinsi,
-			$this->kota,
-			$this->kecamatan,
-			$this->alamat,
-			$this->lokasi,
-			$this->koin,
-			$this->id_pengiklan
-			));
+ 	function set_all_property($data_array){
+ 		$this->id_pengiklan = $data_array['id_pengiklan'];
+ 		$this->username = $data_array['username'];
+ 		$this->email = $data_array['email'];
+ 		$this->no_hp = $data_array['no_hp'];
+ 		$this->password = $data_array['password'];
+ 		$this->foto_profile = $data_array['foto_profile'];
+ 		$this->nama = $data_array['nama'];
+ 		$this->sosmed = $data_array['sosmed'];
+ 		$this->provinsi = $data_array['provinsi'];
+ 		$this->kota = $data_array['kota'];
+ 		$this->kecamatan = $data_array['kecamatan'];
+ 		$this->alamat = $data_array['alamat'];
+ 		$this->lokasi = $data_array['lokasi'];
+ 		$this->koin = $data_array['koin'];
+ 		$this->tanggal = $data_array['tanggal'];
+ 		$this->deskripsi = $data_array['deskripsi'];
  	}
 
- 	function delete(){
- 		global $pdo;
- 		$query = $pdo->prepare("DELETE FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?");
-		$query->execute(array($this->id_pengiklan));
- 	}
-
- 	function set_profile_updated(){
+ 	function set_profile_post(){
  		$this->foto_profile = $_POST['foto_profile'];
 		$this->nama = $_POST['nama'];
 		$this->deskripsi = $_POST['deskripsi'];
@@ -132,27 +97,69 @@ class pengiklan
 		$this->alamat = $_POST['alamat'];
 		$this->lokasi = $_POST['lokasi'];
 
-		$this->update_data();
+		$this->update_profile_set();
  	}
 
-  	function select_profile($id){
+ 	function update_profile_set(){
+ 		global $pdo;
+ 		$query = $pdo->prepare("UPDATE `pengiklan` SET 
+ 			`foto_profile` 	= ?,
+ 			`nama` 			= ?,
+ 			`deskripsi`		= ?,
+ 			`sosmed` 		= ?,
+ 			`provinsi` 		= ?,
+ 			`kota` 			= ?,
+ 			`kecamatan` 	= ?,
+ 			`alamat` 		= ?,
+ 			`lokasi` 		= ?
+ 			WHERE `pengiklan`.`id_pengiklan` = ?");
+		$query->execute(array(
+			$this->foto_profile,
+			$this->nama,
+			$this->deskripsi,
+			$this->sosmed,
+			$this->provinsi,
+			$this->kota,
+			$this->kecamatan,
+			$this->alamat,
+			$this->lokasi,
+			$this->id_pengiklan
+			));
+ 	}
+
+  	function get_profile_id($id){
 		$query = "SELECT * FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?";
 		$param = array($id);
 		return $this->get_data($query, $param);
 	}
 
-	function set_koin_durasi($durasi,$id){
-		$hasil = $this->select_profile($id);
-		$this->set_all_property($hasil);
-		$this->koin = $this->koin - $durasi;
-
-		$this->update_data();
-	}
-
 	function get_koin($id){
-		$koin = $this->select_profile($id);
+		$koin = $this->get_profile_id($id);
+		$this->koin = $koin['data']['koin'];
 		return $koin['data']['koin'];
 	}
+
+	function cek_koin($durasi,$id){
+		$this->koin = $this->koin - $durasi;
+		$this->update_koin_id($id);
+	}
+
+ 	function update_koin_id($id){
+ 		global $pdo;
+ 		$query = $pdo->prepare("UPDATE `pengiklan` SET 
+ 			`koin` 		= ?
+ 			WHERE `pengiklan`.`id_pengiklan` = ?");
+		$query->execute(array(
+			$this->koin,
+			$id
+			));
+ 	}
+
+ 	function delete_by_id($id){
+ 		global $pdo;
+ 		$query = $pdo->prepare("DELETE FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?");
+		$query->execute(array($id));
+ 	}
 
  }
 

@@ -1,17 +1,25 @@
 <?php  
   session_start();
   require_once '../../controller/koneksi.php';
-  require_once '../../controller/session.php';
+  require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
 
+  $session = new session();
   $pengiklan = new pengiklan();
   $postingan = new postingan();
   $script = new function_script();
 
-  session_cek();
+  $session->pengiklan();
 
+	if(isset($_POST['submit'])){
+			
+		$postingan->set_all_property('free',7);
+		$postingan->insert_data();
+		$script->redirect('lowonganbaru');
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -157,13 +165,3 @@
 
 </body>
 </html>
-
-	<?php
-		if(isset($_POST['submit'])){
-			
-			$postingan->set_all_property('free',7);
-			$postingan->insert_data();
-
-			$script->redirect('lowonganbaru.php');
-		}
-	?>

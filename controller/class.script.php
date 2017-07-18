@@ -38,7 +38,7 @@
 		function redirect($path){
 			echo '
 				<script type="text/javascript">
-					document.location.href="'.$path.'";
+					document.location.href="'.$path.'.php'.'";
 				</script>
 			';
 		}

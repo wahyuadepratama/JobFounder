@@ -47,25 +47,25 @@ class pekerja
 			}
 	}
 
- 	function insert_data(){
+ 	function insert_data_signup(){
  		global $pdo;
  		$query = $pdo->prepare("
  			INSERT INTO `pekerja` (`id_pekerja`, `username`, `email`, `no_hp`, `password`, `tanggal`) 
  			VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP)");
-		$query->execute(array($this->username,$this->email,$this->no_hp,$this->password));
+		$query->execute(array($_POST['username'],$_POST['email'],$_POST['no_handphone'],md5($_POST['password'])));
  	}
 
- 	function cek_login($data_array){
+ 	function cek_login($data_post){
 			$query = "SELECT * FROM pekerja WHERE username=:lusername AND password=:lpassword";
 			$param = array(
-					':lusername' => strtoupper($data_array['lusername']),
-					':lpassword' => md5($data_array['lpassword'])
+					':lusername' => strtoupper($data_post['lusername']),
+					':lpassword' => md5($data_post['lpassword'])
 				);
 
 			return $this->get_data($query, $param);
 	}
 
- 	function update(){
+ 	function update_profile_set(){
  		global $pdo;
  		$query = $pdo->prepare("UPDATE `pekerja` SET 
  			`username` 		= ?, 
@@ -100,10 +100,10 @@ class pekerja
 			));
  	}
 
- 	function delete(){
+ 	function delete_by_id($id){
  		global $pdo;
  		$query = $pdo->prepare("DELETE FROM `pekerja` WHERE `pekerja`.`id_pekerja` = ?");
-		$query->execute(array($this->id_pekerja));
+		$query->execute(array($id));
  		}
 
  	function set_all_property($data_array){
@@ -124,7 +124,7 @@ class pekerja
  		$this->tanggal = $data_array['tanggal'];
  	}
 
- 	function set_profile_updated(){
+ 	function set_profile_post(){
  		$this->foto_profile = $_POST['foto_profile'];
 		$this->nama = $_POST['nama'];
 		$this->email = $_POST['email'];
@@ -136,10 +136,10 @@ class pekerja
 		$this->alamat = $_POST['alamat'];
 		$this->keahlian = $_POST['keahlian'];
 
-		$this->update();
+		$this->update_profile_set();
  	}
 
- 	function select_profile($id){
+ 	function get_profile_id($id){
 			$query = "SELECT * FROM `pekerja` WHERE `pekerja`.`id_pekerja` = ?";
 			$param = array($id);
 			return $this->get_data($query, $param);

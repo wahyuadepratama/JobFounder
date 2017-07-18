@@ -1,18 +1,22 @@
 <?php 
   session_start();
   require_once '../../controller/koneksi.php';
-  require_once '../../controller/session.php';
+  require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.pengiklan.php';
 
+  $session = new session();
   $pengiklan = new pengiklan();
   $script = new function_script();
 
-  session_cek();
-
-  $result = $pengiklan->select_profile($_SESSION['user']['id_pengiklan']);
+  $session->pengiklan();
+  $result = $pengiklan->get_profile_id($_SESSION['user']['id_pengiklan']);
   $pengiklan->set_all_property($result['data']);
 
+	if(isset($_POST['save'])){
+		$pengiklan->set_profile_post();
+		$script->redirect('profile');
+	}
  ?>
 
 <!DOCTYPE html>
@@ -143,10 +147,3 @@
 
 </body>
 </html>
-
-	<?php
-		if(isset($_POST['save'])){
-			$pengiklan->set_profile_updated();
-			$script->redirect('profile.php');
-		}
-	?>

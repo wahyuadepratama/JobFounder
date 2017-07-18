@@ -1,14 +1,16 @@
 <?php 
   session_start();
   require_once '../../controller/koneksi.php';
-  require_once '../../controller/session.php';
+  require_once '../../controller/class.session.php';
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
 
+  $session = new session();
   $pengiklan = new pengiklan();
   $postingan = new postingan();
   $data = $postingan->select_by_pengiklan();
 
+  $session->pengiklan();
 ?>
 
 <!DOCTYPE html>
