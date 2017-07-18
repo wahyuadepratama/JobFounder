@@ -118,7 +118,9 @@
 	</form>
 </div>
 <!-- end profile -->
-
+<!-- FOOTER -->
+<?php include '../../view/footer2.php'; ?>
+<!-- //FOOTER -->
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
 <!-- javascript -->

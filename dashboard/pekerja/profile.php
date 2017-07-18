@@ -114,9 +114,9 @@
 
 </div>
 <!-- end profile -->
-<!-- footer -->
- 
-<!-- //footer -->
+<!-- FOOTER -->
+<?php include '../../view/footer2.php'; ?>
+<!-- //FOOTER -->
 <!-- javascript -->
   <?php include '../../view/script.php'; ?>
 <!-- javascript -->

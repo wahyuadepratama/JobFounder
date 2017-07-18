@@ -44,6 +44,11 @@
     <!-- End modal -->
 	</div>
 	<!-- end main content -->
-	
+  
+	<!-- footer -->
+  <!-- TES DULU :v -->
+  <?php include '../view/footer2.php'; ?>
+<!-- //footer -->
+
 </body>
 </html>

@@ -196,6 +196,11 @@ if(count($data) > 0){
       </div>
     </div>
     <!-- End modal -->
+<br>
+<br>
+<!-- FOOTER -->
+<?php include '../../view/footer2.php'; ?>
+<!-- //FOOTER -->
 
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>

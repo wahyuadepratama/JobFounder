@@ -91,6 +91,11 @@
   <p class="text-center">DISINI TRANSAKSI PEMBAYARAN KOIN JOBUS</p>
   <br>
 </div>
+
+<!-- FOOTER -->
+<?php include '../../view/footer2.php'; ?>
+<!-- //FOOTER -->
+
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
 <!-- javascript -->
