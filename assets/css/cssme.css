@@ -199,15 +199,45 @@ ul{
 	  .katangah{
 		 max-width:150px;
 		 display: block;
-	     margin-right: auto;
+	     margin-right:auto;
 	     margin-left: auto;	 
 	} 
+	h3{
+		text-align: center;
+	}
 }
 /*ini untuk header*/
-@media (min-width:990px){
-	.shy-menu.is-open{ 
+@media (min-width:481px){
+ .shy-menu.is-open{ 
      background-color:rgba(0, 0, 0, .0001);
+     width: 375px;
+	}
 }
+@media (min-width:535px){
+ .shy-menu.is-open{ 
+     background-color:rgba(0, 0, 0, .0001);
+     width: 430px;
+	}
+}
+
+@media (min-width:601px){
+ .shy-menu.is-open{ 
+     background-color:rgba(0, 0, 0, .0001);
+     width: 450px;
+    }
+}
+@media (min-width:668px){
+ .shy-menu.is-open{ 
+     background-color:rgba(0, 0, 0, .0001);
+     width: 550px;
+    }
+}
+@media (min-width:990px){
+ .shy-menu.is-open{ 
+     background-color:rgba(0, 0, 0, .0001);
+     width:964px;
+	}
+
 }
 
 
