@@ -67,13 +67,13 @@
 			<div class='well well-lg' style='text-align: justify;''>
 				<div class='row'>
 				  <div class='col-xs-6 col-md-3'>
-				    <a href='detail.php' class='thumbnail'>
+				    <a href='detail.php?id=".$row['id_postingan']."' class='thumbnail'>
 				      <img src='".$row['pamflet']."' alt='...'>
 				    </a>
 				  </div>
 				  <h4>".$row['judul']." </h4>
 				  <p>".$row['deskripsi']."<br></p>
-            	<a class='remo' href='detail.php'><b>Read more</b></a>
+            	<a class='remo' href='detail.php?id=".$row['id_postingan']."'><b>Read more</b></a>
 
 				</div>
 

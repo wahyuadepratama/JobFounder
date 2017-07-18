@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php 
+	include 'controller/class.postingan.php';
+	include 'controller/class.pengiklan.php';
+	include 'controller/koneksi.php';
+	$id_postingan = $_REQUEST['id'];
+
+	$post = new postingan();
+	$postingan = $post->select_postingan($id_postingan);
+
+	$pengiklan = new pengiklan();
+	$data = $pengiklan->get_profile_id($postingan['data']['id_pengiklan']);
+ ?>
 <html lang="en">
 <head>
 
@@ -27,14 +39,16 @@
 	<div class="col-md-8">
 	<!-- Judul lowongan -->
 		<div>
-			<h2>Customer Service </h2>
-			<span class="pull-right submitted"><i>Submitted at</i> April 2012 </span>
+			<h2><?php echo $postingan['data']['judul']; ?> </h2>
+			<span class="pull-right submitted"><i>Submitted at</i> <?php echo date('d F Y, h:m:s', strtotime($postingan['data']['tanggal'])); ?> </span>
 			<br>
 		</div>
 	<!--End judul  -->
 		<div class="panel panel-default">
 		  <div class="panel-body">
-		    <p>
+		  <p><?php echo $postingan['data']['deskripsi']; ?></p>
+		   
+		    <!-- <p>
 		    Sehubungan Dengan Recruitment Calon Pengawai Non PNS RS.AWAL BROS Tahun 2017. Untuk Penempatan Wilayah Kerja Meliputi Diberbagai Propinsi Di Indonesia. <br>
             Termasuk Pulau Jawa,Pulau Sumatera,Pulau Sulawesi,Pulau Kalimantan,Nusa Tenggara,Maluku dan Papua.</p>
 
@@ -92,7 +106,7 @@ career-awalbros@doctor.com <br>
 
 RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi. 
 Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
-		    </p>
+		    </p> -->
 		    <div class="pull-right">
 		    	<button class="btn btn-primary">Apply</button>
 		    </div>
@@ -106,13 +120,13 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 		  <div class="panel-heading text-center"><h4>Dipost oleh</h4></div>
 		  <div class="panel-body">
 		    <span class="title">Nama Perusahaan</span> <br>
-		      <p> blala </p>
+		      <p> <?php echo $data['data']['nama'] ?> </p>
 		    <span class="title">Tentang  </span><br>
-				<p>blalal </p>
+				<p><?php echo $data['data']['deskripsi'] ?> </p>
 				<span class="title">Alamat</span>	<br>
-				<p>blalal</p>
+				<p><?php echo $data['data']['alamat'] ?></p>
 				<span class="title">Telephone/Fax</span>
-				<p>blala </p>
+				<p><?php echo $data['data']['no_hp'] ?> </p>
 		  </div>
 		</div>
 			<div>

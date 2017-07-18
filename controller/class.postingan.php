@@ -60,10 +60,13 @@ class postingan
 		$this->gaji = $_POST['gaji'];
 		$this->keterangan = $_POST['keterangan'];
 		$this->tipe = $_POST['tipe'];
-		$this->pamflet = $_POST['pamflet'];
 		$this->kategori = $kategori;
 		$this->durasi = $durasi;
 		$this->status = $status;
+
+		if($status=='pro'){
+			$this->pamflet = $_POST['pamflet'];
+		}
  	}
 
  	function update(){

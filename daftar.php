@@ -5,6 +5,11 @@
 	require_once 'controller/class.pengiklan.php';
 	require_once 'controller/class.pekerja.php';
 	require_once 'controller/validator.php';
+	require_once 'controller/class.session.php';
+
+	$session = new session();
+	$session->login();
+
 ?>
 
 <!DOCTYPE html>

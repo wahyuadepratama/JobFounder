@@ -27,6 +27,15 @@ class session{
 			header('location: ../../');
 		}
 	}
+
+	function login(){
+		if(isset($_SESSION['pengiklan'])){
+			header('location: dashboard/pemilik-lowongan/profile.php');
+		}
+		elseif(isset($_SESSION['pekerja'])){
+			header('location: dashboard/pekerja/profile.php');
+		}
+	}
 }
 
  ?>
