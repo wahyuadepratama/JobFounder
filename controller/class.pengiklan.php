@@ -136,10 +136,24 @@ class pengiklan
  	}
 
   	function select_profile($id){
-			$query = "SELECT * FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?";
-			$param = array($id);
-			return $this->get_data($query, $param);
+		$query = "SELECT * FROM `pengiklan` WHERE `pengiklan`.`id_pengiklan` = ?";
+		$param = array($id);
+		return $this->get_data($query, $param);
 	}
+
+	function set_koin_durasi($durasi,$id){
+		$hasil = $this->select_profile($id);
+		$this->set_all_property($hasil);
+		$this->koin = $this->koin - $durasi;
+
+		$this->update_data();
+	}
+
+	function get_koin($id){
+		$koin = $this->select_profile($id);
+		return $koin['data']['koin'];
+	}
+
  }
 
  ?>

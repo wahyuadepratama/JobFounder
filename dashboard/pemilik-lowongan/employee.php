@@ -2,9 +2,11 @@
   session_start();
   require_once '../../controller/koneksi.php';
   require_once '../../controller/session.php';
-  include '../../controller/class.postingan.php';
-  $postingan = new postingan();
+  require_once '../../controller/class.postingan.php';
+  require_once '../../controller/class.pengiklan.php';
 
+  $pengiklan = new pengiklan();
+  $postingan = new postingan();
   $data = $postingan->select_by_pengiklan();
 
 ?>
@@ -37,13 +39,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin">0</a>
+      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

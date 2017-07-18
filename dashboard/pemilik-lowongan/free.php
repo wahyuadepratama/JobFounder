@@ -4,7 +4,9 @@
   require_once '../../controller/session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.postingan.php';
+  require_once '../../controller/class.pengiklan.php';
 
+  $pengiklan = new pengiklan();
   $postingan = new postingan();
   $script = new function_script();
 
@@ -46,7 +48,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin">0</a>
+      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

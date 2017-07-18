@@ -43,3 +43,7 @@
 <!-- //tambahan khusus gallery -->
 <!-- tambahan css dari nabang -->
 <link href="../../assets/css/cssme.css" rel="stylesheet" type="text/css">
+
+<!-- sweet alert -->
+<link href="../../assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+ <!-- //sweet alert -->

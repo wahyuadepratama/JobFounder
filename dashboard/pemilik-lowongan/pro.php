@@ -42,13 +42,7 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin">0</a>
+      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,7 +76,8 @@
 </div>
 <br>
 <div class="container">
-<form>
+
+<form method="post">
 <div class="form-group">
 		  <label for="posisi">Judul Lowongan</label>
 		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga">
@@ -164,19 +159,20 @@
 
 	<?php
 		if(isset($_POST['submit'])){
-			
-			$result = $pengiklan->select_profile($_SESSION['user']['id_pengiklan']);
-			$pengiklan->set_all_property($result['data']);
+		
+		//cek dan update jumlah koin
+			$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
 
-			$postingan->cek_koin_pengiklan($pengiklan,$_POST['durasi']);
+			if($koin<$_POST['durasi']){
+				$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
+			}else{
+				$pengiklan->set_koin_durasi($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
 
-			if($status==true){
+			// insert ke postingan
 				$postingan->set_all_property('pro',$_POST['durasi']);
 				$postingan->insert_data();	
 				$script->redirect('lowonganbaru.php');
-			}else{
-				$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
 			}
-			
+
 		}
 	?>

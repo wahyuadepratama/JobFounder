@@ -116,16 +116,6 @@
 	</script>
 <!-- //here ends scrolling icon -->
 
-<!-- timeline -->
-
-<script type="text/javascript">
-$(".timeline-wrapper .timeline-content-item > span").on("mouseenter mouseleave", function(e){
-  $(".timeline-wrapper .timeline-content-item.active").removeClass("active");
-  $(this).parent().addClass("active");
-});
-</script>
-<!-- //timeline -->
-
 <!-- sweet alert -->
 <script src="assets/js/sweetalert.min.js"></script>
  <!-- //sweet alert -->

@@ -44,6 +44,9 @@
 <!-- tambahan css dari nabang -->
 <link href="../assets/css/cssme.css" rel="stylesheet" type="text/css">
 
+<!-- sweet alert -->
+<link href="../assets/css/sweetalert.css" rel="stylesheet" type="text/css">
+ <!-- //sweet alert -->
 
 <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />

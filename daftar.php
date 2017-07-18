@@ -222,7 +222,6 @@
 				else
 				{					
 					$_SESSION['user'] = $result['data'];
-					$_SESSION['profile_updated'] = $result['data'];
 					$_SESSION['row'] = $result['rows'];
 					$script->redirect($lokasi);
 

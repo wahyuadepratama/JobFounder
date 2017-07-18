@@ -138,18 +138,6 @@ class postingan
 		}
 	}
 
-	function cek_koin_pengiklan($pengiklan,$durasi){
-		if($pengiklan->koin<$durasi){
-			$status = false;
-		}else{
-			$pengiklan->koin = $pengiklan->koin - $durasi;
-			$pengiklan->update_data();
-			$status = true;
-		}
-
-		return $status;
-	}
-
 	function select_by_pengiklan(){
 		$query = "SELECT * FROM `postingan` WHERE `postingan`.`id_pengiklan` = ?";
 		$param = array($_SESSION['user']['id_pengiklan']);
