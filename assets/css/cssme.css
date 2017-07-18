@@ -182,10 +182,26 @@ ul.w3layouts_footer_nav a{
 	padding-bottom: 20px;
 	text-align: center;
 }
+ul{
+	list-style: none;
+}
+.katangah{
+	 max-width:150px;
+	 
+}
+
 @media (max-width: 991px){
 	.navfoot{
 	padding-top: 0px;
 	padding-bottom: 20px;
 	text-align: center;
   }
+	  .katangah{
+		 max-width:150px;
+		 display: block;
+	     margin-right: auto;
+	     margin-left: auto;	 
+	}
 }
+
+
