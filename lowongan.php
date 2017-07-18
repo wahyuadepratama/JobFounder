@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Lowongan Kerja | Timeline</title>
+	<title>JobUs | Lowongan Kerja</title>
 	<?php include 'view/source2.php'; 
 	include 'controller/class.postingan.php';
 	include 'controller/koneksi.php';

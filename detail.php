@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title> JobUs | Detail Lowongan Pekerjaan </title>
+	<title> JobUs | Lowongan Pekerjaan </title>
 	<?php include 'view/source2.php'; ?>
 
 </head>

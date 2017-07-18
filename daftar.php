@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>JobUs | Unit Usaha</title>
+<title>JobUs | Daftar</title>
 
 <?php include 'view/source2.php'; ?>
 <link href="assets/css/style2.css" rel="stylesheet" type="text/css" media="all" />
