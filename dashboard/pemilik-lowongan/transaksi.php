@@ -63,8 +63,8 @@
 		    		<p class="koinp">200</span><img src="../../assets/images/coin.png"></p>
 		    	</div>
 		    	
-		    	<div class="col-sm-6 text-center"><p>
-             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 10,000,-</button></p>
+		    	<div class="col-sm-6 text-center">
+             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 10,000,-</button>
              </div>
 		    </div>
 		   
@@ -75,8 +75,8 @@
 		    		<p class="koinp">1100</span><img src="../../assets/images/coin.png"></p>
 		    	</div>
 		    	
-		    	<div class="col-sm-6 text-center"><p>
-             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 50,000,-</button></p>
+		    	<div class="col-sm-6 text-center">
+             		<button class="btn btn-default buy" data-toggle="collapse" data-target="#satu">Rp 50,000,-</button>
              </div>
 		    </div>
 		  </li>

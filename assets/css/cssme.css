@@ -27,6 +27,13 @@ span.upload{
 	color:white;
 	font-size: 15px;
 }
+table.tabpad{
+  font-size: 18px;
+  margin: 0px;
+}
+.pad-off{
+ padding: 0px;
+}
 /*ABOUT US*/
 .container.kami{
 	padding: 20px;
@@ -151,3 +158,16 @@ div.pull-right > p.login-title{
 	font-size: 20px;
 	color: blue;
 }
+/*FOOTER*/
+.foot{
+	padding-top: 0px;
+	height: 219px;
+}
+.foo{
+	margin-top: 0px;
+	padding: 0px;
+}
+.w3_agile_logo.logo{
+	padding: 30px;
+}
+

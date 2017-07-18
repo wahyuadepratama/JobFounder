@@ -52,55 +52,56 @@
   </center>
   <br>
 
-  <center>
-    <table class="tabpad">
+  <div class="container table-responsive">
+    <table class="table table-striped tabpad">
          <tr>
-             <td class="text-left">Nama</td>
-             <td width="20">:</td>
+             <th class="text-left">Nama</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->nama; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Alamat Email</td>
-             <td>:</td>
+             <th class="text-left">Alamat Email</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->email; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Telepon/Fax</td>
-             <td>:</td>
+             <th class="text-left">Telepon/Fax</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->no_hp; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Sosial Media</td>
-             <td>:</td>
+             <th class="text-left">Sosial Media</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->sosmed; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Provinsi</td>
-             <td>:</td>
+             <th class="text-left">Provinsi</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->provinsi; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Kota</td>
-             <td>:</td>
+             <th class="text-left">Kota</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->kota; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Kecamatan</td>
-             <td>:</td>
+             <th class="text-left">Kecamatan</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->kecamatan; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Alamat</td>
-             <td>:</td>
+             <th class="text-left">Alamat</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->alamat; ?></td>
          </tr>
          <tr>
-             <td class="text-left">Keahlian</td>
-             <td>:</td>
+             <th class="text-left">Keahlian</th>
+             <td></td>
              <td class="text-left"><?php echo $pekerja->keahlian; ?></td>
          </tr>
-    </table><br>
-  </center>
+    </table>
+    <br>
+  </div>
 
 <form method="post">
   <div class="form-group">
@@ -113,7 +114,9 @@
 
 </div>
 <!-- end profile -->
-
+<!-- footer -->
+ 
+<!-- //footer -->
 <!-- javascript -->
   <?php include '../../view/script.php'; ?>
 <!-- javascript -->

@@ -67,60 +67,63 @@
 	</center>
 	<br>
 		
-	<center>
-	  <table class="tabpad">
+	
+	<div class="container pad-off table-responsive">
+	  <table class="table table-striped tabpad">
 	       <tr>
-	           <td class="text-left">Nama Perusahaan / Pemilik Pekerjaan</td>
-	           <td width="20">:</td>
+	           <th class="text-left">Nama Perusahaan / Pemilik Pekerjaan</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->nama; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Deskripsi</td>
-	           <td width="20">:</td>
+	           <th class="text-left">Deskripsi</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->deskripsi; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Alamat Email</td>
-	           <td>:</td>
+	           <th class="text-left">Alamat Email</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->email; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Telepon/Fax</td>
-	           <td>:</td>
+	           <th class="text-left">Telepon/Fax</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->no_hp; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Sosial Media</td>
-	           <td>:</td>
+	           <th class="text-left">Sosial Media</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->sosmed; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Provinsi</td>
-	           <td>:</td>
+	           <th class="text-left">Provinsi</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->provinsi; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Kota</td>
-	           <td>:</td>
+	           <th class="text-left">Kota</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->kota; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Kecamatan</td>
-	           <td>:</td>
+	           <th class="text-left">Kecamatan</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->kecamatan; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</td>
-	           <td>:</td>
+	           <th class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->alamat; ?></td>
 	       </tr>
 	       <tr>
-	           <td class="text-left">Marking Lokasi</td>
-	           <td>:</td>
+	           <th class="text-left">Marking Lokasi</th>
+	           
 	           <td class="text-left"><?php echo $pengiklan->lokasi; ?></td>
 	       </tr>
-	  </table><br>
-	</center>
+	  </table>
+	  <br>
+	  </div>
+	
 
 <form method="post">
 	<div class="form-group">

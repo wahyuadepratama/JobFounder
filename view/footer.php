@@ -4,7 +4,7 @@
 			<div class="w3agile_footer_grids">
 				<div class="col-md-3 agileinfo_footer_grid">
 					<div class="w3_agile_logo">
-						<img src="assets/images/tes.png"><br>
+						<img src="assets/images/logofix.png" width="180"><br>
 					</div>
 				</div>
 				
