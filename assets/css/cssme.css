@@ -201,7 +201,14 @@ ul{
 		 display: block;
 	     margin-right: auto;
 	     margin-left: auto;	 
-	}
+	} 
+}
+
+/*ini untuk header*/
+@media (min-width:990px){
+	.shy-menu.is-open{ 
+     background-color:rgba(0, 0, 0, .0001);
+}
 }
 
 
