@@ -10,11 +10,11 @@
 				
 				<div class="col-md-6 navfoot">
 					<ul class="w3layouts_footer_nav">
-						<a href="home.php">Home</a> |
-						<a href="lowongan.php">Lowongan</a> |
-						<a href="product.php">Product & Jasa</a> |
-						<a href="about.php">Tentang Kami</a> |
-						<a href="question.php">FAQ</a> 					
+						<a href="../../home.php">Home</a> |
+						<a href="../../lowongan.php">Lowongan</a> |
+						<a href="../../product.php">Product & Jasa</a> |
+						<a href="../../about.php">Tentang Kami</a> |
+						<a href="../../question.php">FAQ</a> 					
 					</ul>
 					
 				</div>
