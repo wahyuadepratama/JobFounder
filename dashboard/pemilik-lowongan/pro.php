@@ -53,7 +53,7 @@
 
 <!-- Menu -->
 <br>
-<div class="container content-ku">
+<div class="container">
 <!-- MAKAN BANG -->
 	<nav class="navbar navbar-default transbg">
   <div class="container-fluid">
