@@ -41,7 +41,7 @@
 
 <!-- profile -->
 <br>
-<div class="container">
+<div class="container content-ku">
 	<ul class="nav nav-pills">
 		<li role="presentation"><a href="track.php">Tracking</a></li>
 	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>

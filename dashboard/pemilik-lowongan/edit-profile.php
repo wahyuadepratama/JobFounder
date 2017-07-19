@@ -70,7 +70,7 @@
 </nav>
 </div>
 
-<div class="container">
+<div class="container content-ku">
 <form method="post">
 	<center>
 		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>

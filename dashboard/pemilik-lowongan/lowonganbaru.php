@@ -32,7 +32,7 @@
 
 <!-- Menu -->
 <br>
-<div class="container">
+<div class="container content-ku" >
 <!-- MAKAN BANG -->
 	<nav class="navbar navbar-default transbg">
   <div class="container-fluid">

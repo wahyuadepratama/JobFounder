@@ -47,7 +47,7 @@
 <br>
 <!-- end Menu -->
 <!-- Dashboard -->
-<div class="container">
+<div class="container content-ku">
 	<h4>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan diselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</h4>
 
 	<div class="container table-responsive" >

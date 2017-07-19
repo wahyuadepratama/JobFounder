@@ -46,7 +46,7 @@
   </ul>
 </div>
 
-<div class="container">
+<div class="container content-ku">
 
   <center>
       <img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>

@@ -33,7 +33,7 @@
 <!-- //breadcrumbs -->
 
 <!-- Kontak -->
-<div class="container kami">
+<div class="container kami content-ku">
 <center><h1>Tentang Kami</h1>
 	<div class="row">
 	  <div class="col-md-4">  	
