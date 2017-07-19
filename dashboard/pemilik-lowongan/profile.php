@@ -41,7 +41,7 @@
 
 <!-- profile -->
 <br>
-<div class="container content-ku">
+<div class="container">
 <!-- MAKAN BANG -->
 	<nav class="navbar navbar-default transbg">
   <div class="container-fluid">
@@ -64,7 +64,7 @@
 </nav>
 </div>
 
-<div class="container">
+<div class="container content-ku">
 
 	<center>
 		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
