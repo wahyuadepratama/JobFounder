@@ -13,22 +13,6 @@
 
   $session->pengiklan();
 
-	if(isset($_POST['submit'])){
-		
-	//cek dan update jumlah koin
-		$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
-
-		if($koin<$_POST['durasi']){
-			$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
-		}else{
-			$pengiklan->cek_koin($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
-		// insert ke postingan
-			$postingan->set_all_property('pro',$_POST['durasi']);
-			$postingan->insert_data();	
-			$script->redirect('lowonganbaru');
-		}
-	}
-
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +81,7 @@
 <form method="post">
 <div class="form-group">
 		  <label for="posisi">Judul Lowongan</label>
-		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga">
+		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
@@ -140,7 +124,7 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Gaji</label>
-		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000">
+		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
@@ -156,7 +140,7 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Lama Iklan (1 hari = 1 koin)</label>
-		  <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5">
+		  <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5" required="">
 	</div>
 	<div class="form-group">
 		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
@@ -177,3 +161,24 @@
 
 </body>
 </html>
+
+<?php 
+
+	if(isset($_POST['submit'])){
+		
+	//cek dan update jumlah koin
+		$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
+		echo $koin;
+
+		if($koin < $_POST['durasi']){
+			$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
+		}else{
+			$pengiklan->cek_koin($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
+		// insert ke postingan
+			$postingan->set_all_property('pro',$_POST['durasi']);
+			$postingan->insert_data();	
+			$script->redirect('lowonganbaru');
+		}
+	}
+
+ ?>
