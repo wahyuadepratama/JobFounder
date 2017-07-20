@@ -4,11 +4,6 @@
 	require_once 'controller/class.script.php';
 	require_once 'controller/class.pengiklan.php';
 	require_once 'controller/class.pekerja.php';
-	require_once 'controller/validator.php';
-	require_once 'controller/class.session.php';
-
-	$session = new session();
-	$session->login();
 
 ?>
 
@@ -54,7 +49,7 @@
 		<div class="w3layouts-main" > 
 			<div class="agilesign-form">  
 				<div class="agileits-top">
-					<form action="" method="post">
+					<form action="" method="post" name="frm">
 
 						<div class="styled-input w3ls-text">
 						<input type="text" name="username" required=""/>
@@ -77,7 +72,7 @@
 							<span></span>
 						</div> 
 						<div class="styled-input w3ls-text">
-							<input type="password" name="confirm" required=""> 
+							<input type="password" name="confirm" required="" onchange="cek_pass();"> 
 							<label>Confirm Password</label>
 							<span></span>
 						</div><br>
@@ -98,6 +93,24 @@
 							<input type="submit" value="Sign Up" name="sign"> 
 						</div>	
 					</form>
+
+			<script type="text/javascript">
+
+			    function cek_pass(){
+
+			    p1 = document.frm.password.value;
+			    p2 = document.frm.confirm.value;
+			    document.frm.sign.disabled=true;
+
+			    	if(p1==p2) {
+			        	document.frm.sign.disabled=false;
+				    } else {
+				        swal("Cek Lagi !", "Konfirmasi password harus sama");
+					}
+			    }
+			    
+			</script>
+
 				</div> 
 			</div>	
 		</div>
@@ -146,3 +159,5 @@
 	<!-- javascript -->
 </body>
 </html>
+
+<?php require_once 'controller/validator.php'; ?>

@@ -5,7 +5,7 @@
 	require_once '../../controller/class.script.php';
 	require_once '../../controller/class.pekerja.php';
 
-	$session = new session();
+	$session = new function_session();
 	$pekerja = new pekerja();
 	$script = new function_script();
 
@@ -41,7 +41,7 @@
 
 <!-- profile -->
 <br>
-<div class="container content-ku">
+<div class="container">
 	<ul class="nav nav-pills">
 		<li role="presentation"><a href="track.php">Tracking</a></li>
 	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>

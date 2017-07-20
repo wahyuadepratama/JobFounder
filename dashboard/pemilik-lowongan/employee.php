@@ -5,7 +5,7 @@
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
 
-  $session = new session();
+  $session = new function_session();
   $pengiklan = new pengiklan();
   $postingan = new postingan();
   $data = $postingan->select_by_pengiklan();

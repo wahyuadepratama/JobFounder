@@ -136,7 +136,7 @@ class pengiklan
 	function get_koin($id){
 		$koin = $this->get_profile_id($id);
 		$this->koin = $koin['data']['koin'];
-		return $koin['data']['koin'];
+		return $this->koin;
 	}
 
 	function cek_koin($durasi,$id){

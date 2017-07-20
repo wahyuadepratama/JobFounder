@@ -5,7 +5,7 @@
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.pekerja.php';
 
-  $session = new session();
+  $session = new function_session();
   $pekerja = new pekerja();
   $script = new function_script();
 

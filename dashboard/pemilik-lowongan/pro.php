@@ -6,7 +6,7 @@
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
 
-  $session = new session();
+  $session = new function_session();
   $postingan = new postingan();
   $pengiklan = new pengiklan();
   $script = new function_script();
@@ -25,7 +25,7 @@
 		// insert ke postingan
 			$postingan->set_all_property('pro',$_POST['durasi']);
 			$postingan->insert_data();	
-			// $script->redirect('lowonganbaru');
+			$script->redirect('lowonganbaru');
 		}
 	}
 

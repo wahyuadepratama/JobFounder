@@ -4,7 +4,7 @@
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.pengiklan.php';
 
-  $session = new session();
+  $session = new function_session();
   $pengiklan = new pengiklan();
 
   $session->pengiklan();

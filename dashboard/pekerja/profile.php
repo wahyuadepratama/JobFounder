@@ -5,7 +5,7 @@
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.pekerja.php';
 
-  $session = new session();
+  $session = new function_session();
   $pekerja = new pekerja();
   $script = new function_script();
 
@@ -107,7 +107,7 @@
 <form method="post">
   <div class="form-group">
     <center>
-      <button type="submit" class="btn btn-default"><a href="edit-profile.php">Edit</a></button>
+      <button type="submit" class="btn btn-default" name="edit">Edit</button>
       <button class="btn btn-danger btn-sm" name="logout">Logout</button>
     </center>
   </div>

@@ -1,6 +1,6 @@
 <?php 
 
-class session{
+class function_session{
 
 	function pengiklan(){
 
@@ -28,14 +28,6 @@ class session{
 		}
 	}
 
-	function login(){
-		if(isset($_SESSION['pengiklan'])){
-			header('location: dashboard/pemilik-lowongan/profile.php');
-		}
-		elseif(isset($_SESSION['pekerja'])){
-			header('location: dashboard/pekerja/profile.php');
-		}
-	}
 }
 
  ?>
