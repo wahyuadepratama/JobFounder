@@ -136,7 +136,7 @@ class postingan
 		$hasil = unserialize($result['data']['kategori']);
 
 		foreach ($hasil as $key) {
-			echo $key.'<br>';
+			echo '<li>'.$key.'</li>';
 		}
 	}
 
@@ -171,6 +171,12 @@ class postingan
 		$query = "select * from postingan where datediff(current_date(),postingan.tanggal) < postingan.durasi";
 		return $this->get_all_rows($query, '');
 	}	
+
+	function select_tipe_active($tipe){
+		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(current_date(),postingan.tanggal) < postingan.durasi";
+		$param = array($tipe);
+		return $this->get_all_rows($query, $param);
+	}
 
 
  } 

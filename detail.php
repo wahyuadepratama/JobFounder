@@ -53,12 +53,17 @@
             Termasuk Pulau Jawa,Pulau Sumatera,Pulau Sulawesi,Pulau Kalimantan,Nusa Tenggara,Maluku dan Papua.</p>
 
 <p>Lowongan Kerja RS.AWAL BROS 2017 
-Menerima Karyawan Baru Pria dan Wanita.</p>
+Menerima Karyawan Baru Pria dan Wanita.</p> -->
 
 <p>
+
+
 Posisi yang dibutuhkan :<br>
 <ol type="A" style="margin-bottom:0px;">
-<li> Tenaga Medis </li>
+	<ol>
+		<?php $post->select_all_kategori($id_postingan); ?>		
+	</ol>
+<!-- <li> Tenaga Medis </li>
    <ol>
 		<li>Radiografer </li>
 		<li>Perawat </li>
@@ -89,7 +94,7 @@ Posisi yang dibutuhkan :<br>
 <li>Lulusan SMA/SMK/D1/ D2 / D3 / S1 / S2 </li>
 <li>Sehat Jasmani Rohani </li>
 <li>Bisa bekerja dengan TIM/KELOMPOK </li>
-<li>Bersedia ditempatkan di Seluruh wilayah Nusantara </li> 
+<li>Bersedia ditempatkan di Seluruh wilayah Nusantara </li>  -->
 </ol>
 
 <p>Persyaratan Berkas / Dokumen :<br>
@@ -106,7 +111,7 @@ career-awalbros@doctor.com <br>
 
 RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi. 
 Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
-		    </p> -->
+		    </p>
 		    <div class="pull-right">
 		    	<button class="btn btn-primary">Apply</button>
 		    </div>

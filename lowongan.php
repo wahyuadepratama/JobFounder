@@ -8,8 +8,18 @@
 	include 'controller/koneksi.php';
 
 	$postingan = new postingan();
-	$data = $postingan->select_active();
+	
 
+
+	if(isset($_REQUEST['tipe'])){
+		if($_REQUEST['tipe']=='tetap'){
+			$data = $postingan->select_tipe_active('Karyawan');	
+		}elseif($_REQUEST['tipe']=='paruh_waktu'){
+			$data = $postingan->select_tipe_active('kontrak');
+		}
+	}else{
+		$data = $postingan->select_active();
+	}
 	?>
 
 </head>
@@ -55,9 +65,10 @@
 			    Kategori
 			    <span class="caret"></span>
 			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kerja Tetap</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kerja Paruh Waktu</a></li>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" name="kategori">
+			  	<li role="presentation"><a role="menuitem" tabindex="-1" href="?">Semua</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=tetap">Kerja Tetap</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=paruh_waktu">Kerja Paruh Waktu</a></li>
 			  </ul>
 			</div><br><br>
 
