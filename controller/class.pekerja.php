@@ -144,6 +144,40 @@ class pekerja
 			$param = array($id);
 			return $this->get_data($query, $param);
 	}
+
+	function get_all_rows($query, $param){
+			try{
+				global $pdo;
+				$req = $pdo->prepare($query);
+				if($param == ''){
+					$req->execute();
+				}else{
+					$req->execute($param);
+				}
+
+				if($req->rowCount() > 0){
+					$result = $req->fetchAll();
+					return $result;
+				}
+
+				
+			}catch(PDOException $e){
+				echo "Error! gagal mengambil data: ".$e->getMessage();
+			}
+	}
+
+	function get_daerah(){
+			$a = $this->provinsi.'.00.00.0000';
+			$b = $this->provinsi.'.'.$this->kota.'.00.0000';
+			$c = $this->provinsi.'.'.$this->kota.'.'.$this->kecamatan.'.0000';
+
+			$query = "select lokasi_nama from inf_lokasi where lokasi_kode='".$a."' or lokasi_kode= '".$b."' or lokasi_kode= '".$c."'";
+			$result = $this->get_all_rows($query,'');
+
+			return $result;
+	}
+
  } 
+
 
  ?>

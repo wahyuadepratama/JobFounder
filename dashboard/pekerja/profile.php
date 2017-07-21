@@ -14,6 +14,8 @@
   $result = $pekerja->get_profile_id($_SESSION['user']['id_pekerja']);
   $pekerja->set_all_property($result['data']);
 
+  $daerah=$pekerja->get_daerah();
+
 ?>
 
 <!DOCTYPE html>
@@ -83,17 +85,17 @@
          <tr>
              <th class="text-left">Kota</th>
              <td></td>
-             <td class="text-left"><?php echo $pekerja->kota; ?></td>
+             <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Kecamatan</th>
              <td></td>
-             <td class="text-left"><?php echo $pekerja->kecamatan; ?></td>
+             <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Alamat</th>
              <td></td>
-             <td class="text-left"><?php echo $pekerja->alamat; ?></td>
+             <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Keahlian</th>

@@ -103,22 +103,19 @@
 	<div class="form-group">
 		  <label for="prov">Provinsi</label>
 		  <select class="form-control" id="sel2" name="provinsi">
-		    <option value="Sumatera Barat">Sumatera Barat</option>
-		    <option value="Riau">Riau</option>
+		  <option >Pilih</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="kota">Kota</label>
 		  <select class="form-control" id="sel2" name="kota">
-		    <option value="Padang">Padang</option>
-		    <option value="Payakumbuh">Payakumbuh</option>
+		    <option >Pilih</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="kec">Kecamatan</label>
 		  <select class="form-control" id="sel2" name="kecamatan">
-		    <option value="Padang Utara">Padang Utara</option>
-		    <option value="Padang Selatan">Padang Selatan</option>
+		    <option >Pilih</option>
 		  </select>
 	</div>
 	<div class="form-group">
@@ -146,4 +143,5 @@
 
 
 </body>
+<script type="text/javascript" src="../../assets/js/lokasi.js"></script>
 </html>

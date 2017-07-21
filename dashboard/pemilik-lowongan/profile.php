@@ -12,6 +12,7 @@
   $session->pengiklan();
   $result = $pengiklan->get_profile_id($_SESSION['user']['id_pengiklan']);
   $pengiklan->set_all_property($result['data']);
+  $daerah=$pengiklan->get_daerah();
 
   	if(isset($_POST['save'])){
 		$pengiklan->set_profile_post();
@@ -108,17 +109,17 @@
 	       <tr>
 	           <th class="text-left">Provinsi</th>
 	           
-	           <td class="text-left"><?php echo $pengiklan->provinsi; ?></td>
+	           <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
 	       </tr>
 	       <tr>
 	           <th class="text-left">Kota</th>
 	           
-	           <td class="text-left"><?php echo $pengiklan->kota; ?></td>
+	           <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
 	       </tr>
 	       <tr>
 	           <th class="text-left">Kecamatan</th>
 	           
-	           <td class="text-left"><?php echo $pengiklan->kecamatan; ?></td>
+	           <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
 	       </tr>
 	       <tr>
 	           <th class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</th>
