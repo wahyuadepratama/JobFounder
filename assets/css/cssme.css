@@ -29,7 +29,9 @@ span.upload{
 }
 table.tabpad{
   font-size: 18px;
-  margin: 0px;
+}
+td{
+	word-wrap: break-word;
 }
 .pad-off{
  padding: 0px;
@@ -257,10 +259,82 @@ h3.katangah{
 
 @media (max-width: 320px){
 
-table.table.table-striped {
-    display: block;
+	table.table.table-striped {
+	    display: block;
+	}
+	table.tabpad{
+	  font-size: 0.05em;
+	  margin: 0px;
+
+	}
 }
-}
+/*@media (min-width: 320px){
+
+	
+}*/
+
 div.container.table-responsive{
 	padding-left: 0px;
+}
+
+@media (max-width: 414px){
+	table.tabpad{
+	  font-size: 15px;
+	  margin: 0px;
+
+	}
+}
+
+@media (max-width:413px){
+	table.tabpad{
+	  font-size: 0.64em;
+	  margin: 0px;
+
+	}
+}
+@media (max-width: 472px){
+	table.tabpad{
+	  font-size: 1.05em;
+	  margin: 0px;
+
+	}
+}
+@media (max-width: 440px){
+	table.tabpad{
+	  font-size: 1em;
+	  margin: 0px;
+
+	}
+}
+@media (max-width: 424px){
+	table.tabpad{
+	  font-size: 0.8em;
+	  margin: 0px;
+
+	}
+}
+@media (max-width: 364px){
+	
+	table.tabpad{
+	  font-size: 0.78em;
+	  margin: 0px;
+
+	}
+
+}
+@media (max-width: 355px){
+	
+	table.tabpad{
+	  font-size: 0.7em;
+	  margin: 0px;
+	  width: 
+	}
+
+}
+.container.table-responsive{
+	border:none;
+}
+
+.table-responsive > .table > thead > tr > th, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > td{
+	white-space: pre-wrap;
 }
