@@ -18,7 +18,10 @@
 									<li class="active"><a href="home.php">Home</a></li>
 									<li><a href="lowongan.php">Lowongan</a></li> 
 									<li><a href="daftar.php">Daftar</a></li>
-									<li><a href="about.php">About Us</a></li> 
+									<li><a href="about.php" style="
+    padding-right: 0px;
+    padding-left: 0px;
+">About Us</a></li> 
 								</ul>
 							</nav>
 						</div>
