@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php  
   session_start();
   require_once '../../controller/koneksi.php';
@@ -15,7 +16,6 @@
 
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -153,9 +153,67 @@
 		    <input type="file" id="pamflet" name="pamflet">
 		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
 	</div>
+	<div class="form-group">
+		<input type="hidden" id="lat" name="lat" value="">
+		<input type="hidden" id="lang" name="lang" value="">
+	</div>
 	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
 </form>
 </div>
+
+<div id="map" class="form-group"></div>
+  
+    <script>
+
+      	function initMap() {
+	        var map = new google.maps.Map(document.getElementById('map'), {
+	          center: {lat: -34.397, lng: 150.644},
+	          zoom: 14
+	        });  
+	 		var contentString = "<b>Ini akan menjadi lokasi pekerjaan yang kamu posting";
+	 		var infowindow = new google.maps.InfoWindow({
+			    content: contentString
+			  });
+
+	        // Try HTML5 geolocation.
+	        if (navigator.geolocation) {
+		          navigator.geolocation.getCurrentPosition(function(position) {
+		            var pos = {
+		              lat: position.coords.latitude,
+		              lng: position.coords.longitude
+		            };
+
+		            map.setCenter(pos);
+
+		                var marker = new google.maps.Marker({
+				          position: pos,
+				          map: map,
+					    });
+					    marker.addListener('click', function() {
+					      infowindow.open(map, marker);					      
+						});
+						document.form1.lat.value = pos.lat;
+						document.form1.lang.value = pos.lng;
+		          }, function() {
+		            handleLocationError(true, infowindow, map.getCenter());
+		          });
+	        } else {
+		          // Browser doesn't support Geolocation
+		          handleLocationError(false, infowindow, map.getCenter());
+	        }
+      	}
+
+      	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        	infowindow.setPosition(pos);
+        	infowindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      	}
+
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+</script>
 
 <!-- FOOTER -->
  <?php include '../../view/footer2.php'; ?>
@@ -181,7 +239,7 @@
 		}else{
 			$pengiklan->cek_koin($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
 		// insert ke postingan
-			$postingan->set_all_property('pro',$_POST['durasi']);
+			$postingan->set_all_property('pro',$_POST['durasi'],'belum');
 			$postingan->insert_data();	
 			$script->redirect('lowonganbaru');
 		}
