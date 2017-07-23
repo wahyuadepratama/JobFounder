@@ -152,8 +152,8 @@
 		  </select>
 	</div>
 	<div class="form-group">
-		<input type="text" id="lat" name="lat" value="">
-		<input type="text" id="lang" name="lang" value="">
+		<input type="hidden" id="lat" name="lat" value="">
+		<input type="hidden" id="lang" name="lang" value="">
 	</div>
 	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
 </form>
