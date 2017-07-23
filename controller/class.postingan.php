@@ -18,6 +18,7 @@ class postingan
  	public $lat;
  	public $lang;
  	public $approved;
+ 	public $tgl_approved;
 
  	function __construct(){}
 
@@ -160,16 +161,32 @@ class postingan
 	}
 
 	function select_active(){
-		$query = "select * from postingan where datediff(current_date(),postingan.tanggal) < postingan.durasi";
+		$query = "select * from postingan where datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
 		return $this->get_all_rows($query, '');
 	}	
 
 	function select_tipe_active($tipe){
-		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(current_date(),postingan.tanggal) < postingan.durasi";
+		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
 		$param = array($tipe);
 		return $this->get_all_rows($query, $param);
 	}
 
+	function select_all_postingan(){
+		$query = "select * from postingan";
+		return $this->get_all_rows($query, '');
+	}
+
+ 	function delete_by_id($id){
+ 		global $pdo;
+ 		$query = $pdo->prepare("DELETE FROM `postingan` WHERE `postingan`.`id_postingan` = ?");
+		$query->execute(array($id));
+ 	}
+
+ 	function approve($id){
+ 		global $pdo;
+ 		$query = $pdo->prepare("UPDATE `postingan` SET `approved` = 'sudah', `tgl_approved` = current_date() WHERE `postingan`.`id_postingan` = ?;");
+		$query->execute(array($id));	
+ 	}
 
  } 
 

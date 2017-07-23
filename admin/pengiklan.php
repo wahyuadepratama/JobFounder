@@ -1,18 +1,18 @@
 <!DOCTYPE html>
+<?php session_start();
+	include '../view/source3.php';
+	include '../controller/koneksi.php';
+	include '../controller/class.pengiklan.php';
+	include '../controller/class.script.php';
+
+	$pengiklan = new pengiklan();
+	$script = new function_script();
+
+	$data = $pengiklan->get_all_profile();
+?>
 <html>
 <head>
 	<title></title>
-	<?php 
-		include '../view/source3.php'; 
-		include '../controller/koneksi.php';
-		include '../controller/class.pengiklan.php';
-		include '../controller/class.script.php';
-
-		$pengiklan = new pengiklan();
-		$script = new function_script();
-
-		$data = $pengiklan->get_all_profile();
-	?>
 </head>
 <body>
  <?php include('../view/navbar.php'); ?>
