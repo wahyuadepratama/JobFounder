@@ -177,6 +177,11 @@ class pekerja
 			return $result;
 	}
 
+	function get_all_profile(){
+			$query = "SELECT * FROM `pekerja`";
+			return $this->get_all_rows($query, '');
+	}
+
  } 
 
 

@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+	// NB:SWEETALERT BELUM TERPASANG 
+	session_start();
+	include '../controller/class.admin.php';
+	include '../controller/class.script.php';
+	include '../controller/koneksi.php';	
+	
+
+ ?>
 <html>
 <head>
 	<title>Control Panel Admin</title>
@@ -15,17 +24,17 @@
 			  		<p class="login-title">Control Panel Admin</p>
 			  	</div>
 		  </div>
-		  <form>
+		  <form method="post">
 		  <div class="panel-body">
 		    	<div class="form-group">
 		    	  <p class="text-center"><i>Masukkan username dan password Admin</i></p>
-				  <input type="text" class="form-control inputtext center-block" name="username" placeholder="Username">
-				  <input type="password" class="form-control inputtext center-block" name="pass" placeholder="Password">
+				  <input type="text" class="form-control inputtext center-block" name="lusername" placeholder="Username">
+				  <input type="password" class="form-control inputtext center-block" name="lpassword" placeholder="Password">
 				</div>
 				
 		  </div>
 		  <div class="panel-footer admin-foot">
-		  <button class="btn btn-primary center-block admin-btn">Login</button> 
+		  <button class="btn btn-primary center-block admin-btn" name="login">Login</button> 
 		  </div>
 		</div>
 		</form>
@@ -33,4 +42,7 @@
 
 	
 </body>
+<?php 
+	include '../controller/validator.php';
+ ?>
 </html>

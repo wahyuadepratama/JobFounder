@@ -1,8 +1,33 @@
 <?php 
-
-	$pengiklan = new pengiklan();
-	$pekerja = new pekerja();
+	$path = explode("/", "$_SERVER[REQUEST_URI]");
+	$file = $path[count($path)-1];
 	$script = new function_script();
+
+	if($file=='daftar.php'){
+		$pengiklan = new pengiklan();
+		$pekerja = new pekerja();	
+
+		// if(isset($_SESSION['pengiklan'])){
+		// 	$script->redirect('dashboard/pemilik-lowongan/profile');
+		// }elseif(isset($_SESSION['pekerja'])){
+		// 	$script->redirect('dashboard/pekerja/profile');
+		// }elseif(isset($_SESSION['admin'])){
+		// 	$script->redirect('admin/dashboard');
+		// }
+
+	}elseif($file=='admin.php'){
+		$admin = new admin();
+
+		// if(isset($_SESSION['pengiklan'])){
+		// 	$script->redirect('../dashboard/pemilik-lowongan/profile');
+		// }elseif(isset($_SESSION['pekerja'])){
+		// 	$script->redirect('../dashboard/pekerja/profile');
+		// }elseif(isset($_SESSION['admin'])){
+		// 	$script->redirect('dashboard');
+		// }
+	}	
+	
+	
 
 // SIGNUP
 
@@ -34,29 +59,35 @@
 // LOGIN
 
 	if(isset($_POST['login'])) {
-		if($_POST['opsi2']==0) {
+		if($file == 'daftar.php'){
+			if($_POST['opsi2']==0) {
 			$script->alert_warning('Gagal Login','Anda tidak mengisi pilihan dengan benar!');
+			}
+			else {
+				//cek opsi yang dipilih apakah pengiklan atau pekerja
+				if($_POST['opsi2']==1) {
+					$result = $pengiklan->cek_login($_POST);
+					$_SESSION['pengiklan'] = $result['status'];
+					$lokasi = 'dashboard/pemilik-lowongan/profile';
+				}
+				elseif ($_POST['opsi2']==2) {
+					$result = $pekerja->cek_login($_POST);
+					$_SESSION['pekerja'] = $result['status'];
+					$lokasi = 'dashboard/pekerja/profile';
+				}
+			} 	
+		}elseif($file == 'admin.php'){
+			$result = $admin->cek_login($_POST);
+			$_SESSION['admin'] = $result['status'];
+			$lokasi = 'dashboard';
 		}
-		else {
-		//cek opsi yang dipilih apakah pengiklan atau pekerja
-			if($_POST['opsi2']==1) {
-				$result = $pengiklan->cek_login($_POST);
-				$_SESSION['pengiklan'] = $result['status'];
-				$lokasi = 'dashboard/pemilik-lowongan/profile';
-			}
-			elseif ($_POST['opsi2']==2) {
-				$result = $pekerja->cek_login($_POST);
-				$_SESSION['pekerja'] = $result['status'];
-				$lokasi = 'dashboard/pekerja/profile';
-			}
-			//cek status apakah true atau false
-				if(!$result['status']) { 
-					$script->alert_warning('Gagal Login','Username atau Password Anda Salah'); 
-				}
-				else {					
-					$_SESSION['user'] = $result['data'];
-					$script->redirect($lokasi);
-				}
+		
+		if(!$result['status']) { 
+			$script->alert_warning('Gagal Login','Username atau Password Anda Salah'); 
+		}
+		else {					
+			$_SESSION['user'] = $result['data'];
+			$script->redirect($lokasi);
 		}
 	}
 
