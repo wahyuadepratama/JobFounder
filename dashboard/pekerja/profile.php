@@ -80,22 +80,22 @@
          <tr>
              <th class="text-left">Provinsi</th>
              <td></td>
-             <td class="text-left"><?php echo $pekerja->provinsi; ?></td>
+             <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Kota</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Kecamatan</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
          </tr>
          <tr>
              <th class="text-left">Alamat</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php echo $pekerja->provinsi; ?></td>
          </tr>
          <tr>
              <th class="text-left">Keahlian</th>
@@ -109,7 +109,7 @@
 <form method="post">
   <div class="form-group">
     <center>
-      <button type="submit" class="btn btn-default" name="edit">Edit</button>
+      <button type="submit" class="btn btn-default" name="edit"><a href="edit-profile.php">Edit</a></button>
       <button class="btn btn-danger btn-sm" name="logout">Logout</button>
     </center>
   </div>

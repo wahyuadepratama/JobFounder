@@ -155,117 +155,165 @@
 </form>
 </div>
 
+<!-- <div id="map"></div>
 
-<!-- 	<center>
-	<p id="tampilkan"></p>
-	<p>Cek lokasi anda! >> <button onclick="getLocation()">Cek</button></p>
-	 
-	<div id="mapcanvas"></div>
-	</center>
-	<script src="http://maps.google.com/maps/api/js"></script>
-	 
-	<script>
-	var view = document.getElementById("tampilkan");
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition, showError);
-	    } else {
-	        view.innerHTML = "Yah browsernya ngga support Geolocation bro!";
-	    }
-	}
-	 
-	function showPosition(position) {
-	    lat = position.coords.latitude;
-	    lon = position.coords.longitude;
-	    latlon = new google.maps.LatLng(lat, lon)
-	    mapcanvas = document.getElementById('mapcanvas')
-	    mapcanvas.style.height = '500px';
-	    mapcanvas.style.width = '500px';
-	 
-	    var myOptions = {
-	    center:latlon,
-	    zoom:14,
-	    mapTypeId:google.maps.MapTypeId.ROADMAP
-	    }
-	     
-	    var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-	    var marker = new google.maps.Marker({
-	        position:latlon,
-	        map:map,
-	        title:"You are here!"
-	    });
-	}
-	 
-	function showError(error) {
-	    switch(error.code) {
-	        case error.PERMISSION_DENIED:
-	            view.innerHTML = "Yah, mau deteksi lokasi tapi ga boleh :("
-	            break;
-	        case error.POSITION_UNAVAILABLE:
-	            view.innerHTML = "Yah, Info lokasimu nggak bisa ditemukan nih"
-	            break;
-	        case error.TIMEOUT:
-	            view.innerHTML = "Requestnya timeout bro"
-	            break;
-	        case error.UNKNOWN_ERROR:
-	            view.innerHTML = "An unknown error occurred."
-	            break;
-	    }
-	 }
-	</script> -->
+  <table>
+  <form  action=''>
+  <tr><td>Nama Lokasi:</td>
+    <td><input type="text" name='nama_lokasi' id='nama_lokasi'></td></tr>
+  <tr><td>Latitude</td> 
+   <td> <input type="text" name='latitude' id='latitude'></td></tr>
+ <tr> <td>Longitude</td>
+      <td><input type="text" name='longitude' id='longitude'></td></tr>
+  </form>
+  </table>
+
+
+<script type="text/javascript">
+    //* Fungsi untuk mendapatkan nilai latitude longitude
+function updateMarkerPosition(latLng) {
+  document.getElementById('latitude').value = [latLng.lat()]
+    document.getElementById('longitude').value = [latLng.lng()]
+}
+
+var map = new google.maps.Map(document.getElementById('map'), {
+zoom: 12,
+center: new google.maps.LatLng(-7.781921,110.364678),
+ mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+//posisi awal marker   
+// var latLng = new google.maps.LatLng(-7.781921,110.364678);
+ 
+/* buat marker yang bisa di drag lalu 
+  panggil fungsi updateMarkerPosition(latLng)
+ dan letakan posisi terakhir di id=latitude dan id=longitude
+ */
+var marker = new google.maps.Marker({
+    // position : latLng,
+    title : 'lokasi',
+    map : map,
+    draggable : true
+  });
+	        // Try HTML5 geolocation.
+	        if (navigator.geolocation) {
+		          navigator.geolocation.getCurrentPosition(function(position) {
+		            var pos = {
+		              lat: position.coords.latitude,
+		              lng: position.coords.longitude
+		            };
+		            marker.setPosition(pos);
+		            marker.setContent('Location found.');
+		            map.setCenter(pos);
+		          }, function() {
+		            handleLocationError(true, marker, map.getCenter());
+		          });
+	        } else {
+		          // Browser doesn't support Geolocation
+		          handleLocationError(false, marker, map.getCenter());
+	        }
+
+updateMarkerPosition(latLng);
+google.maps.event.addListener(marker, 'drag', function() {
+ // ketika marker di drag, otomatis nilai latitude dan longitude
+ //menyesuaikan dengan posisi marker 
+    updateMarkerPosition(marker.getPosition());
+  });
+</script>
+    <script async defer
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+    </script> -->
+
 
 <div id="map"></div>
+  
+  <table>
+  <form  action=''>
+  <tr><td>Nama Lokasi:</td>
+    <td><input type="text" name='nama_lokasi' id='nama_lokasi'></td></tr>
+  <tr><td>Latitude</td> 
+   <td> <input type="text" name='latitude' id='latitude'></td></tr>
+ <tr> <td>Longitude</td>
+      <td><input type="text" name='longitude' id='longitude'></td></tr>
+  </form>
+  </table>
+    
+
     <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
 
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        var infoWindow = new google.maps.InfoWindow({map: map});
+	        var map = new google.maps.Map(document.getElementById('map'), {
+	          center: {lat: -34.397, lng: 150.644},
+	          zoom: 14
+	        });  
+	 		var contentString = "<b>Ini akan menjadi lokasi pekerjaan yang kamu posting";
+	 		var infowindow = new google.maps.InfoWindow({
+			    content: contentString
+			  });
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+		        function updateMarkerPosition(latLng) {
+					document.getElementById('latitude').value = [latLng.lat()]
+			    	document.getElementById('longitude').value = [latLng.lng()]
+				}
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
+	        // Try HTML5 geolocation.
+	        if (navigator.geolocation) {
+		          navigator.geolocation.getCurrentPosition(function(position) {
+		            var pos = {
+		              lat: position.coords.latitude,
+		              lng: position.coords.longitude
+		            };
+
+		            map.setCenter(pos);
+
+		                var marker = new google.maps.Marker({
+				          position: pos,
+				          map: map,
+					    });
+					    marker.addListener('click', function() {
+					      infowindow.open(map, marker);
+						});
+		          }, function() {
+		            handleLocationError(true, infowindow, map.getCenter());
+		          });
+	        } else {
+		          // Browser doesn't support Geolocation
+		          handleLocationError(false, infowindow, map.getCenter());
+	        }
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
+        infowindow.setPosition(pos);
+        infowindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
     </script>
 
-
+<!-- 	<script>
+      function initMap() {
+        var uluru = {lat: -34.397, lng: 150.644};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script> -->
+<!--     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+    </script> -->
 
 
 
 
 <!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
+	<?php include '../../view/footer2.php'; ?>
 <!-- //FOOTER -->
  
 <!-- javascript -->

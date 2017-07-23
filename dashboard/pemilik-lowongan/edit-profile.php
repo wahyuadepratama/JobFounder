@@ -103,19 +103,19 @@
 	<div class="form-group">
 		  <label for="prov">Provinsi</label>
 		  <select class="form-control" id="sel2" name="provinsi">
-		  <option >Pilih</option>
+		  <option >No Selected</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="kota">Kota</label>
 		  <select class="form-control" id="sel2" name="kota">
-		    <option >Pilih</option>
+		    <option >No Selected</option>
 		  </select>
 	</div>
 	<div class="form-group">
 		  <label for="kec">Kecamatan</label>
 		  <select class="form-control" id="sel2" name="kecamatan">
-		    <option >Pilih</option>
+		    <option >No Selected</option>
 		  </select>
 	</div>
 	<div class="form-group">
@@ -130,7 +130,6 @@
 	<div class="form-group">
 	<center>
 		<button class="btn btn-default" name="save">Save</button>
-		<button class="btn btn-danger btn-sm" name="logout">Logout</button>
 	</center>
 	</div>
 </form>

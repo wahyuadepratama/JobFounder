@@ -13,11 +13,6 @@
   $result = $pengiklan->get_profile_id($_SESSION['user']['id_pengiklan']);
   $pengiklan->set_all_property($result['data']);
   $daerah=$pengiklan->get_daerah();
-
-  	if(isset($_POST['save'])){
-		$pengiklan->set_profile_post();
-		$script->redirect('profile');
-	}
  ?>
 
 <!DOCTYPE html>
