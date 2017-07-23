@@ -192,6 +192,11 @@ class pengiklan
 
 			return $result;
 	}
+
+	function get_all_profile(){
+			$query = "SELECT * FROM `pengiklan`";
+			return $this->get_all_rows($query, '');
+	}	
  }
 
 
