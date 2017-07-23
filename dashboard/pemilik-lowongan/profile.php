@@ -66,7 +66,7 @@
 </nav>
 </div>
 
-<div class="container content-ku">
+<div class="container">
 
 	<center>
 		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
@@ -74,7 +74,7 @@
 	<br>
 		
 	
-	<div class="container pad-off table-responsive">
+	<div class="container table-responsive">
 	  <table class="table table-striped tabpad">
 	       <tr>
 	           <th class="text-left">Nama Perusahaan / Pemilik Pekerjaan</th>
