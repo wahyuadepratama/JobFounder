@@ -173,11 +173,6 @@
 			    content: contentString
 			  });
 
-		  //       function updateMarkerPosition(latLng) {
-				// 	document.getElementById('latitude').value = [latLng.lat()]
-			 //    	document.getElementById('longitude').value = [latLng.lng()]
-				// }
-
 	        // Try HTML5 geolocation.
 	        if (navigator.geolocation) {
 		          navigator.geolocation.getCurrentPosition(function(position) {
