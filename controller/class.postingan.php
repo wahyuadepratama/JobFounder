@@ -15,6 +15,9 @@ class postingan
  	public $durasi;
  	public $status;
  	public $tanggal;
+ 	public $lat;
+ 	public $lang;
+ 	public $approved;
 
  	function __construct(){}
 
@@ -33,8 +36,11 @@ class postingan
  			`pamflet`, 
  			`durasi`, 
  			`status`, 
- 			`tanggal`) 
- 			VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)");
+ 			`tanggal`,
+ 			`lat`,
+ 			`lang`,
+ 			`approved`) 
+ 			VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?)");
 		$query->execute(array(
 			$this->id_pengiklan,
 			$this->judul,
@@ -46,58 +52,44 @@ class postingan
 			$this->pamflet,
 			$this->durasi,
 			$this->status,
+			$this->lat,
+			$this->lang,
+			$this->approved
 
 			));
  	}
 
- 	function set_all_property($status,$durasi){
+ 	function set_all_property($status,$durasi,$approved){
 
  		$kategori = serialize($_POST['kategori']);
 
 		$this->id_pengiklan = $_SESSION['user']['id_pengiklan'];
-		$this->judul = $_POST['judul'];
-		$this->deskripsi = $_POST['deskripsi'];
-		$this->gaji = $_POST['gaji'];
-		$this->keterangan = $_POST['keterangan'];
-		$this->tipe = $_POST['tipe'];
-		$this->kategori = $kategori;
-		$this->durasi = $durasi;
-		$this->status = $status;
+		$this->judul 		= $_POST['judul'];
+		$this->deskripsi 	= $_POST['deskripsi'];
+		$this->gaji 		= $_POST['gaji'];
+		$this->keterangan 	= $_POST['keterangan'];
+		$this->tipe 		= $_POST['tipe'];
+		$this->kategori 	= $kategori;
+		$this->durasi 		= $durasi;
+		$this->status 		= $status;
+		$this->lat 			= $_POST['lat'];
+		$this->lang 		= $_POST['lang'];
+		$this->approved		= $approved;
 
 		if($status=='pro'){
 			$this->pamflet = $_POST['pamflet'];
 		}
  	}
 
- 	function update(){
+ 	function approved($approved,$id){
  		global $pdo;
  		$query = $pdo->prepare("UPDATE `postingan` SET 
- 			`judul`			=?, 
- 			`deskripsi`		=?, 
- 			`kategori`		=?, 
- 			`gaji`			=?, 
- 			`keterangan`	=?, 
- 			`tipe`			=?, 
- 			`pamflet`		=?, 
- 			`durasi`		=? 
+ 			`approved`		=? 
  			WHERE `postingan`.`id_postingan` = ?");
 		$query->execute(array(
-			$this->judul,
-			$this->deskripsi,
-			$this->kategori,
-			$this->gaji,
-			$this->keterangan,
-			$this->tipe,
-			$this->pamflet,
-			$this->durasi,
-			$this->id_postingan
+			$approved,
+			$id
 			));
- 	}
-
- 	function delete(){
- 		global $pdo;
- 		$query = $pdo->prepare("DELETE FROM `postingan` WHERE `postingan`.`id_postingan` = ?");
-		$query->execute(array($this->id_postingan));
  	}
 
  	function get_data($query, $param){

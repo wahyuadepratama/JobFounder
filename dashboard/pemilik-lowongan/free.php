@@ -15,7 +15,7 @@
 
 	if(isset($_POST['submit'])){
 			
-		$postingan->set_all_property('free',7);
+		$postingan->set_all_property('free',7,'belum');
 		$postingan->insert_data();
 		$script->redirect('lowonganbaru');
 	}
@@ -91,7 +91,7 @@
 <br>
 <div class="container">
 
-<form method="post">
+<form name='form1' method="post">
 	<div class="form-group">
 		  <label for="posisi">Judul Lowongan</label>
 		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
@@ -151,96 +151,19 @@
 		    <option value="karyawan">Karyawan / Kerja Tetap</option>
 		  </select>
 	</div>
+	<div class="form-group">
+		<input type="text" id="lat" name="lat" value="">
+		<input type="text" id="lang" name="lang" value="">
+	</div>
 	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
 </form>
 </div>
 
-<!-- <div id="map"></div>
-
-  <table>
-  <form  action=''>
-  <tr><td>Nama Lokasi:</td>
-    <td><input type="text" name='nama_lokasi' id='nama_lokasi'></td></tr>
-  <tr><td>Latitude</td> 
-   <td> <input type="text" name='latitude' id='latitude'></td></tr>
- <tr> <td>Longitude</td>
-      <td><input type="text" name='longitude' id='longitude'></td></tr>
-  </form>
-  </table>
-
-
-<script type="text/javascript">
-    //* Fungsi untuk mendapatkan nilai latitude longitude
-function updateMarkerPosition(latLng) {
-  document.getElementById('latitude').value = [latLng.lat()]
-    document.getElementById('longitude').value = [latLng.lng()]
-}
-
-var map = new google.maps.Map(document.getElementById('map'), {
-zoom: 12,
-center: new google.maps.LatLng(-7.781921,110.364678),
- mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
-//posisi awal marker   
-// var latLng = new google.maps.LatLng(-7.781921,110.364678);
- 
-/* buat marker yang bisa di drag lalu 
-  panggil fungsi updateMarkerPosition(latLng)
- dan letakan posisi terakhir di id=latitude dan id=longitude
- */
-var marker = new google.maps.Marker({
-    // position : latLng,
-    title : 'lokasi',
-    map : map,
-    draggable : true
-  });
-	        // Try HTML5 geolocation.
-	        if (navigator.geolocation) {
-		          navigator.geolocation.getCurrentPosition(function(position) {
-		            var pos = {
-		              lat: position.coords.latitude,
-		              lng: position.coords.longitude
-		            };
-		            marker.setPosition(pos);
-		            marker.setContent('Location found.');
-		            map.setCenter(pos);
-		          }, function() {
-		            handleLocationError(true, marker, map.getCenter());
-		          });
-	        } else {
-		          // Browser doesn't support Geolocation
-		          handleLocationError(false, marker, map.getCenter());
-	        }
-
-updateMarkerPosition(latLng);
-google.maps.event.addListener(marker, 'drag', function() {
- // ketika marker di drag, otomatis nilai latitude dan longitude
- //menyesuaikan dengan posisi marker 
-    updateMarkerPosition(marker.getPosition());
-  });
-</script>
-    <script async defer
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-    </script> -->
-
-
-<div id="map"></div>
+<div id="map" class="form-group"></div>
   
-  <table>
-  <form  action=''>
-  <tr><td>Nama Lokasi:</td>
-    <td><input type="text" name='nama_lokasi' id='nama_lokasi'></td></tr>
-  <tr><td>Latitude</td> 
-   <td> <input type="text" name='latitude' id='latitude'></td></tr>
- <tr> <td>Longitude</td>
-      <td><input type="text" name='longitude' id='longitude'></td></tr>
-  </form>
-  </table>
-    
-
     <script>
 
-      function initMap() {
+      	function initMap() {
 	        var map = new google.maps.Map(document.getElementById('map'), {
 	          center: {lat: -34.397, lng: 150.644},
 	          zoom: 14
@@ -250,10 +173,10 @@ google.maps.event.addListener(marker, 'drag', function() {
 			    content: contentString
 			  });
 
-		        function updateMarkerPosition(latLng) {
-					document.getElementById('latitude').value = [latLng.lat()]
-			    	document.getElementById('longitude').value = [latLng.lng()]
-				}
+		  //       function updateMarkerPosition(latLng) {
+				// 	document.getElementById('latitude').value = [latLng.lat()]
+			 //    	document.getElementById('longitude').value = [latLng.lng()]
+				// }
 
 	        // Try HTML5 geolocation.
 	        if (navigator.geolocation) {
@@ -270,8 +193,10 @@ google.maps.event.addListener(marker, 'drag', function() {
 				          map: map,
 					    });
 					    marker.addListener('click', function() {
-					      infowindow.open(map, marker);
+					      infowindow.open(map, marker);					      
 						});
+						document.form1.lat.value = pos.lat;
+						document.form1.lang.value = pos.lng;
 		          }, function() {
 		            handleLocationError(true, infowindow, map.getCenter());
 		          });
@@ -279,38 +204,19 @@ google.maps.event.addListener(marker, 'drag', function() {
 		          // Browser doesn't support Geolocation
 		          handleLocationError(false, infowindow, map.getCenter());
 	        }
-      }
+      	}
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infowindow.setPosition(pos);
-        infowindow.setContent(browserHasGeolocation ?
+      	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        	infowindow.setPosition(pos);
+        	infowindow.setContent(browserHasGeolocation ?
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
-      }
-    </script>
-    <script async defer
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-    </script>
+      	}
 
-<!-- 	<script>
-      function initMap() {
-        var uluru = {lat: -34.397, lng: 150.644};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script> -->
-<!--     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-    </script> -->
-
-
-
+</script>
+<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+</script>
 
 <!-- FOOTER -->
 	<?php include '../../view/footer2.php'; ?>
