@@ -4,6 +4,11 @@ th{
 tbody{
 	text-align: center;
 }
+/*CONTENT*/
+.content-ku{
+	min-height: 600px;
+	padding-bottom: 30px;
+}
 /*BAGIAN PROFILE*/
 div.div-upload{
 	position:relative;
@@ -156,87 +161,17 @@ div.pull-right > p.login-title{
 	font-size: 20px;
 	color: blue;
 }
-/*TABEL*/
-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-}
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-  
-}
-th {  
-  color: white; 
-  font-weight: bold; 
-}
-td, th { 
-  padding: 6px; 
-  border:none; 
-  text-align: left; 
-}
-@media (max-width: 768px){
-  table.table-striped.tabpad{
-    max-width: 730px;
-  }
-}
-@media (max-width: 320px){
-	table.table.table-striped, .table-bordered, .bs-docs-example {
-	    display: block;
-	}
-}
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
-	
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	td { 
-		
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 	
-		position: absolute;
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
 
-	td:nth-of-type(1):after { content: ""; }
-	td:nth-of-type(2):after { content: ""; }
-	td:nth-of-type(3):after { content: ""; }
-	td:nth-of-type(4):after { content: ""; }
-	td:nth-of-type(5):after { content: ""; }
-	td:nth-of-type(6):after { content: ""; }
-	td:nth-of-type(7):after { content: ""; }
-	td:nth-of-type(8):after { content: ""; }
-	td:nth-of-type(9):after { content: ""; }
-	td:nth-of-type(10):after { content: ""; }
+/*employee.php*/
+div.container.employ>h4{
+	text-align: justify;
+	font-size: 1em;
 }
-table.tabpad{
-  font-size: 1.05em;
-}
-div.container.table-responsive{
-	padding: 0px;
-	border:0px;
-}
-table.table.table-striped.tabpad{
-	margin: 0px;
-}
-
-.table-responsive > .table > thead > tr > th, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > tbody > tr > td, .table-responsive > .table > tfoot > tr > td {
-    white-space: pre-wrap;
+@media (min-width: 768px){
+	div.container.employ,div.container.menu-nav {
+	    padding-left: 0px;
+	    padding-right: 0px;
+	}
 }
 
 /*FOOTER*/
@@ -292,7 +227,7 @@ h3.katangah{
 		text-align: center;
 	}
 }
-/*ini untuk header*/
+/*Responsive Header*/
 @media (min-width:481px){
  .shy-menu.is-open{ 
      background-color:rgba(0, 0, 0, .0001);
@@ -326,9 +261,5 @@ h3.katangah{
 
 }
 
-/*CONTENT*/
-.content-ku{
-	min-height: 600px;
-	padding-bottom: 30px;
-}
+
 

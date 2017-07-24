@@ -35,7 +35,7 @@
 
 <!-- dashboard -->
 <br>
-<div class="container">
+<div class="container menu-nav">
 <!-- MAKAN BANG -->
 	<nav class="navbar navbar-default transbg">
   <div class="container-fluid">
@@ -65,7 +65,7 @@
 </div>
 <!-- //dashboard -->
 
-<div class="container">
+<div class="container employ">
 	<h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
 </div>
 
@@ -91,7 +91,7 @@ if(count($data) > 0){
     <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class='btn btn-default'>Hapus</button>&nbsp;<button class='btn btn-default' data-toggle='collapse' data-target='#".$row['id_postingan']."'>Lihat</button></p>
 
 <div class='container table-responsive collapse' id='".$row['id_postingan']."'>
-    <table width='100%'' class='table'>
+    <table class='table'>
       <th>No</th>
       <th>Employee Name</th>
       <th>CV</th>
