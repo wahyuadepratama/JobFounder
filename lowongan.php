@@ -3,7 +3,9 @@
 <head>
 
 	<title>JobUs | Lowongan Kerja</title>
-	<?php include 'view/source2.php'; 
+	<?php 
+	session_start();
+	include 'view/source2.php'; 
 	include 'controller/class.postingan.php';
 	include 'controller/koneksi.php';
 

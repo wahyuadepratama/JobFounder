@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
 
@@ -23,7 +24,14 @@
 				<div class="w3_banner_info_grid">
 					<ul>
 						<li><a href="#keterangan" class="w3l_contact scroll">Apa itu JobUs ?</a></li>
-						<li><a href="daftar.php" class="w3ls_more">Bergabung</a></li>
+						<?php if(isset($_SESSION['pekerja'])){
+							echo "<li><a href='dashboard/pekerja/profile.php'";
+							}elseif(isset($_SESSION['pengiklan'])){
+								echo "<li><a href='dashboard/pemilik-lowongan/profile.php'";
+								}else{
+									echo "<li><a href='daftar.php'";	
+									} ?>
+						class="w3ls_more">Bergabung</a></li>
 					</ul><br>
 				</div>
 				<div class="w3_banner_info_grid">

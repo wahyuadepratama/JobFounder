@@ -3,7 +3,9 @@
 <head>
 
 	<title> JobUs | FAQ </title>
-	<?php include 'view/source2.php'; ?>
+	<?php 
+	session_start();
+	include 'view/source2.php'; ?>
 
 </head>
 	

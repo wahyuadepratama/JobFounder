@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php 
+	session_start();
 	include 'controller/class.postingan.php';
 	include 'controller/class.pengiklan.php';
 	include 'controller/koneksi.php';

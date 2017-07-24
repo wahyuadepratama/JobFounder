@@ -3,7 +3,9 @@
 <head>
 
 	<title> JobUs | Dashboard </title>
-	<?php include '../../view/source.php'; ?>
+	<?php 
+	session_start();
+	include '../../view/source.php'; ?>
 
 </head>
 	

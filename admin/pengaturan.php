@@ -2,7 +2,10 @@
 <html>
 <head>
 	<title></title>
-	<?php include '../view/source3.php'; ?>
+	<?php 
+	session_start();
+	include '../view/source3.php'; 
+	?>
 </head>
 <body>
 
@@ -15,9 +18,5 @@
   		<li><a href="postingan.php">Postingan</a></li>
   		<li role="presentation" class="active"><a href="pengaturan.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Setting</a></li>
 	</ul>
-
-
-	
-
 </body>
 </html>

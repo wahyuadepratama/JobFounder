@@ -2,7 +2,9 @@
 <html>
 <head>
 	<title></title>
-	<?php include '../view/source3.php'; ?>
+	<?php
+	session_start();
+	include '../view/source3.php'; ?>
 </head>
 <body>
  <?php include('../view/navbar.php'); ?>
