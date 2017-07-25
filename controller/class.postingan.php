@@ -188,6 +188,25 @@ class postingan
 		$query->execute(array($id));	
  	}
 
+ 	function select_by_kategori($arraydata,$tipe){
+ 		if($tipe==''){
+ 			$query = "SELECT * FROM `postingan` WHERE datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 			
+
+ 		}else{
+ 			$query = "SELECT * FROM `postingan` WHERE tipe='".$tipe."' and datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 
+ 			
+ 		}
+ 		
+ 		foreach ($arraydata as $key => $value) {
+ 			if($key > 0){
+ 				$query=$query." or ";
+ 			}
+ 			$query=$query."kategori like '%".$value."%'";
+ 		}
+ 		$query=$query.")";
+		return $this->get_all_rows($query, '');	
+ 	}
+
  } 
 
  ?>

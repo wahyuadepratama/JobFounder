@@ -7,19 +7,31 @@
 	session_start();
 	include 'view/source2.php'; 
 	include 'controller/class.postingan.php';
+	include 'controller/class.script.php';
 	include 'controller/koneksi.php';
 
 	$postingan = new postingan();
-	
-
-
 	if(isset($_REQUEST['tipe'])){
 		if($_REQUEST['tipe']=='tetap'){
-			$data = $postingan->select_tipe_active('Karyawan');	
-		}elseif($_REQUEST['tipe']=='paruh_waktu'){
-			$data = $postingan->select_tipe_active('kontrak');
+			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+				$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
+			}else{
+				$data = $postingan->select_tipe_active('Karyawan');		
+			}
+			
 		}
+		elseif($_REQUEST['tipe']=='paruh_waktu'){
+			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+				$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');		
+			}else{
+				$data = $postingan->select_tipe_active('kontrak');		
+			}
+
+		}
+	}elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
+		$data = $postingan->select_by_kategori($_POST['kategori'],'');
 	}else{
+
 		$data = $postingan->select_active();
 	}
 	?>
@@ -68,11 +80,51 @@
 			    <span class="caret"></span>
 			  </button>
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" name="kategori">
-			  	<li role="presentation"><a role="menuitem" tabindex="-1" href="?">Semua</a></li>
+			  	<li role="presentation"><a role="menuitem" tabindex="-1" href="lowongan.php">Semua</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=tetap">Kerja Tetap</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=paruh_waktu">Kerja Paruh Waktu</a></li>
 			  </ul>
 			</div><br><br>
+
+			<form method="post">
+			<div class="form-group">
+				<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
+				<div class="container">
+					<div class="col-sm-4">
+						<input type="checkbox" name="kategori[]" value="administrasi"> Administrasi </input><br>
+						<input type="checkbox" name="kategori[]" value="karyawan toko"> Karyawan Toko </input><br>
+						<input type="checkbox" name="kategori[]" value="marketing dan sales"> Marketing & Sales </input><br>
+						<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br>
+						<input type="checkbox" name="kategori[]" value="manajemen"> Manajemen </input><br>
+						<input type="checkbox" name="kategori[]" value="fotograger"> Fotografer </input><br>
+						<input type="checkbox" name="kategori[]" value="desain grafis dan multimedia"> Desain Grafis dan Multimedia </input><br>
+						<input type="checkbox" name="kategori[]" value="penerjemah"> Penerjemah </input><br>
+					</div>
+					<div class="col-sm-4">
+						<input type="checkbox" name="kategori[]" value="teknologi"> Teknologi </input><br>
+						<input type="checkbox" name="kategori[]" value="teknik"> Teknik </input><br>
+						<input type="checkbox" name="kategori[]" value="hukum"> Hukum </input><br>
+						<input type="checkbox" name="kategori[]" value="akuntansi"> Akuntansi </input><br>
+						<input type="checkbox" name="kategori[]" value="kesehatan"> Kesehatan </input><br>
+						<input type="checkbox" name="kategori[]" value="akuntan"> Akuntan </input><br>
+						<input type="checkbox" name="kategori[]" value="entri data"> Entry Data </input><br>
+						<input type="checkbox" name="kategori[]" value="pengajar"> Pengajar / kursus </input><br>
+					</div>
+					<div class="col-sm-4">
+						<input type="checkbox" name="kategori[]" value="peternakan dan pertanian"> Peternakan dan Pertanian </input><br>
+						<input type="checkbox" name="kategori[]" value="pegawai negeri"> Pegawai Negeri </input><br>
+						<input type="checkbox" name="kategori[]" value="website dan developer"> Website Design and Developper </input><br>
+						<input type="checkbox" name="kategori[]" value="mobile developer"> Mobile Developer </input><br>
+						<input type="checkbox" name="kategori[]" value="penulis lepas"> Penulis Lepas (content writer) </input><br>
+						<input type="checkbox" name="kategori[]" value="pembantu dan baby sitter"> Pembantu dan Baby Sitter </input><br>
+						<input type="checkbox" name="kategori[]" value="driver"> Driver </input><br>
+						<input type="checkbox" name="kategori[]" value="lain-lain"> Lain - lain </input><br>
+					</div>
+				</div>
+			</div>
+			
+				<center><button type="submit" class="btn btn-default" name="cari">Cari</button></center><br>
+			</form>
 
 			<?php if(count($data)>0){
 				foreach ($data as $row) {
