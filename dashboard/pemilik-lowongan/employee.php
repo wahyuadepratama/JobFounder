@@ -4,10 +4,14 @@
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.postingan.php';
   require_once '../../controller/class.pengiklan.php';
+  require_once '../../controller/class.lowongan.php';
+  require_once '../../controller/class.pekerja.php';
 
   $session = new function_session();
   $pengiklan = new pengiklan();
   $postingan = new postingan();
+  $lowongan = new lowongan();
+  $pekerja = new pekerja();
   $data = $postingan->select_by_pengiklan();
 
   $session->pengiklan();
@@ -17,27 +21,27 @@
 <html lang="en">
 <head>
 
-	<title> JobUs | Employee </title>
-	<?php include '../../view/source.php'; ?>
+  <title> JobUs | Employee </title>
+  <?php include '../../view/source.php'; ?>
 
 </head>
-	
+  
 <body>
 <!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-			<?php include '../../view/header.php'; ?>
+  <div class="banner1">
+    <div class="container">
+      
+      <?php include '../../view/header.php'; ?>
 
-		</div>
-	</div>
+    </div>
+  </div>
 <!-- banner -->
 
 <!-- dashboard -->
 <br>
 <div class="container menu-nav">
 <!-- MAKAN BANG -->
-	<nav class="navbar navbar-default transbg">
+  <nav class="navbar navbar-default transbg">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -66,7 +70,7 @@
 <!-- //dashboard -->
 
 <div class="container employ">
-	<h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
+  <h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
 </div>
 
 <br>
@@ -88,9 +92,8 @@ if(count($data) > 0){
            <td class='text-left'>".date('d M Y, g.i', strtotime($row['tanggal']))."</td>
        </tr> 
     </table>         
-    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class='btn btn-default'>Hapus</button>&nbsp;<button class='btn btn-default' data-toggle='collapse' data-target='#".$row['id_postingan']."'>Lihat</button></p>
-
-<div class='container table-responsive collapse' id='".$row['id_postingan']."'>
+    <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class='btn btn-default'>Hapus</button>&nbsp;<button class='btn btn-default' data-toggle='collapse' data-target='#".$row['id_postingan']."'>Lihat</button></p></div>
+    <div class='container table-responsive collapse' id='".$row['id_postingan']."'>
     <table class='table'>
       <th>No</th>
       <th>Employee Name</th>
@@ -99,15 +102,24 @@ if(count($data) > 0){
       <th>Detail Employee</th>
       <th>Status</th>
       <th>Action</th>
-    <tbody>
-      <td> 1 </td>
-      <td> Wahyu Ade Pratama </td>
+    ";
+    $submit=$lowongan->select_by_postingan($row['id_postingan']);
+    $i = 1;
+    if(count($submit)>0){
+    foreach ($submit as $rows) {
+
+      $identitas = $pekerja->get_profile_id($rows['id_pekerja']);
+
+      echo " 
+      <tbody>
+      <td> ".$i." </td>
+      <td> ".$identitas['data']['nama']." </td>
       <td>
         <button class='btn btn-default'>Download CV</button>
       </td>
-      <td>12-12-2012</td>
+      <td>".$identitas['data']['tanggal']."</td>
       <td>
-        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'>Show Detail</button>
+        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#pekerja".$rows['id_pekerja']."'>Show Detail</button>
       </td>
       <td>Waiting</td>
       <td>
@@ -115,95 +127,83 @@ if(count($data) > 0){
         <button class='btn btn-default'>Tolak</button>
       </td>
     </tbody>
-    <tbody>
-      <td> 2 </td>
-      <td> Toni Saputro </td>
-      <td>
-        <button class='btn btn-default'>Download CV</button>
-      </td>
-      <td>12-12-2012</td>
-      <td>
-        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#myModal'>Show Detail</button>
-      </td>
-      <td>Accept</td>
-      <td>
-        <button class='btn btn-default' disabled=''>Terima</button>
-        <button class='btn btn-default' disabled=''>Tolak</button>
-      </td>
-    </tbody>
+    ";
+    }      
+    }
 
+    echo "    
     </table>
   
   <br><br>
-</div>
-</div>
-    ";
-}} ?>
+</div>";
+}} 
 
- <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
+  $daftar = $pekerja->get_by_pengiklan_submit($_SESSION['user']['id_pengiklan']);
+  foreach ($daftar as $x) {
+    echo "
+    <div id='pekerja".$x['id_pekerja']."' class='modal fade' role='dialog'>
+      <div class='modal-dialog'>
 
         <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-            <h4 class="modal-title">Detail Akun</h4>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <!-- <button type='button' class='close' data-dismiss='modal'>&times;</button> -->
+            <h4 class='modal-title'>Detail Akun</h4>
           </div>
-          <div class="modal-body">
+          <div class='modal-body'>
           <!-- Photo Profile -->
-           <div class="container-fluid">
-            <div class="col-sm-4">
-            <img src="../../assets/images/yola-small.jpg" class="img-responsive center-block">
+           <div class='container-fluid'>
+            <div class='col-sm-4'>
+            <img src='../../assets/images/yola-small.jpg' class='img-responsive center-block'>
             <br>
             </div>
-            <div class="col-sm-8">
-                <table align="center">
+            <div class='col-sm-8'>
+                <table align='center'>
                     <tr>
-                        <td class="text-left">Nama </td>
-                        <td style="width:20px"> : </td>
-                        <td class="text-left">Yolanda Parawita</td>
+                        <td class='text-left'>Nama </td>
+                        <td style='width:20px'> : </td>
+                        <td class='text-left'>".$x['nama']."</td>
                     </tr>
                     <tr>
-                        <td class="text-left">e-mail </td>
+                        <td class='text-left'>e-mail </td>
                         <td> : </td>
-                        <td class="text-left">parawitayolanda@gmail.com</td>
+                        <td class='text-left'>".$x['email']."</td>
                     </tr>
                     <tr>
-                        <td class="text-left">Telephone </td>
+                        <td class='text-left'>Telephone </td>
                         <td> : </td>
-                        <td class="text-left">081267866712</td>
+                        <td class='text-left'>".$x['no_hp']."</td>
                     </tr>
                     <tr>
-                        <td class="text-left">Social Media </td>
+                        <td class='text-left'>Social Media </td>
                         <td> : </td>
-                        <td class="text-left">nabang97</td>
+                        <td class='text-left'>".$x['sosmed']."</td>
                     </tr>
                     <tr>
-                        <td class="text-left">Alamat </td>
+                        <td class='text-left'>Alamat </td>
                         <td> : </td>
-                        <td class="text-left">Sumatera Barat</td>
+                        <td class='text-left'>".$x['alamat']."</td>
                     </tr>
                     <tr>
-                        <td class="text-left">Keahlian </td>
+                        <td class='text-left'>Keahlian </td>
                         <td> : </td>
-                        <td class="text-left">blablabalabla</td>
+                        <td class='text-left'>".$x['keahlian']."</td>
                     </tr>
                 </table>
             </div>
             
            </div>
-            
-          <!-- Deskripsi -->
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           </div>
+          <div class='modal-footer'>
+            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- End modal -->
+    <!-- End modal -->           
+    ";}
+?>
+
 <br>
 <br>
 <!-- FOOTER -->
@@ -211,7 +211,7 @@ if(count($data) > 0){
 <!-- //FOOTER -->
 
 <!-- javascript -->
-	<?php include '../../view/script.php'; ?>
+  <?php include '../../view/script.php'; ?>
 <!-- javascript -->
 
 </body>

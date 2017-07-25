@@ -28,6 +28,15 @@ class function_session{
 		}
 	}
 
+	function admin(){
+
+		if(!isset($_SESSION['admin'])){
+			header('location: ../');
+		}
+
+		$this->logout();
+	}
+
 }
 
  ?>

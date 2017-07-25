@@ -24,6 +24,72 @@ class lowongan
 			));
  	}
 
+	function apply($pekerja, $postingan){
+ 		global $pdo;
+ 		$query = $pdo->prepare("
+ 			INSERT INTO `lowongan` (`id_pekerja`, `id_postingan`) 
+ 			VALUES (?,?)");
+		$query->execute(array($pekerja,$postingan));
+ 	}
+
+ 	function get_data($query, $param){
+			try{
+				global $pdo;
+				$req = $pdo->prepare($query);
+				if($param == ''){
+					$req->execute();
+				}else{
+					$req->execute($param);
+				}
+
+				$rows = $req->rowCount();
+				$status = false;
+
+				if($rows > 0){
+					$status = true;
+				}
+
+				$data = $req->fetch(PDO::FETCH_NAMED);
+
+				return array('status' => $status, 'rows' => $rows, 'data' => $data);
+			}catch(PDOException $e){
+				echo "Error! gagal mengambil data: ".$e->getMessage();
+			}
+	}
+
+	function get_all_rows($query, $param){
+			try{
+				global $pdo;
+				$req = $pdo->prepare($query);
+				if($param == ''){
+					$req->execute();
+				}else{
+					$req->execute($param);
+				}
+
+				if($req->rowCount() > 0){
+					$result = $req->fetchAll();
+					return $result;
+				}
+
+				
+			}catch(PDOException $e){
+				echo "Error! gagal mengambil data: ".$e->getMessage();
+			}
+	}
+
+	function cek_apply($id_pekerja, $id_postingan){
+			$query = "SELECT * FROM `lowongan` WHERE id_pekerja = ? and id_postingan = ?";
+			$param = array($id_pekerja , $id_postingan);
+			return $this->get_data($query, $param);
+	}
+
+	function select_by_postingan($id_postingan){
+			$query = "SELECT * FROM `lowongan` WHERE id_postingan = ?";
+			$param = array($id_postingan);
+			return $this->get_all_rows($query, $param);
+	}
+
  	function select(){
  		global $pdo;
  		$query = $pdo->prepare("SELECT * FROM `lowongan`");

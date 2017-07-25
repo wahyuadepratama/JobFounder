@@ -182,6 +182,12 @@ class pekerja
 			return $this->get_all_rows($query, '');
 	}
 
+	function get_by_pengiklan_submit($id_pengiklan){
+			$query = "select * from pekerja where id_pekerja in(select distinct id_pekerja from lowongan where id_postingan in (select id_postingan from postingan where id_pengiklan=1))";
+			$param = array($id_pengiklan);
+			return $this->get_all_rows($query, $param);
+	}
+
  } 
 
 
