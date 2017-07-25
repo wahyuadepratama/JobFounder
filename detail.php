@@ -3,7 +3,13 @@
 	session_start();
 	include 'controller/class.postingan.php';
 	include 'controller/class.pengiklan.php';
+	include 'controller/class.lowongan.php';
+	include 'controller/class.script.php';
 	include 'controller/koneksi.php';
+
+	$script = new function_script();
+	$lowongan = new lowongan();
+
 	$id_postingan = $_REQUEST['id'];
 
 	$post = new postingan();
@@ -114,7 +120,20 @@ RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi.
 Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
 		    </p>
 		    <div class="pull-right">
-		    	<button class="btn btn-primary">Apply</button>
+		    	<form method='post'>		    
+		    	<?php 	
+		    		if(isset($_SESSION['pekerja'])){
+		    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$_REQUEST['id']);
+		    			if($cek['status']){
+		    				echo "<button type='submit' class='btn btn-primary' name='apply' disabled='true'>Apply</button>";
+		    			}else{
+		    				echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
+		    			}
+		    		}else{
+		    			echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
+		    		}
+		    	 ?>		    		
+		    	</form>		    	
 		    </div>
 		  </div>
 		</div>
@@ -145,6 +164,22 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 <!-- javascript -->
 	<?php include 'view/script2.php'; ?>
 <!-- javascript -->
-
 </body>
-</html>
+<?php 
+
+	if(isset($_POST['apply'])){
+		if($_SESSION==NULL){
+			$script->redirect('daftar');
+		}else{
+			if($_SESSION['admin']){
+				$script->redirect('admin/dashboard');
+			}elseif($_SESSION['pengiklan']){
+				$script->redirect('dashboard/pemilik-lowongan/profile');
+			}elseif($_SESSION['pekerja']){
+				$lowongan->apply($_SESSION['user']['id_pekerja'],$_REQUEST['id']);
+				$script->redirect('lowongan');
+			}
+		}
+	}
+?>
+</html>''
