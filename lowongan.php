@@ -1,40 +1,61 @@
+<?php 
+
+	session_start();
+	require_once 'controller/class.postingan.php';
+	require_once 'controller/class.script.php';
+	require_once 'controller/koneksi.php';
+
+	$postingan = new postingan();
+	$script = new function_script();
+
+	if(isset($_REQUEST['tipe'])){
+
+		if($_REQUEST['tipe']=='tetap'){
+
+			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+
+				$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
+
+			}else{
+
+				$data = $postingan->select_tipe_active('Karyawan');		
+
+			}
+			
+		}elseif($_REQUEST['tipe']=='paruh_waktu'){
+
+			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+
+				$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');	
+
+			}else{
+
+				$data = $postingan->select_tipe_active('kontrak');		
+
+			}
+
+		}else{
+
+			$script->redirect('lowongan');
+
+		}
+	}elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
+
+		$data = $postingan->select_by_kategori($_POST['kategori'],'');
+
+	}else{
+
+		$data = $postingan->select_active();
+
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 	<title>JobUs | Lowongan Kerja</title>
-	<?php 
-	session_start();
-	include 'view/source2.php'; 
-	include 'controller/class.postingan.php';
-	include 'controller/class.script.php';
-	include 'controller/koneksi.php';
-
-	$postingan = new postingan();
-	if(isset($_REQUEST['tipe'])){
-		if($_REQUEST['tipe']=='tetap'){
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
-				$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
-			}else{
-				$data = $postingan->select_tipe_active('Karyawan');		
-			}
-			
-		}
-		elseif($_REQUEST['tipe']=='paruh_waktu'){
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
-				$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');		
-			}else{
-				$data = $postingan->select_tipe_active('kontrak');		
-			}
-
-		}
-	}elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
-		$data = $postingan->select_by_kategori($_POST['kategori'],'');
-	}else{
-
-		$data = $postingan->select_active();
-	}
-	?>
+	<?php include 'view/source2.php'; ?>
 
 </head>
 	
@@ -63,7 +84,7 @@
 	</div>
 <!-- //breadcrumbs -->
 
-<div class="welcome">
+	<div class="welcome">
 		<div class="container">
 			<h3 class="agileits_w3layouts_head"><span>Cari Lowongan Kerja Disini</span></h3>
 			<p class="agile_para_2">Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
@@ -82,7 +103,7 @@
 			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" name="kategori">
 			  	<li role="presentation"><a role="menuitem" tabindex="-1" href="lowongan.php">Semua</a></li>
 			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=tetap">Kerja Tetap</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=paruh_waktu">Kerja Paruh Waktu</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=kontrak">Kerja Freelance</a></li>
 			  </ul>
 			</div><br><br>
 
@@ -126,25 +147,27 @@
 				<center><button type="submit" class="btn btn-default" name="cari">Cari</button></center><br>
 			</form>
 
-			<?php if(count($data)>0){
-				foreach ($data as $row) {
-					echo "
+	<?php 
+
+		if(count($data)>0){
+			foreach ($data as $row){
+			echo "
 			<div class='well well-lg' style='text-align: justify;''>
 				<div class='row'>
-				  <div class='col-xs-6 col-md-3'>
-				    <a href='detail.php?id=".$row['id_postingan']."' class='thumbnail'>
-				      <img src='".$row['pamflet']."' alt='...'>
-				    </a>
-				  </div>
-				  <h4>".$row['judul']." </h4>
-				  <p>".$row['deskripsi']."<br></p>
-            	<a class='remo' href='detail.php?id=".$row['id_postingan']."'><b>Read more</b></a>
-
+				  	<div class='col-xs-6 col-md-3'>
+				    	<a href='detail.php?id=".$postingan->encode($row['id_postingan'])."' class='thumbnail'>
+				      	<img src='assets/images/noposter.jpg' alt='...'>
+				    	</a>
+				  	</div>
+				  	<h4>".$row['judul']." </h4>
+				  	<p>".$row['deskripsi']."<br></p>
+            		<a class='remo' href='detail.php?id=".$postingan->encode($row['id_postingan'])."'><b>Read more</b></a>
 				</div>
-
 			</div>";
-				}
-			} ?>
+			}
+		} 
+
+	?>
 
 			<nav>
 			  <ul class="pager">

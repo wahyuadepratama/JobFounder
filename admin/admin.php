@@ -1,14 +1,13 @@
-<!DOCTYPE html>
 <?php
 	// NB:SWEETALERT BELUM TERPASANG 
 	session_start();
 	include '../controller/class.admin.php';
 	include '../controller/class.script.php';
 	include '../controller/koneksi.php';	
-	
 
- ?>
-<html>
+?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>Control Panel Admin</title>
 	<?php include '../view/source3.php'; ?>
@@ -39,10 +38,10 @@
 		</div>
 		</form>
 	</div>
-
-	
 </body>
-<?php 
-	include '../controller/validator.php';
- ?>
+
+	<?php 
+		include '../controller/validator.php';
+	?>
+
 </html>

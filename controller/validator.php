@@ -1,30 +1,18 @@
 <?php 
+
 	$path = explode("/", "$_SERVER[REQUEST_URI]");
 	$file = $path[count($path)-1];
 	$script = new function_script();
 
 	if($file=='daftar.php'){
-		$pengiklan = new pengiklan();
-		$pekerja = new pekerja();	
 
-		// if(isset($_SESSION['pengiklan'])){
-		// 	$script->redirect('dashboard/pemilik-lowongan/profile');
-		// }elseif(isset($_SESSION['pekerja'])){
-		// 	$script->redirect('dashboard/pekerja/profile');
-		// }elseif(isset($_SESSION['admin'])){
-		// 	$script->redirect('admin/dashboard');
-		// }
+		$pengiklan = new pengiklan();
+		$pekerja = new pekerja();
 
 	}elseif($file=='admin.php'){
+
 		$admin = new admin();
 
-		// if(isset($_SESSION['pengiklan'])){
-		// 	$script->redirect('../dashboard/pemilik-lowongan/profile');
-		// }elseif(isset($_SESSION['pekerja'])){
-		// 	$script->redirect('../dashboard/pekerja/profile');
-		// }elseif(isset($_SESSION['admin'])){
-		// 	$script->redirect('dashboard');
-		// }
 	}	
 	
 	

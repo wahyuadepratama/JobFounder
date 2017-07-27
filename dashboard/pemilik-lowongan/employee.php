@@ -106,30 +106,30 @@ if(count($data) > 0){
     $submit=$lowongan->select_by_postingan($row['id_postingan']);
     $i = 1;
     if(count($submit)>0){
-    foreach ($submit as $rows) {
+      foreach ($submit as $rows) {
 
       $identitas = $pekerja->get_profile_id($rows['id_pekerja']);
 
-      echo " 
-      <tbody>
-      <td> ".$i." </td>
-      <td> ".$identitas['data']['nama']." </td>
-      <td>
-        <button class='btn btn-default'>Download CV</button>
-      </td>
-      <td>".$identitas['data']['tanggal']."</td>
-      <td>
-        <button type='button' class='btn btn-default' data-toggle='modal' data-target='#pekerja".$rows['id_pekerja']."'>Show Detail</button>
-      </td>
-      <td>Waiting</td>
-      <td>
-        <button class='btn btn-default'>Terima</button>
-        <button class='btn btn-default'>Tolak</button>
-      </td>
-    </tbody>
-    ";
+        echo " 
+        <tbody>
+        <td> ".$i." </td>
+        <td> ".$identitas['data']['nama']." </td>
+        <td>
+          <button class='btn btn-default'>Download CV</button>
+        </td>
+        <td>".$identitas['data']['tanggal']."</td>
+        <td>
+          <button type='button' class='btn btn-default' data-toggle='modal' data-target='#pekerja".$rows['id_pekerja']."'>Show Detail</button>
+        </td>
+        <td>Waiting</td>
+        <td>
+          <button class='btn btn-default'>Terima</button>
+          <button class='btn btn-default'>Tolak</button>
+        </td>
+      </tbody>
+      ";
     }      
-    }
+  }
 
     echo "    
     </table>

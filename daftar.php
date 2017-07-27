@@ -95,22 +95,18 @@
 						</div>	
 					</form>
 
-			<script type="text/javascript">
-
-			    function cek_pass(){
-
-			    p1 = document.frm.password.value;
-			    p2 = document.frm.confirm.value;
-
-			    	if(p1==p2) {
-			        	document.frm.sign.disabled=false;
-				    } else {
-			   			document.frm.sign.disabled=true;				    	
-				        swal("Cek Lagi !", "Konfirmasi password harus sama");
-					}
-			    }
-			    
-			</script>
+					<script type="text/javascript">
+					    function cek_pass(){
+						    p1 = document.frm.password.value;
+						    p2 = document.frm.confirm.value;
+					    	if(p1==p2) {
+					        	document.frm.sign.disabled=false;
+						    } else {
+					   			document.frm.sign.disabled=true;				    	
+						        swal("Cek Lagi !", "Konfirmasi password harus sama");
+							}
+					    }
+					</script>
 
 				</div> 
 			</div>	

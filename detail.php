@@ -9,14 +9,16 @@
 
 	$script = new function_script();
 	$lowongan = new lowongan();
-
-	$id_postingan = $_REQUEST['id'];
-
 	$post = new postingan();
-	$postingan = $post->select_postingan($id_postingan);
-
 	$pengiklan = new pengiklan();
+
+	$id_postingan = $post->decode($_REQUEST['id']);
+	$postingan = $post->select_postingan($id_postingan);
 	$data = $pengiklan->get_profile_id($postingan['data']['id_pengiklan']);
+
+	if($data['rows']==0){
+		$script->redirect('lowongan');
+	}
  ?>
 <html lang="en">
 <head>
@@ -54,57 +56,18 @@
 		<div class="panel panel-default">
 		  <div class="panel-body">
 		  <p><?php echo $postingan['data']['deskripsi']; ?></p>
-		   
-		    <!-- <p>
-		    Sehubungan Dengan Recruitment Calon Pengawai Non PNS RS.AWAL BROS Tahun 2017. Untuk Penempatan Wilayah Kerja Meliputi Diberbagai Propinsi Di Indonesia. <br>
-            Termasuk Pulau Jawa,Pulau Sumatera,Pulau Sulawesi,Pulau Kalimantan,Nusa Tenggara,Maluku dan Papua.</p>
 
-<p>Lowongan Kerja RS.AWAL BROS 2017 
-Menerima Karyawan Baru Pria dan Wanita.</p> -->
-
-<p>
-
-
-Posisi yang dibutuhkan :<br>
+<p>Jenis Kategori :</p>
 <ol type="A" style="margin-bottom:0px;">
 	<ol>
 		<?php $post->select_all_kategori($id_postingan); ?>		
 	</ol>
-<!-- <li> Tenaga Medis </li>
-   <ol>
-		<li>Radiografer </li>
-		<li>Perawat </li>
-		<li>Laboratory Analyst </li> 
-		<li>Apoteker/ S1 Farmasi/ Kimia/ Biologi </li>
-		<li>Dokter (Semua Jurusan) </li>
-		<li>Kesehatan Masyarakat </li>
-		<li>Kebidanan </li>
-		<li>Ahli Gizi </li>
-	</ol>
-
-<li> Tenaga Non Medis </li>
-  <ol>
-	 <li>HRD Staff/Staff Personalia </li>
-	 <li>Finance & Accounting (Manager,Supervisor and Staff) </li>
-	<li>Corporate Accountant </li>
-	<li>Secretary to Director </li>
-	<li>Customer Service </li>
-	 <li>Purchasing </li>
-	 <li>Project Architect / Project Manager </li>
-	 <li>Engineering – Site, Civil, ME, Architect </li>
-	</ol>
 </ol>
-<p>Persyaratan Umum :<br>
-<ol style="margin-bottom:0px">
-<li>Warga Negara Indonesia</li>
-<li>Pria / Wanita </li>
-<li>Lulusan SMA/SMK/D1/ D2 / D3 / S1 / S2 </li>
-<li>Sehat Jasmani Rohani </li>
-<li>Bisa bekerja dengan TIM/KELOMPOK </li>
-<li>Bersedia ditempatkan di Seluruh wilayah Nusantara </li>  -->
-</ol>
+<p>Gaji : <?php echo $postingan['data']['gaji'] ?></p>
+<p>Keterangan : <?php echo $postingan['data']['keterangan'] ?></p>
+<p>Tipe : <?php echo $postingan['data']['tipe'] ?></p>
 
-<p>Persyaratan Berkas / Dokumen :<br>
+<!-- <p>Persyaratan Berkas / Dokumen :<br>
 <ol style="margin-bottom:0px">
 <li>Surat Lamaran </li>
 <li>Daftar Riwayat Hidup (CV) </li> 
@@ -118,12 +81,12 @@ career-awalbros@doctor.com <br>
 
 RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi. 
 Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
-		    </p>
+		    </p> -->
 		    <div class="pull-right">
 		    	<form method='post'>		    
 		    	<?php 	
 		    		if(isset($_SESSION['pekerja'])){
-		    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$_REQUEST['id']);
+		    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$id_postingan);
 		    			if($cek['status']){
 		    				echo "<button type='submit' class='btn btn-primary' name='apply' disabled='true'>Apply</button>";
 		    			}else{
@@ -144,7 +107,7 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 		<div class="panel panel-default">
 		  <div class="panel-heading text-center"><h4>Dipost oleh</h4></div>
 		  <div class="panel-body">
-		    <span class="title">Nama Perusahaan</span> <br>
+		    <span class="title">Nama Pemilik</span> <br>
 		      <p> <?php echo $data['data']['nama'] ?> </p>
 		    <span class="title">Tentang  </span><br>
 				<p><?php echo $data['data']['deskripsi'] ?> </p>
@@ -176,10 +139,11 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 			}elseif($_SESSION['pengiklan']){
 				$script->redirect('dashboard/pemilik-lowongan/profile');
 			}elseif($_SESSION['pekerja']){
-				$lowongan->apply($_SESSION['user']['id_pekerja'],$_REQUEST['id']);
+				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan);
 				$script->redirect('lowongan');
 			}
 		}
 	}
+
 ?>
 </html>''

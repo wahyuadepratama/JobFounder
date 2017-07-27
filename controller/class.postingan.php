@@ -125,6 +125,7 @@ class postingan
 	}
 
 	function select_all_kategori($id){
+		
 		$result = $this->select_postingan($id);
 		$hasil = unserialize($result['data']['kategori']);
 
@@ -190,9 +191,11 @@ class postingan
 
  	function select_by_kategori($arraydata,$tipe){
  		if($tipe==''){
+
  			$query = "SELECT * FROM `postingan` WHERE datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 			
 
  		}else{
+
  			$query = "SELECT * FROM `postingan` WHERE tipe='".$tipe."' and datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 
  			
  		}
@@ -206,6 +209,16 @@ class postingan
  		$query=$query.")";
 		return $this->get_all_rows($query, '');	
  	}
+
+ 	function encode($input){
+		$output = base64_encode(base64_encode(base64_encode(base64_encode($input))));
+		return $output;
+	}
+
+	function decode($input){
+		$output = base64_decode(base64_decode(base64_decode(base64_decode($input))));
+		return $output;
+	}
 
  } 
 

@@ -17,18 +17,18 @@
 								<ul class="w3layouts_menu__list">
 									<li class="active"><a href="home.php">Home</a></li>
 									<li><a href="lowongan.php">Lowongan</a></li> 
-									<?php if(isset($_SESSION['pekerja'])){
+									<?php 
+									
+										if(isset($_SESSION['pekerja'])){
 											echo "<li><a href='dashboard/pekerja/profile.php'>Dashboard</a></li>";	
 										}elseif(isset($_SESSION['pengiklan'])){
 											echo "<li><a href='dashboard/pemilik-lowongan/profile.php'>Dashboard</a></li>";
 										}else{
 											echo "<li><a href='daftar.php'>Daftar</a></li>";
-											} ?>
+										} 
+									?>
 									
-									<li><a href="about.php" style="
-    padding-right: 0px;
-    padding-left: 0px;
-">About Us</a></li> 
+									<li><a href="about.php" style="padding-right: 0px; padding-left: 0px;">About Us</a></li> 
 								</ul>
 							</nav>
 						</div>
