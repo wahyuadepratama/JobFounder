@@ -139,6 +139,7 @@ if(count($data) > 0){
 }} 
 
   $daftar = $pekerja->get_by_pengiklan_submit($_SESSION['user']['id_pengiklan']);
+  if(count($daftar)>0){
   foreach ($daftar as $x) {
     echo "
     <div id='pekerja".$x['id_pekerja']."' class='modal fade' role='dialog'>
@@ -201,7 +202,9 @@ if(count($data) > 0){
       </div>
     </div>
     <!-- End modal -->           
-    ";}
+    ";}  
+  }
+  
 ?>
 
 <br>

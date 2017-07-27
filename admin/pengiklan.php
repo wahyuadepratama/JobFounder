@@ -76,7 +76,18 @@
           <!-- Photo Profile -->
            <div class='container-fluid'>
             <div class='col-sm-4'>
-            <img src='../assets/images/yola-small.jpg' class='img-responsive center-block'>
+            <img src='"; 
+		if($row['foto_profile']!=null){
+			echo '../dashboard/pemilik-lowongan/picture/'.$row['foto_profile'];
+		}else{
+			echo '../assets/images/invest.PNG';
+		}
+
+		echo 
+		"
+
+
+            ' class='img-responsive center-block'>
             <br>
             </div>
             <div class='col-sm-8'>

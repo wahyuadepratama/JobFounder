@@ -69,7 +69,14 @@
 <div class="container">
 
 	<center>
-		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
+		<img src="<?php 
+		if($pengiklan->foto_profile!=null){
+			echo 'picture/'.$pengiklan->foto_profile;
+		}else{
+			echo '../../assets/images/invest.PNG';
+		}
+
+		?>" class="img-circle img-responsive" width="200"><br>
 	</center>
 	<br>
 		

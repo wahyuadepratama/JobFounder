@@ -84,8 +84,27 @@ class pengiklan
  		$this->deskripsi = $data_array['deskripsi'];
  	}
 
+ 	function profile_picture(){
+			$ekstensi_diperbolehkan	= array('png','jpg');
+			$nama = $_FILES['foto_profile']['name'];
+			$x = explode('.', $nama);
+			$ekstensi = strtolower(end($x));
+			$ukuran	= $_FILES['foto_profile']['size'];
+			$file_tmp = $_FILES['foto_profile']['tmp_name'];	
+ 
+			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+				if($ukuran < 1044070){			
+					move_uploaded_file($file_tmp, 'picture/'.$this->username.".".$ekstensi);
+				}
+				return $this->username.".".$ekstensi;
+			}else{
+				return NULL;
+			} 		
+ 	}
+
  	function set_profile_post(){
- 		$this->foto_profile = $_POST['foto_profile'];
+ 		$file = $this->profile_picture();
+ 		$this->foto_profile = $file;
 		$this->nama = $_POST['nama'];
 		$this->deskripsi = $_POST['deskripsi'];
 		$this->email = $_POST['email'];
