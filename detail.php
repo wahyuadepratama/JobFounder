@@ -83,9 +83,20 @@ RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi.
 Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
 		    </p> -->
 		    <div class="pull-right">
-		    	<form method='post'>		    
+		    	<form method='post' enctype="multipart/form-data">		    
 		    	<?php 	
+		    		if($postingan['data']['status']=='pro'){
+		    			echo "
+							<div class='form-group'>
+		    				<label for='exampleInputFile'>Upload CV</label><br><br>
+		    				<input type='file' id='cv' name='cv'>
+		    				<p class='help-block'>nb : ekstensi yang diterima hanya berupa doc/docx/pdf</p>
+							</div>
+		    			";
+		    					
+		    		}
 		    		if(isset($_SESSION['pekerja'])){
+
 		    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$id_postingan);
 		    			if($cek['status']){
 		    				echo "<button type='submit' class='btn btn-primary' name='apply' disabled='true'>Apply</button>";
@@ -116,11 +127,6 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 				<span class="title">Telephone/Fax</span>
 				<p><?php echo $data['data']['no_hp'] ?> </p>
 		  </div>
-		</div>
-			<div>
-				
-			</div>
-		</div>
 	<!-- End Profile -->
 </div>
 <!-- END MAIN CONTENT -->
@@ -139,11 +145,10 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 			}elseif($_SESSION['pengiklan']){
 				$script->redirect('dashboard/pemilik-lowongan/profile');
 			}elseif($_SESSION['pekerja']){
-				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan);
+				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan,$_SESSION['user']['username']);
 				$script->redirect('lowongan');
 			}
 		}
 	}
-
 ?>
-</html>''
+</html>

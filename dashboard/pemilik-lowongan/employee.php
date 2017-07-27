@@ -6,12 +6,14 @@
   require_once '../../controller/class.pengiklan.php';
   require_once '../../controller/class.lowongan.php';
   require_once '../../controller/class.pekerja.php';
+  require_once '../../controller/class.script.php';
 
   $session = new function_session();
   $pengiklan = new pengiklan();
   $postingan = new postingan();
   $lowongan = new lowongan();
   $pekerja = new pekerja();
+  $script = new function_script();
   $data = $postingan->select_by_pengiklan();
 
   $session->pengiklan();
@@ -109,15 +111,18 @@ if(count($data) > 0){
       foreach ($submit as $rows) {
 
       $identitas = $pekerja->get_profile_id($rows['id_pekerja']);
-
+      $file_name = $script->get_docs($rows['tanggal'],$identitas['data']['username'],'../../assets/docs/');
         echo " 
         <tbody>
+        <form method='post'>
         <td> ".$i." </td>
         <td> ".$identitas['data']['nama']." </td>
         <td>
-          <button class='btn btn-default'>Download CV</button>
+          <button>
+            <a href='../../assets/docs/".$file_name."' download=>Click to Download!</a>
+          </button>
         </td>
-        <td>".$identitas['data']['tanggal']."</td>
+        <td>".$rows['tanggal']."</td>
         <td>
           <button type='button' class='btn btn-default' data-toggle='modal' data-target='#pekerja".$rows['id_pekerja']."'>Show Detail</button>
         </td>
@@ -126,6 +131,7 @@ if(count($data) > 0){
           <button class='btn btn-default'>Terima</button>
           <button class='btn btn-default'>Tolak</button>
         </td>
+        </form>
       </tbody>
       ";
     }      
@@ -214,7 +220,12 @@ if(count($data) > 0){
 <!-- //FOOTER -->
 
 <!-- javascript -->
-  <?php include '../../view/script.php'; ?>
+  <?php 
+  include '../../view/script.php'; 
+  if(isset($_POST['cv'])){
+    $script->download($_POST['download']);
+  }
+  ?>
 <!-- javascript -->
 
 </body>

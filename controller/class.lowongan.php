@@ -24,12 +24,30 @@ class lowongan
 			));
  	}
 
-	function apply($pekerja, $postingan){
- 		global $pdo;
- 		$query = $pdo->prepare("
- 			INSERT INTO `lowongan` (`id_pekerja`, `id_postingan`) 
- 			VALUES (?,?)");
-		$query->execute(array($pekerja,$postingan));
+	function apply($pekerja, $postingan, $username){
+		global $pdo;
+		date_default_timezone_set('Asia/Jakarta');
+		$tgl = date('Y-m-d H:i:s', time());
+ 		$query = $pdo->prepare("INSERT INTO `lowongan` (`id_pekerja`, `id_postingan`, `tanggal`) VALUES (?,?,?)");
+ 		if($this->upload_cv($username)){
+ 			$query->execute(array($pekerja,$postingan,$tgl));	
+ 		}		
+ 	}
+
+ 	function upload_cv($username){
+ 			$ekstensi_diperbolehkan	= array('doc','docx','png');
+			$nama = $_FILES['cv']['name'];
+			$x = explode('.', $nama);
+			$ekstensi = strtolower(end($x));
+			$file_tmp = $_FILES['cv']['tmp_name'];	
+ 
+			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){	
+				$tgl = date('Y-m-d H-i-s',time());
+				move_uploaded_file($file_tmp, 'assets/docs/['.$tgl."]".$username.".".$ekstensi);
+				return true;
+			}else{
+				return false;
+			}
  	}
 
  	function get_data($query, $param){
