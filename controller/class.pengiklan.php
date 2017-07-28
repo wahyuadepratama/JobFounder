@@ -15,7 +15,6 @@ class pengiklan
  	public $kota;
  	public $kecamatan;
  	public $alamat;
- 	public $lokasi;
  	public $koin;
  	public $tanggal;
  	public $deskripsi;
@@ -78,7 +77,6 @@ class pengiklan
  		$this->kota = $data_array['kota'];
  		$this->kecamatan = $data_array['kecamatan'];
  		$this->alamat = $data_array['alamat'];
- 		$this->lokasi = $data_array['lokasi'];
  		$this->koin = $data_array['koin'];
  		$this->tanggal = $data_array['tanggal'];
  		$this->deskripsi = $data_array['deskripsi'];
@@ -94,9 +92,9 @@ class pengiklan
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 				if($ukuran < 1044070){			
-					move_uploaded_file($file_tmp, 'picture/'.$this->username.".".$ekstensi);
+					move_uploaded_file($file_tmp, 'profile/'.$this->id_pengiklan.'_'.$this->username.".".$ekstensi);
 				}
-				return $this->username.".".$ekstensi;
+				return $this->id_pengiklan.'_'.$this->username.".".$ekstensi;
 			}else{
 				return NULL;
 			} 		
@@ -114,7 +112,6 @@ class pengiklan
 		$this->kota = $_POST['kota'];
 		$this->kecamatan = $_POST['kecamatan'];
 		$this->alamat = $_POST['alamat'];
-		$this->lokasi = $_POST['lokasi'];
 
 		$this->update_profile_set();
  	}
@@ -129,8 +126,7 @@ class pengiklan
  			`provinsi` 		= ?,
  			`kota` 			= ?,
  			`kecamatan` 	= ?,
- 			`alamat` 		= ?,
- 			`lokasi` 		= ?
+ 			`alamat` 		= ?
  			WHERE `pengiklan`.`id_pengiklan` = ?");
 		$query->execute(array(
 			$this->foto_profile,
@@ -141,7 +137,6 @@ class pengiklan
 			$this->kota,
 			$this->kecamatan,
 			$this->alamat,
-			$this->lokasi,
 			$this->id_pengiklan
 			));
  	}
@@ -215,7 +210,8 @@ class pengiklan
 	function get_all_profile(){
 			$query = "SELECT * FROM `pengiklan`";
 			return $this->get_all_rows($query, '');
-	}	
+	}
+	
  }
 
 

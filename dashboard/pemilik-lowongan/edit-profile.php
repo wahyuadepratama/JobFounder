@@ -122,10 +122,6 @@
 		  <label for="alamat">Alamat Perusahaan / Pemilik Pekerjaan</label>
 		  <textarea class="form-control" rows="5" id="req" name="alamat" placeholder="ex: Jl Khatib Sulaiman no 32 / Komplek perumahan kolam indah mata air no 12"><?php echo $pengiklan->alamat ?></textarea>
 	</div>
-	<div class="form-group">
-		  <label for="fax">Marking Lokasi</label>
-		  <input type="text" class="form-control" name="lokasi" placeholder="" disabled="true" value="<?php echo $pengiklan->lokasi ?>">
-	</div>
 
 	<div class="form-group">
 	<center>

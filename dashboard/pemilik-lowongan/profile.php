@@ -70,13 +70,12 @@
 
 	<center>
 		<img src="<?php 
-		if($pengiklan->foto_profile!=null){
-			echo 'picture/'.$pengiklan->foto_profile;
-		}else{
-			echo '../../assets/images/invest.PNG';
-		}
-
-		?>" class="img-circle img-responsive" width="200"><br>
+			if($pengiklan->foto_profile!=null){
+				echo 'profile/'.$pengiklan->foto_profile;
+			}else{
+				echo '../../assets/images/invest.PNG';
+			}
+	 	?>" class="img-circle img-responsive" width="200"><br>
 	</center>
 	<br>
 		
@@ -84,7 +83,7 @@
 	<div class="container table-responsive">
 	  <table class="table table-striped tabpad">
 	       <tr>
-	           <th class="text-left">Nama Perusahaan / Pemilik Pekerjaan</th>
+	           <th class="text-left">Nama Pemilik </th>
 	           
 	           <td class="text-left"><?php echo $pengiklan->nama; ?></td>
 	       </tr>
@@ -128,11 +127,7 @@
 	           
 	           <td class="text-left"><?php echo $pengiklan->alamat; ?></td>
 	       </tr>
-	       <tr>
-	           <th class="text-left">Marking Lokasi</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->lokasi; ?></td>
-	       </tr>
+
 	  </table>
 	  <br>
 	  </div>
