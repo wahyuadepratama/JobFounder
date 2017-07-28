@@ -6,23 +6,23 @@ class lowongan
 
  	public $id_lowongan;
  	public $id_pekerja;
- 	public $id_postingan; 
+ 	public $id_postingan;
 
  	function __construct(){}
 
- 	function insert(){
- 		global $pdo;
- 		$query = $pdo->prepare("
- 			INSERT INTO `lowongan` (
- 			`id_lowongan`, 
- 			`id_pekerja`, 
- 			`id_postingan`) 
- 			VALUES (NULL, ?, ?)");
-		$query->execute(array(
-			$this->id_pekerja,
-			$this->id_postingan
-			));
- 	}
+ 	// function insert(){
+ 	// 	global $pdo;
+ 	// 	$query = $pdo->prepare("
+ 	// 		INSERT INTO `lowongan` (
+ 	// 		`id_lowongan`, 
+ 	// 		`id_pekerja`, 
+ 	// 		`id_postingan`) 
+ 	// 		VALUES (NULL, ?, ?)");
+		// $query->execute(array(
+		// 	$this->id_pekerja,
+		// 	$this->id_postingan
+		// 	));
+ 	// }
 
 	function apply($pekerja, $postingan, $username){
 		global $pdo;

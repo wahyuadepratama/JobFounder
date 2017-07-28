@@ -159,7 +159,7 @@
 </form>
 </div>
 
-<div id="map" class="form-group"></div>
+<!-- <div id="map" class="form-group"></div>
   
     <script>
 
@@ -211,7 +211,7 @@
 </script>
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-</script>
+</script> -->
 
 <!-- FOOTER -->
 	<?php include '../../view/footer2.php'; ?>
