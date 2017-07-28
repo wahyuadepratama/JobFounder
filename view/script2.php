@@ -119,3 +119,6 @@
 <!-- sweet alert -->
 <script src="assets/js/sweetalert.min.js"></script>
  <!-- //sweet alert -->
+
+<!-- Navbar effect -->
+ <script type="text/javascript" src="assets/js/navbar-change.js"></script>

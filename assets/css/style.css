@@ -259,6 +259,7 @@ a.w3_agile_vimeo:hover{
 }
 .w3_banner_info{
 	margin:12em 0 0;
+  margin-left: 8em;
 	width:60%;
 }
 .w3_banner_info_grid h3{
@@ -1911,7 +1912,8 @@ h2.typoh2{
 		font-size: 1.8em;
 	}
 	.w3_banner_info {
-		margin: 8em 0 0;
+		margin: 12em 0 0;
+    margin-left: 6em;
 	}
 	.agileits_banner_bottom_left, .agileits_banner_bottom_left1, .agileits_banner_bottom_left2 {
 		min-height: 280px;
@@ -2308,8 +2310,10 @@ h2.typoh2{
 	}
 }
 @media (max-width: 768px){
+
 	.w3_banner_info_grid p {
-		margin: 1em 0 3em;
+    
+		margin-bottom:3em;
 	}
 	.wthree_banner_bottom_grid_right h4 {
 		font-size: 1.18em;

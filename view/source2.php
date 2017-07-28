@@ -13,7 +13,7 @@
 
 <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+<link href="assets/css/style-v2.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
 <!-- //js -->

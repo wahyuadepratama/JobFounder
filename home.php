@@ -9,14 +9,14 @@
 
 </head>
 	
-<body>
+<body id="style-3">
 <!-- banner -->
 	<div class="banner">
 		<div class="container">
 			
 			<?php include ("view/header2.php"); ?>
 
-			<div class="w3_banner_info">
+			<div class="w3_banner_info" id="startchange">
 				<div class="w3_banner_info_grid">
 					<h3 class="test">BIARKAN ORANG LAIN MEMBANTU PEKERJAAN ANDA</h3>
 					<b><p>Kami membantu semua orang untuk mengiklankan lowongan kerja dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja tersebut.</p></b>

@@ -1,5 +1,5 @@
 <!-- footer -->
-	<div class="footer">
+<!-- 	<div class="footer">
 		<div class="container">
 			<div class="w3agile_footer_grids">
 			<div class="container">
@@ -31,5 +31,8 @@
 				<p>© 2017 Job Us | Find Me Here</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
+	<div id="information" class="container-fluid">
+      
+    </div>
 <!-- //footer -->
