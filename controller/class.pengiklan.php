@@ -83,26 +83,51 @@ class pengiklan
  	}
 
  	function profile_picture(){
-			$ekstensi_diperbolehkan	= array('png','jpg');
+ 			$script = new function_script();
+
+			$ekstensi_diperbolehkan	= array('png','jpg','jpeg');
 			$nama = $_FILES['foto_profile']['name'];
 			$x = explode('.', $nama);
 			$ekstensi = strtolower(end($x));
 			$ukuran	= $_FILES['foto_profile']['size'];
 			$file_tmp = $_FILES['foto_profile']['tmp_name'];	
+
+			$new_name = $this->id_pengiklan.'_'.$this->username;
+
+			$cek = $script->get_image($new_name,'profile/');			
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 				if($ukuran < 1044070){			
-					move_uploaded_file($file_tmp, 'profile/'.$this->id_pengiklan.'_'.$this->username.".".$ekstensi);
+					if($cek!=null){
+						copy($file_tmp, 'profile/'.$cek);
+						$script->compress(
+						'profile/'.$cek,
+						'profile/'.$cek,
+						75
+						);
+						return $cek;
+					}else{
+						move_uploaded_file($file_tmp, 'profile/'.$new_name.".".$ekstensi);	
+						$script->compress(
+						'profile/'.$new_name.".".$ekstensi,
+						'profile/'.$new_name.".".$ekstensi,
+						75
+						);
+						return $this->id_pengiklan.'_'.$this->username.".".$ekstensi;
+					}								
 				}
-				return $this->id_pengiklan.'_'.$this->username.".".$ekstensi;
+				
 			}else{
-				return NULL;
+				return NULL;	
 			} 		
  	}
 
  	function set_profile_post(){
  		$file = $this->profile_picture();
- 		$this->foto_profile = $file;
+ 		if($file!=null){
+ 		$this->foto_profile = $file;	
+ 		}
+ 		
 		$this->nama = $_POST['nama'];
 		$this->deskripsi = $_POST['deskripsi'];
 		$this->email = $_POST['email'];
