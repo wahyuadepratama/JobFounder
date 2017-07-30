@@ -23,6 +23,8 @@
 											echo "<li><a href='dashboard/pekerja/profile.php'>Dashboard</a></li>";	
 										}elseif(isset($_SESSION['pengiklan'])){
 											echo "<li><a href='dashboard/pemilik-lowongan/profile.php'>Dashboard</a></li>";
+										}elseif(isset($_SESSION['admin'])){
+											echo "<li><a href='admin/dashboard.php'>Dashboard</a></li>";
 										}else{
 											echo "<li><a href='daftar.php'>Daftar</a></li>";
 										} 

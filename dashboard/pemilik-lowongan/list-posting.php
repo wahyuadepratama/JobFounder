@@ -99,9 +99,10 @@ if(count($data) > 0){
     <div class='container table-responsive collapse' id='".$row['id_postingan']."'>
     <table class='table'>
       <th>No</th>
-      <th>Employee Name</th>
-      <th>CV</th>
-      <th>Date Submitted</th>
+      <th>Employee Name</th>";
+      if($row['status']=='pro'){echo "<th>CV</th>";}
+      echo
+      "<th>Date Submitted</th>
       <th>Detail Employee</th>
       <th>Status</th>
       <th>Action</th>
@@ -118,18 +119,45 @@ if(count($data) > 0){
           <form method='post'>
             <td> ".$i." </td>
             <td> ".$identitas['data']['nama']." </td>
-            <td>
-              <button>
-                <a href='../../assets/docs/".$file_name."' download=>Click to Download!</a>
-              </button>
-            </td>
+            ";
+            if($row['status']=='pro'){
+              if(isset($file_name)){
+                echo "<td>
+                  <button>
+                    <a href='../../assets/docs/".$file_name."' download>Click to Download!</a>
+                  </button>
+                </td>";                
+              }else{
+                echo "<td>
+                  <button disabled='true'>
+                    File Tidak Diupload
+                  </button>
+                </td>";
+              }            
+            }
+            
+            echo "
             <td>".$rows['tanggal']."</td>
             <td>
               <button type='button' class='btn btn-default' data-toggle='modal' data-target='#pekerja".$rows['id_pekerja']."'>Show Detail</button>
             </td>
-            <td>Waiting</td>
-            <td>
-              <button class='btn btn-default'>Terima</button>
+
+              <input type=hidden name='id_pos' value='".$row['id_postingan']."'>
+              <input type=hidden name='id_terima' value='".$rows['id_pekerja']."'>";
+            $cari=$postingan->cek_submit($rows['id_pekerja'],$row['id_postingan']);
+            if(count($cari)>0){
+            echo "
+              <td>Accepted</td>
+              <td>            
+              <input type='submit' name='terima' disabled='true' value='Terima'>";
+            }else{
+            echo "
+              <td>Waiting</td>
+              <td>            
+              <input type='submit' name='terima' value='Terima'>";
+            }
+
+            echo "
               <button class='btn btn-default'>Tolak</button>
             </td>
           </form>
@@ -163,8 +191,54 @@ if(count($data) > 0){
            <div class='container-fluid'>
             <div class='col-sm-4'>
             <img src=" ?><?php
-              if($pengiklan->foto_profile!=null){
-                echo '../pekerja/profile/'.$pengiklan->foto_profile;
+              if($x['foto_profile']!=null){
+                echo '../pekerja/profile/'.$x['foto_profile'];
+              }else{
+                echo '../../assets/images/invest.PNG';
+              } ?><?php echo " class='img-responsive center-block'>
+            <br>
+            </div>
+            <div class='col-sm-8'>
+                <table align='center'>
+                    <tr>
+                        <td class='text-left'>Nama </td>
+                        <td style='width:20px'> : </td>
+                        <td class='text-left'>".$x['nama']."</td>
+                    </tr>
+                    <tr>
+                        <td class='text-left'>Keahlian </td>
+                        <td> : </td>
+                        <td class='text-left'>".$x['keahlian']."</td>
+                    </tr>
+                </table>
+            </div>
+            
+           </div>
+           </div>
+          <div class='modal-footer'>
+            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal -->  
+
+    <div id='terima".$x['id_pekerja']."' class='modal fade' role='dialog'>
+      <div class='modal-dialog'>
+
+        <!-- Modal content-->
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <!-- <button type='button' class='close' data-dismiss='modal'>&times;</button> -->
+            <h4 class='modal-title'>Detail Akun</h4>
+          </div>
+          <div class='modal-body'>
+          <!-- Photo Profile -->
+           <div class='container-fluid'>
+            <div class='col-sm-4'>
+            <img src=" ?><?php
+              if($x['foto_profile']!=null){
+                echo '../pekerja/profile/'.$x['foto_profile'];
               }else{
                 echo '../../assets/images/invest.PNG';
               } ?><?php echo " class='img-responsive center-block'>
@@ -197,11 +271,6 @@ if(count($data) > 0){
                         <td> : </td>
                         <td class='text-left'>".$x['alamat']."</td>
                     </tr>
-                    <tr>
-                        <td class='text-left'>Keahlian </td>
-                        <td> : </td>
-                        <td class='text-left'>".$x['keahlian']."</td>
-                    </tr>
                 </table>
             </div>
             
@@ -213,7 +282,7 @@ if(count($data) > 0){
         </div>
       </div>
     </div>
-    <!-- End modal -->           
+    <!-- End modal -->
     ";}  
   }
   
@@ -226,12 +295,15 @@ if(count($data) > 0){
 <!-- //FOOTER -->
 
 <!-- javascript -->
-  <?php 
-  include '../../view/script.php'; 
-  if(isset($_POST['cv'])){
-    $script->download($_POST['download']);
-  }
+  <?php include '../../view/script.php'; 
+if(isset($_POST['terima'])){
+  $postingan->accept_submit($_POST['id_terima'],$_POST['id_pos']);
+  $script->redirect('list-posting');
+}
+
+
   ?>
+
 <!-- javascript -->
 
 </body>

@@ -220,6 +220,29 @@ class postingan
 		return $output;
 	}
 
+	function accept_submit($id_pekerja,$id_postingan){
+		$data = $this->select_postingan($id_postingan);
+		if($data['data']['dikerjakan_oleh']==NULL){
+			$arr = array($id_pekerja);
+			$serial = serialize($arr);		
+		}else{
+			$arr = unserialize($data['data']['dikerjakan_oleh']);
+			array_push($arr, $id_pekerja);
+			$serial = serialize($arr);			
+		}
+
+		global $pdo;
+ 		$query = $pdo->prepare("UPDATE `postingan` SET `postingan`.`dikerjakan_oleh` = ? WHERE `postingan`.`id_postingan` = ?;");
+		$query->execute(array($serial,$id_postingan));	
+	}
+
+	function cek_submit($id_pekerja,$id_postingan){
+		$v_pekerja='%"'.$id_pekerja.'"%';
+		$query = "select * from postingan where id_postingan = ? and dikerjakan_oleh like '".$v_pekerja."'" ;
+		$param = array($id_postingan);
+		return $this->get_all_rows($query, $param);
+	}
+
  } 
 
  ?>

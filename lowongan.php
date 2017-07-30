@@ -178,7 +178,14 @@
 				    	</a>
 				  	</div>
 				  	<h4>".$row['judul']." </h4>
-				  	<p>".$row['deskripsi']."<br></p>
+				  	<p>";
+				if(strlen($row['deskripsi'])>50){
+					echo substr($row['deskripsi'],0,100).'...';
+				}else{
+					echo $row['deskripsi'];
+				}
+			echo	"			  	
+				  	<br></p>
             		<a class='remo' href='detail.php?id=".$postingan->encode($row['id_postingan'])."'><b>Read more</b></a>
 				</div>
 			</div>";

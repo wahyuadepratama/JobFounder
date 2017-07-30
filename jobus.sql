@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2017 at 04:16 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: 31 Jul 2017 pada 00.59
+-- Versi Server: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `jobus`
@@ -23,17 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`id_admin` int(11) NOT NULL,
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
@@ -42,20 +42,20 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inf_lokasi`
+-- Struktur dari tabel `inf_lokasi`
 --
 
-CREATE TABLE IF NOT EXISTS `inf_lokasi` (
-`lokasi_ID` int(11) NOT NULL,
+CREATE TABLE `inf_lokasi` (
+  `lokasi_ID` int(11) NOT NULL,
   `lokasi_kode` varchar(50) NOT NULL DEFAULT '',
   `lokasi_nama` varchar(100) NOT NULL DEFAULT '',
   `lokasi_propinsi` int(2) NOT NULL,
-  `lokasi_kabupatenkota` int(2) unsigned zerofill DEFAULT NULL,
-  `lokasi_kecamatan` int(2) unsigned zerofill NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33046 DEFAULT CHARSET=utf8;
+  `lokasi_kabupatenkota` int(2) UNSIGNED ZEROFILL DEFAULT NULL,
+  `lokasi_kecamatan` int(2) UNSIGNED ZEROFILL NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `inf_lokasi`
+-- Dumping data untuk tabel `inf_lokasi`
 --
 
 INSERT INTO `inf_lokasi` (`lokasi_ID`, `lokasi_kode`, `lokasi_nama`, `lokasi_propinsi`, `lokasi_kabupatenkota`, `lokasi_kecamatan`) VALUES
@@ -5133,32 +5133,35 @@ INSERT INTO `inf_lokasi` (`lokasi_ID`, `lokasi_kode`, `lokasi_nama`, `lokasi_pro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lowongan`
+-- Struktur dari tabel `lowongan`
 --
 
-CREATE TABLE IF NOT EXISTS `lowongan` (
-`id_lowongan` int(11) NOT NULL,
+CREATE TABLE `lowongan` (
+  `id_lowongan` int(11) NOT NULL,
   `id_pekerja` int(11) NOT NULL,
   `id_postingan` int(11) NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `tanggal` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `lowongan`
+-- Dumping data untuk tabel `lowongan`
 --
 
 INSERT INTO `lowongan` (`id_lowongan`, `id_pekerja`, `id_postingan`, `tanggal`) VALUES
 (1, 2, 2, '2017-07-30 05:58:47'),
-(2, 3, 4, '2017-07-30 06:13:48');
+(2, 3, 4, '2017-07-30 06:13:48'),
+(6, 4, 20, '2017-07-30 19:58:12'),
+(7, 1, 20, '2017-07-30 20:01:58'),
+(8, 4, 18, '2017-07-30 22:45:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pekerja`
+-- Struktur dari tabel `pekerja`
 --
 
-CREATE TABLE IF NOT EXISTS `pekerja` (
-`id_pekerja` int(11) NOT NULL,
+CREATE TABLE `pekerja` (
+  `id_pekerja` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
@@ -5173,25 +5176,26 @@ CREATE TABLE IF NOT EXISTS `pekerja` (
   `keahlian` varchar(255) DEFAULT NULL,
   `foto_pengenal` varchar(255) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pekerja`
+-- Dumping data untuk tabel `pekerja`
 --
 
 INSERT INTO `pekerja` (`id_pekerja`, `username`, `email`, `no_hp`, `password`, `foto_profile`, `nama`, `sosmed`, `provinsi`, `kota`, `kecamatan`, `alamat`, `keahlian`, `foto_pengenal`, `tanggal`) VALUES
 (1, '9898', '9898', '9898', '7b9dc501afe4ee11c56a4831e20cee71', '', '9898', '9898', '13', '71', '04', '  9898', '9898', NULL, '2017-07-23 19:28:43'),
 (2, 'ade', 'ade@gmail.com', '0898231292398', 'a562cfa07c2b1213b3a5c99b756fc206', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-07-26 21:31:15'),
-(3, 'wahyu', 'wahyuadepratam4@gmail.com', '081371321971', '32c9e71e866ecdbc93e497482aa6779f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-07-28 05:25:44');
+(3, 'wahyu', 'wahyuadepratam4@gmail.com', '081371321971', '32c9e71e866ecdbc93e497482aa6779f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-07-28 05:25:44'),
+(4, '11', '11', '11', '6512bd43d9caa6e02c990b0a82652dca', '4_11.jpg', '11', '11', '61', 'Pilih', 'Pilih', '          11         ', '11', NULL, '2017-07-30 19:01:30');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengiklan`
+-- Struktur dari tabel `pengiklan`
 --
 
-CREATE TABLE IF NOT EXISTS `pengiklan` (
-`id_pengiklan` int(11) NOT NULL,
+CREATE TABLE `pengiklan` (
+  `id_pengiklan` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `email` varchar(255) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
@@ -5207,26 +5211,27 @@ CREATE TABLE IF NOT EXISTS `pengiklan` (
   `lokasi` int(11) DEFAULT NULL,
   `koin` int(11) DEFAULT '0',
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengiklan`
+-- Dumping data untuk tabel `pengiklan`
 --
 
 INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `foto_profile`, `nama`, `deskripsi`, `sosmed`, `provinsi`, `kota`, `kecamatan`, `alamat`, `lokasi`, `koin`, `tanggal`) VALUES
 (1, '9898', '9898', '9898', '7b9dc501afe4ee11c56a4831e20cee71', '1_9898.png', '9898', '9898', '9898', '13', '71', '01', '9898', NULL, 0, '2017-07-23 19:27:22'),
 (2, 'ade', 'ade@gmail.com', '0898231292398', 'a562cfa07c2b1213b3a5c99b756fc206', '', 'Ade indra', 'saya adalah seorang mahasiswa', '@adeganteng', '13', '71', '01', 'Limau manis unand', NULL, 0, '2017-07-26 21:08:47'),
 (3, 'wahyu', 'wahyuadepratam4@gmail.com', '081231121312', '32c9e71e866ecdbc93e497482aa6779f', '3_wahyu.jpg', 'Wahyu Ade Pratama', 'seorang pemilik toko', 'LINE : wahyuadepratam4', '13', '71', '01', 'jala utama II blok j2 no 12 Mata Air', NULL, 0, '2017-07-28 05:19:16'),
-(4, 'percobaan', 'percobaan@coba.com', '08129382981', 'cdca96f7ae799f207d8f94b016c7c5be', NULL, 'percobaan coba coba', 'saya adalah seorang guru', 'WA: 08129382981', '12', '71', '15', 'tidak ada alamat', NULL, 0, '2017-07-30 02:20:26');
+(4, 'percobaan', 'percobaan@coba.com', '08129382981', 'cdca96f7ae799f207d8f94b016c7c5be', NULL, 'percobaan coba coba', 'saya adalah seorang guru', 'WA: 08129382981', '12', '71', '15', 'tidak ada alamat', NULL, 0, '2017-07-30 02:20:26'),
+(5, '00', '00', '00', 'b4b147bc522828731f1a016bfa72c073', '5_00.jpg', '00', '00', '00', '19', '04', '04', '00', NULL, 9900, '2017-07-30 18:57:12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postingan`
+-- Struktur dari tabel `postingan`
 --
 
-CREATE TABLE IF NOT EXISTS `postingan` (
-`id_postingan` int(11) NOT NULL,
+CREATE TABLE `postingan` (
+  `id_postingan` int(11) NOT NULL,
   `id_pengiklan` int(11) NOT NULL,
   `judul` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -5241,28 +5246,32 @@ CREATE TABLE IF NOT EXISTS `postingan` (
   `lat` float(10,6) DEFAULT NULL,
   `lang` float(10,6) DEFAULT NULL,
   `approved` char(5) NOT NULL,
-  `tgl_approved` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `tgl_approved` timestamp NULL DEFAULT NULL,
+  `dikerjakan_oleh` varchar(1024) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `postingan`
+-- Dumping data untuk tabel `postingan`
 --
 
-INSERT INTO `postingan` (`id_postingan`, `id_pengiklan`, `judul`, `deskripsi`, `kategori`, `gaji`, `keterangan`, `tipe`, `pamflet`, `durasi`, `status`, `tanggal`, `lat`, `lang`, `approved`, `tgl_approved`) VALUES
-(1, 1, '90', '90', 'a:2:{i:0;s:12:"administrasi";i:1;s:13:"karyawan toko";}', '90', '90', 'kontrak', NULL, 7, 'free', '2017-07-23 19:29:50', -0.923788, 100.355415, 'sudah', '2017-07-23 17:00:00'),
-(2, 2, 'Butuh seorang desainer', 'Bisa membuat video dan aktif di sosial media', 'a:1:{i:0;s:9:"teknologi";}', 'Disesuaikan', '-', 'kontrak', NULL, 7, 'free', '2017-07-26 21:14:05', -0.947083, 100.417183, 'sudah', '2017-07-26 17:00:00'),
-(3, 3, 'Butuh seorang developer web', 'Saya ingin membuat sebuah website untuk toko saya', 'a:2:{i:0;s:9:"teknologi";i:1;s:21:"website dan developer";}', 'Rp. +- 1.500.000', 'Untuk sistem nanti bisa dijelaskan secara langsung', 'kontrak', NULL, 7, 'free', '2017-07-28 05:21:03', 0.000000, 0.000000, 'sudah', '2017-07-27 17:00:00'),
-(4, 4, 'Dicari seorang guru les private', 'Guru les private yang bisa mengajar matematika , fisika, biologi dan kimia SMP', 'a:1:{i:0;s:8:"Pengajar";}', 'Menyesuaikan', 'Mengajar hanya setiap hari senin dan kamis saja', 'kontrak', NULL, 7, 'free', '2017-07-30 03:47:51', 0.000000, 0.000000, 'sudah', '2017-07-29 17:00:00'),
-(18, 1, 'dsafafdafa', 'dsafafdafa', 'a:1:{i:0;s:23:"Pelayan Resto (waiters)";}', 'dsafafdafa', 'dsafafdafa', 'kontrak', NULL, 7, 'free', '2017-07-30 05:03:18', 0.000000, 0.000000, 'belum', NULL);
+INSERT INTO `postingan` (`id_postingan`, `id_pengiklan`, `judul`, `deskripsi`, `kategori`, `gaji`, `keterangan`, `tipe`, `pamflet`, `durasi`, `status`, `tanggal`, `lat`, `lang`, `approved`, `tgl_approved`, `dikerjakan_oleh`) VALUES
+(1, 1, '90', '90', 'a:2:{i:0;s:12:"administrasi";i:1;s:13:"karyawan toko";}', '90', '90', 'kontrak', NULL, 7, 'free', '2017-07-23 19:29:50', -0.923788, 100.355415, 'sudah', '2017-07-23 17:00:00', NULL),
+(2, 2, 'Butuh seorang desainer', 'Bisa membuat video dan aktif di sosial media', 'a:1:{i:0;s:9:"teknologi";}', 'Disesuaikan', '-', 'kontrak', NULL, 7, 'free', '2017-07-26 21:14:05', -0.947083, 100.417183, 'sudah', '2017-07-26 17:00:00', NULL),
+(3, 3, 'Butuh seorang developer web', 'Saya ingin membuat sebuah website untuk toko saya', 'a:2:{i:0;s:9:"teknologi";i:1;s:21:"website dan developer";}', 'Rp. +- 1.500.000', 'Untuk sistem nanti bisa dijelaskan secara langsung', 'kontrak', NULL, 7, 'free', '2017-07-28 05:21:03', 0.000000, 0.000000, 'sudah', '2017-07-27 17:00:00', NULL),
+(4, 4, 'Dicari seorang guru les private', 'Guru les private yang bisa mengajar matematika , fisika, biologi dan kimia SMP', 'a:1:{i:0;s:8:"Pengajar";}', 'Menyesuaikan', 'Mengajar hanya setiap hari senin dan kamis saja', 'kontrak', NULL, 7, 'free', '2017-07-30 03:47:51', 0.000000, 0.000000, 'sudah', '2017-07-29 17:00:00', NULL),
+(18, 1, 'dsafafdafa', 'dsafafdafa', 'a:1:{i:0;s:23:"Pelayan Resto (waiters)";}', 'dsafafdafa', 'dsafafdafa', 'kontrak', NULL, 7, 'free', '2017-07-30 05:03:18', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', 'a:1:{i:0;s:1:"4";}'),
+(19, 5, '00-00', '00-00', 'a:8:{i:0;s:23:"Pelayan Resto (waiters)";i:1;s:25:"Pelayan Toko (pramuniaga)";i:2;s:16:"Delivery Makanan";i:3;s:19:"Marketing dan Sales";i:4;s:11:"Driver Ojek";i:5;s:8:"Pengajar";i:6;s:20:"jasa perawatan hewan";i:7;s:8:"Pembantu";}', '00-00', '', 'Freelance / Kontrak', NULL, 7, 'free', '2017-07-30 18:58:31', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', NULL),
+(20, 5, 'Pr0', 'Pr0', 'a:4:{i:0;s:16:"Delivery Makanan";i:1;s:19:"Marketing dan Sales";i:2;s:11:"SPG dan SPB";i:3;s:13:"Administrator";}', 'Pr0', 'Pr0', 'Freelance / Kontrak', '', 99, 'pro', '2017-07-30 19:27:08', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', 'a:2:{i:0;s:1:"4";i:1;s:1:"1";}'),
+(21, 5, 'liusbefilb', 'lirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarlilib', 'a:3:{i:0;s:8:"Pengajar";i:1;s:11:"Baby Sitter";i:2;s:15:"Event Organizer";}', 'lirbclivbsarlilib', 'lirbclivbsarlilib', 'Freelance / Kontrak', NULL, 7, 'free', '2017-07-30 20:39:27', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `transaksi`
 --
 
-CREATE TABLE IF NOT EXISTS `transaksi` (
-`id_transaksi` int(11) NOT NULL,
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
   `id_pengiklan` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `no_rekening` varchar(50) NOT NULL,
@@ -5278,43 +5287,56 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id_admin`), ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`id_admin`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `inf_lokasi`
 --
 ALTER TABLE `inf_lokasi`
- ADD PRIMARY KEY (`lokasi_ID`), ADD KEY `lokasi_kode` (`lokasi_kode`), ADD KEY `lokasi_propinsi` (`lokasi_propinsi`), ADD KEY `lokasi_kabupatenkota` (`lokasi_kabupatenkota`), ADD KEY `lokasi_kecamatan` (`lokasi_kecamatan`);
+  ADD PRIMARY KEY (`lokasi_ID`),
+  ADD KEY `lokasi_kode` (`lokasi_kode`),
+  ADD KEY `lokasi_propinsi` (`lokasi_propinsi`),
+  ADD KEY `lokasi_kabupatenkota` (`lokasi_kabupatenkota`),
+  ADD KEY `lokasi_kecamatan` (`lokasi_kecamatan`);
 
 --
 -- Indexes for table `lowongan`
 --
 ALTER TABLE `lowongan`
- ADD PRIMARY KEY (`id_lowongan`), ADD UNIQUE KEY `id_pekerja` (`id_pekerja`,`id_postingan`), ADD KEY `id_postingan` (`id_postingan`);
+  ADD PRIMARY KEY (`id_lowongan`),
+  ADD UNIQUE KEY `id_pekerja` (`id_pekerja`,`id_postingan`),
+  ADD KEY `id_postingan` (`id_postingan`);
 
 --
 -- Indexes for table `pekerja`
 --
 ALTER TABLE `pekerja`
- ADD PRIMARY KEY (`id_pekerja`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id_pekerja`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `pengiklan`
 --
 ALTER TABLE `pengiklan`
- ADD PRIMARY KEY (`id_pengiklan`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id_pengiklan`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `postingan`
 --
 ALTER TABLE `postingan`
- ADD PRIMARY KEY (`id_postingan`), ADD KEY `id_pengiklan` (`id_pengiklan`);
+  ADD PRIMARY KEY (`id_postingan`),
+  ADD KEY `id_pengiklan` (`id_pengiklan`);
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
- ADD PRIMARY KEY (`id_transaksi`), ADD KEY `id_pengiklan` (`id_pengiklan`);
+  ADD PRIMARY KEY (`id_transaksi`),
+  ADD KEY `id_pengiklan` (`id_pengiklan`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -5324,59 +5346,59 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `inf_lokasi`
 --
 ALTER TABLE `inf_lokasi`
-MODIFY `lokasi_ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33046;
+  MODIFY `lokasi_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33046;
 --
 -- AUTO_INCREMENT for table `lowongan`
 --
 ALTER TABLE `lowongan`
-MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `pekerja`
 --
 ALTER TABLE `pekerja`
-MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id_pekerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `pengiklan`
 --
 ALTER TABLE `pengiklan`
-MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_pengiklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `postingan`
 --
 ALTER TABLE `postingan`
-MODIFY `id_postingan` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id_postingan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `lowongan`
+-- Ketidakleluasaan untuk tabel `lowongan`
 --
 ALTER TABLE `lowongan`
-ADD CONSTRAINT `lowongan_ibfk_3` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`),
-ADD CONSTRAINT `lowongan_ibfk_4` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`);
+  ADD CONSTRAINT `lowongan_ibfk_3` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`),
+  ADD CONSTRAINT `lowongan_ibfk_4` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`);
 
 --
--- Constraints for table `postingan`
+-- Ketidakleluasaan untuk tabel `postingan`
 --
 ALTER TABLE `postingan`
-ADD CONSTRAINT `postingan_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
+  ADD CONSTRAINT `postingan_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
 
 --
--- Constraints for table `transaksi`
+-- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

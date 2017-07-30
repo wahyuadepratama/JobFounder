@@ -124,8 +124,52 @@ class pekerja
  		$this->tanggal = $data_array['tanggal'];
  	}
 
+ 	function profile_picture(){
+ 			$script = new function_script();
+
+			$ekstensi_diperbolehkan	= array('png','jpg','jpeg');
+			$nama = $_FILES['foto_profile']['name'];
+			$x = explode('.', $nama);
+			$ekstensi = strtolower(end($x));
+			$ukuran	= $_FILES['foto_profile']['size'];
+			$file_tmp = $_FILES['foto_profile']['tmp_name'];	
+
+			$new_name = $this->id_pekerja.'_'.$this->username;
+
+			$cek = $script->get_image($new_name,'profile/');			
+ 
+			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+				if($ukuran < 1044070){			
+					if($cek!=null){
+						copy($file_tmp, 'profile/'.$cek);
+						$script->compress(
+						'profile/'.$cek,
+						'profile/'.$cek,
+						75
+						);
+						return $cek;
+					}else{
+						move_uploaded_file($file_tmp, 'profile/'.$new_name.".".$ekstensi);	
+						$script->compress(
+						'profile/'.$new_name.".".$ekstensi,
+						'profile/'.$new_name.".".$ekstensi,
+						75
+						);
+						return $this->id_pekerja.'_'.$this->username.".".$ekstensi;
+					}								
+				}
+				
+			}else{
+				return NULL;	
+			} 		
+ 	}
+
  	function set_profile_post(){
- 		$this->foto_profile = $_POST['foto_profile'];
+ 		$file = $this->profile_picture();
+ 		if($file!=null){
+ 		$this->foto_profile = $file;	
+ 		}
+
 		$this->nama = $_POST['nama'];
 		$this->email = $_POST['email'];
 		$this->no_hp = $_POST['no_hp'];
@@ -183,9 +227,30 @@ class pekerja
 	}
 
 	function get_by_pengiklan_submit($id_pengiklan){
-			$query = "select * from pekerja where id_pekerja in(select distinct id_pekerja from lowongan where id_postingan in (select id_postingan from postingan where id_pengiklan=1))";
+			$query = "select * from pekerja where id_pekerja in(select distinct id_pekerja from lowongan where id_postingan in (select id_postingan from postingan where id_pengiklan=?))";
 			$param = array($id_pengiklan);
 			return $this->get_all_rows($query, $param);
+	}
+
+	function tracking(){
+			$finale=array();
+			$v_pekerja='%"'.$_SESSION['user']['id_pekerja'].'"%';
+			$query = "select * from postingan where dikerjakan_oleh like '".$v_pekerja."'" ;
+			$track= $this->get_all_rows($query, '');
+			if(count($track)>0){
+				$num = 1;
+				foreach ($track as $v_track) {		
+					$pengiklan = new pengiklan();
+					$lowongan = new lowongan();
+
+					$v_pengiklan = $pengiklan->get_profile_id($v_track['id_pengiklan']);				
+					$v_lowongan = $lowongan->get_lowongan_id($v_track['id_postingan']);
+					$temp = array($num,$v_track['judul'],$v_pengiklan['data']['nama'],$v_lowongan['data']['tanggal']);
+					array_push($finale, $temp);					
+					$num++;
+				}		
+				return $finale;				
+			}						
 	}
 
  } 

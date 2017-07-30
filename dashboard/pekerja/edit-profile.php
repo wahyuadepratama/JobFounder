@@ -51,7 +51,7 @@
 	</ul>
 </div>
 <div class="container">
- <form method='post'>
+ <form method='post' enctype='multipart/form-data'>
 	<center>
 		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">

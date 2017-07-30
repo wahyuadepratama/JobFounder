@@ -1,7 +1,10 @@
 <?php 
 
-class function_session{
+	$path = explode("/", "$_SERVER[REQUEST_URI]");
+	$file = $path[count($path)-2];
 
+class function_session{
+	
 	function pengiklan(){
 
 		if(!isset($_SESSION['pengiklan'])) {
@@ -24,7 +27,14 @@ class function_session{
 
 		if (isset($_POST['logout'])) {
 			session_destroy();
-			header('location: ../../');
+			global $file;
+			echo $file;
+			if($file=='admin'){
+				header('location: ../');
+			}else{
+				header('location: ../../');	
+			}			
+			
 		}
 	}
 

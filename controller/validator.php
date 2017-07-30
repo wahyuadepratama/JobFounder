@@ -70,13 +70,14 @@
 			$lokasi = 'dashboard';
 		}
 		
-		if(!$result['status']) { 
-			$script->alert_warning('Gagal Login','Username atau Password Anda Salah'); 
-		}
-		else {					
-			$_SESSION['user'] = $result['data'];
-			$script->redirect($lokasi);
-		}
+		if(isset($result)){
+			if(!$result['status']) { 
+				$script->alert_warning('Gagal Login','Username atau Password Anda Salah'); 
+			}
+			else {					
+				$_SESSION['user'] = $result['data'];
+				$script->redirect($lokasi);
+			}	
+		}		
 	}
-
  ?>

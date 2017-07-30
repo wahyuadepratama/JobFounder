@@ -52,7 +52,13 @@
 <div class="container content-ku">
 
   <center>
-      <img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
+      <img src="<?php 
+      if($pekerja->foto_profile!=null){
+        echo 'profile/'.$pekerja->foto_profile;
+      }else{
+        echo '../../assets/images/invest.PNG';
+      }
+    ?>" class="img-circle img-responsive" width="200"><br>
   </center>
   <br>
 
@@ -81,17 +87,17 @@
          <tr>
              <th class="text-left">Provinsi</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php if(isset($daerah[0])){echo $daerah[0]['lokasi_nama'];} ?></td>
          </tr>
          <tr>
              <th class="text-left">Kota</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php if(isset($daerah[1])){echo $daerah[1]['lokasi_nama'];} ?></td>
          </tr>
          <tr>
              <th class="text-left">Kecamatan</th>
              <td></td>
-             <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
+             <td class="text-left"><?php if(isset($daerah[2])){echo $daerah[2]['lokasi_nama'];} ?></td>
          </tr>
          <tr>
              <th class="text-left">Alamat</th>

@@ -130,7 +130,7 @@
 			}elseif($_SESSION['pengiklan']){
 				$script->redirect('dashboard/pemilik-lowongan/profile');
 			}elseif($_SESSION['pekerja']){
-				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan,$_SESSION['user']['username']);
+				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan,$_SESSION['user']['username'],$postingan['data']['status']);
 				$script->redirect('lowongan');
 			}
 		}

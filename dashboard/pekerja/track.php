@@ -4,7 +4,11 @@
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
   require_once '../../controller/class.pekerja.php';
+  require_once '../../controller/class.pengiklan.php';
+  require_once '../../controller/class.lowongan.php';
 
+  $pengiklan = new pengiklan();
+  $lowongan = new lowongan();
   $session = new function_session();
   $pekerja = new pekerja();
   $script = new function_script();
@@ -56,14 +60,19 @@
     	<th>Judul</th>
     	<th>Date Submitted</th>
     	<th>Perusahaan</th>
+    <?php 
+    $data =$pekerja->tracking();
+    foreach ($data as $value) {
+      echo "
+      <tbody>
+      <td>".$value[0]."</td>
+      <td>".$value[1]."</td>
+      <td>".$value[2]."</td>
+      <td>".$value[3]."</td>
+    </tbody>";
+    }
 
-    <tbody>
-    	<td> 1 </td>
-    	<td> Cleaning Service </td>
-    	<td>12-12-2012</td>
-    	<td>PT. ikan-ikan</td>
-    </tbody>
-    
+     ?>    
     </table>
     </div>
 </div>

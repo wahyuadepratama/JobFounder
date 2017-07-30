@@ -25,13 +25,16 @@ class lowongan
 		// 	));
  	// }
 
-	function apply($pekerja, $postingan, $username){
+	function apply($pekerja, $postingan, $username,$status){
 		global $pdo;
 		date_default_timezone_set('Asia/Jakarta');
 		$tgl = date('Y-m-d H:i:s', time());
  		$query = $pdo->prepare("INSERT INTO `lowongan` (`id_pekerja`, `id_postingan`, `tanggal`) VALUES (?,?,?)");
  		$query->execute(array($pekerja,$postingan,$tgl));	
 	
+		if($status=='pro'){
+			$this->upload_cv($username);
+		}
  	}
 
  	function upload_cv($username){
@@ -142,6 +145,12 @@ class lowongan
  		$query = $pdo->prepare("DELETE FROM `lowongan` WHERE `lowongan`.`id_lowongan` = ?");
 		$query->execute(array($this->id_lowongan));
  		}
+
+	function get_lowongan_id($id){
+		$query = "SELECT * FROM `lowongan` WHERE `lowongan`.`id_postingan` = ?";
+		$param = array($id);
+		return $this->get_data($query, $param);
+	} 		
  } 
 
  ?>
