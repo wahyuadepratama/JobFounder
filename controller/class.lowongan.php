@@ -7,6 +7,7 @@ class lowongan
  	public $id_lowongan;
  	public $id_pekerja;
  	public $id_postingan;
+ 	public $tanggal;
 
  	function __construct(){}
 
@@ -29,9 +30,8 @@ class lowongan
 		date_default_timezone_set('Asia/Jakarta');
 		$tgl = date('Y-m-d H:i:s', time());
  		$query = $pdo->prepare("INSERT INTO `lowongan` (`id_pekerja`, `id_postingan`, `tanggal`) VALUES (?,?,?)");
- 		if($this->upload_cv($username)){
- 			$query->execute(array($pekerja,$postingan,$tgl));	
- 		}		
+ 		$query->execute(array($pekerja,$postingan,$tgl));	
+	
  	}
 
  	function upload_cv($username){

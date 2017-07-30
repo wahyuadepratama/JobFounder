@@ -67,21 +67,7 @@
 <p>Keterangan : <?php echo $postingan['data']['keterangan'] ?></p>
 <p>Tipe : <?php echo $postingan['data']['tipe'] ?></p>
 
-<!-- <p>Persyaratan Berkas / Dokumen :<br>
-<ol style="margin-bottom:0px">
-<li>Surat Lamaran </li>
-<li>Daftar Riwayat Hidup (CV) </li> 
-<li>Kartu Identitas (KTP/SIM) </li>
-<li>Foto Ukuran 4×6 (Berwarna) </li>
-<li>Email & No. Telp/HP </li>
-</ol>
-
-<p>Silahkan kirim Lamaran dan data Lengkap Anda ke email:
-career-awalbros@doctor.com <br>
-
-RS.AWAL BROS hanya mengundang pelamar terbaik untuk mengikuti seleksi. 
-Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari RS.AWAL BROS serta tidak dapat diganggu gugat.</p>
-		    </p> -->
+		    </p> 
 		    <div class="pull-right">
 		    	<form method='post' enctype="multipart/form-data">		    
 		    	<?php 	
@@ -135,7 +121,6 @@ Keputusan untuk memanggil pelamar dan penentuan hasil seleksi merupakan hak dari
 <!-- javascript -->
 </body>
 <?php 
-
 	if(isset($_POST['apply'])){
 		if($_SESSION==NULL){
 			$script->redirect('daftar');

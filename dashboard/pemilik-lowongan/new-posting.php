@@ -51,8 +51,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          
       <ul class="nav navbar-nav navbar-right" id="menu">
-        <li role="presentation" class="active"><a href="lowonganbaru.php">New Upload</a></li>
-        <li role="presentation"  class="noac"><a href="employee.php">Employee</a></li>
+        <li role="presentation" class="active"><a href="new-posting.php">New Posting</a></li>
+        <li role="presentation"  class="noac"><a href="list-posting.php">List Posting</a></li>
         <li role="presentation" class="noac"><a href="profile.php">Profile</a></li>
         
       </ul>

@@ -5,7 +5,6 @@
 	require_once 'controller/class.pengiklan.php';
 	require_once 'controller/class.pekerja.php';
 	
-
 ?>
 
 <!DOCTYPE html>

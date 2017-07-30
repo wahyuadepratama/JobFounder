@@ -111,36 +111,54 @@
 			<div class="form-group">
 				<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
 				<div class="container">
-					<div class="col-sm-4">
-						<input type="checkbox" name="kategori[]" value="administrasi"> Administrasi </input><br>
-						<input type="checkbox" name="kategori[]" value="karyawan toko"> Karyawan Toko </input><br>
-						<input type="checkbox" name="kategori[]" value="marketing dan sales"> Marketing & Sales </input><br>
-						<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br>
-						<input type="checkbox" name="kategori[]" value="manajemen"> Manajemen </input><br>
-						<input type="checkbox" name="kategori[]" value="fotograger"> Fotografer </input><br>
-						<input type="checkbox" name="kategori[]" value="desain grafis dan multimedia"> Desain Grafis dan Multimedia </input><br>
-						<input type="checkbox" name="kategori[]" value="penerjemah"> Penerjemah </input><br>
-					</div>
-					<div class="col-sm-4">
-						<input type="checkbox" name="kategori[]" value="teknologi"> Teknologi </input><br>
-						<input type="checkbox" name="kategori[]" value="teknik"> Teknik </input><br>
-						<input type="checkbox" name="kategori[]" value="hukum"> Hukum </input><br>
-						<input type="checkbox" name="kategori[]" value="akuntansi"> Akuntansi </input><br>
-						<input type="checkbox" name="kategori[]" value="kesehatan"> Kesehatan </input><br>
-						<input type="checkbox" name="kategori[]" value="akuntan"> Akuntan </input><br>
-						<input type="checkbox" name="kategori[]" value="entri data"> Entry Data </input><br>
-						<input type="checkbox" name="kategori[]" value="pengajar"> Pengajar / kursus </input><br>
-					</div>
-					<div class="col-sm-4">
-						<input type="checkbox" name="kategori[]" value="peternakan dan pertanian"> Peternakan dan Pertanian </input><br>
-						<input type="checkbox" name="kategori[]" value="pegawai negeri"> Pegawai Negeri </input><br>
-						<input type="checkbox" name="kategori[]" value="website dan developer"> Website Design and Developper </input><br>
-						<input type="checkbox" name="kategori[]" value="mobile developer"> Mobile Developer </input><br>
-						<input type="checkbox" name="kategori[]" value="penulis lepas"> Penulis Lepas (content writer) </input><br>
-						<input type="checkbox" name="kategori[]" value="pembantu dan baby sitter"> Pembantu dan Baby Sitter </input><br>
-						<input type="checkbox" name="kategori[]" value="driver"> Driver </input><br>
-						<input type="checkbox" name="kategori[]" value="lain-lain"> Lain - lain </input><br>
-					</div>
+			<div class="col-sm-4">
+				<input type="checkbox" name="kategori[]" value="Pelayan Resto (waiters)"> Pelayan Resto (waiters) </input><br>
+				<input type="checkbox" name="kategori[]" value="Pelayan Toko (pramuniaga)"> Pelayan Toko (pramuniaga)</input><br>
+				<input type="checkbox" name="kategori[]" value="Delivery Makanan"> Delivery Makanan </input><br>
+				<input type="checkbox" name="kategori[]" value="Marketing dan Sales"> Marketing & Sales </input><br>
+				<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br> 
+				<input type="checkbox" name="kategori[]" value="Administrator"> Administrator </input><br>
+				
+				<input type="checkbox" name="kategori[]" value="Petani dan Peternak"> Petani dan Peternak </input><br>
+				<input type="checkbox" name="kategori[]" value="Fotografer"> Fotografer </input><br>
+				<input type="checkbox" name="kategori[]" value="Wartawan"> Wartawan </input><br>
+				<input type="checkbox" name="kategori[]" value="Penyiar Radio"> Penyiar Radio</input><br>
+				<input type="checkbox" name="kategori[]" value="Penulis (content writer)"> Penulis (content writer) </input><br>
+				<input type="checkbox" name="kategori[]" value="Penerjemah"> Penerjemah </input><br>
+			</div>
+			<div class="col-sm-4">
+				<input type="checkbox" name="kategori[]" value="Supir (driver)"> Supir (driver) </input><br>
+				<input type="checkbox" name="kategori[]" value="Driver Ojek"> Driver Ojek </input><br>
+				<input type="checkbox" name="kategori[]" value="Pengajar"> Pengajar / Kursus </input><br>	
+				<input type="checkbox" name="kategori[]" value="jasa perawatan hewan"> Jasa Perawatan Hewan </input><br>
+				<input type="checkbox" name="kategori[]" value="Pembantu"> Pembantu </input><br>
+				<input type="checkbox" name="kategori[]" value="Baby Sitter"> Baby Sitter</input><br>
+
+				<input type="checkbox" name="kategori[]" value="Teknisi mesin"> Teknisi Mesin </input><br>
+				<input type="checkbox" name="kategori[]" value="Event Organizer"> Event Organizer </input><br>
+				<input type="checkbox" name="kategori[]" value="Tour Guide"> Tour Guide </input><br>
+				<input type="checkbox" name="kategori[]" value="Entri data"> Entry Data </input><br>
+				<input type="checkbox" name="kategori[]" value="Operator"> Operator </input><br>
+				<input type="checkbox" name="kategori[]" value="Jasa Mengetik (type writer)"> Jasa Mengetik (type writer) </input><br>
+
+			</div>
+			<div class="col-sm-4">
+				<input type="checkbox" name="kategori[]" value="Kesehatan"> Kesehatan </input><br>
+				<input type="checkbox" name="kategori[]" value="Hukum"> Hukum </input><br>
+				<input type="checkbox" name="kategori[]" value="Pelatih"> Pelatih </input><br>
+				<input type="checkbox" name="kategori[]" value="Olahraga"> Olahraga </input><br>
+				<input type="checkbox" name="kategori[]" value="Musik"> Musik </input><br>
+				<input type="checkbox" name="kategori[]" value="Konsultan"> Konsultan </input><br>
+
+				<input type="checkbox" name="kategori[]" value="Website Designer"> Website Designer </input><br>
+				<input type="checkbox" name="kategori[]" value="Website Developer"> Website Developer </input><br>
+				<input type="checkbox" name="kategori[]" value="Mobile Developer"> Mobile Developer </input><br>
+				<input type="checkbox" name="kategori[]" value="Desain Grafis"> Desain Grafis </input><br>
+				<input type="checkbox" name="kategori[]" value="Video Editing dan Multimedia"> Video Editing dan Multimedia </input><br>
+				<input type="checkbox" name="kategori[]" value="Service Hardware and Software"> Service Hardware and Software</input><br>
+
+				<input type="checkbox" name="kategori[]" value="Non Kategori"> Lain - lain </input><br>
+			</div>
 				</div>
 			</div>
 			

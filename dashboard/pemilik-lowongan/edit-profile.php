@@ -1,4 +1,4 @@
-<?php 
+	<?php 
   session_start();
   require_once '../../controller/koneksi.php';
   require_once '../../controller/class.session.php';
@@ -81,7 +81,7 @@
 	</center>
 	<br>
 	<div class="form-group">
-		  <label for="company">Nama Perusahaan / Pemilik Pekerjaan</label>
+		  <label for="company">Nama Pemilik Iklan</label>
 		  <input type="text" class="form-control" name="nama" placeholder="ex: PT Makmur tbk  atau Ridho Maulana" required="" value="<?php echo $pengiklan->nama ?>">
 	</div>
 	<div class="form-group">
