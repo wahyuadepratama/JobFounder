@@ -158,9 +158,9 @@
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
 		  <select class="form-control" id="sel2" name="tipe">
-		  	<option value="Karyawan">Pilih Tipe</option>
-		    <option value="">Freelance / Kontrak</option>
-		    <option value="">Karyawan / Kerja Tetap</option>
+		  	<option value="Freelance / Kontrak">Pilih Tipe</option>
+		    <option value="Freelance / Kontrak">Freelance / Kontrak</option>
+		    <option value="Karyawan / Kerja Tetap">Karyawan / Kerja Tetap</option>
 		  </select>
 	</div>
 	<div class="form-group">
@@ -260,7 +260,7 @@
 		// insert ke postingan
 			$postingan->set_all_property('pro',$_POST['durasi'],'belum');
 			$postingan->insert_data();	
-			$script->redirect('lowonganbaru');
+			$script->alert_redirect('Berhasil !','Iklan anda akan di posting setelah disetujui admin. Silahkan cek List Posting','new-posting');
 		}
 	}
 

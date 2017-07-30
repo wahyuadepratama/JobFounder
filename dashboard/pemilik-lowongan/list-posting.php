@@ -82,7 +82,6 @@
 if(count($data) > 0){
   foreach ($data as $row) {
     echo "
-
 <div class='container panel panel-default colaps'>
   <table class='tabpad'>
        <tr>

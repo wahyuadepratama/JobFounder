@@ -158,9 +158,9 @@
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
 		  <select class="form-control" id="sel2" required="" name="tipe">
-		    <option value="kontrak">Pilih Tipe</option>
-		    <option value="kontrak">Freelance / Kontrak</option>
-		    <option value="karyawan">Karyawan / Kerja Tetap</option>
+		    <option value="Freelance / Kontrak">Pilih Tipe</option>
+		    <option value="Freelance / Kontrak">Freelance / Kontrak</option>
+		    <option value="Karyawan / Kerja Tetap">Karyawan / Kerja Tetap</option>
 		  </select>
 	</div>
 	<div class="form-group">
