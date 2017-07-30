@@ -73,7 +73,13 @@
 <div class="container content-ku">
 <form method="post" enctype="multipart/form-data">
 	<center>
-		<img src="/JobFounder/assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
+		<img src="<?php
+			if($pengiklan->foto_profile!=null){
+				echo 'profile/'.$pengiklan->foto_profile;
+			}else{
+				echo '../../assets/images/invest.PNG';
+			}		
+		 ?>" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">
 		<span class="upload">Choose your photo profile</span>
 		<input type="file" class="file-upload" name='foto_profile'>

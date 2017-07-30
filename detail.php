@@ -55,7 +55,7 @@
 	<!--End judul  -->
 		<div class="panel panel-default">
 		  <div class="panel-body">
-		  <p><?php echo $postingan['data']['deskripsi']; ?></p>
+		  <p>Deskripsi : <?php echo $postingan['data']['deskripsi']; ?></p>
 
 <p>Jenis Kategori :</p>
 <ol type="A" style="margin-bottom:0px;">
