@@ -179,8 +179,8 @@
 				  	</div>
 				  	<h4>".$row['judul']." </h4>
 				  	<p>";
-				if(strlen($row['deskripsi'])>50){
-					echo substr($row['deskripsi'],0,100).'...';
+				if(strlen($row['deskripsi'])>18){
+					echo substr($row['deskripsi'],0,18).'. . . .';
 				}else{
 					echo $row['deskripsi'];
 				}
