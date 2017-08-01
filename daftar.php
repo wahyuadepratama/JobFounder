@@ -10,89 +10,75 @@
 <html>
 <head>
 	<title>JobUs | Daftar</title>
-	<?php include 'view/source2.php'; ?>
+	<?php include 'view/head.php'; ?>
+	<link rel="stylesheet" type="text/css" href="assets/css/login-page.css">
 
 	<link href="assets/css/style2.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
 </head>
 <body>
-	<div class="banner">
-		<div class="container">
-			
-			<?php include 'view/header2.php'; ?>
-
-			<div class="w3_banner_info">
-				<div class="w3_banner_info_grid">
-					<br><br><br><br>
-					<h3 class="test">Bergabunglah bersama kami</h3>
-					<b><p>Silahkan login jika anda sudah pernah mendaftar sebelumnya. Daftarkan diri anda untuk memposting lowongan pekerjaan atau mencari perkerjaan di JobUs.</p></b>
-				</div>
-				<div class="w3_banner_info_grid">
-					<ul>
-						<li><a href="#" class="w3l_contact" data-toggle="modal" data-target="#myModal2">Login</a></li>
-						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Daftar Baru</a></li>
-					</ul><br>
-				</div>
-				<br>
-			</div><br><br><br><br><br><br>
-		</div>
+   
+    <div class="container-fluid login-page">
+		<div class="container login-menu">
+			  <div class="pull-left logo-menu"> 
+		          <img src="assets/images/logo-lands.png" class="img-responsive">
+		      </div>
+		   	  <div class="pull-right sign-menu">
+		          <ul class="list-inline">
+		             <li><a href="#register" class="show-register-form active">Sign Up</a></li>
+		             |
+		             <li><a href="#login" class="show-login-form">Sign In</a></li>
+		          </ul>
+		      </div>
+	    </div>
 	</div>
 
-	<!-- pop up sign up -->
-	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-		</div>
-
-		<div class="w3layouts-main" > 
-			<div class="agilesign-form">  
-				<div class="agileits-top">
-					<form action="" method="post" name="frm">
-
-						<div class="styled-input w3ls-text">
-						<input type="text" name="username" required=""/>
-							<label>Username</label>
-							<span></span>
-						</div>
-						<div class="styled-input w3ls-text">
-							<input type="text" name="email" required=""/>
-							<label>Email ID</label>
-								<span></span>
-						</div>
-						<div class="styled-input w3ls-text">
-							<input type="text" name="no_handphone" required=""/>
-							<label>No Handphone</label>
-								<span></span>
-						</div>
-						<div class="styled-input w3ls-text">
-							<input type="password" name="password" required=""> 
-							<label>Password</label>
-							<span></span>
-						</div> 
-						<div class="styled-input w3ls-text">
-							<input type="password" name="confirm" required="" onchange="cek_pass();"> 
-							<label>Confirm Password</label>
-							<span></span>
-						</div><br>
-						<div class="form-group">
-							  <select class="form-control" id="opsi1" name="opsi1">
-							    <option value="0">Siapakah Anda ?</option>
+		<div class="container login-container">
+                <div class="row register-form" id="#register">
+                 <div class="col-md-8">
+                	<div class="welcome-sign">
+		                  <h3>Welcome to JobUs!</h3>
+		            </div>
+                   <form action="post">
+                   	 <div class="form-group">
+                   	 	<label>Username</label>
+                   	 	<input type="text" name="username" class="input-name" required="">
+                   	 </div>
+                   	 <div class="form-group">
+                   	 	<label>E-mail ID</label>
+                   	 	<input type="text" name="email" class="input-name" required="">
+                   	 </div>
+                   	 <div class="form-group">
+                   	 	<label>Phone Number</label>
+                   	 	<input type="text" name="no_handphone" class=" input-name" required="">
+                   	 </div>
+                   	 <div class="form-group">
+                   	 	<label>Password</label>
+                   	 	<input type="text" name="password" class="input-name" required="">
+                   	 </div>
+                   	 <div class="form-group">
+                   	 	<label>Confirm Password</label>
+                   	 	<input type="text" name="confirm" class="input-name" onchange="cek_pass();" required="">
+                   	 </div>
+                   	 <div class="form-group">
+                   	 <label>Siapakah Anda?</label>
+                   	 	<select class="input-name" id="opsi1" name="opsi1" required="">
+							    <option value="0"></option>
 							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
 							    <option value="2">Pencari Lowongan Kerja</option>
 							  </select>
-						</div>
-						<div class="wthree-text">  
+                   	 </div>
+                   	 <div>  
 							<p>
 							<input type="checkbox" id="brand" value="" required="">
 							<label for="brand"><span></span>I accept the terms of use</label>  
 							</p>  
 						</div>
-						<div class="agileits-bottom"> 
-							<input type="submit" value="Sign Up" name="sign"> 
+						<div class="button-register"> 
+							<input type="submit" value="Sign Up" name="sign" class="btn btn-default"> 
 						</div>	
-					</form>
-
-					<script type="text/javascript">
+                   </form>
+                    <script type="text/javascript">
 					    function cek_pass(){
 						    p1 = document.frm.password.value;
 						    p2 = document.frm.confirm.value;
@@ -104,52 +90,83 @@
 							}
 					    }
 					</script>
-
-				</div> 
-			</div>	
-		</div>
-	</div>
-	<!-- //pop up sign up -->
-
-	<!-- pop up login -->
-	<div class="modal video-modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-		</div>
-
-		<div class="w3layouts-main" > 
-			<div class="agilesign-form">  
-				<div class="agileits-top">
-					<form action="" method="post">						
-						<div class="styled-input w3ls-text">
-							<input type="text" name="lusername" required=""/>
+                   </div>
+                   <div class="col-md-5 side-right">
+                    <!-- <p><h4>Bergabunglah dengan JobUs!</h4><br>
+                    	<ul>
+                    		<li>Temukan pekerjaanmu disini</li>
+                    		<li>blablabla</li>
+                    	</ul>
+                    </p> -->
+                   	  <p>Already have an account?<br>
+						<a href="">Sign in here</a>
+					  </p>
+                   </div>
+                </div>
+                
+                <div class="row login-form" id="login">
+                <div class="col-md-8">
+                <div class="welcome-sign">
+                  <h3>Login to JobUs</h3>
+                 </div>
+                     <form action="" method="post">						
+						<div class="form-group">
 							<label>Username / Email</label>
-							<span></span>
+							<input type="text" name="lusername" class=" input-name" required=""/>
 						</div>
-						<div class="styled-input w3ls-text">
-							<input type="password" name="lpassword" required=""> 
+						<div class="form-group">
 							<label>Password</label>
-							<span></span>
+							<input type="password" name="lpassword" class=" input-name" required=""> 
 						</div> 
 						<div class="form-group">
-							  <select class="form-control" id="opsi2" name="opsi2">
-							    <option value="0">Siapakah Anda ?</option>
+						<label>Siapakah Anda?</label>
+							  <select class="input-name" id="opsi2" name="opsi2">
+							    <option value="0"></option>
 							    <option value="1">Individu / Pemilik Usaha Yang Butuh Pekerja</option>
 							    <option value="2">Pencari Lowongan Kerja</option>
 							  </select>
 						</div>
-						<div class="agileits-bottom"> 
-							<input type="submit" value="Login" name="login"> 
+						<div class="button-login"> 
+							<input type="submit" value="Login" name="login" class="btn btn-default"> 
 						</div>	
 					</form>
-				</div> 
-			</div>	
+                </div>
+                <div class="col-md-4 side-right">
+                   	  <p>Don't have an account?<br>
+						<a href="login-or-signup.php">Sign up now for free</a>
+					  </p>
+					  <p>Forgot your password?<br>
+						<a href="">Reset it here</a></p>
+                   </div>
+              </div>
 		</div>
-	</div>
-	<!-- //pop up login -->
+		<!-- FOOTER -->
+		<div class="container footer-login-page">
+			<ul class="list-inline" style="">
+              <li><a href="index.php">Home</a></li>
+              <li><a href="#section2">Find Jobs</a></li>
+              <li><a href="#section3">Join</a></li>
+              <li><a href="#section4">About</a></li>
+        	</ul>
+	        <ul class="list-inline" style="">
+	              <li><a href="#section1"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+	              <li><a href="#section2"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+	              <li><a href="#section3"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+	              <li><a href="#section4"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+	        </ul>
 
-	<!-- javascript -->
-		<?php include 'view/script2.php'; ?>
+        	<p>Copyright © 2017</p>
+
+		</div>
+    </div>
+
+    	<script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+
+<!-- ======================================================================================================== -->
 		
 </body>
 </html>

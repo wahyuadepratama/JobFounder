@@ -2,7 +2,7 @@
 if(count($data) > 0){
   foreach ($data as $row) {
     echo "
-<div class='container panel panel-default colaps'>
+<div class='panel panel-default colaps'>
   <table class='tabpad'>
        <tr>
            <td class='text-left'>Judul</td>
@@ -16,7 +16,7 @@ if(count($data) > 0){
        </tr> 
     </table>         
     <p>Jika lowongan ini sudah terpenuhi, kamu bisa menghapusnya. <button class='btn btn-default'>Hapus</button>&nbsp;<button class='btn btn-default' data-toggle='collapse' data-target='#".$row['id_postingan']."'>Lihat</button></p></div>
-    <div class='container table-responsive collapse' id='".$row['id_postingan']."'>
+    <div class='table-responsive collapse' id='".$row['id_postingan']."'>
     <table class='table'>
       <th>No</th>
       <th>Employee Name</th>";

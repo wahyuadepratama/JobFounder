@@ -20,165 +20,135 @@
 <head>
 
 	<title> Dashboard | Pro </title>
-	<?php include '../../view/source.php'; ?>
+	<?php include("../../view/head-user.php"); ?>
+     <link rel="stylesheet" type="text/css" href="../../assets/css/style-user.css">
 
 </head>
 	
 <body>
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-			<?php include '../../view/header.php'; ?>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		      </button>
+		      <img class="img-responsive" src="../../assets/images/logo-lands.png">
+		    </div>
+		    <div>
+		      <div class="collapse navbar-collapse" id="myNavbar">
+		        <ul class="nav navbar-nav navbar-right">
+		          
+		          <li><a href="list-posting.php">Employee</a></li>
+		          <li><a href="new-posting.php">Upload</a></li>
+		          <li class="dropdown satu">
+		          <a class="dropdown-toggle satu" data-toggle="dropdown" href="#">
+			        <img src="../../assets/images/yola-small.jpg" width="25" class="img-responsive img-rounded profile-pic"><b class="caret"></b>      
+		          </a>
+		            <ul class="dropdown-menu">
+		              <li><a href="profile.php" class="active">Profile</a></li>
+		              <li><a href="#">Log out</a></li>
+		            </ul>
+		          </li>
+		          <li><a class="dua" href="profile.php">Profile</a></li>
+		          <li><a class="dua" href="#section3">Log out</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+	</nav>
+	<div class="container main-content" id="startchange">
+   	 <div class="panel panel-default">
+        <div class="panel-body">
+         <h4>Ketentuan :</h4><br>
+          <ul class="list-group">
+           <li class="list-group-item">1. Isilah lowongan yang sesuai dengan perusahaan, toko , ataupun perorangan yang membutuhkan pekerja</li>
+           <li class="list-group-item">2. Pastikan anda sudah melengkapi profile anda, agar pekerja tidak sulit menemukan anda nantinya</li>
+           <li class="list-group-item">3. Sampaikan deskripsi pekerjaan dengan jelas dan ringkas</li>
+           <li class="list-group-item">4. Lampirkan Poster/Brosur perusahaan anda</li>
+         </ul>
+        </div>
+      </div>
 
-		</div>
-	</div>
-<!-- banner -->
+      <form method="post">
+         <div class="form-group">
+                 <label for="posisi">Judul Lowongan</label>
+                 <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
+            </div>
+            <div class="form-group">
+                 <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
+                 <textarea class="form-control" rows="8" id="req" name="deskripsi" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
+            </div>
+            <div class="form-group">
+               <label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
+               <div class="container ju_category">
+                  <div class="col-sm-4">
+                     <input type="checkbox" name="kategori[]" value="administrasi"> Administrasi </input><br>
+                     <input type="checkbox" name="kategori[]" value="karyawan toko"> Karyawan Toko </input><br>
+                     <input type="checkbox" name="kategori[]" value="marketing dan sales"> Marketing & Sales </input><br>
+                     <input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br>
+                     <input type="checkbox" name="kategori[]" value="manajemen"> Manajemen </input><br>
+                     <input type="checkbox" name="kategori[]" value="fotograger"> Fotografer </input><br>
+                     <input type="checkbox" name="kategori[]" value="desain grafis dan multimedia"> Desain Grafis dan Multimedia </input><br>
+                     <input type="checkbox" name="kategori[]" value="penerjemah"> Penerjemah </input><br>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" name="kategori[]" value="teknologi"> Teknologi </input><br>
+                     <input type="checkbox" name="kategori[]" value="teknik"> Teknik </input><br>
+                     <input type="checkbox" name="kategori[]" value="hukum"> Hukum </input><br>
+                     <input type="checkbox" name="kategori[]" value="akuntansi"> Akuntansi </input><br>
+                     <input type="checkbox" name="kategori[]" value="kesehatan"> Kesehatan </input><br>
+                     <input type="checkbox" name="kategori[]" value="akuntan"> Akuntan </input><br>
+                     <input type="checkbox" name="kategori[]" value="entri data"> Entry Data </input><br>
+                     <input type="checkbox" name="kategori[]" value="pengajar"> Pengajar / kursus </input><br>
+                  </div>
+                  <div class="col-sm-4">
+                     <input type="checkbox" name="kategori[]" value="peternakan dan pertanian"> Peternakan dan Pertanian </input><br>
+                     <input type="checkbox" name="kategori[]" value="pegawai negeri"> Pegawai Negeri </input><br>
+                     <input type="checkbox" name="kategori[]" value="website dan developer"> Website Design and Developper </input><br>
+                     <input type="checkbox" name="kategori[]" value="mobile developer"> Mobile Developer </input><br>
+                     <input type="checkbox" name="kategori[]" value="penulis lepas"> Penulis Lepas (content writer) </input><br>
+                     <input type="checkbox" name="kategori[]" value="pembantu dan baby sitter"> Pembantu dan Baby Sitter </input><br>
+                     <input type="checkbox" name="kategori[]" value="driver"> Driver </input><br>
+                     <input type="checkbox" name="kategori[]" value="lain-lain"> Lain - lain </input><br>
+                  </div>
+               </div>
+            </div>
+            <div class="form-group">
+                 <label for="posisi">Gaji</label>
+                 <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000" required="">
+            </div>
+            <div class="form-group">
+                 <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
+                 <textarea class="form-control" rows="8" id="req" name="keterangan" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
+            </div>
+            <div class="form-group">
+                 <label for="posisi">Tipe</label>
+                 <select class="form-control" id="sel2" name="tipe">
+                  <option value="Karyawan">Pilih Tipe</option>
+                   <option value="">Freelance / Kontrak</option>
+                   <option value="">Karyawan / Kerja Tetap</option>
+                 </select>
+            </div>
+            <div class="form-group">
+                 <label for="posisi">Lama Iklan (1 hari = 1 koin)</label>
+                 <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5" required="">
+            </div>
+            <div class="form-group">
+                   <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
+                   <input type="file" id="pamflet" name="pamflet">
+                   <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
+            </div>
+            <div class="form-group">
+               <input type="hidden" id="lat" name="lat" value="">
+               <input type="hidden" id="lang" name="lang" value="">
+            </div>
+            <center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
+         </form>
+   </div>
 
-<!-- Menu -->
-<br>
-<div class="container">
-<!-- MAKAN BANG -->
-	<nav class="navbar navbar-default transbg">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>    
-      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         
-      <ul class="nav navbar-nav navbar-right" id="menu">
-        <li role="presentation" class="active"><a href="new-posting.php">New Posting</a></li>
-        <li role="presentation"  class="noac"><a href="list-posting.php">List Posting</a></li>
-        <li role="presentation" class="noac"><a href="profile.php">Profile</a></li>
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
-<!-- end Menu -->
-<!-- Dashboard -->
-<br>
-<div class="container">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<h4>Ketentuan :</h4><br>
-	    <ul class="list-group">
-		  <li class="list-group-item">1. Pastikan anda sudah melengkapi profile anda, agar pekerja tidak sulit menemukan anda nantinya</li>
-		  <li class="list-group-item">2. Isilah lowongan yang sesuai dengan kebutuhan anda</li>
-		  <li class="list-group-item">3. Sampaikan deskripsi pekerjaan dengan jelas dan ringkas</li>
-		  <li class="list-group-item">4. Lampirkan poster/brosur iklan anda</li>		  
-		  <li class="list-group-item">5. Setelah di submit, iklan akan diposting setelah disetujui admin (paling lama 1 jam)</li>
-		</ul>
-	  </div>
-	</div>
-</div>
-<br>
-<div class="container">
-
-<form method="post">
-<div class="form-group">
-		  <label for="posisi">Judul Lowongan</label>
-		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
-		  <textarea class="form-control" rows="8" id="req" name="deskripsi" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
-	</div>
-	<div class="form-group">
-		<label for="posisi">Kategori Pekerja (pilihlah agar para pekerja lebih mudah menemukan anda)</label><br><br>
-		<div class="container">
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Pelayan Resto (waiters)"> Pelayan Resto (waiters) </input><br>
-				<input type="checkbox" name="kategori[]" value="Pelayan Toko (pramuniaga)"> Pelayan Toko (pramuniaga)</input><br>
-				<input type="checkbox" name="kategori[]" value="Delivery Makanan"> Delivery Makanan </input><br>
-				<input type="checkbox" name="kategori[]" value="Marketing dan Sales"> Marketing & Sales </input><br>
-				<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br> 
-				<input type="checkbox" name="kategori[]" value="Administrator"> Administrator </input><br>
-				
-				<input type="checkbox" name="kategori[]" value="Petani dan Peternak"> Petani dan Peternak </input><br>
-				<input type="checkbox" name="kategori[]" value="Fotografer"> Fotografer </input><br>
-				<input type="checkbox" name="kategori[]" value="Wartawan"> Wartawan </input><br>
-				<input type="checkbox" name="kategori[]" value="Penyiar Radio"> Penyiar Radio</input><br>
-				<input type="checkbox" name="kategori[]" value="Penulis (content writer)"> Penulis (content writer) </input><br>
-				<input type="checkbox" name="kategori[]" value="Penerjemah"> Penerjemah </input><br>
-			</div>
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Supir (driver)"> Supir (driver) </input><br>
-				<input type="checkbox" name="kategori[]" value="Driver Ojek"> Driver Ojek </input><br>
-				<input type="checkbox" name="kategori[]" value="Pengajar"> Pengajar / Kursus </input><br>	
-				<input type="checkbox" name="kategori[]" value="jasa perawatan hewan"> Jasa Perawatan Hewan </input><br>
-				<input type="checkbox" name="kategori[]" value="Pembantu"> Pembantu </input><br>
-				<input type="checkbox" name="kategori[]" value="Baby Sitter"> Baby Sitter</input><br>
-
-				<input type="checkbox" name="kategori[]" value="Teknisi mesin"> Teknisi Mesin </input><br>
-				<input type="checkbox" name="kategori[]" value="Event Organizer"> Event Organizer </input><br>
-				<input type="checkbox" name="kategori[]" value="Tour Guide"> Tour Guide </input><br>
-				<input type="checkbox" name="kategori[]" value="Entri data"> Entry Data </input><br>
-				<input type="checkbox" name="kategori[]" value="Operator"> Operator </input><br>
-				<input type="checkbox" name="kategori[]" value="Jasa Mengetik (type writer)"> Jasa Mengetik (type writer) </input><br>
-
-			</div>
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Kesehatan"> Kesehatan </input><br>
-				<input type="checkbox" name="kategori[]" value="Hukum"> Hukum </input><br>
-				<input type="checkbox" name="kategori[]" value="Pelatih"> Pelatih </input><br>
-				<input type="checkbox" name="kategori[]" value="Olahraga"> Olahraga </input><br>
-				<input type="checkbox" name="kategori[]" value="Musik"> Musik </input><br>
-				<input type="checkbox" name="kategori[]" value="Konsultan"> Konsultan </input><br>
-
-				<input type="checkbox" name="kategori[]" value="Website Designer"> Website Designer </input><br>
-				<input type="checkbox" name="kategori[]" value="Website Developer"> Website Developer </input><br>
-				<input type="checkbox" name="kategori[]" value="Mobile Developer"> Mobile Developer </input><br>
-				<input type="checkbox" name="kategori[]" value="Desain Grafis"> Desain Grafis </input><br>
-				<input type="checkbox" name="kategori[]" value="Video Editing dan Multimedia"> Video Editing dan Multimedia </input><br>
-				<input type="checkbox" name="kategori[]" value="Service Hardware and Software"> Service Hardware and Software</input><br>
-
-				<input type="checkbox" name="kategori[]" value="Non Kategori"> Lain - lain </input><br>
-			</div>
-		</div>
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Gaji</label>
-		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000" required="">
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
-		  <textarea class="form-control" rows="8" id="req" name="keterangan" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Tipe</label>
-		  <select class="form-control" id="sel2" name="tipe">
-		  	<option value="Freelance / Kontrak">Pilih Tipe</option>
-		    <option value="Freelance / Kontrak">Freelance / Kontrak</option>
-		    <option value="Karyawan / Kerja Tetap">Karyawan / Kerja Tetap</option>
-		  </select>
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Lama Iklan (1 hari = 1 koin)</label>
-		  <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5" required="">
-	</div>
-	<div class="form-group">
-		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
-		    <input type="file" id="pamflet" name="pamflet">
-		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
-	</div>
-	<div class="form-group">
-		<input type="hidden" id="lat" name="lat" value="">
-		<input type="hidden" id="lang" name="lang" value="">
-	</div>
-	<center><button type="submit" class="btn btn-default" name="submit">Submit</button></center><br>
-</form>
-</div>
+   	
 
 <div id="map" class="form-group"></div>
   
@@ -235,7 +205,7 @@
 </script>
 
 <!-- FOOTER -->
- <?php include '../../view/footer2.php'; ?>
+<?php include('../../view/footer.php') ?>
 <!-- //FOOTER -->
 
 <!-- javascript -->

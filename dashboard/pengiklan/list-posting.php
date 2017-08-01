@@ -26,67 +26,55 @@
 <head>
 
   <title> JobUs | Employee </title>
-  <?php include '../../view/source.php'; ?>
+  <?php include("../../view/head-user.php"); ?>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style-user.css">
 
 </head>
   
 <body>
-<!-- banner -->
-  <div class="banner1">
-    <div class="container">
-      
-      <?php include '../../view/header.php'; ?>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <img class="img-responsive" src="../../assets/images/logo-lands.png">
+        </div>
+        <div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li><a href="list-posting.php">Employee</a></li>
+              <li><a href="new-posting.php">Upload</a></li>
+              <li class="dropdown satu">
+              <a class="dropdown-toggle satu" data-toggle="dropdown" href="#">
+              <img src="../../assets/images/yola-small.jpg" width="25" class="img-responsive img-rounded profile-pic"><b class="caret"></b>      
+              </a>
+                <ul class="dropdown-menu">
+                  <li><a href="profile.php" class="active">Profile</a></li>
+                  <li><a href="#">Log out</a></li>
+                </ul>
+              </li>
+              <li><a class="dua" href="profile.php">Profile</a></li>
+              <li><a class="dua" href="#section3">Log out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </nav>
+  <div class="container main-content" id="startchange">
+    <h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
 
-    </div>
+    <br>
+
+    <?php include '../../controller/include.pengiklan.list-posting.php'; ?>
+
   </div>
-<!-- banner -->
+  <?php include '../../view/footer.php'; ?>
+<!-- =================================================================================================================================== -->
 
-<!-- dashboard -->
-<br>
-<div class="container menu-nav">
-<!-- MAKAN BANG -->
-  <nav class="navbar navbar-default transbg">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>    
-      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         
-      <ul class="nav navbar-nav navbar-right" id="menu">
-        <li role="presentation" class="noac"><a href="new-posting.php">New Posting</a></li>
-        <li role="presentation"  class="active"><a href="list-posting.php">List Posting</a></li>
-        <li role="presentation" class="noac"><a href="profile.php">Profile</a></li>
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-</div>
-<!-- //dashboard -->
-
-<div class="container employ">
-  <h4>Lihat pekerja yang telah mensubmit lowongan perusahaanmu disini. Lihat CV mereka, terima jika memenuhi persyaratan, dan kontak mereka untuk melakukan wawancara.</h4>
-</div>
-
-<br>
-  <?php include '../../controller/include.pengiklan.list-posting.php'; ?>
-
-<br>
-<br>
-<!-- FOOTER -->
-  <?php include '../../view/footer2.php'; ?>
-
-<!-- javascript -->
-  <?php include '../../view/script.php'; ?>
 
 
 </body>

@@ -20,134 +20,125 @@
 <head>
 
 	<title> Profile Pengiklan </title>
-	<?php include("../../view/source.php"); ?>
-     <link rel="stylesheet" type="text/css" href="../../assets/css/cssme-com.css">
+	<?php include("../../view/head-user.php"); ?>
+     <link rel="stylesheet" type="text/css" href="../../assets/css/style-user.css">
 </head>
 	
 <body>
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-			<?php include("../../view/header.php"); ?>
-
-		</div>
-	</div>
-<!-- banner -->
-
-<!-- profile -->
-<br>
-<div class="container">
-	<nav class="navbar navbar-default transbg">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	         
-	      <ul class="nav navbar-nav navbar-right" id="menu">
-	        <li role="presentation" class="noac"><a href="new-posting.php">New Posting</a></li>
-	        <li role="presentation"  class="noac"><a href="list-posting.php">List Posting</a></li>
-	        <li role="presentation" class="active"><a href="profile.php">Profile</a></li>
-	        
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
+ 	
+ 	<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		      </button>
+		      <img class="img-responsive" src="../../assets/images/logo-lands.png">
+		    </div>
+		    <div>
+		      <div class="collapse navbar-collapse" id="myNavbar">
+		        <ul class="nav navbar-nav navbar-right">
+		          
+		          <li><a href="list-posting.php">Employee</a></li>
+		          <li><a href="new-posting.php">Upload</a></li>
+		          <li class="dropdown satu">
+		          <a class="dropdown-toggle satu" data-toggle="dropdown" href="#">
+			        <img src="../../assets/images/yola-small.jpg" width="25" class="img-responsive img-rounded profile-pic"><b class="caret"></b>      
+		          </a>
+		            <ul class="dropdown-menu">
+		              <li><a href="profile.php" class="active">Profile</a></li>
+		              <li><a href="#">Log out</a></li>
+		            </ul>
+		          </li>
+		          <li><a class="dua" href="profile.php">Profile</a></li>
+		          <li><a class="dua" href="#section3">Log out</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
 	</nav>
-</div>
-
-<div class="container">
-
-	<center>
-		<img src="<?php 
+ 	
+ 	<div class="container main-content" id="startchange">
+   
+       <center>
+        <img src="<?php 
 			if($pengiklan->foto_profile!=null){
 				echo 'profile/'.$pengiklan->foto_profile;
 			}else{
 				echo '../../assets/images/invest.PNG';
 			}
 	 	?>" class="img-circle img-responsive" width="200"><br>
-	</center>
-	<br>
-		
-	
-	<div class="container table-responsive">
-	  <table class="table table-striped tabpad">
-	       <tr>
-	           <th class="text-left">Nama Pemilik </th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->nama; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Deskripsi</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->deskripsi; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Alamat Email</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->email; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Telepon/Fax</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->no_hp; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Sosial Media</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->sosmed; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Provinsi</th>
-	           
-	           <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Kota</th>
-	           
-	           <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Kecamatan</th>
-	           
-	           <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
-	       </tr>
-	       <tr>
-	           <th class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</th>
-	           
-	           <td class="text-left"><?php echo $pengiklan->alamat; ?></td>
-	       </tr>
+    </center>
+    <br>
+      <table class="table table-striped ">
+           <tr>
+               <th class="text-left">Nama Perusahaan / Pemilik Pekerjaan</th>
+               
+               <td class="text-left"><?php echo $pengiklan->nama; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Deskripsi</th>
+               
+               <td class="text-left"><?php echo $pengiklan->deskripsi; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Alamat Email</th>
+               
+               <td class="text-left"><?php echo $pengiklan->email; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Telepon/Fax</th>
+               
+               <td class="text-left"><?php echo $pengiklan->no_hp; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Sosial Media</th>
+               
+               <td class="text-left"><?php echo $pengiklan->sosmed; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Provinsi</th>
+               
+               <td class="text-left"><?php echo $daerah[0]['lokasi_nama']; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Kota</th>
+               
+               <td class="text-left"><?php echo $daerah[1]['lokasi_nama']; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Kecamatan</th>
+               
+               <td class="text-left"><?php echo $daerah[2]['lokasi_nama']; ?></td>
+           </tr>
+           <tr>
+               <th class="text-left">Alamat Perusahaan / Pemilik Pekerjaan</th>
+               
+               <td class="text-left"><?php echo $pengiklan->alamat; ?></td>
+           </tr>
+    
+      </table>
+      <br>
+     
+    
 
-	  </table>
-	  <br>
-	</div>
-	
-	<form method="post">
-		<div class="form-group">
-			<center>
-			    <button class="btn btn-default"><a href="edit-profile.php">Edit</a></button>
-				<button class="btn btn-danger btn-sm" name="logout">Logout</button>
-			</center>
-		</div>
-	</form>
-	
-</div>
-<!-- end profile -->
+        <form method="post">
+            <div class="form-group">
+                <center>
+                    <button class="btn btn-default"><a href="edit-profile.php">Edit</a></button>
+                    <button class="btn btn-danger btn-sm" name="logout">Logout</button>
+                </center>
+            </div>
+        </form>
+        <br>
+      
+   </div>
 
-<!-- FOOTER -->
-	<?php include '../../view/footer2.php'; ?>
+   <?php include('../../view/footer.php') ?>
 
-<!-- javascript -->
-	<?php include '../../view/script.php'; ?>
+<!-- ================================================================================================================ -->
+
 
 </body>
 </html>
