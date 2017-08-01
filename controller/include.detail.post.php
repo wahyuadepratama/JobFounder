@@ -1,0 +1,16 @@
+<?php 
+	if(isset($_POST['apply'])){
+		if($_SESSION==NULL){
+			$script->redirect('daftar');
+		}else{
+			if($_SESSION['admin']){
+				$script->redirect('admin/dashboard');
+			}elseif($_SESSION['pengiklan']){
+				$script->redirect('dashboard/pengiklan/profile');
+			}elseif($_SESSION['pekerja']){
+				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan,$_SESSION['user']['username'],$postingan['data']['status']);
+				$script->redirect('lowongan');
+			}
+		}
+	}
+?>
