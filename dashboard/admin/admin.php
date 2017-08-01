@@ -1,23 +1,23 @@
 <?php
 	// NB:SWEETALERT BELUM TERPASANG 
 	session_start();
-	include '../controller/class.admin.php';
-	include '../controller/class.script.php';
-	include '../controller/koneksi.php';	
-
+	include '../../model/class.admin.php';
+	include '../../controller/class.script.php';
+	include '../../controller/koneksi.php';	
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Control Panel Admin</title>
-	<?php include '../view/source3.php'; ?>
+	<?php include '../../view/source.php'; ?>
 </head>
 <body style="background-color: #D9D9D9;">
 	<div class="container-fluid bg-admin" style="padding:0px;">
 		<div class="panel panel-default center-block admin-panel">
 		  <div class="panel-heading panel-heading-admin">
 			  	<div class="pull-left">
-			  		<img src="../assets/images/logofix.png" width="50" style="padding-top:10px;">
+			  		<img src="../../assets/images/logofix.png" width="50" style="padding-top:10px;">
 			  	</div>
 			  	<div class="pull-right">
 			  		<p class="login-title">Control Panel Admin</p>
@@ -39,9 +39,6 @@
 		</form>
 	</div>
 </body>
-
-	<?php 
-		include '../controller/validator.php';
-	?>
-
 </html>
+
+<?php include '../../controller/validator.php'; ?>

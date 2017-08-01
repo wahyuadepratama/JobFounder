@@ -3,7 +3,7 @@
   require_once '../../controller/koneksi.php';
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
-  require_once '../../controller/class.pekerja.php';
+  require_once '../../model/class.pekerja.php';
 
   $session = new function_session();
   $pekerja = new pekerja();
@@ -124,12 +124,13 @@
 
 </div>
 <!-- end profile -->
+
 <!-- FOOTER -->
   <?php include '../../view/footer2.php'; ?>
-<!-- //FOOTER -->
+
 <!-- javascript -->
   <?php include '../../view/script.php'; ?>
-<!-- javascript -->
+
 
 </body>
 </html>

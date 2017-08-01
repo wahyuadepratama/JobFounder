@@ -56,7 +56,7 @@
 				if($_POST['opsi2']==1) {
 					$result = $pengiklan->cek_login($_POST);
 					$_SESSION['pengiklan'] = $result['status'];
-					$lokasi = 'dashboard/pemilik-lowongan/profile';
+					$lokasi = 'dashboard/pengiklan/profile';
 				}
 				elseif ($_POST['opsi2']==2) {
 					$result = $pekerja->cek_login($_POST);

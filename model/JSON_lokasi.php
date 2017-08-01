@@ -1,5 +1,5 @@
 <?php 
-include 'koneksi.php';
+include '../controller/koneksi.php';
 global $pdo;
 if(isset($_REQUEST['prov'])){
 	$query = $pdo->prepare("select * from inf_lokasi where lokasi_kode like '".$_REQUEST['prov'].".%_%.00.0000' and lokasi_kabupatenkota != 0");	

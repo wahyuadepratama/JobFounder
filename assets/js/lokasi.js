@@ -14,7 +14,7 @@ xmlhttp.onreadystatechange = function() {
         }       
     }
 };
-xmlhttp.open("GET", "../../controller/JSON_lokasi.php", true);
+xmlhttp.open("GET", "../../model/JSON_lokasi.php", true);
 xmlhttp.send();
 
 select_provinsi[0].setAttribute('onchange','onChangeProvinsi()');
@@ -46,7 +46,7 @@ xmlhttp.onreadystatechange = function() {
         }       
     }
 };
-xmlhttp.open("GET", "../../controller/JSON_lokasi.php?prov="+select_provinsi[0].value, true);
+xmlhttp.open("GET", "../../model/JSON_lokasi.php?prov="+select_provinsi[0].value, true);
 xmlhttp.send();
 
 select_kota[0].setAttribute('onchange','onChangeKota()');
@@ -72,6 +72,6 @@ xmlhttp.onreadystatechange = function() {
         }       
     }
 };
-xmlhttp.open("GET", "../../controller/JSON_lokasi.php?prov="+select_provinsi[0].value+"&kab="+select_kota[0].value, true);
+xmlhttp.open("GET", "../../model/JSON_lokasi.php?prov="+select_provinsi[0].value+"&kab="+select_kota[0].value, true);
 xmlhttp.send();
 }

@@ -3,9 +3,9 @@
   require_once '../../controller/koneksi.php';
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
-  require_once '../../controller/class.pekerja.php';
-  require_once '../../controller/class.pengiklan.php';
-  require_once '../../controller/class.lowongan.php';
+  require_once '../../model/class.pekerja.php';
+  require_once '../../model/class.pengiklan.php';
+  require_once '../../model/class.lowongan.php';
 
   $pengiklan = new pengiklan();
   $lowongan = new lowongan();
@@ -50,6 +50,7 @@
 </div>
 <br>
 <!-- end Menu -->
+
 <!-- Dashboard -->
 <div class="container content-ku">
 	<h4>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan diselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</h4>
@@ -60,21 +61,9 @@
     	<th>Judul</th>
     	<th>Date Submitted</th>
     	<th>Perusahaan</th>
-    <?php 
-    $data =$pekerja->tracking();
-    if($data>0){
-        foreach ($data as $value) {
-          echo "
-          <tbody>
-          <td>".$value[0]."</td>
-          <td>".$value[1]."</td>
-          <td>".$value[2]."</td>
-          <td>".$value[3]."</td>
-        </tbody>";
-        }
-    }
 
-     ?>    
+      <?php include '../../controller/include.pekerja.track.table.php'; ?>
+
     </table>
     </div>
 </div>
@@ -82,12 +71,10 @@
 <!-- //Dashboard -->
 
 <!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
-<!-- //FOOTER -->
+  <?php include '../../view/footer2.php'; ?>
 
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
-<!-- javascript -->
 
 </body>
 </html>

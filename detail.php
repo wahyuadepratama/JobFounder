@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <?php 
 	session_start();
-	include 'controller/class.postingan.php';
-	include 'controller/class.pengiklan.php';
-	include 'controller/class.lowongan.php';
-	include 'controller/class.script.php';
 	include 'controller/koneksi.php';
+	include 'model/class.postingan.php';
+	include 'model/class.pengiklan.php';
+	include 'model/class.lowongan.php';
+	include 'controller/class.script.php';
 
 	$script = new function_script();
 	$lowongan = new lowongan();
@@ -20,6 +19,8 @@
 		$script->redirect('lowongan');
 	}
  ?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -54,86 +55,74 @@
 		</div>
 	<!--End judul  -->
 		<div class="panel panel-default">
-		  <div class="panel-body">
-		  <p>Deskripsi : <?php echo $postingan['data']['deskripsi']; ?></p>
+			<div class="panel-body">
+				<p>Deskripsi : <?php echo $postingan['data']['deskripsi']; ?></p>
 
-<p>Jenis Kategori :</p>
-<ol type="A" style="margin-bottom:0px;">
-	<ol>
-		<?php $post->select_all_kategori($id_postingan); ?>		
-	</ol>
-</ol>
-<p>Gaji : <?php echo $postingan['data']['gaji'] ?></p>
-<p>Keterangan : <?php echo $postingan['data']['keterangan'] ?></p>
-<p>Tipe : <?php echo $postingan['data']['tipe'] ?></p>
+				<p>Jenis Kategori :</p>
+					<ol type="A" style="margin-bottom:0px;">
+						<ol>
+							<?php $post->select_all_kategori($id_postingan); ?>		
+						</ol>
+					</ol>
+				<p>Gaji 		: <?php echo $postingan['data']['gaji'] ?>		</p>
+				<p>Keterangan 	: <?php echo $postingan['data']['keterangan'] ?></p>
+				<p>Tipe 		: <?php echo $postingan['data']['tipe'] ?>		</p>
 
-		    </p> 
-		    <div class="pull-right">
-		    	<form method='post' enctype="multipart/form-data">		    
-		    	<?php 	
-		    		if($postingan['data']['status']=='pro'){
-		    			echo "
-							<div class='form-group'>
-		    				<label for='exampleInputFile'>Upload CV</label><br><br>
-		    				<input type='file' id='cv' name='cv'>
-		    				<p class='help-block'>nb : ekstensi yang diterima hanya berupa doc/docx/pdf</p>
-							</div>
-		    			";
-		    					
-		    		}
-		    		if(isset($_SESSION['pekerja'])){
+			    <div class="pull-right">
+			    	<form method='post' enctype="multipart/form-data">		    
+			    	<?php 	
+			    		if($postingan['data']['status']=='pro'){
+			    			echo "
+								<div class='form-group'>
+			    				<label for='exampleInputFile'>Upload CV</label><br><br>
+			    				<input type='file' id='cv' name='cv'>
+			    				<p class='help-block'>nb : ekstensi yang diterima hanya berupa doc/docx/pdf</p>
+								</div>
+			    			";
+			    					
+			    		}
+			    		if(isset($_SESSION['pekerja'])){
 
-		    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$id_postingan);
-		    			if($cek['status']){
-		    				echo "<button type='submit' class='btn btn-primary' name='apply' disabled='true'>Apply</button>";
-		    			}else{
-		    				echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
-		    			}
-		    		}else{
-		    			echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
-		    		}
-		    	 ?>		    		
-		    	</form>		    	
-		    </div>
-		  </div>
+			    			$cek =$lowongan->cek_apply($_SESSION['user']['id_pekerja'],$id_postingan);
+			    			if($cek['status']){
+			    				echo "<button type='submit' class='btn btn-primary' name='apply' disabled='true'>Apply</button>";
+			    			}else{
+			    				echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
+			    			}
+			    		}else{
+			    			echo "<button type='submit' class='btn btn-primary' name='apply'>Apply</button>";
+			    		}
+			    	 ?>		    		
+			    	</form>		    	
+			    </div>
+		  	</div>
 		</div>
 	</div>
 	<!-- end detail -->
 	<!-- Profile Perusahaan -->
-		<div class="col-md-4">
+	<div class="col-md-4">
 		<div class="panel panel-default">
-		  <div class="panel-heading text-center"><h4>Dipost oleh</h4></div>
-		  <div class="panel-body">
-		    <span class="title">Nama Pemilik</span> <br>
-		      <p> <?php echo $data['data']['nama'] ?> </p>
-		    <span class="title">Tentang  </span><br>
-				<p><?php echo $data['data']['deskripsi'] ?> </p>
-				<span class="title">Alamat</span>	<br>
-				<p><?php echo $data['data']['alamat'] ?></p>
-				<span class="title">Telephone/Fax</span>
-				<p><?php echo $data['data']['no_hp'] ?> </p>
-		  </div>
+			  <div class="panel-heading text-center"><h4>Dipost oleh</h4></div>
+			  <div class="panel-body">
+			    <span class="title">Nama Pemilik</span> <br>
+			      <p> <?php echo $data['data']['nama'] ?> </p>
+			    <span class="title">Tentang  </span><br>
+					<p><?php echo $data['data']['deskripsi'] ?> </p>
+					<span class="title">Alamat</span>	<br>
+					<p><?php echo $data['data']['alamat'] ?></p>
+					<span class="title">Telephone/Fax</span>
+					<p><?php echo $data['data']['no_hp'] ?> </p>
+			  </div>
 	<!-- End Profile -->
+		</div>
+	</div>
 </div>
 <!-- END MAIN CONTENT -->
+
 <!-- javascript -->
 	<?php include 'view/script2.php'; ?>
-<!-- javascript -->
+
 </body>
-<?php 
-	if(isset($_POST['apply'])){
-		if($_SESSION==NULL){
-			$script->redirect('daftar');
-		}else{
-			if($_SESSION['admin']){
-				$script->redirect('admin/dashboard');
-			}elseif($_SESSION['pengiklan']){
-				$script->redirect('dashboard/pemilik-lowongan/profile');
-			}elseif($_SESSION['pekerja']){
-				$lowongan->apply($_SESSION['user']['id_pekerja'],$id_postingan,$_SESSION['user']['username'],$postingan['data']['status']);
-				$script->redirect('lowongan');
-			}
-		}
-	}
-?>
 </html>
+
+<?php include 'controller/include.detail.post.php'; ?>

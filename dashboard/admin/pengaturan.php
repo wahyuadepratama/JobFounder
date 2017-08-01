@@ -1,21 +1,20 @@
+<?php 
+	session_start(); 
+	include '../../controller/class.session.php'; 
+
+	$session = new function_session();
+	$session->admin();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<?php 
-	session_start();
-	include '../view/source3.php'; 
-	include '../controller/class.session.php'; 
-
-	$session = new function_session();
-
-	$session->admin();
-
-	?>
+	<title>Admin</title>
+	<?php include '../../view/source.php'; ?>
 </head>
 <body>
 
- <?php include('../view/navbar.php'); ?>
+ <?php include('../../view/navbar.php'); ?>
 
 	<ul class="nav nav-tabs nav-justified">
   		<li><a href="../admin/dashboard.php">Home</a></li>

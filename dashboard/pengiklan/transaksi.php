@@ -1,11 +1,11 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 	<title> JobUs | Dashboard </title>
-	<?php 
-	session_start();
-	include '../../view/source.php'; ?>
+	<?php include '../../view/source.php'; ?>
 
 </head>
 	
@@ -95,12 +95,10 @@
 </div>
 
 <!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
-<!-- //FOOTER -->
+	<?php include '../../view/footer2.php'; ?>
 
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
-<!-- javascript -->
 
 </body>
 </html>

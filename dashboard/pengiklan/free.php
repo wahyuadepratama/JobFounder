@@ -1,25 +1,25 @@
-<!DOCTYPE html>
 <?php  
   session_start();
   require_once '../../controller/koneksi.php';
   require_once '../../controller/class.session.php';
   require_once '../../controller/class.script.php';
-  require_once '../../controller/class.postingan.php';
-  require_once '../../controller/class.pengiklan.php';
+  require_once '../../model/class.postingan.php';
+  require_once '../../model/class.pengiklan.php';
 
   $session = new function_session();
-  $postingan = new postingan();
   $pengiklan = new pengiklan();
+  $postingan = new postingan();
   $script = new function_script();
 
   $session->pengiklan();
-
+	
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title> Dashboard | Pro </title>
+	<title> Dashboard | Free </title>
 	<?php include '../../view/source.php'; ?>
 
 </head>
@@ -48,7 +48,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>    
+      </button>
       <a class="navbar-brand"><img class="img-responsive" src="../../assets/images/coin-small.png"></a><a class="coin"><?php echo $pengiklan->get_koin($_SESSION['user']['id_pengiklan']) ?></a>
     </div>
 
@@ -76,8 +76,8 @@
 		  <li class="list-group-item">1. Pastikan anda sudah melengkapi profile anda, agar pekerja tidak sulit menemukan anda nantinya</li>
 		  <li class="list-group-item">2. Isilah lowongan yang sesuai dengan kebutuhan anda</li>
 		  <li class="list-group-item">3. Sampaikan deskripsi pekerjaan dengan jelas dan ringkas</li>
-		  <li class="list-group-item">4. Lampirkan poster/brosur iklan anda</li>		  
-		  <li class="list-group-item">5. Setelah di submit, iklan akan diposting setelah disetujui admin (paling lama 1 jam)</li>
+		  <li class="list-group-item">4. Setelah di submit, iklan akan diposting setelah disetujui admin (paling lama 1 jam)</li>		  
+		  <li class="list-group-item">5. Iklan anda akan bertahan selama 1 minggu</li>
 		</ul>
 	  </div>
 	</div>
@@ -85,14 +85,14 @@
 <br>
 <div class="container">
 
-<form method="post">
-<div class="form-group">
+<form name='form1' method="post">
+	<div class="form-group">
 		  <label for="posisi">Judul Lowongan</label>
-		  <input type="text" class="form-control" name="judul" placeholder="Lowongan Kerja PT Freeport / Dicari tukang kebun buah naga" required="">
+		  <input type="text" class="form-control" name="judul" placeholder="ex: Dicari tukang kebun buah naga" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Deskripsi Pekerjaan (syarat dan ketentuan pekerja)</label>
-		  <textarea class="form-control" rows="8" id="req" name="deskripsi" placeholder="ex: Dibutuhkan : System Analis, Manager Marketing, Sales Manager. Min S1 dengan jurusan sebagai berikut : Sistem informasi, teknik informatika, manajemen / Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="deskripsi" placeholder="ex: Saya membutuhkan 2 orang tukang kebun yang setidaknya berpengalaman dalam berkebun. Jam kerja pagi - sore. Lokasi kebun di lb alung." required=""></textarea>
 	</div>
 	<div class="form-group">
 		<label for="posisi">Kategori Pekerja (pilihlah agar para pekerja lebih mudah menemukan anda)</label><br><br>
@@ -149,28 +149,19 @@
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Gaji</label>
-		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 4.500.000  -  Rp. 9.000.000" required="">
+		  <input type="text" class="form-control" name="gaji" placeholder="ex: Rp. 1.500.000  nego" required="">
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Keterangan Tambahan (jika dibutuhkan)</label>
-		  <textarea class="form-control" rows="8" id="req" name="keterangan" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan"></textarea>
+		  <textarea class="form-control" rows="5" id="req" name="keterangan" placeholder="ex: Tukang kebun akan tinggal digubuk pada ladang saya, untuk biaya beli beras dan uang harian akan saya berikan" ></textarea>
 	</div>
 	<div class="form-group">
 		  <label for="posisi">Tipe</label>
-		  <select class="form-control" id="sel2" name="tipe">
-		  	<option value="Freelance / Kontrak">Pilih Tipe</option>
+		  <select class="form-control" id="sel2" required="" name="tipe">
+		    <option value="Freelance / Kontrak">Pilih Tipe</option>
 		    <option value="Freelance / Kontrak">Freelance / Kontrak</option>
 		    <option value="Karyawan / Kerja Tetap">Karyawan / Kerja Tetap</option>
 		  </select>
-	</div>
-	<div class="form-group">
-		  <label for="posisi">Lama Iklan (1 hari = 1 koin)</label>
-		  <input type="number" class="form-control" name="durasi" placeholder="ex : 5 (ini berarti anda memilih durasi iklan selama 5 hari dan poin anda akan dikurangi sebanyak 5" required="">
-	</div>
-	<div class="form-group">
-		    <label for="exampleInputFile">Upload Pamflet / Brosur (optional)</label><br><br>
-		    <input type="file" id="pamflet" name="pamflet">
-		    <p class="help-block">nb : ekstensi yang diterima hanya berupa jpg/jpeg/png</p>
 	</div>
 	<div class="form-group">
 		<input type="hidden" id="lat" name="lat" value="">
@@ -180,7 +171,7 @@
 </form>
 </div>
 
-<div id="map" class="form-group"></div>
+<!-- <div id="map" class="form-group"></div>
   
     <script>
 
@@ -232,36 +223,21 @@
 </script>
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-</script>
+</script> -->
 
 <!-- FOOTER -->
- <?php include '../../view/footer2.php'; ?>
-<!-- //FOOTER -->
-
+	<?php include '../../view/footer2.php'; ?>
+ 
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
-<!-- javascript -->
 
 </body>
 </html>
 
 <?php 
-
-	if(isset($_POST['submit'])){
-		
-	//cek dan update jumlah koin
-		$koin = $pengiklan->get_koin($_SESSION['user']['id_pengiklan']);
-		echo $koin;
-
-		if($koin < $_POST['durasi']){
-			$script->alert_warning('Maaf!','Koin Anda Tidak Mencukupi !');
-		}else{
-			$pengiklan->cek_koin($_POST['durasi'],$_SESSION['user']['id_pengiklan']);
-		// insert ke postingan
-			$postingan->set_all_property('pro',$_POST['durasi'],'belum');
-			$postingan->insert_data();	
-			$script->alert_redirect('Berhasil !','Iklan anda akan di posting setelah disetujui admin. Silahkan cek List Posting','new-posting');
-		}
+	if(isset($_POST['submit'])){		
+		$postingan->set_all_property('free',7,'belum');
+		$postingan->insert_data();
+		$script->alert_redirect('Berhasil !','Iklan anda akan di posting setelah disetujui admin. Silahkan cek List Posting','new-posting');
 	}
-
  ?>

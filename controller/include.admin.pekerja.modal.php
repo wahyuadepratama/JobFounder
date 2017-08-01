@@ -1,65 +1,5 @@
-<!DOCTYPE html>
-<?php session_start();
-include '../controller/class.pekerja.php';
-include '../controller/koneksi.php';
-include '../controller/class.script.php';
+<?php
 
-$pekerja = new pekerja();
-$script = new function_script();
-
-$data = $pekerja->get_all_profile();
-
- ?>
-<html>
-<head>
-	<title></title>
-	<?php include '../view/source3.php'; ?>
-</head>
-<body>
- <?php include('../view/navbar.php'); ?>
- 
-	<ul class="nav nav-tabs nav-justified">
-  		<li><a href="../admin/dashboard.php">Home</a></li>
-  		<li role="presentation" class="active"><a href="../admin/pekerja.php">Pekerja</a></li>
-  		<li><a href="../admin/pengiklan.php">Pengiklanan</a></li>
-  		<li><a href="postingan.php">Postingan</a></li>
-  		<li><a href="pengaturan.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Setting</a></li>
-	</ul>
-	<!-- Main content -->
-	<div class="container">
-		<table  class="table table-condensed table-responsive">
-			<thead>
-				<th>No </th>
-				<th>Nama Pekerja</th>
-				<th>Tanggal Daftar</th>
-				<th>Action</th>
-			</thead>
-			<tbody>
-			<?php 
-				if(count($data) > 0){
-					$i = 1;
-				  foreach ($data as $row) {
-				    echo "
-				<tr>
-				<td>$i</td>
-				<td>".$row['nama']."</td>
-				<td>".$row['tanggal']."</td>
-				<td>
-					<form method='post'>
-						<button type='button' class='btn btn-default' data-toggle='modal' data-target='#".$row['id_pekerja']."'>Detail</button>
-						<button class='btn btn-default'>Akun</button>
-						<button class='btn btn-default' name='delete' value='".$row['id_pekerja']."'>Hapus</button>
-					</form>
-					
-				</td>
-			</tr>
-
-				    ";
-				    $i++;
-				}} 
-			?>		
-		</table>
-		<?php 
 		if(count($data)>0){
 			foreach ($data as $row) {
 				echo "
@@ -77,7 +17,7 @@ $data = $pekerja->get_all_profile();
           <!-- Photo Profile -->
            <div class='container-fluid'>
             <div class='col-sm-4'>
-            <img src='../assets/images/yola-small.jpg' class='img-responsive center-block'>
+            <img src='../../assets/images/yola-small.jpg' class='img-responsive center-block'>
             <br>
             </div>
             <div class='col-sm-8'>
@@ -130,12 +70,4 @@ $data = $pekerja->get_all_profile();
 			}
 		}
 
-		 ?>
-	</div>
-	<!-- end main content -->
-</body>
-<?php if(isset($_POST['delete'])){
-		$pekerja->delete_by_id($_POST['delete']);
-		$script->redirect('pekerja');
-	} ?>
-</html>
+?>

@@ -22,7 +22,7 @@
 										if(isset($_SESSION['pekerja'])){
 											echo "<li><a href='dashboard/pekerja/profile.php'>Dashboard</a></li>";	
 										}elseif(isset($_SESSION['pengiklan'])){
-											echo "<li><a href='dashboard/pemilik-lowongan/profile.php'>Dashboard</a></li>";
+											echo "<li><a href='dashboard/pengiklan/profile.php'>Dashboard</a></li>";
 										}elseif(isset($_SESSION['admin'])){
 											echo "<li><a href='admin/dashboard.php'>Dashboard</a></li>";
 										}else{

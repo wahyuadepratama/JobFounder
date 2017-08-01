@@ -2,20 +2,18 @@
 	session_start();
 	require_once 'controller/koneksi.php';
 	require_once 'controller/class.script.php';
-	require_once 'controller/class.pengiklan.php';
-	require_once 'controller/class.pekerja.php';
-	
+	require_once 'model/class.pengiklan.php';
+	require_once 'model/class.pekerja.php';
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>JobUs | Daftar</title>
+	<title>JobUs | Daftar</title>
+	<?php include 'view/source2.php'; ?>
 
-<?php include 'view/source2.php'; ?>
-<link href="assets/css/style2.css" rel="stylesheet" type="text/css" media="all" />
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
-
+	<link href="assets/css/style2.css" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'><!--web font-->
 </head>
 <body>
 	<div class="banner">
@@ -152,7 +150,7 @@
 
 	<!-- javascript -->
 		<?php include 'view/script2.php'; ?>
-	<!-- javascript -->
+		
 </body>
 </html>
 

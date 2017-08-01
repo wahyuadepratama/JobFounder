@@ -2,7 +2,7 @@
   session_start();
   require_once '../../controller/koneksi.php';
   require_once '../../controller/class.session.php';
-  require_once '../../controller/class.pengiklan.php';
+  require_once '../../model/class.pengiklan.php';
 
   $session = new function_session();
   $pengiklan = new pengiklan();
@@ -104,12 +104,10 @@
 </center>
 
 <!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
-<!-- //FOOTER -->
+	<?php include '../../view/footer2.php'; ?>
 
 <!-- javascript -->
 	<?php include '../../view/script.php'; ?>
-<!-- javascript -->
 
 </body>
 </html>

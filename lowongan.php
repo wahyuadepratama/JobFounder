@@ -1,53 +1,13 @@
 <?php 
-
 	session_start();
-	require_once 'controller/class.postingan.php';
-	require_once 'controller/class.script.php';
 	require_once 'controller/koneksi.php';
+	require_once 'model/class.postingan.php';
+	require_once 'controller/class.script.php';
 
 	$postingan = new postingan();
 	$script = new function_script();
 
-	if(isset($_REQUEST['tipe'])){
-
-		if($_REQUEST['tipe']=='tetap'){
-
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
-
-				$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
-
-			}else{
-
-				$data = $postingan->select_tipe_active('Karyawan');		
-
-			}
-			
-		}elseif($_REQUEST['tipe']=='paruh_waktu'){
-
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
-
-				$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');	
-
-			}else{
-
-				$data = $postingan->select_tipe_active('kontrak');		
-
-			}
-
-		}else{
-
-			$script->redirect('lowongan');
-
-		}
-	}elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
-
-		$data = $postingan->select_by_kategori($_POST['kategori'],'');
-
-	}else{
-
-		$data = $postingan->select_active();
-
-	}
+	include 'controller/include.lowongan.post.php';
 ?>
 
 <!DOCTYPE html>
@@ -89,12 +49,6 @@
 			<h3 class="agileits_w3layouts_head"><span>Cari Lowongan Kerja Disini</span></h3>
 			<p class="agile_para_2">Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
             
-		    <!-- <div class="input-group">
-		      <input type="text" class="form-control pull-right" placeholder="Search for..." style="width:250px;">
-		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button">Go!</button>
-		      </span>
-		    </div> -->
 			<div class="dropdown" >
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 			    Kategori
@@ -161,38 +115,10 @@
 			</div>
 				</div>
 			</div>
-			
 				<center><button type="submit" class="btn btn-default" name="cari">Cari</button></center><br>
 			</form>
 
-	<?php 
-
-		if(count($data)>0){
-			foreach ($data as $row){
-			echo "
-			<div class='well well-lg' style='text-align: justify;''>
-				<div class='row'>
-				  	<div class='col-xs-6 col-md-3'>
-				    	<a href='detail.php?id=".$postingan->encode($row['id_postingan'])."' class='thumbnail'>
-				      	<img src='assets/images/noposter.jpg' alt='...'>
-				    	</a>
-				  	</div>
-				  	<h4>".$row['judul']." </h4>
-				  	<p>";
-				if(strlen($row['deskripsi'])>18){
-					echo substr($row['deskripsi'],0,18).'. . . .';
-				}else{
-					echo $row['deskripsi'];
-				}
-			echo	"			  	
-				  	<br></p>
-            		<a class='remo' href='detail.php?id=".$postingan->encode($row['id_postingan'])."'><b>Read more</b></a>
-				</div>
-			</div>";
-			}
-		} 
-
-	?>
+			<?php include 'controller/include.lowongan.table.php'; ?>
 
 			<nav>
 			  <ul class="pager">
@@ -206,11 +132,9 @@
 
 <!-- footer -->
 	<?php include 'view/footer.php'; ?>
-<!-- //footer -->
 
 <!-- javascript -->
 	<?php include 'view/script2.php'; ?>
-<!-- javascript -->
 
 </body>
 </html>
