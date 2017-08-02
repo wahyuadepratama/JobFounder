@@ -1,4 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo');
+@font-face {
+font-family: 'FuturaBook';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/FuturaBookBT.ttf');
+}
+
+@font-face {
+font-family: 'Orator std';
+font-style: normal;
+font-weight: normal;
+src: local('Orator Std'), url('../fonts/OratorStd.otf') format('otf');
+}
+@font-face {
+font-family: 'Geosans Lt';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/GeosansLight.ttf');
+}
+@font-face {
+font-family: 'Neon';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/Neon.ttf');
+}
+
+/*===================END FONT==============================*/
 
 /*NAVIGATION BAR*/
 nav.navbar.navbar-inverse{
@@ -12,8 +39,8 @@ nav.navbar.navbar-inverse>div.container-fluid{
  max-width: 960px;
 }
 .navbar-inverse .navbar-nav>li>a {
-    color: #ddd;
-    font-weight: bold;
+    color: black;
+   font-family: 'Orator std';
 }
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     font-weight: bold;
@@ -31,10 +58,8 @@ nav.navbar.navbar-inverse>div.container-fluid{
 }
 /*CONTENT HALAMAN UTAMA*/
 #section1 {
-  	padding-top:50px;color: black;
-    background-image: url('../images/banner-1.jpg'); 
-    /* Create the parallax scrolling effect */
-  /*  background-attachment: fixed;*/
+    padding-top:50px;color: black;
+    background-image: url('../images/banner.png'); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,8 +72,8 @@ nav.navbar.navbar-inverse>div.container-fluid{
 }
 
 .fadeIn {
-    -webkit-animation: fadeInRight 1.5s;
-    animation: fadeInRight 1.5s;
+    -webkit-animation: fadeInRight 1s;
+    animation: fadeInRight 1s;
     visibility: visible !important;
 }
 
@@ -64,8 +89,8 @@ nav.navbar.navbar-inverse>div.container-fluid{
     }
 }
 .fadeInUp{
-  -webkit-animation: fadeInUp 1.5s;
-    animation: fadeInUp 1.5s;
+  -webkit-animation: fadeInUp 1s;
+    animation: fadeInUp 1s;
     visibility: visible !important;
 }
 @keyframes fadeInUp {
@@ -81,8 +106,8 @@ nav.navbar.navbar-inverse>div.container-fluid{
 }
 
 .fadeInLeft{
-  -webkit-animation: fadeInLeft 1.5s;
-    animation: fadeInLeft 1.5s;
+  -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
     visibility: visible !important;
 }
 @keyframes fadeInLeft {
@@ -97,27 +122,32 @@ nav.navbar.navbar-inverse>div.container-fluid{
   }
 }
 
-
-
 .item{
-  margin-top: 150px;
-  margin-left: 90px;
+  margin-top: 130px;
+  max-width: 960px;
+  text-align: center;
+  padding: none;
 }
 
-h3{
-  font-size:2.2em;
+div.container.item > h3{
+  font-size:2.7em;
   color:white;
-  font-weight: bold;
-  line-height:1.5em;
-  font-family: 'Cairo', sans-serif;
-  text-shadow: 0 0 5px rgba(0,0,0,0.3);
+  font-weight: bolder;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family:sans-serif,arial,serif;
+  /*text-shadow: 0 0 5px rgba(0,0,0,0.3);*/
 }
 p.ju_info_fts{
-  font-size:1em;
-  color:white;
-  max-width: 600px;
-  font-size:'Cairo', sans-serif;
-  text-shadow: 0 0 5px rgba(0,0,0,0.3);
+  font-family: 'FuturaBook';
+  color: white;
+  text-align: center;
+  line-height:1.5em;
+  letter-spacing: 0.5px;
+  font-size: 1.2em;
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
 }
 
 .btn.ju_apa,.btn.ju_gab:hover{
@@ -133,69 +163,43 @@ p.ju_info_fts{
    border: 2px solid #3595b1;
 }
 
-/* Change the link color to #111 (black) on hover */
-
-/*-- button-effect --*/
-/*.thim-click-to-bottom {
-    position: absolute;
-    margin-top: 12em;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-    line-height: 40px;
-    -webkit-animation: bounce 2s infinite ease-in-out;
+#section2 {
+  padding:50px 200px 50px 200px;
+  height:auto;
+  background-image: url('../images/wild_oliva.png');
 }
-.thim-click-to-bottom i {
-    color: #fff;
-    padding: 20px 10px;
-    border: 1px solid;
-    border-radius: 20px;
-  font-size: 15px;
-}
-@-webkit-keyframes bounce {
-  0%, 20%, 60%, 100%  { -ms-transform: translateY(0); }
-  0%, 20%, 60%, 100%  { -o-transform: translateY(0); }
-  0%, 20%, 60%, 100%  { -moz-transform: translateY(0); }
-  0%, 20%, 60%, 100%  { -webkit-transform: translateY(0); }
-    40%  { -webkit-transform: translateY(-20px); }
-  80% { -webkit-transform: translateY(-10px); }
-}*/
-
-#section2 {padding:50px 200px 50px 200px;height:auto;color: #fcf8e3; background-color: #fabe3a;}
 
 div.container.ju_sec{
   max-width: 960px;
 }
 
-div.col-md-4.satu > div.panel.panel-default{
-  text-align: center;
+div.col-md-4> div.panel.panel-default{
+  text-align: justify;
  /* cursor: pointer;*/
-  background-color: #88c33d;
-  border-color: #759e42;
+  background-color: white;
+  border:none;
+  font-size:0.8em;
+  font-family: 'FuturaBook';
 }
-div.col-md-4.satu > div.panel.panel-default > div.panel-heading{
-  background-color: #88c33d;
+div.col-md-4 > div.panel.panel-default > div.panel-heading{
+  height:180px; 
+}
+div.col-md-4 > div.panel.panel-default > div.panel-heading.one{
+  background-image: url('../images/heading-one.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border:none;
 }
-div.col-md-4.dua > div.panel.panel-default{
-  background-color: #69c9b5;
-  text-align: center;
-  border-color:#53a292;
-  /*cursor: pointer;*/
-}
-div.col-md-4.dua > div.panel.panel-default > div.panel-heading{
-  background-color: #69c9b5;
+div.col-md-4 > div.panel.panel-default > div.panel-heading.two{
+  background-image: url('../images/heading-two.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border:none;
 }
-div.col-md-4.tiga > div.panel.panel-default{
-  background-color:#e85d1f;
-  text-align: center;
-  border-color:#af4719;
- /* cursor: pointer;*/
-}
-div.col-md-4.tiga > div.panel.panel-default > div.panel-heading{
-  background-color: #e85d1f;
+div.col-md-4 > div.panel.panel-default > div.panel-heading.three{
+  background-image: url('../images/heading-three.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   border:none;
 }
 div.col-md-4 > div.panel.panel-default{
@@ -209,13 +213,10 @@ div.col-md-4 > div.panel.panel-default > div.panel-body{
   font-size: 1.3em;
 }
 
-/*div.panel.panel-default:hover {
-    background-color: blue;
-}*/
 #section3 {
   padding:50px 0px 50px 0px;
   height:500px;
-  background-color: #fabe3a;
+  background-color: white;
     /*background-image: url('../img/banner-1.jpg');*/ 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -225,117 +226,152 @@ div.col-md-4 > div.panel.panel-default > div.panel-body{
     height: auto;
     align-items: center;
     vertical-align: middle;
+    text-align: center;
 }
-span.ju_title{
-  max-width: 600px;
-  height: 100px;
-  padding-top: 5px;
-  background-image: url('../images/brush2.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto;
+div.container.ju_sec > h3{
   text-align: center;
-  display: block;
-  margin-left: auto;
+  font-size: 2.7em;
+  font-family:sans-serif,arial,serif;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  font-weight: bold;
+  color: black;
+  
+}
+div.under_line{
+  height: 10px;
+  max-width: 100px;
+  background-color: black;
+  text-align: center;
   margin-right: auto;
-
-}
-div.ju_title2{
-    background-image: url('../images/brush-title.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 138px;
-    position: relative;
-    text-align: center;
-
-}
-div.ju_title2_small{
-  display: none;
-  background-image: url('../image/small-brush.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 138px;
-    position: relative;
-    text-align: center;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 div.ju_title2 > h3{
-  padding-top: 40px;
-}
-div.ju_title3{
-    background-image: url('../images/cari-k.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 70px;
-    position: relative;
-    text-align: center;
+  text-align: center;
+  font-size: 2.7em;
+  font-family:sans-serif,arial,serif;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  font-weight: bold;
+  color: black;
+  padding-top: 0px;
+  margin-top: 0px;
 
+}
+div.ju_title3 > h3{
+  text-align: center;
+  font-size: 2.7em;
+  font-family:sans-serif,arial,serif;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+  font-weight: bold;
+  color: black;
 }
 div.ju_title3 >h3{
   padding-top: 15px
 }
-div.ju_title4{
-    background-image: url('../images/tem-brush.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100px;
-    position: relative;
-    text-align: center;
-}
-div.ju_title4_small{
-    background-image: url('../images/tem-brush-small.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100px;
-    position: relative;
-    text-align: center;
-    display: none;
-}
+
 div.ju_title4 > h3{
  padding-top: 25px
 }
 .ju_jobus_what{
   font-size: 1.3em;
   text-align: center;
-  color: #fcf8e3;
+  color: black;
+  font-family: 'FuturaBook';
 }
 span.ju_line{
   height: auto;
-  padding-top: 5px;
-  background-image: url('../images/jobus.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  text-align: center;
-  display: inline;
+  font-family: 'Neon';
+  color: #fbb82a;
+  letter-spacing:0px;
   
 }
-#more{
-  padding:50px 0px 50px 0px;
-  min-height:500px;
-  background-color: #fabe3a;
-    background-image: url('../images/bg-bawah.png'); 
+.more{
+   /*background-color: #fabe3a;
+    background-image: url('../img/heading-one.jpg'); 
     /* Create the parallax scrolling effect */
-  /*  background-attachment: fixed;*/
+    background-attachment: fixed;
     background-position: bottom;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;*/
     height: auto;
     align-items: center;
     vertical-align: middle;
-    padding-bottom: 850px;
 }
+div.container-fluid.more{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+div.container-fluid.more_two{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+div.container-fluid.more_two{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.more > .col-md-6.one{
+  font-size: 1em;
+  padding-left: 230px;
+  padding-bottom: 20px;
+  text-align: justify;
+  background-color: white;
+  height: auto;
+  font-family: 'FuturaBook';
+}
+.more_three > .col-md-6.one{
+  font-size: 1em;
+  padding-left: 230px;
+  padding-bottom: 20px;
+  text-align: justify;
+  background-color: white;
+  height: auto;
+  font-family: 'FuturaBook';
+}
+.col-md-6.para_one{
+    background-image: url('../images/heading-one2.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 420px;
 
+}
+.col-md-6.para_dua{
+  background-image: url('../images/heading-two2.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 350px;
+
+}
+.col-md-6.para_three{
+  background-image: url('../images/heading-three.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 420px;
+
+}
+.more_two > .col-md-6.dua{
+  font-size: 1em;
+  padding-right: 200px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  text-align: justify;
+  background-color: white;
+  height: auto;
+  font-family: 'FuturaBook';
+}
 #information {
   padding-top:50px;
   padding-bottom: 50px;
@@ -405,12 +441,7 @@ span.ju_line{
       padding: 15px 8px;
       font-size: 8px;
     }
-    div.ju_title2{
-      display: none;
-    }
-    div.ju_title2_small{
-      display: block;
-    }
+    
     div.ju_title2_small> h3{
       padding-top: 20px;
     }
@@ -435,31 +466,22 @@ span.ju_line{
     padding-top: 12px;
     font-size: 1.8em;
   }
-  #more.container-fluid{
-      padding-bottom: 200px;
-    }
 }
 
-@media (max-width: 1600px){
-  #more{
-      padding-bottom: 950px;
-    }
-}
+
 @media (max-width: 384px){
-  #more.container-fluid{
-      padding-bottom: 250px;
-    }
+  
+     p.ju_info_fts{
+    font-size: 1em;
+   }
+   div.container.item{
+    margin-top: 200px;
+   }
+   div.container.item >h3{
+    font-size: 1.5em;
+   }
 }
-@media (max-width: 414px){
-  #more.container-fluid{
-      padding-bottom: 300px;
-    }
-}
-@media(max-width: 600px ){
-  #more.container-fluid{
-      padding-bottom: 400px;
-    }
-}
+
 @media (max-width: 767px){
     div.navbar-header>img{
           margin-left: 5px;
@@ -467,16 +489,74 @@ span.ju_line{
     .hideme > img{
       display: none;
     }
-    #more{
-      padding-bottom: 500px;
-    }
+   
+   p.ju_info_fts{
+    padding: 0px;
+   }
+   div.container > item{
+    padding: 0px;
+   }
+   
+}
 
+@media (max-width: 991px){
+  div.container-fluid.more{
+    padding: 15px;
+    background-image: url('../images/heading-one2.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+  .more > .col-md-6.para_one, .more_two > .col-md-6.para_dua, .more_three > .col-md-6.para_three{
+    display: none;
+  }
+  .more > .col-md-6.one , .more_three > .col-md-6.one{
+  font-size: 1em;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  text-align: justify;
+  background-color: white;
+  height: auto;
+  font-family: 'FuturaBook';
+  }
+  div.container-fluid.more_two{
+    padding: 15px;
+    background-image: url('../images/heading-two2.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+  .more_two > .col-md-6.dua{
+  font-size: 1em;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  padding-bottom: 20px;
+  text-align: justify;
+  background-color: white;
+  height: auto;
+  font-family: 'FuturaBook';
 }
-@media(max-width: 991px){
-  #more{
-      padding-bottom: 550px;
+  div.container-fluid.more_three{
+    padding: 15px;
+    background-image: url('../images/heading-three.jpg'); 
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: cover;
     }
 }
+
+@media(min-width: 992px){
+  div.ju_title2 > h3{
+    padding-top: 20px;
+  }
+}
+
 @media (max-width: 1199px){
     .item{
     margin-left: 0px;
@@ -486,11 +566,16 @@ span.ju_line{
   .item{
     margin-top: 100px;   
   }
-  h3{
-    font-size: 1.8em;
+  div.container.item > h3{
+    font-size: 1.5em;
+  }
+  div.container.item{
+    padding: 0px;
+    margin-top: 170px;
   }
   p.ju_info_fts{
-    font-size: 0.8em
+    font-size: 0.8em;
+    padding: 0px;
   }
   .btn.ju_apa,.btn.ju_gab{
     font-size: 0.8em;
@@ -499,9 +584,7 @@ span.ju_line{
     padding-top: 15px;
     font-size: 1.7em;
   }
-  #more.container-fluid{
-      padding-bottom: 200px;
-    }
+  
 }
 @media (max-width: 1024px){
     #section2{
@@ -525,12 +608,4 @@ span.ju_line{
   div.ju_title2> h3{
       padding-top: 20px;
     }
-}
-@media (max-width: 433px){
-  div.ju_title4{
-    display: none;
-  }
-  div.ju_title4_small{
-    display: block;
-  }
 }
