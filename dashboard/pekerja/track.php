@@ -22,59 +22,29 @@
 <head>
 
 	<title> JobUs | Dashboard </title>
-	<?php include '../../view/source.php'; ?>
+	 <?php include('../../view/head-user.php') ?>
+
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style-user.css">
 
 </head>
 	
 <body>
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-			<?php include '../../view/header.php'; ?>
+<?php include('../../view/header-pekerja.php') ?>
 
-		</div>
-	</div>
-<!-- banner -->
-
-<!-- Menu -->
-<br>
-<div class="container">
-	<ul class="nav nav-pills">
-		<li role="presentation" class="active"><a href="track.php">Tracking</a></li>
-	  	<li role="presentation"><a href="profile.php">Profile</a></li>
-	</ul>
-	<ul class="">
-		
-	</ul>
-</div>
-<br>
-<!-- end Menu -->
-
-<!-- Dashboard -->
-<div class="container content-ku">
-	<h4>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan diselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</h4>
-
-	<div class="container table-responsive" >
-    <table class="table">
-    	<th>No</th>
-    	<th>Judul</th>
-    	<th>Date Submitted</th>
-    	<th>Perusahaan</th>
+<div class="container main-content" id="startchange">
+  <p>Ini nantinya berisi <i>Tracking</i> dari pekerja. Apa saja job yang pernah diambil dan diselesaikannya. Sehingga menjadi pertimbangan orang yang butuh pekerjaan nantinya.</p>
+  <table class="table">
+      <th>No</th>
+      <th>Judul</th>
+      <th>Date Submitted</th>
+      <th>Perusahaan</th>
 
       <?php include '../../controller/include.pekerja.track.table.php'; ?>
 
     </table>
-    </div>
+   <?php include '../../view/footer.php'; ?>
 </div>
-
-<!-- //Dashboard -->
-
-<!-- FOOTER -->
-  <?php include '../../view/footer2.php'; ?>
-
-<!-- javascript -->
-	<?php include '../../view/script.php'; ?>
+<!-- ============================================================================================= -->
 
 </body>
 </html>

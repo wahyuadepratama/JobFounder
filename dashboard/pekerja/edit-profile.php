@@ -25,33 +25,16 @@
 <html lang="en">
 <head>
 	<title> Edit Profile </title>
-	<?php include '../../view/source.php'; ?>
+	<?php include('../../view/head-user.php') ?>
+
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style-user.css">
 </head>
 	
 <body>
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-			<?php include '../../view/header.php'; ?>
+  <?php include('../../view/header-pekerja.php') ?>
 
-		</div>
-	</div>
-<!-- banner -->
-
-<!-- profile -->
-<br>
-<div class="container">
-	<ul class="nav nav-pills">
-		<li role="presentation"><a href="track.php">Tracking</a></li>
-	  	<li role="presentation" class="active"><a href="profile.php">Profile</a></li>
-	</ul>
-	<ul class="">
-		
-	</ul>
-</div>
-<div class="container">
- <form method='post' enctype='multipart/form-data'>
+  <div class="container main-content" id="startchange">
+  	<form method='post' enctype='multipart/form-data'>
 	<center>
 		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">
@@ -115,15 +98,10 @@
 		</center>
 	</div>
 	</form>
-</div>
-<!-- end profile -->
-<!-- FOOTER -->
-<?php include '../../view/footer2.php'; ?>
+  </div>
+  <!-- FOOTER -->
+<?php include '../../view/footer.php'; ?>
 <!-- //FOOTER -->
-<!-- javascript -->
-	<?php include '../../view/script.php'; ?>
-<!-- javascript -->
 
-</body>
 <script type="text/javascript" src="../../assets/js/lokasi.js"></script>
 </html>
