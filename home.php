@@ -45,7 +45,8 @@
 		  </div>
 		</nav>
 </div>
-   <!-- END NAVBAR--><!-- CONTENT -->
+   <!-- END NAVBAR-->
+   <!-- CONTENT -->
    
 <div id="section1" class="container-fluid">
       <div class="container" id="startchange">

@@ -15,40 +15,52 @@
 <head>
 
 	<title>JobUs | Lowongan Kerja</title>
-	<?php include 'view/source2.php'; ?>
+	<?php include 'view/head.php'; ?>
+	 <link rel="stylesheet" type="text/css" href="assets/css/style-user.css">
+	 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </head>
 	
 <body>
-<!-- banner -->
-	<div class="banner1">
-		<div class="container">
-			
-		<?php include 'view/header2.php'; ?>
+<!-- NAVBAR -->
+<div class="container-fluid">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		      </button>
+		      <img class="img-responsive" src="assets/images/logo-lands.png">
+		    </div>
+		    <div>
+		      <div class="collapse navbar-collapse" id="myNavbar">
+		        <ul class="nav navbar-nav navbar-right">
+		          <li><a href="home.php">home</a></li>
+		          <li><a href="lowongan.php">find jobs</a></li>
+		          <?php 
 
-		</div>
-	</div>
-<!-- banner -->
-
-<!-- breadcrumbs -->
-	<div class="breadcrumbs">
-		<div class="container">
-			<div class="w3layouts_breadcrumbs_left">
-				<ul>
-					<li><i class="glyphicon glyphicon-home" aria-hidden="true"></i><a href="home.php">Home</a><span>/</span></li>
-					<li><i class="glyphicon glyphicon-bullhorn" aria-hidden="true"></i>Cari Lowongan Kerja</li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-<!-- //breadcrumbs -->
-
-	<div class="welcome">
-		<div class="container">
-			<h3 class="agileits_w3layouts_head"><span>Cari Lowongan Kerja Disini</span></h3>
-			<p class="agile_para_2">Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
-            
+										if(isset($_SESSION['pekerja'])){
+											echo "<li><a href='dashboard/pekerja/profile.php'>dashboard</a></li>";	
+										}elseif(isset($_SESSION['pengiklan'])){
+											echo "<li><a href='dashboard/pengiklan/profile.php'>dashboard</a></li>";
+										}else{
+											echo "<li><a href='daftar.php'>sign in</a></li>";
+										} 
+										
+									?>
+		          <li><a href="about">about</a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</nav>
+</div>
+   <!-- END NAVBAR-->
+   <div class="container main-content" id="startchange">
+   		<h3><span>Cari Lowongan Kerja Disini</span></h3>
+			<p>Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
 			<div class="dropdown" >
 			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 			    Kategori
@@ -64,7 +76,7 @@
 			<form method="post">
 			<div class="form-group">
 				<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
-				<div class="container">
+				
 			<div class="col-sm-4">
 				<input type="checkbox" name="kategori[]" value="Pelayan Resto (waiters)"> Pelayan Resto (waiters) </input><br>
 				<input type="checkbox" name="kategori[]" value="Pelayan Toko (pramuniaga)"> Pelayan Toko (pramuniaga)</input><br>
@@ -113,7 +125,7 @@
 
 				<input type="checkbox" name="kategori[]" value="Non Kategori"> Lain - lain </input><br>
 			</div>
-				</div>
+				
 			</div>
 				<center><button type="submit" class="btn btn-default" name="cari">Cari</button></center><br>
 			</form>
@@ -125,16 +137,12 @@
 			    <li class="next"><a href="#">NEXT  <span aria-hidden="true"><div class="glyphicon glyphicon-hand-right"></div></span></a></li>
 			  </ul>
 			</nav>
-
-		</div>
-
-	</div>
+   </div>
+<!-- ===================================================================================================== -->
 
 <!-- footer -->
 	<?php include 'view/footer.php'; ?>
 
-<!-- javascript -->
-	<?php include 'view/script2.php'; ?>
 
 </body>
 </html>
