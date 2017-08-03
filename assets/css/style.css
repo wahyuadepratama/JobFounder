@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @font-face {
 font-family: 'FuturaBook';
 font-style: normal;
@@ -29,7 +30,7 @@ src: url('../fonts/Neon.ttf');
 
 /*NAVIGATION BAR*/
 nav.navbar.navbar-inverse{
-  background-color:transparent;
+  background-color:white;
   height: 60px;
   border: none;
   box-shadow: none;
@@ -45,16 +46,43 @@ nav.navbar.navbar-inverse>div.container-fluid{
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     font-weight: bold;
     color: #098dcc;
-    background-color: transparent;
+    background-color: white;
 }
 .navbar-collapse.collapse.in,.navbar-collapse.collapsing{
-  background-color: #333;
+  background-color: white;
   margin-top: 4px;
-  border-color:#333;
-  border-radius: 10px;
+  border-color:white;;
 }
 .navbar-toggle{
+  background-color: transparent;
+  margin-top:6px; 
+  border: none;
+}
+.navbar-inverse .navbar-toggle .icon-bar{
   background-color: #333;
+}
+.navbar-inverse .navbar-toggle:hover {
+    background-color: rgba(0,0,0,.0001);
+}
+.navbar-toggle.join-now{
+  margin-top: 8px;
+  background-color: transparent;
+  color: black;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  padding: 0px;
+}
+.join-now{
+  margin-top: 8px;
+  background-color: transparent;
+  color: black;
+  height: 30px;
+  width: 80px;
+  text-align: center;
+  padding: 0px;
+  font-family: 'Orator std';
+  border: 1px solid black;
 }
 /*CONTENT HALAMAN UTAMA*/
 #section1 {
@@ -122,20 +150,20 @@ nav.navbar.navbar-inverse>div.container-fluid{
   }
 }
 
-.item{
-  margin-top: 130px;
+div.container.item{
+  margin-top: 150px;
   max-width: 960px;
   text-align: center;
-  padding: none;
+  padding: 0px;
 }
 
 div.container.item > h3{
-  font-size:2.7em;
+ 
   color:white;
-  font-weight: bolder;
-  letter-spacing: 5px;
+  font-size: 2.65em;
+  font-weight: 600;
   text-align: center;
-  font-family:sans-serif,arial,serif;
+  font-family:'Open Sans',sans-serif;
   /*text-shadow: 0 0 5px rgba(0,0,0,0.3);*/
 }
 p.ju_info_fts{
@@ -144,12 +172,15 @@ p.ju_info_fts{
   text-align: center;
   line-height:1.5em;
   letter-spacing: 0.5px;
-  font-size: 1.2em;
-  padding-top: 30px;
+  font-size: 1.5em;
+  padding-top: 10px;
   padding-left: 70px;
   padding-right: 70px;
+  padding-bottom: 120px;
 }
-
+.panah_bawah, .panah_bawah:hover, .panah_bawah:focus{
+  color: white;
+}
 .btn.ju_apa,.btn.ju_gab:hover{
   color: white;
   border-radius: 0px;
@@ -176,30 +207,37 @@ div.container.ju_sec{
 div.col-md-4> div.panel.panel-default{
   text-align: justify;
  /* cursor: pointer;*/
-  background-color: white;
   border:none;
   font-size:0.8em;
   font-family: 'FuturaBook';
 }
 div.col-md-4 > div.panel.panel-default > div.panel-heading{
-  height:180px; 
+  height:250px; 
+}
+div.col-md-4 > div.panel.panel-default > div.panel-body{
+  height:170px; 
 }
 div.col-md-4 > div.panel.panel-default > div.panel-heading.one{
-  background-image: url('../images/heading-one.jpg');
+  background-image: url('../images/test.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   border:none;
 }
 div.col-md-4 > div.panel.panel-default > div.panel-heading.two{
-  background-image: url('../images/heading-two.jpg');
+  background-image: url('../images/find-job.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
   border:none;
+  background-color: #f0809a;
 }
 div.col-md-4 > div.panel.panel-default > div.panel-heading.three{
-  background-image: url('../images/heading-three.jpg');
+  background-image: url('../images/test3.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom;
+  background-size: contain;
+   background-color: #EDECE2;
   border:none;
 }
 div.col-md-4 > div.panel.panel-default{
@@ -231,7 +269,7 @@ div.col-md-4 > div.panel.panel-default > div.panel-body{
 div.container.ju_sec > h3{
   text-align: center;
   font-size: 2.7em;
-  font-family:sans-serif,arial,serif;
+  font-family:'Open Sans',sans-serif;
   letter-spacing: 3px;
   word-spacing: 5px;
   font-weight: bold;
@@ -251,21 +289,22 @@ div.under_line{
 
 div.ju_title2 > h3{
   text-align: center;
-  font-size: 2.7em;
-  font-family:sans-serif,arial,serif;
-  letter-spacing: 3px;
+  font-size: 1.7em;
+  font-family:'Open Sans',sans-serif;
+  letter-spacing: 2px;
+  line-height: 45px;
   word-spacing: 5px;
   font-weight: bold;
   color: black;
-  padding-top: 0px;
-  margin-top: 0px;
+  padding-top: 15px;
 
 }
 div.ju_title3 > h3{
   text-align: center;
-  font-size: 2.7em;
-  font-family:sans-serif,arial,serif;
-  letter-spacing: 3px;
+  font-size: 1.7em;
+  font-family:'Open Sans',sans-serif;
+  letter-spacing: 2px;
+  line-height: 45px;
   word-spacing: 5px;
   font-weight: bold;
   color: black;
@@ -291,9 +330,6 @@ span.ju_line{
   
 }
 .more{
-   /*background-color: #fabe3a;
-    background-image: url('../img/heading-one.jpg'); 
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -310,64 +346,56 @@ div.container-fluid.more_two{
   padding-left: 0px;
   padding-right: 0px;
 }
-div.container-fluid.more_two{
+div.container-fluid.more_three{
   padding-left: 0px;
   padding-right: 0px;
 }
 .more > .col-md-6.one{
-  font-size: 1em;
+  font-size: 1.3em;
   padding-left: 230px;
   padding-bottom: 20px;
-  text-align: justify;
+  text-align: left;
   background-color: white;
   height: auto;
   font-family: 'FuturaBook';
 }
 .more_three > .col-md-6.one{
-  font-size: 1em;
+  font-size: 1.3em;
   padding-left: 230px;
   padding-bottom: 20px;
-  text-align: justify;
+  text-align: left;
   background-color: white;
   height: auto;
   font-family: 'FuturaBook';
 }
 .col-md-6.para_one{
-    background-image: url('../images/heading-one2.jpg'); 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: auto;
-    height: 420px;
+    height: auto;
+    background-color: white;
+    background-image: url('../images/test-trans2.png');
+    height: 500px;
+    background-position: left bottom;
 
 }
+.col-md-6.para_one > img{
+  width: 0;
+}
 .col-md-6.para_dua{
-  background-image: url('../images/heading-two2.jpg'); 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: auto;
-    height: 350px;
+   background-color: white;
+   height: auto;
+   padding-left: 0px;
 
 }
 .col-md-6.para_three{
-  background-image: url('../images/heading-three.jpg'); 
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    background-size: auto;
-    height: 420px;
-
+  background-color: white;
+   height: auto;
+   padding-bottom: 10px;
 }
 .more_two > .col-md-6.dua{
-  font-size: 1em;
+  font-size: 1.3em;
   padding-right: 200px;
   padding-left: 30px;
   padding-bottom: 20px;
-  text-align: justify;
+  text-align: right;
   background-color: white;
   height: auto;
   font-family: 'FuturaBook';
@@ -496,6 +524,9 @@ div.container-fluid.more_two{
    div.container > item{
     padding: 0px;
    }
+   li button.btn.join-now{
+    display: none;
+   }
    
 }
 
@@ -549,6 +580,10 @@ div.container-fluid.more_two{
     background-repeat: no-repeat;
     background-size: cover;
     }
+
+    li button{
+      margin-right: 15px;
+    }
 }
 
 @media(min-width: 992px){
@@ -598,6 +633,7 @@ div.container-fluid.more_two{
     div.ju_title2> h3{
       padding-top: 40px;
     }
+
 }
 @media (max-width: 732px){
   div.ju_title2> h3{
@@ -608,4 +644,9 @@ div.container-fluid.more_two{
   div.ju_title2> h3{
       padding-top: 20px;
     }
+}
+@media (min-width: 768px){
+
+  .container{
+    width: 100%;
 }

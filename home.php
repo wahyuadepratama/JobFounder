@@ -20,6 +20,7 @@
 		          <span class="icon-bar"></span>
 		          <span class="icon-bar"></span>
 		      </button>
+          <button type="button" class="navbar-toggle join-now">join now</button>
 		      <img class="img-responsive" src="assets/images/logo-lands.png">
 		    </div>
 		    <div>
@@ -27,6 +28,7 @@
 		        <ul class="nav navbar-nav navbar-right">
 		          <li><a href="home.php">home</a></li>
 		          <li><a href="lowongan.php">find jobs</a></li>
+
 		          <?php 
 
 										if(isset($_SESSION['pekerja'])){
@@ -39,6 +41,7 @@
 										
 									?>
 		          <li><a href="about">about</a></li>
+              <li><button type="button" class="btn join-now">join now</button></li>
 		        </ul>
 		      </div>
 		    </div>
@@ -51,9 +54,10 @@
 <div id="section1" class="container-fluid">
       <div class="container" id="startchange">
        <div class="container item">
-        <h3 >BIARKAN ORANG LAIN MEMBANTU PEKERJAAN ANDA</h3><br>
+        <h3 >BIARKAN ORANG LAIN MEMBANTU PEKERJAAN ANDA</h3>
           <p class="ju_info_fts">Kami membantu semua orang untuk mengiklankan lowongan kerja dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja tersebut.</p>
           <br>
+          <a href="#" class="panah_bawah"><i class="fa fa-chevron-down fa-3x" aria-hidden="true"></i></a>
     </div>
       
     </div>
@@ -108,13 +112,13 @@
     <div class="container-fluid more">
        <div class="col-md-6 one">
          <div class="ju_title2">
-          <h3>Temukan Orang Yang Bisa Membantu Anda</h3>
+          <h3>Temukan Orang yang Bisa Membantu Anda</h3>
           <div class="under_line"></div>
           </div>
           <p>Bagi anda yang butuh bantuan untuk mengerjakan pekerjaan seperti : membersihkan rumah, membersihkan kebun, membuat desain logo/poster acara, mengantarkan galon, mencek tugas, mengajar les private, membuat video dan lain sebagainya. Maka anda bisa menguploadnya dalam bentuk iklan di JobUs, nantinya orang-orang yang melihat iklan anda akan mensubmit jika mereka merasa bisa membantu anda. Nah, anda tinggal buka akun, cek menu employee dan lihat siapa saja yang telah mensubmit. Setelah merasa menemukan orang yang tepat, anda tinggal menghubunginya.</p>
         </div>
         <div class="col-md-6 para_one">
-          
+          <img src="assets/images/test-trans.png" class="img-responsive">
         </div>
 
     </div>
@@ -122,7 +126,7 @@
 <div class="container-fluid more_two">
 
     <div class="col-md-6 para_dua">
-    
+      <img src="assets/images/find-job2.png" class="img-responsive">
     </div>
      <div class="col-md-6 dua">
         <div class="ju_title3">
@@ -143,7 +147,7 @@
        <p>Bagi anda yang memiliki usaha bisnis / perusahaan yang membutuhkan karyawan yang berkualitas. Anda bisa menggunakan koin yang ada pada JobUs untuk beriklan. Dengan fitur ini setiap karyawan yang mensubmit harus mengupload CV mereka terlebih dahulu, jadi anda bisa melihat kualitas mereka dari CV yang diupload. Selain itu anda bisa mendowload langsung CV mereka dari halaman employee anda, jadi anda tidak perlu lagi menggunakan pengiriman CV ataupun email. Setiap koin bisa anda gunakan untuk mengupload lowongan selama 1 hari, dan harga koin itu sendiri sangatlah murah.</p>
      </div>
      <div class="col-md-6 para_three">
-          
+          <img src="assets/images/pekerja-berkualitas.png" class="img-responsive">
         </div>
     </div>
   

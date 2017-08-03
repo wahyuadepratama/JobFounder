@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+     <script src="assets/js/jquery-3.2.1.js"></script>
   	<style type='text/css' scoped='scoped'>
      #ScrollToTop{text-align:center; position:fixed; bottom:0px; right:3px; cursor:pointer;display:none}
     </style>
