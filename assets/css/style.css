@@ -10,7 +10,7 @@ src: url('../fonts/FuturaBookBT.ttf');
 font-family: 'Orator std';
 font-style: normal;
 font-weight: normal;
-src: local('Orator Std'), url('../fonts/OratorStd.otf') format('otf');
+src:url('../fonts/OratorStd.otf');
 }
 @font-face {
 font-family: 'Geosans Lt';
