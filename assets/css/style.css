@@ -30,7 +30,7 @@ src: url('../fonts/Neon.ttf');
 
 /*NAVIGATION BAR*/
 nav.navbar.navbar-inverse{
-  background-color:white;
+  background-color:transparent;
   height: 60px;
   border: none;
   box-shadow: none;
@@ -87,7 +87,7 @@ nav.navbar.navbar-inverse>div.container-fluid{
 /*CONTENT HALAMAN UTAMA*/
 #section1 {
     padding-top:50px;color: black;
-    background-image: url('../images/banner.png'); 
+    background-image: url('../images/banner-1.jpg'); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

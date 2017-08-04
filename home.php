@@ -126,7 +126,7 @@
 <div class="container-fluid more_two">
 
     <div class="col-md-6 para_dua">
-      <img src="assets/images/find-job2.png" class="img-responsive">
+      <img src="assets/images/materials.png" class="img-responsive">
     </div>
      <div class="col-md-6 dua">
         <div class="ju_title3">

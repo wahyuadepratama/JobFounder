@@ -25,9 +25,9 @@
 		      </div>
 		   	  <div class="pull-right sign-menu">
 		          <ul class="list-inline">
-		             <li><a href="#register" class="show-register-form active">Sign Up</a></li>
+		             <li><a href="#register" class="show-register-form active">sign up</a></li>
 		             |
-		             <li><a href="#login" class="show-login-form">Sign In</a></li>
+		             <li><a href="#login" class="show-login-form">sign in</a></li>
 		          </ul>
 		      </div>
 	    </div>

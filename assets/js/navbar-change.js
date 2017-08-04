@@ -8,7 +8,7 @@ $(document).ready(function(){
       if(scroll_start > offset.top) {
           $(".navbar.navbar-inverse.navbar-fixed-top").css('background-color', 'white');
        } else {
-          $('.navbar.navbar-inverse.navbar-fixed-top').css('background-color', 'white');
+          $('.navbar.navbar-inverse.navbar-fixed-top').css('background-color', 'transparent');
        }
    });
     }

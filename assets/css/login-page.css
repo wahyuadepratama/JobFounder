@@ -1,6 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+font-family: 'FuturaBook';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/FuturaBookBT.ttf');
+}
+
+@font-face {
+font-family: 'Orator std';
+font-style: normal;
+font-weight: normal;
+src:url('../fonts/OratorStd.otf');
+}
+@font-face {
+font-family: 'Geosans Lt';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/GeosansLight.ttf');
+}
+@font-face {
+font-family: 'Neon';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/Neon.ttf');
+}
+/*==================================================END FONT=======================================*/
 body{
  margin: 0 auto;
- background-color: #fabe3a
+ background-image: url('../images/wild_oliva.png');
 }
 /*.login-page{
 
@@ -9,15 +37,19 @@ body{
 .navbar.navbar-inverse {
 	margin: 0px;
 	border-radius: unset;
-	background-color: transparent;
+	background-color: black;
 	border:none;
 }
 .login-menu{
-	margin-top: 50px;
 	max-width: 800px;
 	height: auto;
 	text-align: right;
 	padding:0px;
+	
+}
+.container-fluid.login-page{
+	padding:0px;
+	background-color: white;
 }
 .login-menu > .nav.nav-tabs{
  border:none;
@@ -31,7 +63,7 @@ body{
 	padding-left: 5px;
 }
 .login-container{
-	border-top: 10px solid black;
+
 	min-height: 350px;
 	background-color: white;
 	max-width: 800px; 
@@ -91,7 +123,8 @@ input[type=text]:focus, select:focus,input[type=password]:focus{
 	outline: none;
 }
 .sign-menu > ul > li > a, .sign-menu > ul > li > a:hover {
-	color: white;
+	font-family: 'Orator std';
+	color: #333;
 	text-decoration: none;
 }
 .welcome-sign{
