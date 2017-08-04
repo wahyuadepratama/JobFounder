@@ -167,7 +167,7 @@ class postingan
 	}	
 
 	function select_tipe_active($tipe){
-		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
+		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi";
 		$param = array($tipe);
 		return $this->get_all_rows($query, $param);
 	}
@@ -185,14 +185,14 @@ class postingan
 
  	function approve($id){
  		global $pdo;
- 		$query = $pdo->prepare("UPDATE `postingan` SET `approved` = 'sudah', `tgl_approved` = current_date() WHERE `postingan`.`id_postingan` = ?;");
+ 		$query = $pdo->prepare("UPDATE `postingan` SET `approved` = 'sudah', `tgl_approved` = CURRENT_TIMESTAMP WHERE `postingan`.`id_postingan` = ?;");
 		$query->execute(array($id));	
  	}
 
  	function select_by_kategori($arraydata,$tipe){
  		if($tipe==''){
 
- 			$query = "SELECT * FROM `postingan` WHERE datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 			
+ 			$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi and ("; 			
 
  		}else{
 
