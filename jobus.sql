@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Jul 2017 pada 00.59
+-- Generation Time: 04 Agu 2017 pada 17.13
 -- Versi Server: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -5148,11 +5148,8 @@ CREATE TABLE `lowongan` (
 --
 
 INSERT INTO `lowongan` (`id_lowongan`, `id_pekerja`, `id_postingan`, `tanggal`) VALUES
-(1, 2, 2, '2017-07-30 05:58:47'),
 (2, 3, 4, '2017-07-30 06:13:48'),
-(6, 4, 20, '2017-07-30 19:58:12'),
-(7, 1, 20, '2017-07-30 20:01:58'),
-(8, 4, 18, '2017-07-30 22:45:07');
+(6, 4, 20, '2017-07-30 19:58:12');
 
 -- --------------------------------------------------------
 
@@ -5183,7 +5180,6 @@ CREATE TABLE `pekerja` (
 --
 
 INSERT INTO `pekerja` (`id_pekerja`, `username`, `email`, `no_hp`, `password`, `foto_profile`, `nama`, `sosmed`, `provinsi`, `kota`, `kecamatan`, `alamat`, `keahlian`, `foto_pengenal`, `tanggal`) VALUES
-(1, '9898', '9898', '9898', '7b9dc501afe4ee11c56a4831e20cee71', '', '9898', '9898', '13', '71', '04', '  9898', '9898', NULL, '2017-07-23 19:28:43'),
 (2, 'ade', 'ade@gmail.com', '0898231292398', 'a562cfa07c2b1213b3a5c99b756fc206', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-07-26 21:31:15'),
 (3, 'wahyu', 'wahyuadepratam4@gmail.com', '081371321971', '32c9e71e866ecdbc93e497482aa6779f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-07-28 05:25:44'),
 (4, '11', '11', '11', '6512bd43d9caa6e02c990b0a82652dca', '4_11.jpg', '11', '11', '61', 'Pilih', 'Pilih', '          11         ', '11', NULL, '2017-07-30 19:01:30');
@@ -5218,7 +5214,6 @@ CREATE TABLE `pengiklan` (
 --
 
 INSERT INTO `pengiklan` (`id_pengiklan`, `username`, `email`, `no_hp`, `password`, `foto_profile`, `nama`, `deskripsi`, `sosmed`, `provinsi`, `kota`, `kecamatan`, `alamat`, `lokasi`, `koin`, `tanggal`) VALUES
-(1, '9898', '9898', '9898', '7b9dc501afe4ee11c56a4831e20cee71', '1_9898.png', '9898', '9898', '9898', '13', '71', '01', '9898', NULL, 0, '2017-07-23 19:27:22'),
 (2, 'ade', 'ade@gmail.com', '0898231292398', 'a562cfa07c2b1213b3a5c99b756fc206', '', 'Ade indra', 'saya adalah seorang mahasiswa', '@adeganteng', '13', '71', '01', 'Limau manis unand', NULL, 0, '2017-07-26 21:08:47'),
 (3, 'wahyu', 'wahyuadepratam4@gmail.com', '081231121312', '32c9e71e866ecdbc93e497482aa6779f', '3_wahyu.jpg', 'Wahyu Ade Pratama', 'seorang pemilik toko', 'LINE : wahyuadepratam4', '13', '71', '01', 'jala utama II blok j2 no 12 Mata Air', NULL, 0, '2017-07-28 05:19:16'),
 (4, 'percobaan', 'percobaan@coba.com', '08129382981', 'cdca96f7ae799f207d8f94b016c7c5be', NULL, 'percobaan coba coba', 'saya adalah seorang guru', 'WA: 08129382981', '12', '71', '15', 'tidak ada alamat', NULL, 0, '2017-07-30 02:20:26'),
@@ -5255,11 +5250,8 @@ CREATE TABLE `postingan` (
 --
 
 INSERT INTO `postingan` (`id_postingan`, `id_pengiklan`, `judul`, `deskripsi`, `kategori`, `gaji`, `keterangan`, `tipe`, `pamflet`, `durasi`, `status`, `tanggal`, `lat`, `lang`, `approved`, `tgl_approved`, `dikerjakan_oleh`) VALUES
-(1, 1, '90', '90', 'a:2:{i:0;s:12:"administrasi";i:1;s:13:"karyawan toko";}', '90', '90', 'kontrak', NULL, 7, 'free', '2017-07-23 19:29:50', -0.923788, 100.355415, 'sudah', '2017-07-23 17:00:00', NULL),
-(2, 2, 'Butuh seorang desainer', 'Bisa membuat video dan aktif di sosial media', 'a:1:{i:0;s:9:"teknologi";}', 'Disesuaikan', '-', 'kontrak', NULL, 7, 'free', '2017-07-26 21:14:05', -0.947083, 100.417183, 'sudah', '2017-07-26 17:00:00', NULL),
-(3, 3, 'Butuh seorang developer web', 'Saya ingin membuat sebuah website untuk toko saya', 'a:2:{i:0;s:9:"teknologi";i:1;s:21:"website dan developer";}', 'Rp. +- 1.500.000', 'Untuk sistem nanti bisa dijelaskan secara langsung', 'kontrak', NULL, 7, 'free', '2017-07-28 05:21:03', 0.000000, 0.000000, 'sudah', '2017-07-27 17:00:00', NULL),
+(3, 3, 'Butuh seorang developer web', 'Saya ingin membuat sebuah website untuk toko saya', 'a:2:{i:0;s:9:"teknologi";i:1;s:21:"website dan developer";}', 'Rp. +- 1.500.000', 'Untuk sistem nanti bisa dijelaskan secara langsung', 'kontrak', NULL, 7, 'free', '2017-07-28 05:21:03', 0.000000, 0.000000, 'sudah', '2017-08-04 13:15:46', NULL),
 (4, 4, 'Dicari seorang guru les private', 'Guru les private yang bisa mengajar matematika , fisika, biologi dan kimia SMP', 'a:1:{i:0;s:8:"Pengajar";}', 'Menyesuaikan', 'Mengajar hanya setiap hari senin dan kamis saja', 'kontrak', NULL, 7, 'free', '2017-07-30 03:47:51', 0.000000, 0.000000, 'sudah', '2017-07-29 17:00:00', NULL),
-(18, 1, 'dsafafdafa', 'dsafafdafa', 'a:1:{i:0;s:23:"Pelayan Resto (waiters)";}', 'dsafafdafa', 'dsafafdafa', 'kontrak', NULL, 7, 'free', '2017-07-30 05:03:18', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', 'a:1:{i:0;s:1:"4";}'),
 (19, 5, '00-00', '00-00', 'a:8:{i:0;s:23:"Pelayan Resto (waiters)";i:1;s:25:"Pelayan Toko (pramuniaga)";i:2;s:16:"Delivery Makanan";i:3;s:19:"Marketing dan Sales";i:4;s:11:"Driver Ojek";i:5;s:8:"Pengajar";i:6;s:20:"jasa perawatan hewan";i:7;s:8:"Pembantu";}', '00-00', '', 'Freelance / Kontrak', NULL, 7, 'free', '2017-07-30 18:58:31', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', NULL),
 (20, 5, 'Pr0', 'Pr0', 'a:4:{i:0;s:16:"Delivery Makanan";i:1;s:19:"Marketing dan Sales";i:2;s:11:"SPG dan SPB";i:3;s:13:"Administrator";}', 'Pr0', 'Pr0', 'Freelance / Kontrak', '', 99, 'pro', '2017-07-30 19:27:08', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', 'a:2:{i:0;s:1:"4";i:1;s:1:"1";}'),
 (21, 5, 'liusbefilb', 'lirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarliliblirbclivbsarlilib', 'a:3:{i:0;s:8:"Pengajar";i:1;s:11:"Baby Sitter";i:2;s:15:"Event Organizer";}', 'lirbclivbsarlilib', 'lirbclivbsarlilib', 'Freelance / Kontrak', NULL, 7, 'free', '2017-07-30 20:39:27', 0.000000, 0.000000, 'sudah', '2017-07-30 17:00:00', NULL);
@@ -5356,7 +5348,7 @@ ALTER TABLE `inf_lokasi`
 -- AUTO_INCREMENT for table `lowongan`
 --
 ALTER TABLE `lowongan`
-  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_lowongan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `pekerja`
 --
@@ -5385,20 +5377,20 @@ ALTER TABLE `transaksi`
 -- Ketidakleluasaan untuk tabel `lowongan`
 --
 ALTER TABLE `lowongan`
-  ADD CONSTRAINT `lowongan_ibfk_3` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`),
-  ADD CONSTRAINT `lowongan_ibfk_4` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`);
+  ADD CONSTRAINT `lowongan_ibfk_5` FOREIGN KEY (`id_pekerja`) REFERENCES `pekerja` (`id_pekerja`) ON DELETE CASCADE,
+  ADD CONSTRAINT `lowongan_ibfk_6` FOREIGN KEY (`id_postingan`) REFERENCES `postingan` (`id_postingan`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `postingan`
 --
 ALTER TABLE `postingan`
-  ADD CONSTRAINT `postingan_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
+  ADD CONSTRAINT `postingan_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`);
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_pengiklan`) REFERENCES `pengiklan` (`id_pengiklan`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

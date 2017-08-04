@@ -76,8 +76,30 @@
 			}
 			else {					
 				$_SESSION['user'] = $result['data'];
-				$script->redirect($lokasi);
+				// $script->redirect($lokasi);
 			}	
 		}		
+	}
+
+// CEK SESSION
+	$session = new function_session();
+	if(isset($_SESSION)){
+		foreach ($_SESSION as $key => $value) {
+			if($key != 'user'){
+				if($key == 'admin'){
+					$location = 'dashboard/'.$key.'/dashboard';
+				}				
+				else{				
+					$location = 'dashboard/'.$key.'/profile';
+				}
+			}elseif($key == 'user'){
+				if($file == 'admin.php'){
+					$script->redirect('../../'.$location);	
+				}else{
+					$script->redirect($location);	
+				}
+				
+			}						
+		}
 	}
  ?>

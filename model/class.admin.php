@@ -45,7 +45,7 @@ class admin
  	}
 
  	function cek_login($data_post){
-			$query = "SELECT * FROM pengiklan WHERE username=:lusername AND password=:lpassword";
+			$query = "SELECT * FROM admin WHERE username=:lusername AND password=:lpassword";
 			$param = array(
 					':lusername' => strtoupper($data_post['lusername']),
 					':lpassword' => md5($data_post['lpassword'])

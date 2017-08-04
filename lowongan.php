@@ -39,18 +39,8 @@
 		        <ul class="nav navbar-nav navbar-right">
 		          <li><a href="home.php">home</a></li>
 		          <li><a href="lowongan.php">find jobs</a></li>
-		          <?php 
-
-										if(isset($_SESSION['pekerja'])){
-											echo "<li><a href='dashboard/pekerja/profile.php'>dashboard</a></li>";	
-										}elseif(isset($_SESSION['pengiklan'])){
-											echo "<li><a href='dashboard/pengiklan/profile.php'>dashboard</a></li>";
-										}else{
-											echo "<li><a href='daftar.php'>sign in</a></li>";
-										} 
-										
-									?>
-		          <li><a href="about">about</a></li>
+		          <?php include '/controller/include.daftar.or.dashboard.php';?>
+		          <li><a href="about.php">about</a></li>
 		        </ul>
 		      </div>
 		    </div>

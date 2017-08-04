@@ -3,7 +3,11 @@
 	session_start();
 	include '../../model/class.admin.php';
 	include '../../controller/class.script.php';
+	include '../../controller/class.session.php';
 	include '../../controller/koneksi.php';	
+
+
+	include '../../controller/validator.php';
 ?>
 
 <!DOCTYPE html>
@@ -40,5 +44,3 @@
 	</div>
 </body>
 </html>
-
-<?php include '../../controller/validator.php'; ?>

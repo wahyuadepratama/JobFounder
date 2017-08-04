@@ -2,8 +2,11 @@
 	session_start();
 	require_once 'controller/koneksi.php';
 	require_once 'controller/class.script.php';
+	require_once 'controller/class.session.php';
 	require_once 'model/class.pengiklan.php';
 	require_once 'model/class.pekerja.php';
+
+	require_once 'controller/validator.php';
 ?>
 
 <!DOCTYPE html>
@@ -171,4 +174,3 @@
 </body>
 </html>
 
-<?php require_once 'controller/validator.php'; ?>
