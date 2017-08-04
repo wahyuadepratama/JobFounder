@@ -124,35 +124,35 @@ class pekerja
  		$this->tanggal = $data_array['tanggal'];
  	}
 
- 	function profile_picture(){
+ 	function picture($data,$location){
  			$script = new function_script();
 
-			$ekstensi_diperbolehkan	= array('png','jpg','jpeg');
-			$nama = $_FILES['foto_profile']['name'];
+			$ekstensi_diperbolehkan	= array('png','jpg','jpeg');			
+			$nama = $_FILES[$data]['name'];
 			$x = explode('.', $nama);
 			$ekstensi = strtolower(end($x));
-			$ukuran	= $_FILES['foto_profile']['size'];
-			$file_tmp = $_FILES['foto_profile']['tmp_name'];	
+			$ukuran	= $_FILES[$data]['size'];
+			$file_tmp = $_FILES[$data]['tmp_name'];	
 
 			$new_name = $this->id_pekerja.'_'.$this->username;
 
-			$cek = $script->get_image($new_name,'profile/');			
+			$cek = $script->get_image($new_name,$location);			
  
 			if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 				if($ukuran < 1044070){			
 					if($cek!=null){
-						copy($file_tmp, 'profile/'.$cek);
+						copy($file_tmp, $location.$cek);
 						$script->compress(
-						'profile/'.$cek,
-						'profile/'.$cek,
+						$location.$cek,
+						$location.$cek,
 						75
 						);
 						return $cek;
 					}else{
-						move_uploaded_file($file_tmp, 'profile/'.$new_name.".".$ekstensi);	
+						move_uploaded_file($file_tmp, $location.$new_name.".".$ekstensi);	
 						$script->compress(
-						'profile/'.$new_name.".".$ekstensi,
-						'profile/'.$new_name.".".$ekstensi,
+						$location.$new_name.".".$ekstensi,
+						$location.$new_name.".".$ekstensi,
 						75
 						);
 						return $this->id_pekerja.'_'.$this->username.".".$ekstensi;
@@ -165,9 +165,14 @@ class pekerja
  	}
 
  	function set_profile_post(){
- 		$file = $this->profile_picture();
- 		if($file!=null){
- 		$this->foto_profile = $file;	
+ 		$profile = $this->picture('foto_profile','profile/');
+ 		if($profile!=null){
+ 		$this->foto_profile = $profile;	
+ 		}
+
+ 		$identity = $this->picture('foto_pengenal','identity/');
+ 		if($identity!=null){
+ 		$this->foto_profile = $identity;	
  		}
 
 		$this->nama = $_POST['nama'];

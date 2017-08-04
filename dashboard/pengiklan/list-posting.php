@@ -19,7 +19,13 @@
   $session->pengiklan();
   $result = $pengiklan->get_profile_id($_SESSION['user']['id_pengiklan']);
   $pengiklan->set_all_property($result['data']);
+
+  if(isset($_POST['terima'])){
+    $postingan->accept_submit($_POST['id_terima'],$_POST['id_pos']);
+    $script->redirect('list-posting');
+  }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -79,10 +85,3 @@
 
 </body>
 </html>
-
-<?php
-  if(isset($_POST['terima'])){
-    $postingan->accept_submit($_POST['id_terima'],$_POST['id_pos']);
-    $script->redirect('list-posting');
-  }
-?>

@@ -64,7 +64,7 @@
 	</nav>
 	<div class="container main-content" id="startchange">
    
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <center>
                <img src="<?php
 					if($pengiklan->foto_profile!=null){

@@ -16,7 +16,10 @@
 
 	if(isset($_POST['save'])){
 		$pekerja->set_profile_post();
-		$script->redirect('profile');
+		// $script->redirect('profile');
+	}
+	foreach ($_FILES as $key => $value) {
+		echo $key;
 	}
 
 ?>
@@ -36,7 +39,13 @@
   <div class="container main-content" id="startchange">
   	<form method='post' enctype='multipart/form-data'>
 	<center>
-		<img src="../../assets/images/invest.png" class="img-circle img-responsive" width="200"><br>
+		<img src="<?php 
+      if($pekerja->foto_profile!=null){
+        echo 'profile/'.$pekerja->foto_profile;
+      }else{
+        echo '../../assets/images/invest.PNG';
+      }
+    ?>" class="img-circle img-responsive" width="200"><br>
 		<div class="div-upload btn-default">
 		<span class="upload">Choose your photo profile</span>
 		<input type="file" class="file-upload" name="foto_profile">

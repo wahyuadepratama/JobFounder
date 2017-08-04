@@ -33,6 +33,7 @@
 					$objek = $pekerja;
 				}
 					$objek->insert_data_signup();
+					echo 'here';
 					$script->alert_success('Sukses Mendaftar','Silahkan login');
 				
 			} catch (Exception $e) {
