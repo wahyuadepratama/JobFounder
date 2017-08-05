@@ -14,6 +14,7 @@
 	$id_postingan = $post->decode($_REQUEST['id']);
 	$postingan = $post->select_postingan($id_postingan);
 	$data = $pengiklan->get_profile_id($postingan['data']['id_pengiklan']);
+	$jumlah = $lowongan->count_apply($id_postingan);
 
 	if($data['rows']==0){
 		$script->redirect('lowongan');
@@ -51,6 +52,10 @@
 		<div>
 			<h2><?php echo $postingan['data']['judul']; ?> </h2>
 			<span class="pull-right submitted"><i>Submitted at</i> <?php echo date('d F Y, h:m:s', strtotime($postingan['data']['tanggal'])); ?> </span>
+
+			<span class="pull-left submitted">
+			<?php echo $jumlah;?>
+			<i>People has applied</i></span>
 			<br>
 		</div>
 	<!--End judul  -->

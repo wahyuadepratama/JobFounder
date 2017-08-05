@@ -206,7 +206,7 @@
 
 <?php 
 	if(isset($_POST['submit'])){		
-		$postingan->set_all_property('free',7,'belum');
+		$postingan->set_all_property('free',3,'belum');
 		$postingan->insert_data();
 		$script->alert_redirect('Berhasil !','Iklan anda akan di posting setelah disetujui admin. Silahkan cek List Posting','new-posting');
 	}

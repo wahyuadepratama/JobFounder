@@ -150,7 +150,14 @@ class lowongan
 		$query = "SELECT * FROM `lowongan` WHERE `lowongan`.`id_postingan` = ?";
 		$param = array($id);
 		return $this->get_data($query, $param);
-	} 		
+	} 	
+
+	function count_apply($id_postingan){
+		$query = "SELECT COUNT(*) AS jumlah FROM `lowongan` WHERE `lowongan`.`id_postingan` = ?";
+		$param = array($id_postingan);
+		$data = $this->get_all_rows($query, $param);
+		return $data[0]['jumlah'];
+	}
  } 
 
  ?>
