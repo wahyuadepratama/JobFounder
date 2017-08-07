@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+font-family: 'FuturaBook';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/FuturaBookBT.ttf');
+}
+
+@font-face {
+font-family: 'Orator std';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/OratorStd.otf');
+}
+@font-face {
+font-family: 'Geosans Lt';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/GeosansLight.ttf');
+}
+@font-face {
+font-family: 'Neon';
+font-style: normal;
+font-weight: normal;
+src: url('../fonts/Neon.ttf');
+}
+/*=================================END FONT==========================================*/
+body{
+  /*background-image: url('../img/wild_oliva.png');*/
+  background-color: white;
+}
+
+/*NAVIGATION BAR*/
+nav.navbar.navbar-inverse{
+  background-color: #333;
+  height: 60px;
+  border: none;
+  border-radius: unset;
+  box-shadow: none;
+  margin-bottom: 0px;
+}
+nav.navbar.navbar-inverse>div.container-fluid{
+ padding-top: 5.5px; 
+ max-width: 960px;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+   font-family: 'Orator std';
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    font-weight: bold;
+    color: #098dcc;
+    background-color: transparent;
+}
+.navbar-collapse.collapse.in,.navbar-collapse.collapsing{
+  background-color: #333;
+  margin-top: 4px;
+  border-color:#333;
+  font-family: 'Orator std';
+}
+.navbar-toggle{
+  background-color: #333;
+}
+/*==================================================*/
+.main-cont{
+  padding-top: 20px;
+  margin-top: 60px;
+  height: auto;
+  background-color: white;
+  max-width: 960px;
+}
+.login-cont , .signup-cont{
+  margin-top: 50px; 
+  padding: 10px;
+  max-height: 350px;
+  background-color: white;
+  text-align: center;
+
+}
+.signup-cont{
+  background-color: white;
+}
+.login-cont {
+  background-color: white;
+}
+.signup-cont > p, .signup-cont > h4, .login-cont > p , .login-cont > h4{
+   font-family: 'Geosans Lt';
+   font-weight: 900;
+}
+.signup-cont > p , .login-cont > p{
+  font-size: 1.3em;
+}
+.signup-cont > h4, .login-cont > h4{
+
+}
+.btn.sign-in, .btn.sign-up{
+  padding-top: 5px;
+  font-family: 'Orator std';
+  background-color: transparent;
+  border: 1px solid #333;
+  margin-top: 20px;
+}
+.btn.sign-in{
+  margin-top: 100px;
+}
+.btn.sign-in:hover, .btn.sign-up:hover, .btn.sign-up:focus, .btn.sign-in:focus{
+  outline: none;
+}
+.button-login{
+  text-align: center;
+}
+.button-register{
+  text-align: center;
+}
+.button-register > input{
+  margin-top: 20px;
+  width: 100%;
+  background-color: #e65c1f;
+  padding-bottom: 5px;
+  font-size: 1.3em;
+  font-family: 'Orator std';
+  color: 
+  white;
+}
+.button-login > input{
+  margin-top: 20px;
+  width: 100%;
+  background-color: #e65c1f;
+  padding-bottom: 5px;
+  font-size: 1.3em;
+  font-family: 'Orator std';
+  color: 
+  white;
+}
+.jobus{
+  font-family: 'Neon';
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #fbb82a;
+}
+h3{
+ font-family: 'Geosans Lt';
+ font-weight: bold;
+ text-align: center;
+}
+.underline{
+  height: 5px;
+  width: 100px;
+  background-color: #333;
+  margin-bottom:10px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-two{
+  max-width: 960px;
+  height: auto;
+  background-color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.footer{
+  max-width: 960px;
+   height: auto;
+   background-color: white;
+   text-align: center;
+   padding: 50px 0 20px 0;
+   margin-bottom: 50px;
+   align-items: center;
+   
+}
+.footer > ul >li > a{
+  color: black;
+ font-family: 'Geosans Lt';
+}
+#information{
+    padding-top:50px;
+  padding-bottom: 50px;
+  height:auto;
+  color: #9d9d9d; 
+  background-color: #333;
+  text-align: center;
+}
+#information.container-fluid > ul.list-inline> li > a{
+   color: #9d9d9d;
+   text-decoration: none;
+}
+#information.container-fluid > ul.list-inline> li > a:hover{
+   color:#e85d1f;
+   text-decoration: none;
+}
+.label{
+  text-align: left;
+}
+.modal-body{
+  padding: 20px 70px 20px 70px;
+}
+#loginModal{
+  padding-right: 0px;
+}
+.modal-content{
+  border-radius:unset;
+}
+.form-group{
+  vertical-align: middle;
+}
+/*LOWONGAN*/
+.container.main-content{
+  padding-top: 10px;
+  max-width: 960px;
+  margin-top: 60px;
+  background-color: white;
+  min-height: 300px;
+  margin-bottom: 80px;
+  
+  /*box-shadow: 3px 0 7px -5px rgba(31, 73, 125, 0.8), -3px 0 7px -5px rgba(31, 73, 125, 0.8);*/
+}
+/*SCROLL BAR*/
+#style-3::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+}
+
+/*RESPONSIVE*/
+@media(max-width:767px){
+  .navbar-header > a > img{
+    padding-left: 15px;
+  }
+  .footer{
+    margin-bottom: 15px;
+  }
+  .modal-body{
+    padding: 20px 20px 20px 20px;
+  }
+  .button-login > input , .button-register > input{
+    padding-top:unset;
+  }
+  .btn.sign-in, .btn.sign-up{
+    padding-top: 5px;
+  }
+}
+@media (max-width: 991px){
+  .btn.sign-in, .btn.sign-up{
+    position: relative;
+    left:auto;
+    right: auto;
+  }
+  .login-cont , .signup-cont{
+    min-height: 0px;
+  }
+  .btn.sign-in{
+    margin-top: 0px;
+  }
+}
+
+
+
+
+
+
+
