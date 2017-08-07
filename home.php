@@ -43,8 +43,9 @@
 <div id="section1" class="container-fluid">
       <div class="container" id="startchange">
        <div class="container item">
-        <h3 >BIARKAN ORANG LAIN MEMBANTU PEKERJAAN ANDA</h3>
-          <p class="ju_info_fts">Kami membantu semua orang untuk mengiklankan lowongan kerja dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja tersebut.</p>
+        <h3>SOLUSI DALAM MENYELESAIKAN PEKERJAAN</h3>
+        <h3>SOLUSI DALAM MENCARI PEKERJAAN</h3>
+          <p class="ju_info_fts">Kami membantu semua orang untuk menyelesaikan pekerjaan mereka dan memberikan kesempatan kepada siapapun untuk mengambil peluang kerja yang ada.</p>
           <br>
           <a href="#" class="panah_bawah"><i class="fa fa-chevron-down fa-3x" aria-hidden="true"></i></a>
     </div>
@@ -54,10 +55,10 @@
    
     <div id="section3" class="container-fluid">
     <div class="container ju_sec">
-        <h3>ABOUT<span class="ju_line"> JobUs</span></h3>
+        <h3>Apa itu<span class="ju_line"> JobUs</span></h3>
         <div class="under_line"></div>
     
-      <p class="ju_jobus_what">JobUs adalah sebuah aplikasi iklan dan pencarian lowongan kerja yang cepat dan dan tidak terbatas pada jenis pekerjaan. <span class="ju_line">JobUs</span> memberikan kemudahan bagi setiap orang untuk bisa mengiklankan lowongan dalam bentuk apapun, dan bisa dikerjakan oleh siapapun. <span class="ju_line">JobUs</span> bisa anda gunakan untuk mencari seseorang yang bisa membantu mengerjakan pekerjaan anda, atau bagi anda yang ingin mencari pekerjaan yang bisa langsung anda kerjakan tanpa harus jauh-jauh menuju lokasi kerja.</p>
+      <p class="ju_jobus_what"><span class="ju_line">JobUs</span> adalah sebuah aplikasi yang dibuat khusus untuk anda yang memiliki kendala dalam pekerjaan, peralatan kerja, maupun mencari partner kerja. <span class="ju_line">JobUs</span> akan membantu anda memilih seperti apa kriteria pekerja yang anda cari, membantu anda menemukan orang yang memiliki peralatan yang anda butuhkan, bahkan bisa membantu anda menemukan seorang partner. Selain itu, <span class="ju_line">JobUs</span> juga menjadi solusi bagi para freelancer yang butuh pekerjaan cepat dengan lokasi yang terjangkau.</p>
     </div> 
     </div>
 
@@ -68,8 +69,8 @@
            
           </div>
           <div class="panel-body">
-             <h4>Anda Butuh Bantuan Kerja ?</h4>
-            <p>Anda memiliki sebuah pekerjaan dan butuh orang lain untuk membantu anda ? temukan orang itu disini.</p>
+             <h4>Anda tidak punya waktu ?</h4>
+            <p>Anda terlalu sibuk sampai tidak bisa mengerjakan suatu pekerjaan. Temukan orang yang bisa membantu anda disini.</p>
           </div>
         </div>
       </div>
@@ -79,8 +80,8 @@
              
           </div>
           <div class="panel-body">   
-          <h4>Anda Butuh Pekerjaan ?</h4>   
-            <p>Anda ingin mencari penghasilan tambahan dengan cepat ? bergabunglah dengan JobUs dan temukan lowongan yang anda butuhkan.</p>
+          <h4>Anda seorang freelancer ?</h4>   
+            <p>Anda ingin mencari penghasilan tambahan dilokasi tempat tinggal anda dengan mudah dan cepat. Bergabunglah dengan JobUs</p>
           </div>
         </div>
       </div>
@@ -91,8 +92,8 @@
           </div>
           <div class="panel-body">
 
-          <h4>Anda Butuh Pekerja Berkualitas ?</h4>
-            <p>Jika sebuah perusahaan sedang mencari karyawan yang berkualitas, maka JobUs adalah tempat yang tepat.</p>
+          <h4>Anda Butuh Seorang Partner ?</h4>
+            <p>Bergabunglah dengan JobUs dan temukan partner anda disini.</p>
           </div>
         </div>
       </div>
@@ -101,10 +102,10 @@
     <div class="container-fluid more">
        <div class="col-md-6 one">
          <div class="ju_title2">
-          <h3>Temukan Orang yang Bisa Membantu Anda</h3>
+          <h3>Selesaikan Pekerjaan</h3>
           <div class="under_line"></div>
           </div>
-          <p>Bagi anda yang butuh bantuan untuk mengerjakan pekerjaan seperti : membersihkan rumah, membersihkan kebun, membuat desain logo/poster acara, mengantarkan galon, mencek tugas, mengajar les private, membuat video dan lain sebagainya. Maka anda bisa menguploadnya dalam bentuk iklan di JobUs, nantinya orang-orang yang melihat iklan anda akan mensubmit jika mereka merasa bisa membantu anda. Nah, anda tinggal buka akun, cek menu employee dan lihat siapa saja yang telah mensubmit. Setelah merasa menemukan orang yang tepat, anda tinggal menghubunginya.</p>
+          <center><p>Berbagilah pekerjaan dengan orang lain. Jangan biarkan diri anda menyelesaikan segalanya sendirian, orang-orang disekitar ada siap untuk membantu. Segera daftarkan diri anda di JobUs sebagai pengguna jasa.</p></center>
         </div>
         <div class="col-md-6 para_one">
           <img src="assets/images/test-trans.png" class="img-responsive">
@@ -119,10 +120,10 @@
     </div>
      <div class="col-md-6 dua">
         <div class="ju_title3">
-        <h3>Cari Pekerjaan</h3>
+        <h3>Temukan Pekerjaan </h3>
         <div class="under_line"></div>
        </div>
-       <p>Bagi anda yang butuh bantuan untuk mengerjakan pekerjaan seperti : membersihkan rumah, membersihkan kebun, membuat desain logo/poster acara, mengantarkan galon, mencek tugas, mengajar les private, membuat video dan lain sebagainya. Maka anda bisa menguploadnya dalam bentuk iklan di JobUs, nantinya orang-orang yang melihat iklan anda akan mensubmit jika mereka merasa bisa membantu anda. Nah, anda tinggal buka akun, cek menu employee dan lihat siapa saja yang telah mensubmit. Setelah merasa menemukan orang yang tepat, anda tinggal menghubunginya.</p>
+       <center><p>Punya skill dibidang tertentu, punya inventaris yang bisa dimanfaatkan, atau punya kenalan dan jaringan yang luas, jangan ragu untuk memanfaatkan semua itu demi memperoleh penghasilan tambahan. Segera daftarkan diri anda di JobUs sebagai pekerja.</p>
      </div>
 
 </div>
@@ -130,10 +131,10 @@
 <div class="container-fluid more_three">
      <div class="col-md-6 one">
         <div class="ju_title3">
-          <h3>Temukan Pekerja Berkualitas</h3>
+          <h3>Cari Partner</h3>
           <div class="under_line"></div>
        </div>
-       <p>Bagi anda yang memiliki usaha bisnis / perusahaan yang membutuhkan karyawan yang berkualitas. Anda bisa menggunakan koin yang ada pada JobUs untuk beriklan. Dengan fitur ini setiap karyawan yang mensubmit harus mengupload CV mereka terlebih dahulu, jadi anda bisa melihat kualitas mereka dari CV yang diupload. Selain itu anda bisa mendowload langsung CV mereka dari halaman employee anda, jadi anda tidak perlu lagi menggunakan pengiriman CV ataupun email. Setiap koin bisa anda gunakan untuk mengupload lowongan selama 1 hari, dan harga koin itu sendiri sangatlah murah.</p>
+       <center><p>Anda bisa menemukan partner kerja maupun karyawan bagi perusahaan anda dengan fitur tambahan yang ada di JobUs.</p></center>
      </div>
      <div class="col-md-6 para_three">
           <img src="assets/images/pekerja-berkualitas.png" class="img-responsive">
