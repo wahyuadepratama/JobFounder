@@ -1,5 +1,12 @@
 <?php 
 
+			if(isset($_REQUEST['page'])){
+				$page = $_REQUEST['page'];
+			}else{
+				$page = 1;
+			}
+
+
 	if(isset($_REQUEST['tipe'])){
 
 		if($_REQUEST['tipe']=='tetap'){
@@ -14,7 +21,7 @@
 
 			}
 			
-		}elseif($_REQUEST['tipe']=='paruh_waktu'){
+		}elseif($_REQUEST['tipe']=='kontrak'){
 
 			if(isset($_POST['cari']) && isset($_POST['kategori'])){
 

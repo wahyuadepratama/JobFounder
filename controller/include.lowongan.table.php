@@ -1,7 +1,13 @@
 <?php 
 
-		if(count($data)>0){
+		$n_page=ceil(count($data)/5);
+		if(count($data)>0){			
+			
+			$min = ($page-1) * 5;
+			$max = $min + 5;
+			$i = 1;
 			foreach ($data as $row){
+				if($i>$min && $i<=$max){
 			echo "
 			<div class='well well-lg' style='text-align: justify;''>
 				<div class='row'>
@@ -22,6 +28,8 @@
             		<a class='remo' href='detail.php?id=".$postingan->encode($row['id_postingan'])."'><b>Read more</b></a>
 				</div>
 			</div>";
+				}
+				$i++;			
 			}
 		} 
 

@@ -146,7 +146,21 @@
 
 			<nav>
 			  <ul class="pager">
-			    <li class="next"><a href="#">NEXT  <span aria-hidden="true"><div class="glyphicon glyphicon-hand-right"></div></span></a></li>
+			  <?php 	
+			  	if($page>1){
+			  		$prev = $page-1;
+			  		echo "
+					<li class='previous'><a href='?page=".$prev."'><span aria-hidden='true'><div class='glyphicon glyphicon-hand-left'> PREVIOUS</div></span></a></li>
+			  		";
+			  	}
+			  	if($page<$n_page){
+			  		$next = $page+1;
+			  		echo "
+					<li class='next'><a href='?page=".$next."'>NEXT  <span aria-hidden='true'><div class='glyphicon glyphicon-hand-right'></div></span></a></li>
+			  		";
+			  	}
+			  ?>			 	
+			 	
 			  </ul>
 			</nav>
    </div>
