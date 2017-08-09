@@ -14,7 +14,8 @@
 <html lang="en">
 <head>
 	<title>Control Panel Admin</title>
-	<?php include '../../view/source.php'; ?>
+	<?php include '../../view/head-user.php'; ?>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/cssme.css">
 </head>
 <body style="background-color: #D9D9D9;">
 	<div class="container-fluid bg-admin" style="padding:0px;">

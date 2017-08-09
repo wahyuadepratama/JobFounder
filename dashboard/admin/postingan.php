@@ -16,7 +16,7 @@
 <html>
 <head>
 	<title></title>
-	<?php include '../../view/source.php'; ?>
+	<?php include '../../view/head-user.php'; ?>
 </head>
 <body>
  <?php include('../../view/navbar.php'); ?>

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include '../../view/source.php'; 
+	include '../../view/head-user.php'; 
 ?>
 
 <!DOCTYPE html>

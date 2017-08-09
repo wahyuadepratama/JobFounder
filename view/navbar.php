@@ -6,7 +6,7 @@
   	</div>   
   		<div class="navbar-header">
 		<a class="navbar-brand navbar-left" href="#" >
-		<img alt="Brand" src="../assets/images/logo-lands.png" width="" class="img-responsive">
+		<img alt="Brand" src="../../assets/images/logo-lands.png" width="" class="img-responsive">
 		</a>
   	</div>    
   	</div>    

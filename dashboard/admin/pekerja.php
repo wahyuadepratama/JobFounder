@@ -15,7 +15,7 @@
 <head>
 
 	<title>Admin</title>
-	<?php include '../../view/source.php'; ?>
+	<?php include '../../view/head-user.php'; ?>
 
 </head>
 <body>
