@@ -15,6 +15,11 @@
   $pekerja->set_all_property($result['data']);
 
   $daerah=$pekerja->get_daerah();
+  
+if(isset($_REQUEST['logout'])){
+    $_POST['logout']='true';
+    $session->logout();
+  }
 
 ?>
 
