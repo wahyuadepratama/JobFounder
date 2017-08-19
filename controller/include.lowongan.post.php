@@ -36,7 +36,12 @@
 			header('Location: '.$ur_l);
 		}		
 
-		$data = $postingan->select_in_lowongan();
+		if(isset($_REQUEST['tipe'])||isset($_REQUEST['kategori'])){
+			$data = $postingan->select_in_lowongan();	
+		}else{
+			$data = null;
+		}
+		
 
 	// if(isset($_REQUEST['tipe'])){
 
