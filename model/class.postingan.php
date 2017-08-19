@@ -178,23 +178,8 @@ class postingan
  	}
 
  	function select_in_lowongan(){
-		$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi";
-
-		if(isset($_REQUEST['tipe'])){
-			$query = $query." and `postingan`.`tipe`='".$_REQUEST['tipe']."'";
-		}
-
-		if(isset($_REQUEST['kategori'])){
-			$query = $query." and (";
-			$arr = unserialize($_REQUEST['kategori']);
-			foreach($arr as $key => $value) {
- 				if($key > 0){
- 					$query=$query." or ";
- 				}
- 				$query=$query."kategori like '%".$value."%'";
- 			}
- 			$query=$query.")";
-		}
+		$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi and kategori like '%".$_REQUEST['search']."%'";
+		
 		return $this->get_all_rows($query,'');
  	}
 

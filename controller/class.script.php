@@ -59,6 +59,14 @@
 			';
 		}
 
+		function redirect2($path){
+			echo '
+				<script type="text/javascript">
+					document.location.href="'.$path.'";
+				</script>
+			';
+		}
+
 		function get_docs($date,$username,$dir){
 			$tgl = date('Y-m-d H-i-s',strtotime($date));
 			$name = '['.$tgl.']'.$username;

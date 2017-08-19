@@ -166,7 +166,7 @@
 
     <?php 
     if(isset($_POST['cari'])){
-      header('Location : ?pekerjaan='.$_POST['search']);
+      $script->redirect2('lowongan.php?search='.$_POST['search']);
     }
      ?> 
 
