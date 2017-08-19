@@ -6,46 +6,77 @@
 				$page = 1;
 			}
 
+		if(isset($_POST['cari'])){
 
-	if(isset($_REQUEST['tipe'])){
+			if(isset($_REQUEST)){
+			    		$ur_l = 'lowongan.php?';			    		
+			    		unset($_REQUEST['kategori'],$_REQUEST['cari'],$_REQUEST['page']);			    				
 
-		if($_REQUEST['tipe']=='tetap'){
+			    		$i=1;
+			    		$n=count($_REQUEST);
 
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+			    			foreach ($_REQUEST as $key => $value) {
+					    		$ur_l = $ur_l.$key."=".$value;
+					    		if($i<$n){
+					    			$ur_l=$ur_l.'&';
+					    		}
+					    		$i++;
+			    			}
+			    		if(array_key_exists('kategori', $_POST)){
+				    		if(isset($_POST['kategori'])){
+				    			$kategori = serialize($_POST['kategori']);
+				    			$ur_l = $ur_l.'&kategori='.$kategori;
 
-				$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
 
-			}else{
+				    		}	
+			    		}						
 
-				$data = $postingan->select_tipe_active('Karyawan');		
 
 			}
+			header('Location: '.$ur_l);
+		}		
+
+		$data = $postingan->select_in_lowongan();
+
+	// if(isset($_REQUEST['tipe'])){
+
+	// 	if($_REQUEST['tipe']=='tetap'){
+
+	// 		if(isset($_POST['cari']) && isset($_POST['kategori'])){
+
+	// 			$data = $postingan->select_by_kategori($_POST['kategori'],'Karyawan');		
+
+	// 		}else{
+
+	// 			$data = $postingan->select_tipe_active('Karyawan');		
+
+	// 		}
 			
-		}elseif($_REQUEST['tipe']=='kontrak'){
+	// 	}elseif($_REQUEST['tipe']=='kontrak'){
 
-			if(isset($_POST['cari']) && isset($_POST['kategori'])){
+	// 		if(isset($_POST['cari']) && isset($_POST['kategori'])){
 
-				$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');	
+	// 			$data = $postingan->select_by_kategori($_POST['kategori'],'kontrak');	
 
-			}else{
+	// 		}else{
 
-				$data = $postingan->select_tipe_active('kontrak');		
+	// 			$data = $postingan->select_tipe_active('kontrak');		
 
-			}
+	// 		}
 
-		}else{
+	// 	}else{
 
-			$script->redirect('lowongan');
+	// 		$script->redirect('lowongan');
 
-		}
-	}elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
+	// 	}
+	// }elseif(isset($_POST['cari']) && isset($_POST['kategori'])){
 
-		$data = $postingan->select_by_kategori($_POST['kategori'],'');
+	// 	$data = $postingan->select_by_kategori($_POST['kategori'],'');
 
-	}else{
+	// }else{
 
-		$data = $postingan->select_active();
+	// 	$data = $postingan->select_active();
 
-	}
+	// }
 
  ?>

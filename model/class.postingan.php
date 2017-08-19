@@ -152,24 +152,12 @@ class postingan
 
 				if($req->rowCount() > 0){
 					$result = $req->fetchAll();
-					return $result;
+					return $result;				
 				}
-
 				
 			}catch(PDOException $e){
 				echo "Error! gagal mengambil data: ".$e->getMessage();
 			}
-	}
-
-	function select_active(){
-		$query = "select * from postingan where datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
-		return $this->get_all_rows($query, '');
-	}	
-
-	function select_tipe_active($tipe){
-		$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi";
-		$param = array($tipe);
-		return $this->get_all_rows($query, $param);
 	}
 
 	function select_all_postingan(){
@@ -189,26 +177,58 @@ class postingan
 		$query->execute(array($id));	
  	}
 
- 	function select_by_kategori($arraydata,$tipe){
- 		if($tipe==''){
+ 	function select_in_lowongan(){
+		$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi";
 
- 			$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi and ("; 			
+		if(isset($_REQUEST['tipe'])){
+			$query = $query." and `postingan`.`tipe`='".$_REQUEST['tipe']."'";
+		}
 
- 		}else{
-
- 			$query = "SELECT * FROM `postingan` WHERE tipe='".$tipe."' and datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 
- 			
- 		}
- 		
- 		foreach ($arraydata as $key => $value) {
- 			if($key > 0){
- 				$query=$query." or ";
+		if(isset($_REQUEST['kategori'])){
+			$query = $query." and (";
+			$arr = unserialize($_REQUEST['kategori']);
+			foreach($arr as $key => $value) {
+ 				if($key > 0){
+ 					$query=$query." or ";
+ 				}
+ 				$query=$query."kategori like '%".$value."%'";
  			}
- 			$query=$query."kategori like '%".$value."%'";
- 		}
- 		$query=$query.")";
-		return $this->get_all_rows($query, '');	
+ 			$query=$query.")";
+		}
+		return $this->get_all_rows($query,'');
  	}
+
+ 	// function select_by_kategori($arraydata,$tipe){
+ 	// 	if($tipe==''){
+
+ 	// 		$query = "SELECT * FROM `postingan` WHERE datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi and ("; 			
+
+ 	// 	}else{
+
+ 	// 		$query = "SELECT * FROM `postingan` WHERE tipe='".$tipe."' and datediff(current_date(),postingan.tgl_approved) < postingan.durasi and ("; 
+ 			
+ 	// 	}
+ 		
+ 	// 	foreach ($arraydata as $key => $value) {
+ 	// 		if($key > 0){
+ 	// 			$query=$query." or ";
+ 	// 		}
+ 	// 		$query=$query."kategori like '%".$value."%'";
+ 	// 	}
+ 	// 	$query=$query.")";
+		// return $this->get_all_rows($query, '');	
+ 	// }
+
+ 	// function select_active(){
+	// 	$query = "select * from postingan where datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
+	// 	return $this->get_all_rows($query, '');
+	// }	
+
+	// function select_tipe_active($tipe){
+	// 	$query = "SELECT * FROM `postingan` WHERE `postingan`.`tipe` = ? and datediff(CURRENT_TIMESTAMP,postingan.tgl_approved) < postingan.durasi";
+	// 	$param = array($tipe);
+	// 	return $this->get_all_rows($query, $param);
+	// }
 
  	function encode($input){
 		$output = base64_encode(base64_encode(base64_encode(base64_encode($input))));

@@ -73,17 +73,10 @@
    <div class="container main-content" id="startchange">
    		<h3><span>Cari Lowongan Kerja Disini</span></h3>
 			<p>Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
-			<div class="dropdown" >
-			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			    Kategori
-			    <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" name="kategori">
-			  	<li role="presentation"><a role="menuitem" tabindex="-1" href="lowongan.php">Semua</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=tetap">Kerja Tetap</a></li>
-			    <li role="presentation"><a role="menuitem" tabindex="-1" href="?tipe=kontrak">Kerja Freelance</a></li>
-			  </ul>
-			</div><br><br>
+			
+			<?php include '/controller/include.lowongan.dropdown.php' ?>
+
+			<br><br>
 
 			<form method="post">
 			<div class="form-group">
@@ -144,25 +137,7 @@
 
 			<?php include 'controller/include.lowongan.table.php'; ?>
 
-			<nav>
-			  <ul class="pager">
-			  <?php 	
-			  	if($page>1){
-			  		$prev = $page-1;
-			  		echo "
-					<li class='previous'><a href='?page=".$prev."'><span aria-hidden='true'><div class='glyphicon glyphicon-hand-left'> PREVIOUS</div></span></a></li>
-			  		";
-			  	}
-			  	if($page<$n_page){
-			  		$next = $page+1;
-			  		echo "
-					<li class='next'><a href='?page=".$next."'>NEXT  <span aria-hidden='true'><div class='glyphicon glyphicon-hand-right'></div></span></a></li>
-			  		";
-			  	}
-			  ?>			 	
-			 	
-			  </ul>
-			</nav>
+			<?php include 'controller/include.lowongan.navigator.php'; ?>
    </div>
 
 <!-- FOOTER -->
