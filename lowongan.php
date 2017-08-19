@@ -48,7 +48,10 @@
 
         // Pengambilan data dari database
         <?php
-            $arr = $postingan->select_active();
+            if(isset($_REQUEST['search'])){
+              $arr = $postingan->select_in_lowongan();  
+            }
+            
             if(isset($arr)){
             foreach ($arr as $dat)
             {
