@@ -5,6 +5,7 @@
 	require_once 'controller/class.session.php';
 	require_once 'model/class.pengiklan.php';
 	require_once 'model/class.pekerja.php';
+  require_once 'view/script.php'; 
 
 	require_once 'controller/validator.php';
 ?>
@@ -143,7 +144,7 @@
                   <h4 class="modal-title text-center">Bergabung dengan <span class="jobus">JobUs</span></h4>
                 </div>
                 <div class="modal-body" style="text-align:left">
-                  <form action="post">
+                  <form method="post">
                      <div class="form-group">
                       <label style="text-align:left;">Username</label>
                       <input type="text" name="username" class="form-control" required="">
@@ -181,9 +182,10 @@
             <div class="button-register"> 
               <input type="submit" value="sign up" name="sign" class="btn btn-default"> 
             </div>  
-                   </form>
+        </form>
                    <script type="text/javascript">
 					    function cek_pass(){
+                alert('balbal');
 						    p1 = document.frm.password.value;
 						    p2 = document.frm.confirm.value;
 					    	if(p1==p2) {
@@ -345,12 +347,12 @@
 
 		</div>
     </div>
-
+ -->
     	<script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
- -->
+
 
 <!-- ======================================================================================================== -->
 		

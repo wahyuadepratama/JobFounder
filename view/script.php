@@ -1,13 +1,13 @@
 <!-- stats -->
-	<script src="../../assets/js/jquery.waypoints.min.js"></script>
-	<script src="../../assets/js/jquery.countup.js"></script>
+	<script src="../assets/js/jquery.waypoints.min.js"></script>
+	<script src="../assets/js/jquery.countup.js"></script>
 		<script>
 			$('.counter').countUp();
 		</script>
 <!-- //stats -->
 
 <!-- mislider -->
-	<script src="../../assets/js/mislider.js" type="text/javascript"></script>
+	<script src="../assets/js/mislider.js" type="text/javascript"></script>
 	<script type="text/javascript">
         jQuery(function ($) {
             var slider = $('.mis-stage').miSlider({
@@ -33,8 +33,8 @@
 <!-- //mislider -->
 
 <!-- text-effect -->
-		<script type="text/javascript" src="../../assets/js/jquery.transit.js"></script> 
-		<script type="text/javascript" src="../../assets/js/jquery.textFx.js"></script> 
+		<script type="text/javascript" src="../assets/js/jquery.transit.js"></script> 
+		<script type="text/javascript" src="../assets/js/jquery.textFx.js"></script> 
 		<script type="text/javascript">
 			$(document).ready(function() {
 					$('.test').textFx({
@@ -82,8 +82,8 @@
 <!-- //menu -->
 
 <!-- start-smoth-scrolling -->
-<script type="text/javascript" src="../../assets/js/move-top.js"></script>
-<script type="text/javascript" src="../../assets/js/easing.js"></script>
+<script type="text/javascript" src="../assets/js/move-top.js"></script>
+<script type="text/javascript" src="../assets/js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event){		
@@ -95,7 +95,7 @@
 <!-- //start-smoth-scrolling -->
 
 <!-- for bootstrap working -->
-	<script src="../../assets/js/bootstrap.js"></script>
+	<script src="../assets/js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 
 <!-- here stars scrolling icon -->
@@ -117,5 +117,5 @@
 <!-- //here ends scrolling icon -->
 
 <!-- sweet alert -->
-<script src="../../assets/js/sweetalert.min.js"></script>
+<script src="../assets/js/sweetalert.min.js"></script>
  <!-- //sweet alert -->
