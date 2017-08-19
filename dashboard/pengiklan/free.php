@@ -114,7 +114,7 @@
 <!-- =============================================================================================================================== -->
 
 
-<!-- <div id="map" class="form-group"></div>
+<div id="map" style="width: 700px; height: 600px;"></div>
   
     <script>
 
@@ -166,9 +166,7 @@
 </script>
 <script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
-</script> -->
-
-
+</script>
 
 </body>
 </html>

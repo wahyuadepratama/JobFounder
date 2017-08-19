@@ -1,27 +1,96 @@
 <?php 
-	session_start();
-	require_once 'controller/koneksi.php';
-	require_once 'model/class.postingan.php';
-	require_once 'controller/class.script.php';
+  session_start();
+  require_once 'controller/koneksi.php';
+  require_once 'model/class.postingan.php';
+  require_once 'controller/class.script.php';
 
-	$postingan = new postingan();
-	$script = new function_script();
+  $postingan = new postingan();
+  $script = new function_script();
 
-	include 'controller/include.lowongan.post.php';
+  include 'controller/include.lowongan.post.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-	<title>JobUs | Lowongan Kerja</title>
-	<?php include 'view/head.php'; ?>
-	 <link rel="stylesheet" type="text/css" href="assets/css/style-login.css">
-	 <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+  <title>JobUs | Lowongan Kerja</title>
+  <?php include 'view/head.php'; ?>
+   <link rel="stylesheet" type="text/css" href="assets/css/style-login.css">
+   <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG9-ODGhtoOPdAjjMKVMRwPOeQD3HFEi4&callback=initMap">
+    </script>
+    
+
+
+    <script>
+
+
+        
+    var marker;
+      function initialize() {
+          
+        // Variabel untuk menyimpan informasi (desc)
+        var infoWindow = new google.maps.InfoWindow;
+        
+        //  Variabel untuk menyimpan peta Roadmap
+        var mapOptions = {
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        } 
+        
+        // Pembuatan petanya
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+              
+        // Variabel untuk menyimpan batas kordinat
+        var bounds = new google.maps.LatLngBounds();
+
+        // Pengambilan data dari database
+        <?php
+            $arr = $postingan->select_active();
+            if(isset($arr)){
+            foreach ($arr as $dat)
+            {
+                $nama = $dat['judul'];
+                $lat = $dat['lat'];
+                $lon = $dat['lang'];
+                $info = '<center><a href="detail.php?id='.$postingan->encode($dat['id_postingan']).'"><br>'.$nama.'</a></center>';
+
+                echo ("addMarker($lat, $lon, '$info');\n");                        
+            }  
+            }
+            
+          ?>
+          
+        // Proses membuat marker 
+        function addMarker(lat, lng, info) {
+            var lokasi = new google.maps.LatLng(lat, lng);
+            bounds.extend(lokasi);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: lokasi,
+            });       
+            map.fitBounds(bounds);
+            bindInfoWindow(marker, map, infoWindow, info);
+         }
+        
+        // Menampilkan informasi pada masing-masing marker yang diklik
+        function bindInfoWindow(marker, map, infoWindow, html) {
+          google.maps.event.addListener(marker, 'click', function() {
+            infoWindow.setContent(html);             
+            infoWindow.open(map, marker);
+          });
+        }
+ 
+        }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    
+    </script>
 
 </head>
-	
-<body>
+  
+<body onload="initialize()">
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -42,104 +111,72 @@
               <li><a href="#section4">about</a></li>
             </ul>
           </div>
+
         </div>
       </div>
     </nav>
 <!-- <div class="container-fluid">
   <nav class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		          <span class="icon-bar"></span>
-		          <span class="icon-bar"></span>
-		          <span class="icon-bar"></span>
-		      </button>
-		      <img class="img-responsive" src="assets/images/logo-lands.png">
-		    </div>
-		    <div>
-		      <div class="collapse navbar-collapse" id="myNavbar">
-		        <ul class="nav navbar-nav navbar-right">
-		          <li><a href="home.php">home</a></li>
-		          <li><a href="lowongan.php">find jobs</a></li>
-		          <?php include '/controller/include.daftar.or.dashboard.php';?>
-		          <li><a href="about.php">about</a></li>
-		        </ul>
-		      </div>
-		    </div>
-		  </div>
-		</nav>
+      <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <img class="img-responsive" src="assets/images/logo-lands.png">
+        </div>
+        <div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="home.php">home</a></li>
+              <li><a href="lowongan.php">find jobs</a></li>
+              <?php include '/controller/include.daftar.or.dashboard.php';?>
+              <li><a href="about.php">about</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
 </div> -->
    <!-- END NAVBAR-->
    <div class="container main-content" id="startchange">
-   		<h3><span>Cari Lowongan Kerja Disini</span></h3>
-			<p>Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p>
-			
-			<?php include '/controller/include.lowongan.dropdown.php' ?>
+      <h3><span>Cari Lowongan Kerja Disini</span></h3>
+      <p>Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p> 
 
-			<br><br>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+    <script src="assets/js/jquery-ui.js"></script>
 
-			<form method="post">
-			<div class="form-group">
-				<label for="posisi">Kategori Pekerja (Bisa dipilih lebih dari 1)</label><br><br>
-				
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Pelayan Resto (waiters)"> Pelayan Resto (waiters) </input><br>
-				<input type="checkbox" name="kategori[]" value="Pelayan Toko (pramuniaga)"> Pelayan Toko (pramuniaga)</input><br>
-				<input type="checkbox" name="kategori[]" value="Delivery Makanan"> Delivery Makanan </input><br>
-				<input type="checkbox" name="kategori[]" value="Marketing dan Sales"> Marketing & Sales </input><br>
-				<input type="checkbox" name="kategori[]" value="SPG dan SPB"> SPG & SPB </input><br> 
-				<input type="checkbox" name="kategori[]" value="Administrator"> Administrator </input><br>
-				
-				<input type="checkbox" name="kategori[]" value="Petani dan Peternak"> Petani dan Peternak </input><br>
-				<input type="checkbox" name="kategori[]" value="Fotografer"> Fotografer </input><br>
-				<input type="checkbox" name="kategori[]" value="Wartawan"> Wartawan </input><br>
-				<input type="checkbox" name="kategori[]" value="Penyiar Radio"> Penyiar Radio</input><br>
-				<input type="checkbox" name="kategori[]" value="Penulis (content writer)"> Penulis (content writer) </input><br>
-				<input type="checkbox" name="kategori[]" value="Penerjemah"> Penerjemah </input><br>
-			</div>
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Supir (driver)"> Supir (driver) </input><br>
-				<input type="checkbox" name="kategori[]" value="Driver Ojek"> Driver Ojek </input><br>
-				<input type="checkbox" name="kategori[]" value="Pengajar"> Pengajar / Kursus </input><br>	
-				<input type="checkbox" name="kategori[]" value="jasa perawatan hewan"> Jasa Perawatan Hewan </input><br>
-				<input type="checkbox" name="kategori[]" value="Pembantu"> Pembantu </input><br>
-				<input type="checkbox" name="kategori[]" value="Baby Sitter"> Baby Sitter</input><br>
+    <script>
+/*autocomplete muncul setelah user mengetikan minimal2 karakter */
+    $(function() {  
+        $( "#search" ).autocomplete({
+         source: "model/JSON_kategori.php",  
+           minLength:1, 
+        });
+    });
+    </script>
 
-				<input type="checkbox" name="kategori[]" value="Teknisi mesin"> Teknisi Mesin </input><br>
-				<input type="checkbox" name="kategori[]" value="Event Organizer"> Event Organizer </input><br>
-				<input type="checkbox" name="kategori[]" value="Tour Guide"> Tour Guide </input><br>
-				<input type="checkbox" name="kategori[]" value="Entri data"> Entry Data </input><br>
-				<input type="checkbox" name="kategori[]" value="Operator"> Operator </input><br>
-				<input type="checkbox" name="kategori[]" value="Jasa Mengetik (type writer)"> Jasa Mengetik (type writer) </input><br>
+  <div class="ui-widget">
+  <form method='post'>
+    <label for="search">Pekerjaan : </label>
+    <input id="search"  name="search">
+    <input type="submit" name="cari" value="cari" href="">
+  </form>
 
-			</div>
-			<div class="col-sm-4">
-				<input type="checkbox" name="kategori[]" value="Kesehatan"> Kesehatan </input><br>
-				<input type="checkbox" name="kategori[]" value="Hukum"> Hukum </input><br>
-				<input type="checkbox" name="kategori[]" value="Pelatih"> Pelatih </input><br>
-				<input type="checkbox" name="kategori[]" value="Olahraga"> Olahraga </input><br>
-				<input type="checkbox" name="kategori[]" value="Musik"> Musik </input><br>
-				<input type="checkbox" name="kategori[]" value="Konsultan"> Konsultan </input><br>
+    <?php 
+    if(isset($_POST['cari'])){
+      header('Location : ?pekerjaan='.$_POST['search']);
+    }
+     ?> 
 
-				<input type="checkbox" name="kategori[]" value="Website Designer"> Website Designer </input><br>
-				<input type="checkbox" name="kategori[]" value="Website Developer"> Website Developer </input><br>
-				<input type="checkbox" name="kategori[]" value="Mobile Developer"> Mobile Developer </input><br>
-				<input type="checkbox" name="kategori[]" value="Desain Grafis"> Desain Grafis </input><br>
-				<input type="checkbox" name="kategori[]" value="Video Editing dan Multimedia"> Video Editing dan Multimedia </input><br>
-				<input type="checkbox" name="kategori[]" value="Service Hardware and Software"> Service Hardware and Software</input><br>
+  <div id="map-canvas" style="width: 700px; height: 600px;"></div> 
+    
 
-				<input type="checkbox" name="kategori[]" value="Non Kategori"> Lain - lain </input><br>
-			</div>
-				
-			</div>
-				<center><button type="submit" class="btn btn-default" name="cari">Cari</button></center><br>
-			</form>
+      <?php include 'controller/include.lowongan.table.php'; ?>
 
-			<?php include 'controller/include.lowongan.table.php'; ?>
-
-			<?php include 'controller/include.lowongan.navigator.php'; ?>
-   </div>
-
+      <?php include 'controller/include.lowongan.navigator.php'; ?>
+      </div>
 <!-- FOOTER -->
     <div id="information" class="container-fluid">
        <ul class="list-inline" style="">
@@ -160,4 +197,6 @@
 
 
 </body>
+
+    
 </html>

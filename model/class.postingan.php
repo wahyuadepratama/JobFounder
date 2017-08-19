@@ -263,6 +263,11 @@ class postingan
 		return $this->get_all_rows($query, $param);
 	}
 
+ 	function select_active(){
+		$query = "select * from postingan where datediff(current_date(),postingan.tgl_approved) < postingan.durasi";
+		return $this->get_all_rows($query, '');
+	}	
+
  } 
 
  ?>

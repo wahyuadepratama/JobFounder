@@ -45,37 +45,12 @@
         </div>
       </div>
     </nav>
-<!-- <div class="container-fluid">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-          <img class="img-responsive" src="assets/images/logo-lands.png">
-        </div>
-        <div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="home.php">home</a></li>
-              <li><a href="lowongan.php">find jobs</a></li>
-              <?php include '/controller/include.daftar.or.dashboard.php';?>
-              <li><a href="about.php">about</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-</div> -->
    <!-- END NAVBAR-->
    <div class="container main-content" id="startchange">
       <h3><span>Cari Lowongan Kerja Disini</span></h3>
       <p>Pilih kategori yang anda inginkan untuk hasil yang lebih spesifik</p> 
 
-    <link rel="stylesheet"
-    href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
     <script src="assets/js/jquery-ui.js"></script>
 
     <script>
@@ -89,9 +64,9 @@
     </script>
 
   <div class="ui-widget">
-    <label for="search">Judul Anime : </label>
+    <label for="search">Pekerjaan : </label>
     <input id="search"  />
-  </div>   
+  </div> 
 
       <?php include 'controller/include.lowongan.table.php'; ?>
 
